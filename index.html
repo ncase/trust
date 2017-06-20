@@ -1,0 +1,56 @@
+<!doctype>
+<html>
+<head>
+	<title>The Evolution of Trust</title>
+	<link rel="stylesheet" href="css/slides.css">
+</head>
+<body>
+	<div id="main">
+		<div id="slideshow"></div>
+	</div>
+	<div id="footer">
+		<div id="select"></div>
+	</div>
+</body>
+</html>
+
+<!-- Libraries -->
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/q.js"></script>
+<script src="js/lib/pixi.min.js"></script>
+
+<!-- Core Engine -->
+<script src="js/core/Slideshow.js"></script>
+<script src="js/core/SlideSelect.js"></script>
+<script src="js/core/Button.js"></script>
+<script src="js/core/WordBox.js"></script>
+
+<!-- Simulations -->
+<script src="js/sims/SillyPixi.js"></script>
+<script src="js/sims/TournamentSim.js"></script>
+
+<!-- Main Code -->
+<script src="js/main.js"></script>
+<script>
+var slideshow, slideSelect;
+window.onload = function(){
+
+	// Slideshow
+	slideshow = new Slideshow({
+		dom: $("#slideshow"),
+		slides: slides
+	});
+
+	// Slide Select
+	slideSelect = new SlideSelect({
+		dom: $("#select"),
+		slides: slides
+	});
+
+	// First slide!
+	slideshow.nextSlide();
+	//slideshow.gotoSlide("intro3");
+
+};
+</script>
