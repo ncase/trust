@@ -4,11 +4,13 @@ function TournamentSim(config){
 	self.id = config.id;
 	
 	// APP
-	var app = new PIXI.Application(500, 500, {transparent:true});
+	var app = new PIXI.Application(500, 500, {transparent:true, resolution:2});
 	self.dom = app.view;
 
 	// DOM
 	self.dom.className = "object";
+	self.dom.style.width = 500;
+	self.dom.style.height = 500;
 	//self.dom.classList.add("fader");
 	self.dom.style.left = config.x+"px";
 	self.dom.style.top = config.y+"px";
@@ -34,6 +36,11 @@ function TournamentSim(config){
 		}
 		return array;
 	};
+
+	self.networkContainer = new PIXI.Container();
+	self.agentsContainer = new PIXI.Container();
+	app.stage.addChild(self.networkContainer);
+	app.stage.addChild(self.agentsContainer);
 
 	self.populateAgents = function(){
 
@@ -119,10 +126,14 @@ function TournamentSim(config){
 	// HACK: ALL AT ONCE
 	self.ALL_AT_ONCE = function(){
 		self.playOneTournament();
-		self.eliminateBottom(5);
-		self.reproduceTop(5);
+		setTimeout(function(){
+			self.eliminateBottom(5);
+		},300);
+		setTimeout(function(){
+			self.reproduceTop(5);
+		},600);
 	};
-	setInterval(self.ALL_AT_ONCE, 100);
+	setInterval(self.ALL_AT_ONCE, 1000);
 
 	// ANIMATE
 	/*app.ticker.add(function(delta) {
@@ -161,6 +172,8 @@ function TournamentAgent(config){
 
 	// Body!
 	var body = PIXI.Sprite.fromImage("assets/"+self.strategyName+".png");
+	body.scale.set(0.5);
+	if(g.x>250) body.scale.x*=-1;
 	body.anchor.set(0.5);
 	g.addChild(body);
 
