@@ -14,14 +14,14 @@ function TournamentSim(config){
 	//self.dom.classList.add("fader");
 	self.dom.style.left = config.x+"px";
 	self.dom.style.top = config.y+"px";
-	self.dom.style.border = "1px solid rgba(0,0,0,0.2)";
+	//self.dom.style.border = "1px solid rgba(0,0,0,0.2)";
 
 	// CREATE A RING OF AGENTS
 	var AGENTS = [
-		{strategy:"all_c", count:20},
+		{strategy:"all_c", count:15},
 		{strategy:"all_d", count:5},
-		{strategy:"grim", count:2},
-		{strategy:"tft", count:2},
+		{strategy:"grim", count:0},
+		{strategy:"tft", count:5},
 	];
 
 	var _convertCountToArray = function(countList){
@@ -37,6 +37,9 @@ function TournamentSim(config){
 		return array;
 	};
 
+	self.agents = [];
+	self.connections = [];
+
 	self.networkContainer = new PIXI.Container();
 	self.agentsContainer = new PIXI.Container();
 	app.stage.addChild(self.networkContainer);
@@ -45,7 +48,7 @@ function TournamentSim(config){
 	self.populateAgents = function(){
 
 		// Clear EVERYTHING
-		app.stage.removeChildren();
+		self.agentsContainer.removeChildren();
 		
 		// Convert to an array
 		self.agents = _convertCountToArray(AGENTS);
@@ -54,32 +57,66 @@ function TournamentSim(config){
 		var count = 0;
 		for(var i=0; i<self.agents.length; i++){
 
-			// Position
+			// Angle
 			var angle = (i/self.agents.length)*Math.TAU - Math.TAU/4;
-			var x = Math.cos(angle)*200 + 250;
-			var y = Math.sin(angle)*200 + 250;
 
 			// What kind of agent?
 			var strategy = self.agents[i];
-			var agent = new TournamentAgent({x:x, y:y, strategy:strategy});
-			app.stage.addChild(agent.graphics);
+			var agent = new TournamentAgent({angle:angle, strategy:strategy, tournament:self});
+			self.agentsContainer.addChild(agent.graphics);
 
 			// Remember me!
 			self.agents[i] = agent;
 
 		}
 
+		// (sort agents by depth)
+		self.sortAgentsByDepth();
+
+	};
+	self.sortAgentsByDepth = function(){
+		self.agentsContainer.children.sort(function(a,b){
+			return a.y - b.y;
+		});
 	};
 	self.populateAgents();
+
+	self.createNetwork = function(){
+
+		// Clear EVERYTHING
+		self.connections = [];
+		self.networkContainer.removeChildren();
+		for(var i=0; i<self.agents.length; i++){
+			self.agents[i].clearConnections();
+		}
+		
+		// Connect all of 'em
+		for(var i=0; i<self.agents.length; i++){
+			var playerA = self.agents[i];
+			for(var j=i+1; j<self.agents.length; j++){
+				var playerB = self.agents[j];
+				var connection = new TournamentConnection({
+					from:playerA,
+					to:playerB
+				});
+				self.networkContainer.addChild(connection.graphics);
+				self.connections.push(connection);
+			}
+		}
+
+	};
+	self.createNetwork();
 
 	////////////////////////////////////
 	// EVOLUTION ///////////////////////
 	////////////////////////////////////
 
 	// Play one tournament
+	self.agentsSorted = null;
 	self.playOneTournament = function(){
 		PD.playOneTournament(self.agents, 10);
-		self.agents.sort(function(a,b){
+		self.agentsSorted = self.agents.slice();
+		self.agentsSorted.sort(function(a,b){
 			if(a.coins==b.coins) return (Math.random()<0.5); // if equal, random
 			return a.coins-b.coins; // otherwise, sort as per usual
 		});
@@ -89,7 +126,7 @@ function TournamentSim(config){
 	self.eliminateBottom = function(X){
 
 		// The worst X
-		var worst = self.agents.slice(0,X);
+		var worst = self.agentsSorted.slice(0,X);
 
 		// For each one, subtract from AGENTS count, and KILL.
 		for(var i=0; i<worst.length; i++){
@@ -98,16 +135,20 @@ function TournamentSim(config){
 				return config.strategy==badAgent.strategyName;
 			});
 			config.count--; // remove one
-			app.stage.removeChild(badAgent.graphics); // get rid of this // TODO: KILL?
+			badAgent.kill(); // KILL
 		}
 
+	};
+	self.actuallyRemoveAgent = function(agent){
+		var index = self.agents.indexOf(agent);
+		self.agents.splice(index,1);
 	};
 
 	// Reproduce the top X
 	self.reproduceTop = function(X){
 
 		// The top X
-		var best = self.agents.slice(self.agents.length-X, self.agents.length);
+		var best = self.agentsSorted.slice(self.agentsSorted.length-X, self.agentsSorted.length);
 
 		// For each one, add to AGENTS count
 		for(var i=0; i<best.length; i++){
@@ -118,27 +159,110 @@ function TournamentSim(config){
 			config.count++; // ADD one
 		}
 
-		// ...and REPOPULATE THE THING
-		self.populateAgents();
+		// ADD agents, splicing right AFTER
+		for(var i=0; i<best.length; i++){
+
+			// Properties...
+			var goodAgent = best[i];
+			var angle = goodAgent.angle + 0.1;
+			var strategy = goodAgent.strategyName;
+
+			// Create agent!
+			var agent = new TournamentAgent({angle:angle, strategy:strategy, tournament:self});
+			self.agentsContainer.addChild(agent.graphics);
+
+			// Splice RIGHT AFTER
+			var index = self.agents.indexOf(goodAgent);
+			self.agents.splice(index, 0, agent);
+
+		}
+
+		// What are the agents' GO-TO angles?
+		for(var i=0; i<self.agents.length; i++){
+			var agent = self.agents[i];
+			var angle = (i/self.agents.length)*Math.TAU - Math.TAU/4;
+			agent.gotoAngle = angle;
+		}
+
+		// ADD connections
+		self.createNetwork();
 
 	};
 
-	// HACK: ALL AT ONCE
+	// ANIMATE the PLAYING, ELIMINATING, or REPRODUCING
+	var STAGE_REST = 0;
+	var STAGE_PLAY = 1;
+	var STAGE_ELIMINATE = 2;
+	var STAGE_REPRODUCE = 3;
+	self.STAGE = STAGE_REST;
+
 	self.ALL_AT_ONCE = function(){
-		self.playOneTournament();
-		setTimeout(function(){
-			self.eliminateBottom(5);
-		},300);
-		setTimeout(function(){
-			self.reproduceTop(5);
-		},600);
+		publish("tournament/play");
+		setTimeout(function(){ publish("tournament/eliminate"); },500);
+		setTimeout(function(){ publish("tournament/reproduce"); },1000);
+		setTimeout(self.ALL_AT_ONCE, 1500);
 	};
-	setInterval(self.ALL_AT_ONCE, 1000);
+	setTimeout(self.ALL_AT_ONCE, 100);
 
 	// ANIMATE
-	/*app.ticker.add(function(delta) {
-	    bunny.rotation += 0.1 * delta;
-	});*/
+	var _playIndex = 0;
+	var _tweenTimer = 0;
+	app.ticker.add(function(delta) {
+
+		// PLAY!
+		if(self.STAGE == STAGE_PLAY){
+			if(_playIndex>0) self.agents[_playIndex-1].dehighlightConnections();
+			if(_playIndex<self.agents.length){
+				self.agents[_playIndex].highlightConnections();
+				_playIndex++;
+			}else{
+				self.playOneTournament(); // FOR REAL, NOW.
+				_playIndex = 0;
+				self.STAGE = STAGE_REST;
+			}
+		}
+
+		// ELIMINATE!
+		if(self.STAGE == STAGE_ELIMINATE){
+			self.eliminateBottom(5);
+			self.STAGE = STAGE_REST;
+		}
+
+		// REPRODUCE!
+		if(self.STAGE == STAGE_REPRODUCE){
+
+			// Start
+			if(_tweenTimer==0){
+				self.reproduceTop(5);
+			}
+
+			// Middle...
+			for(var i=0;i<self.agents.length;i++){
+				var a = self.agents[i];
+				a.tweenAngle(_tweenTimer);
+				a.updatePosition();
+			}
+			self.sortAgentsByDepth();
+			for(var i=0;i<self.connections.length;i++) self.connections[i].updateGraphics();
+			_tweenTimer += 0.05;
+
+			// End
+			if(_tweenTimer>=1){
+				_tweenTimer = 0;
+				self.STAGE = STAGE_REST;
+			}
+
+		}
+
+	});
+
+	// PLAY A TOURNAMENT
+	self._startPlay = function(){ self.STAGE=STAGE_PLAY; };
+	subscribe("tournament/play", self._startPlay);
+	self._startEliminate = function(){ self.STAGE=STAGE_ELIMINATE; };
+	subscribe("tournament/eliminate", self._startEliminate);
+	self._startReproduce = function(){ self.STAGE=STAGE_REPRODUCE; };
+	subscribe("tournament/reproduce", self._startReproduce);
 
 	// Add...
 	self.add = function(INSTANT){
@@ -152,10 +276,94 @@ function TournamentSim(config){
 
 }
 
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+function TournamentConnection(config){
+
+	var self = this;
+
+	// Connect from & to
+	self.from = config.from;
+	self.to = config.to;
+	self.from.connections.push(self);
+	self.to.connections.push(self);
+
+	// Graphics!
+	var g = new PIXI.Container();
+	var gray = PIXI.Sprite.fromImage("assets/connection.png");
+	var gold = PIXI.Sprite.fromImage("assets/connection_gold.png");
+	gray.height = 1;
+	gold.height = 2;
+	gray.anchor.y = gold.anchor.y = 0.5;
+	g.addChild(gray);
+	g.addChild(gold);
+	self.graphics = g;
+
+	// Highlight or no?
+	self.highlight = function(){
+		gray.visible = false;
+		gold.visible = true;
+	};
+	self.dehighlight = function(){
+		gray.visible = true;
+		gold.visible = false;
+	};
+	self.dehighlight();
+
+	// Stretch dat bad boy
+	self.updateGraphics = function(){
+		
+		var f = self.from.graphics;
+		var t = self.to.graphics;
+		var dx = t.x-f.x;
+		var dy = t.y-f.y;
+		var a = Math.atan2(dy,dx);
+		var dist = Math.sqrt(dx*dx+dy*dy);
+
+		g.x = f.x; 
+		g.y = f.y;
+		g.rotation = a;
+
+		gray.width = gold.width = dist;
+
+	};
+	self.updateGraphics();
+
+	// KILL
+	self.IS_DEAD = false;
+	self.kill = function(){
+		if(self.IS_DEAD) return;
+		self.IS_DEAD = true;
+		self.graphics.parent.removeChild(self.graphics); // remove self's graphics
+	};
+
+};
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
 function TournamentAgent(config){
 
 	var self = this;
 	self.strategyName = config.strategy;
+	self.tournament = config.tournament;
+	self.angle = config.angle;
+	self.gotoAngle = self.angle;
+
+	// Connections
+	self.connections = [];
+	self.highlightConnections = function(){
+		for(var i=0;i<self.connections.length;i++) self.connections[i].highlight();
+	};
+	self.dehighlightConnections = function(){
+		for(var i=0;i<self.connections.length;i++) self.connections[i].dehighlight();
+	};
+	self.clearConnections = function(){
+		self.connections = [];
+	};
 
 	// Number of coins
 	self.coins = 0;
@@ -166,31 +374,37 @@ function TournamentAgent(config){
 
 	// What's the image?
 	var g = new PIXI.Container();
-	g.x = config.x;
-	g.y = config.y;
 	self.graphics = g;
 
 	// Body!
 	var body = PIXI.Sprite.fromImage("assets/"+self.strategyName+".png");
 	body.scale.set(0.5);
 	if(g.x>250) body.scale.x*=-1;
-	body.anchor.set(0.5);
+	body.anchor.x = 0.5;
+	body.anchor.y = 0.75;
 	g.addChild(body);
 
 	// Score!
 	var textStyle = new PIXI.TextStyle({
-	    fontFamily: 'Arial',
+	    fontFamily: "FuturaHandwritten",
 	    fontSize: 16,
+	    fill: "#444"
 	});
 	var scoreText = new PIXI.Text("", textStyle);
 	scoreText.anchor.x = 0.5;
-	scoreText.x = 0;
-	scoreText.y = -40;
 	g.addChild(scoreText);
 	self.updateScore = function(){
+		scoreText.visible = true;
 		scoreText.text = self.coins;
 	};
 	self.updateScore();
+	scoreText.visible = false;
+	/*subscribe("tournament/play",function(){
+		scoreText.visible = false;
+	});*/
+	subscribe("tournament/reproduce",function(){
+		scoreText.visible = false;
+	});
 
 	// What's the play logic?
 	var LogicClass = window["Logic_"+self.strategyName];
@@ -211,123 +425,44 @@ function TournamentAgent(config){
 		self.logic = new LogicClass(); // reset logic
 	};
 
+	// Tween angle...
+	self.tweenAngle = function(t){
+		self.angle = self.gotoAngle*t + self.angle*(1-t);
+	};
+	self.updatePosition = function(){
+		g.x = Math.cos(self.angle)*200 + 250;
+		g.y = Math.sin(self.angle)*200 + 250;
+		scoreText.x = -Math.cos(self.angle)*40;
+		scoreText.y = -Math.sin(self.angle)*48 - 22;
+	};
+	self.updatePosition();
+
+	// KILL
+	self.kill = function(){
+		
+		// KILL ALL CONNECTIONS
+		for(var i=0;i<self.connections.length;i++){
+			self.connections[i].kill();
+		}
+
+		// Tween -- DIE!
+		scoreText.visible = false;
+		Tween.get(g).to({
+			alpha: 0,
+			x: g.x+Math.random()*20-10,
+			y: g.y+Math.random()*20-10,
+			rotation: Math.random()*0.5-0.25
+		}, 300, Ease.circOut).call(function(){
+			
+			// NOW remove graphics.
+			self.graphics.parent.removeChild(self.graphics);
+
+			// AND remove self from tournament
+			self.tournament.actuallyRemoveAgent(self);
+
+		});
+
+	};
+
 }
 
-///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
-
-var PD = {};
-PD.COOPERATE = "COOPERATE";
-PD.CHEAT = "CHEAT";
-
-PD.P = 0; // punishment: neither of you get anything
-PD.S = -1; // sucker: you put in coin, other didn't.
-PD.R = 2; // reward: you both put 1 coin in, both got 3 back
-PD.T = 3; // temptation: you put no coin, got 3 coins anyway
-
-PD.getPayoffs = function(move1, move2){
-	if(move1==PD.CHEAT && move2==PD.CHEAT) return [PD.P, PD.P]; // both punished
-	if(move1==PD.COOPERATE && move2==PD.CHEAT) return [PD.S, PD.T]; // sucker - temptation
-	if(move1==PD.CHEAT && move2==PD.COOPERATE) return [PD.T, PD.S]; // temptation - sucker
-	if(move1==PD.COOPERATE && move2==PD.COOPERATE) return [PD.R, PD.R]; // both rewarded
-};
-
-PD.playOneGame = function(playerA, playerB){
-
-	var A = playerA.play();
-	var B = playerB.play();
-	
-	var payoffs = PD.getPayoffs(A,B);
-
-	playerA.remember(B);
-	playerB.remember(A);
-
-	playerA.addPayoff(payoffs[0]);
-	playerB.addPayoff(payoffs[1]);
-
-};
-
-PD.playRepeatedGame = function(playerA, playerB, turns){
-
-	// I've never met you before, let's pretend
-	playerA.resetLogic();
-	playerB.resetLogic();
-
-	// Play N turns
-	for(var i=0; i<turns; i++){
-		PD.playOneGame(playerA, playerB);
-	}
-
-};
-
-PD.playOneTournament = function(agents, turns){
-
-	// Reset everyone's coins
-	for(var i=0; i<agents.length; i++){
-		agents[i].resetCoins();
-	}
-
-	// Round robin!
-	for(var i=0; i<agents.length; i++){
-		var playerA = agents[i];
-		for(var j=i+1; j<agents.length; j++){
-			var playerB = agents[j];
-			PD.playRepeatedGame(playerA, playerB, turns);
-		}	
-	}
-
-};
-
-///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
-
-function Logic_tft(){
-	var self = this;
-	var otherMove = PD.COOPERATE;
-	self.play = function(){
-		return otherMove;
-	};
-	self.remember = function(other){
-		otherMove = other;
-	};
-}
-function Logic_grim(){
-	var self = this;
-	var everCheatedMe = false;
-	self.play = function(){
-		if(everCheatedMe) return PD.CHEAT;
-		return PD.COOPERATE;
-	};
-	self.remember = function(other){
-		if(other==PD.CHEAT) everCheatedMe=true;
-	};
-}
-function Logic_all_d(){
-	var self = this;
-	self.play = function(){
-		return PD.CHEAT;
-	};
-	self.remember = function(other){
-		// nah
-	};
-}
-function Logic_all_c(){
-	var self = this;
-	self.play = function(){
-		return PD.COOPERATE;
-	};
-	self.remember = function(other){
-		// nah
-	};
-}
-/*
-function Logic_prober(){
-	var self = this;
-	self.play = function(){
-	};
-	self.remember = function(other){
-	};
-}
-*/

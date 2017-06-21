@@ -19,6 +19,9 @@
 <script src="js/lib/minpubsub.src.js"></script>
 <script src="js/lib/q.js"></script>
 <script src="js/lib/pixi.min.js"></script>
+<script>var createjs = window;</script>
+<script src="js/lib/tweenjs-0.6.2.min.js"></script>
+<script>Ticker.framerate=60;</script>
 
 <!-- Core Engine -->
 <script src="js/core/Slideshow.js"></script>
@@ -27,6 +30,7 @@
 <script src="js/core/WordBox.js"></script>
 
 <!-- Simulations -->
+<script src="js/sims/PD.js"></script>
 <script src="js/sims/SillyPixi.js"></script>
 <script src="js/sims/TournamentSim.js"></script>
 
@@ -49,8 +53,8 @@ window.onload = function(){
 	});
 
 	// First slide!
-	slideshow.nextSlide();
-	//slideshow.gotoSlide("intro3");
+	//slideshow.nextSlide();
+	slideshow.gotoSlide("intro1");
 
 };
 </script>

@@ -1,9 +1,15 @@
+@font-face{
+	font-family: 'FuturaHandwritten';
+	font-style: normal;
+	src: url('FuturaHandwritten.ttf') format('truetype');
+}
+
 body{
 	margin:0;
 	overflow: hidden;
 
-	background: url('paper@2x.png');
-	background-size: 100px 100px;
+	background: #fff; /*url('paper@2x.png');
+	background-size: 100px 100px;*/
 }
 #main{
 	width: 100%;
@@ -23,7 +29,7 @@ body{
 
 #slideshow{
 	/*background: #bada55;*/
-	border: 1px solid rgba(0,0,0,0.2);
+	/*border: 1px solid rgba(0,0,0,0.2);*/
 	width:960px;
 	height:540px;
 
@@ -31,6 +37,9 @@ body{
 	position: absolute;
 	margin: auto;
 	top:0; left:0; right:0; bottom:0;
+
+	/* Font */
+	font-family: 'FuturaHandwritten';
 
 }
 #slideshow .object{
