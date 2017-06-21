@@ -28,6 +28,7 @@ body{
 /*************************/
 
 #slideshow{
+	
 	/*background: #bada55;*/
 	/*border: 1px solid rgba(0,0,0,0.2);*/
 	width:960px;
@@ -37,9 +38,6 @@ body{
 	position: absolute;
 	margin: auto;
 	top:0; left:0; right:0; bottom:0;
-
-	/* Font */
-	font-family: 'FuturaHandwritten';
 
 }
 #slideshow .object{
@@ -51,6 +49,56 @@ body{
 	-mos-transition: opacity 0.3s ease-in-out;
 	-ms-transition: opacity 0.3s ease-in-out;
 	transition: opacity 0.3s ease-in-out;
+}
+.wordbox{
+	font-family: 'FuturaHandwritten';
+	color: #333;
+	font-size: 20px;
+}
+.button{
+	z-index: 0;
+}
+.button #background{
+	position: absolute;
+	background: url(../assets/button.png);
+	width:250px; height:125px;
+	background-size: 100%;
+	top:-35px; left:-30px;
+	pointer-events:none;
+}
+.button #text{
+	
+	font-family: 'FuturaHandwritten';
+	color: #000;
+	font-size: 17px;
+
+	width: 180px;
+	height: 30px;
+	text-align: center;
+
+	position: absolute;
+	top:17px; left:5px;
+
+}
+.button #hitbox{
+	position: absolute;
+	width:195px; height:55px;
+	cursor: pointer;
+}
+.button[hover=yes]{
+	z-index: 100;
+}
+.button[hover=yes] #background{
+	background-position: 0px -125px;
+}
+.button[deactivated=yes] #background{
+	background-position: 0px -250px;
+}
+.button[deactivated=yes] #text{
+	color: #CCCCCC;
+}
+.button[deactivated=yes] #hitbox{
+	display: none;
 }
 
 /*************************/

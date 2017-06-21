@@ -7,6 +7,7 @@ function WordBox(config){
 	var words = document.createElement("div");
 	words.className = "object";
 	words.classList.add("fader");
+	words.classList.add("wordbox");
 	self.dom = words;
 
 	// Customize DOM

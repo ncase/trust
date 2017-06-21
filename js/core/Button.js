@@ -4,20 +4,54 @@ function Button(config){
 	self.id = config.id;
 
 	// Create DOM
-	var button = document.createElement("button");
+	var button = document.createElement("div");
 	button.className = "object";
 	button.classList.add("fader");
+	button.classList.add("button");
 	self.dom = button;
+
+	// BG
+	var bg = document.createElement("div");
+	bg.id = "background";
+	var text = document.createElement("div");
+	text.id = "text";
+	var hitbox = document.createElement("div");
+	hitbox.id = "hitbox";
+	button.appendChild(bg);
+	button.appendChild(text);
+	button.appendChild(hitbox);
 
 	// Customize DOM
 	button.style.left = config.x+"px";
 	button.style.top = config.y+"px";
-	button.innerHTML = config.text;
+	text.innerHTML = config.text;
+
+	// On hover...
+	hitbox.onmouseover = function(){
+		if(self.active) button.setAttribute("hover","yes");
+	};
+	hitbox.onmouseout = function(){
+		if(self.active) button.removeAttribute("hover");
+	};
 
 	// On click...
-	button.onclick = function(){
-		publish(config.message);
+	hitbox.onclick = function(){
+		if(self.active) publish(config.message);
 	};
+
+	// Activate/Deactivate
+	self.active = true;
+	self.activate = function(){
+		self.active = true;
+		button.removeAttribute("deactivated");
+	};
+	self.deactivate = function(){
+		self.active = false;
+		button.setAttribute("deactivated","yes");
+		button.removeAttribute("hover");
+	};
+	if(config.active===undefined) config.active=true;
+	if(!config.active) self.deactivate();
 
 	// Add...
 	self.add = function(INSTANT){

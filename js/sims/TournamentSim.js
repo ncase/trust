@@ -196,6 +196,7 @@ function TournamentSim(config){
 	var STAGE_REPRODUCE = 3;
 	self.STAGE = STAGE_REST;
 
+	/*
 	self.ALL_AT_ONCE = function(){
 		publish("tournament/play");
 		setTimeout(function(){ publish("tournament/eliminate"); },500);
@@ -203,6 +204,7 @@ function TournamentSim(config){
 		setTimeout(self.ALL_AT_ONCE, 1500);
 	};
 	setTimeout(self.ALL_AT_ONCE, 100);
+	*/
 
 	// ANIMATE
 	var _playIndex = 0;
@@ -219,6 +221,7 @@ function TournamentSim(config){
 				self.playOneTournament(); // FOR REAL, NOW.
 				_playIndex = 0;
 				self.STAGE = STAGE_REST;
+				slideshow.objects._b2.activate(); // activate NEXT button!
 			}
 		}
 
@@ -226,6 +229,7 @@ function TournamentSim(config){
 		if(self.STAGE == STAGE_ELIMINATE){
 			self.eliminateBottom(5);
 			self.STAGE = STAGE_REST;
+			slideshow.objects._b3.activate(); // activate NEXT button!
 		}
 
 		// REPRODUCE!
@@ -250,6 +254,7 @@ function TournamentSim(config){
 			if(_tweenTimer>=1){
 				_tweenTimer = 0;
 				self.STAGE = STAGE_REST;
+				slideshow.objects._b1.activate(); // activate NEXT button!
 			}
 
 		}
@@ -257,11 +262,25 @@ function TournamentSim(config){
 	});
 
 	// PLAY A TOURNAMENT
-	self._startPlay = function(){ self.STAGE=STAGE_PLAY; };
+	self.deactivateAllButtons = function(){
+		slideshow.objects._b1.deactivate();
+		slideshow.objects._b2.deactivate();
+		slideshow.objects._b3.deactivate();
+	};
+	self._startPlay = function(){
+		self.STAGE=STAGE_PLAY;
+		self.deactivateAllButtons();
+	};
 	subscribe("tournament/play", self._startPlay);
-	self._startEliminate = function(){ self.STAGE=STAGE_ELIMINATE; };
+	self._startEliminate = function(){
+		self.STAGE=STAGE_ELIMINATE;
+		self.deactivateAllButtons();
+	};
 	subscribe("tournament/eliminate", self._startEliminate);
-	self._startReproduce = function(){ self.STAGE=STAGE_REPRODUCE; };
+	self._startReproduce = function(){
+		self.STAGE=STAGE_REPRODUCE;
+		self.deactivateAllButtons();
+	};
 	subscribe("tournament/reproduce", self._startReproduce);
 
 	// Add...
@@ -379,7 +398,6 @@ function TournamentAgent(config){
 	// Body!
 	var body = PIXI.Sprite.fromImage("assets/"+self.strategyName+".png");
 	body.scale.set(0.5);
-	if(g.x>250) body.scale.x*=-1;
 	body.anchor.x = 0.5;
 	body.anchor.y = 0.75;
 	g.addChild(body);
@@ -431,9 +449,10 @@ function TournamentAgent(config){
 	};
 	self.updatePosition = function(){
 		g.x = Math.cos(self.angle)*200 + 250;
-		g.y = Math.sin(self.angle)*200 + 250;
+		g.y = Math.sin(self.angle)*200 + 265;
 		scoreText.x = -Math.cos(self.angle)*40;
 		scoreText.y = -Math.sin(self.angle)*48 - 22;
+		body.scale.x = Math.abs(body.scale.x) * ((Math.cos(self.angle)<0) ? 1 : -1);
 	};
 	self.updatePosition();
 

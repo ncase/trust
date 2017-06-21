@@ -4,7 +4,46 @@ var slides = [
 {
 	id: "sim",
 	add:[
-		{id:"tournament", type:"TournamentSim", x:0, y:20}
+		{id:"tournament", type:"TournamentSim", x:0, y:20},
+		{
+			id:"_w1", type:"WordBox",
+			x:500, y:0, width:460, height:50,
+			text:"Let's say there are three kinds of players:<br>"+
+			"<span style='color:#FF75FF;'>Always Cooperate</span>, "+
+			"<span style='color:#52537F;'>Always Cheat</span> & "+
+			"<span style='color:#4089DD;'>Tit For Tat</span>"+
+			"<br><br>"+
+			"What happens when you let a mixed population play against each other, and evolve over time?"
+		},
+		{
+			id:"_b1", type:"Button",
+			x:500, y:150, width:140,
+			text:"1) play tournament",
+			message:"tournament/play"
+		},
+		{
+			id:"_b2", type:"Button",
+			x:500, y:220, width:140,
+			text:"2) eliminate bottom 5",
+			message:"tournament/eliminate",
+			active:false
+		},
+		{
+			id:"_b3", type:"Button",
+			x:500, y:290, width:140,
+			text:"3) reproduce top 5",
+			message:"tournament/reproduce",
+			active:false
+		},
+		{
+			id:"_w3", type:"WordBox",
+			x:500, y:370, width:460, height:200,
+			text:"Always Cheat dominates at first, but when it runs out of suckers to exploit, "+
+			"its empires collapses – and the fairer Tit For Tat takes over.<br>"+
+			"<br>"+
+			"<i>We are not punished for our sins, but by them.</i><br>"+
+			"- Elbert Hubbard"
+		}
 	]
 },
 
@@ -20,7 +59,7 @@ var slides = [
 {
 	id: "intro1",
 	add:[
-		{id:"wordbox1", type:"WordBox", x:500, y:0, width:100, height:200, text:"foo bar foo bar foo bar"},
+		{id:"wordbox1", type:"WordBox", x:500, y:0, width:100, height:200, text:"foo bar <b>foo bar</b> <i>foo<i> bar"},
 	]
 },
 
