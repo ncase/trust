@@ -1,4 +1,15 @@
-function TournamentSim(config){
+Tournament.SELECTION = 5;
+Tournament.NUM_TURNS = 5;
+
+// CREATE A RING OF AGENTS
+Tournament.AGENTS = [
+	{strategy:"all_c", count:15},
+	{strategy:"all_d", count:5},
+	{strategy:"grim", count:0},
+	{strategy:"tft", count:5},
+];
+
+function Tournament(config){
 
 	var self = this;
 	self.id = config.id;
@@ -16,18 +27,10 @@ function TournamentSim(config){
 	self.dom.style.top = config.y+"px";
 	//self.dom.style.border = "1px solid rgba(0,0,0,0.2)";
 
-	// CREATE A RING OF AGENTS
-	var AGENTS = [
-		{strategy:"all_c", count:15},
-		{strategy:"all_d", count:5},
-		{strategy:"grim", count:0},
-		{strategy:"tft", count:5},
-	];
-
 	var _convertCountToArray = function(countList){
 		var array = [];
-		for(var i=0; i<AGENTS.length; i++){
-			var A = AGENTS[i];
+		for(var i=0; i<Tournament.AGENTS.length; i++){
+			var A = Tournament.AGENTS[i];
 			var strategy = A.strategy;
 			var count = A.count;
 			for(var j=0; j<count; j++){
@@ -51,7 +54,7 @@ function TournamentSim(config){
 		self.agentsContainer.removeChildren();
 		
 		// Convert to an array
-		self.agents = _convertCountToArray(AGENTS);
+		self.agents = _convertCountToArray(Tournament.AGENTS);
 
 		// Put 'em in a ring
 		var count = 0;
@@ -114,7 +117,7 @@ function TournamentSim(config){
 	// Play one tournament
 	self.agentsSorted = null;
 	self.playOneTournament = function(){
-		PD.playOneTournament(self.agents, 10);
+		PD.playOneTournament(self.agents, Tournament.NUM_TURNS);
 		self.agentsSorted = self.agents.slice();
 		self.agentsSorted.sort(function(a,b){
 			if(a.coins==b.coins) return (Math.random()<0.5); // if equal, random
@@ -128,10 +131,10 @@ function TournamentSim(config){
 		// The worst X
 		var worst = self.agentsSorted.slice(0,X);
 
-		// For each one, subtract from AGENTS count, and KILL.
+		// For each one, subtract from Tournament.AGENTS count, and KILL.
 		for(var i=0; i<worst.length; i++){
 			var badAgent = worst[i];
-			var config = AGENTS.find(function(config){
+			var config = Tournament.AGENTS.find(function(config){
 				return config.strategy==badAgent.strategyName;
 			});
 			config.count--; // remove one
@@ -150,10 +153,10 @@ function TournamentSim(config){
 		// The top X
 		var best = self.agentsSorted.slice(self.agentsSorted.length-X, self.agentsSorted.length);
 
-		// For each one, add to AGENTS count
+		// For each one, add to Tournament.AGENTS count
 		for(var i=0; i<best.length; i++){
 			var goodAgent = best[i];
-			var config = AGENTS.find(function(config){
+			var config = Tournament.AGENTS.find(function(config){
 				return config.strategy==goodAgent.strategyName;
 			});
 			config.count++; // ADD one
@@ -227,7 +230,7 @@ function TournamentSim(config){
 
 		// ELIMINATE!
 		if(self.STAGE == STAGE_ELIMINATE){
-			self.eliminateBottom(5);
+			self.eliminateBottom(Tournament.SELECTION);
 			self.STAGE = STAGE_REST;
 			slideshow.objects._b3.activate(); // activate NEXT button!
 		}
@@ -237,7 +240,7 @@ function TournamentSim(config){
 
 			// Start
 			if(_tweenTimer==0){
-				self.reproduceTop(5);
+				self.reproduceTop(Tournament.SELECTION);
 			}
 
 			// Middle...
@@ -430,8 +433,8 @@ function TournamentAgent(config){
 	self.play = function(){
 		return self.logic.play();
 	};
-	self.remember = function(other){
-		self.logic.remember(other);
+	self.remember = function(own, other){
+		self.logic.remember(own, other);
 	};
 
 	// Reset!

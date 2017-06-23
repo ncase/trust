@@ -2,28 +2,43 @@ var PD = {};
 PD.COOPERATE = "COOPERATE";
 PD.CHEAT = "CHEAT";
 
-PD.P = 0; // punishment: neither of you get anything
-PD.S = -1; // sucker: you put in coin, other didn't.
-PD.R = 2; // reward: you both put 1 coin in, both got 3 back
-PD.T = 3; // temptation: you put no coin, got 3 coins anyway
+PD.PAYOFFS_DEFAULT = {
+	P: 0, // punishment: neither of you get anything
+	S: -1, // sucker: you put in coin, other didn't.
+	R: 2, // reward: you both put 1 coin in, both got 3 back
+	T: 3 // temptation: you put no coin, got 3 coins anyway
+};
+
+PD.PAYOFFS = PD.PAYOFFS_DEFAULT;
+
+PD.NOISE = 0.0;
 
 PD.getPayoffs = function(move1, move2){
-	if(move1==PD.CHEAT && move2==PD.CHEAT) return [PD.P, PD.P]; // both punished
-	if(move1==PD.COOPERATE && move2==PD.CHEAT) return [PD.S, PD.T]; // sucker - temptation
-	if(move1==PD.CHEAT && move2==PD.COOPERATE) return [PD.T, PD.S]; // temptation - sucker
-	if(move1==PD.COOPERATE && move2==PD.COOPERATE) return [PD.R, PD.R]; // both rewarded
+	var payoffs = PD.PAYOFFS;
+	if(move1==PD.CHEAT && move2==PD.CHEAT) return [payoffs.P, payoffs.P]; // both punished
+	if(move1==PD.COOPERATE && move2==PD.CHEAT) return [payoffs.S, payoffs.T]; // sucker - temptation
+	if(move1==PD.CHEAT && move2==PD.COOPERATE) return [payoffs.T, payoffs.S]; // temptation - sucker
+	if(move1==PD.COOPERATE && move2==PD.COOPERATE) return [payoffs.R, payoffs.R]; // both rewarded
 };
 
 PD.playOneGame = function(playerA, playerB){
 
+	// Make your moves!
 	var A = playerA.play();
 	var B = playerB.play();
+
+	// Noise: random mistakes, flip around!
+	if(Math.random()<PD.NOISE) A = ((A==PD.COOPERATE) ? PD.CHEAT : PD.COOPERATE);
+	if(Math.random()<PD.NOISE) B = ((B==PD.COOPERATE) ? PD.CHEAT : PD.COOPERATE);
 	
+	// Get payoffs
 	var payoffs = PD.getPayoffs(A,B);
 
-	playerA.remember(B);
-	playerB.remember(A);
+	// Remember own & other's moves (or mistakes)
+	playerA.remember(A, B);
+	playerB.remember(B, A);
 
+	// Add to scores (only in tournament?)
 	playerA.addPayoff(payoffs[0]);
 	playerB.addPayoff(payoffs[1]);
 
@@ -70,10 +85,30 @@ function Logic_tft(){
 	self.play = function(){
 		return otherMove;
 	};
-	self.remember = function(other){
+	self.remember = function(own, other){
 		otherMove = other;
 	};
 }
+
+function Logic_tf2t(){
+	var self = this;
+	var howManyTimesCheated = 0;
+	self.play = function(){
+		if(howManyTimesCheated>=2){
+			return PD.CHEAT; // retaliate ONLY after two betrayals
+		}else{
+			return PD.COOPERATE;
+		}
+	};
+	self.remember = function(own, other){
+		if(other==PD.CHEAT){
+			howManyTimesCheated++;
+		}else{
+			howManyTimesCheated = 0;
+		}
+	};
+}
+
 function Logic_grim(){
 	var self = this;
 	var everCheatedMe = false;
@@ -81,34 +116,84 @@ function Logic_grim(){
 		if(everCheatedMe) return PD.CHEAT;
 		return PD.COOPERATE;
 	};
-	self.remember = function(other){
+	self.remember = function(own, other){
 		if(other==PD.CHEAT) everCheatedMe=true;
 	};
 }
+
 function Logic_all_d(){
 	var self = this;
 	self.play = function(){
 		return PD.CHEAT;
 	};
-	self.remember = function(other){
+	self.remember = function(own, other){
 		// nah
 	};
 }
+
 function Logic_all_c(){
 	var self = this;
 	self.play = function(){
 		return PD.COOPERATE;
 	};
-	self.remember = function(other){
+	self.remember = function(own, other){
 		// nah
 	};
 }
-/*
-function Logic_prober(){
+
+function Logic_random(){
 	var self = this;
 	self.play = function(){
+		return (Math.random()>0.5 ? PD.COOPERATE : PD.CHEAT);
 	};
-	self.remember = function(other){
+	self.remember = function(own, other){
+		// nah
 	};
 }
-*/
+
+// Start off Cooperating
+// Then, if opponent cooperated, repeat past move. otherwise, switch.
+function Logic_pavlov(){
+	var self = this;
+	var myLastMove = PD.COOPERATE;
+	self.play = function(){
+		return myLastMove;
+	};
+	self.remember = function(own, other){
+		myLastMove = own; // remember MISTAKEN move
+		if(other==PD.CHEAT) myLastMove = ((myLastMove==PD.COOPERATE) ? PD.CHEAT : PD.COOPERATE); // switch!
+	};
+}
+
+// TEST by Cooperate | Cheat | Cooperate | Cooperate
+// If EVER retaliates, keep playing TFT
+// If NEVER retaliates, switch to ALWAYS DEFECT
+function Logic_prober(){
+
+	var self = this;
+
+	var moves = [PD.COOPERATE, PD.CHEAT, PD.COOPERATE, PD.COOPERATE];
+	var everCheatedMe = false;
+
+	var otherMove = PD.COOPERATE;
+	self.play = function(){
+		if(moves.length>0){
+			// Testing phase
+			var move = moves.pop();
+			return move;
+		}else{
+			if(everCheatedMe){
+				return otherMove; // TFT
+			}else{
+				return PD.CHEAT; // Always Cheat
+			}
+		}
+	};
+	self.remember = function(own, other){
+		if(moves.length>0){
+			if(other==PD.CHEAT) everCheatedMe=true; // Testing phase: ever retaliated?
+		}
+		otherMove = other; // for TFT
+	};
+
+}

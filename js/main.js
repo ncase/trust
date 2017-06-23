@@ -4,7 +4,7 @@ var slides = [
 {
 	id: "sim",
 	add:[
-		{id:"tournament", type:"TournamentSim", x:0, y:20},
+		{id:"tournament", type:"Tournament", x:0, y:20},
 		{
 			id:"_w1", type:"WordBox",
 			x:500, y:0, width:460, height:50,
@@ -39,7 +39,7 @@ var slides = [
 			id:"_w3", type:"WordBox",
 			x:500, y:370, width:460, height:200,
 			text:"Always Cheat dominates at first, but when it runs out of suckers to exploit, "+
-			"its empires collapses – and the fairer Tit For Tat takes over.<br>"+
+			"its empire collapses – and the fairer Tit For Tat takes over.<br>"+
 			"<br>"+
 			"<i>We are not punished for our sins, but by them.</i><br>"+
 			"- Elbert Hubbard"
