@@ -1,12 +1,22 @@
 Tournament.SELECTION = 5;
-Tournament.NUM_TURNS = 5;
+Tournament.NUM_TURNS = 20;
 
 // CREATE A RING OF AGENTS
-Tournament.AGENTS = [
+/*Tournament.AGENTS = [
 	{strategy:"all_c", count:15},
 	{strategy:"all_d", count:5},
 	{strategy:"grim", count:0},
 	{strategy:"tft", count:5},
+];*/
+Tournament.AGENTS = [
+	{strategy:"all_c", count:15},
+	{strategy:"all_d", count:5},
+	{strategy:"tft", count:5},
+	//{strategy:"grim", count:3},
+	//{strategy:"prober", count:3},
+	//{strategy:"tf2t", count:13},
+	//{strategy:"pavlov", count:13},
+	//{strategy:"random", count:13}
 ];
 
 function Tournament(config){

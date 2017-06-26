@@ -1,4 +1,4 @@
-var slides = [
+/*var slides = [
 
 // SIM
 {
@@ -104,4 +104,4 @@ var slides = [
 	]
 }
 
-];
+];*/

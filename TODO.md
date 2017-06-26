@@ -1,14 +1,15 @@
 MAJOR SHTUFF
 
-1. Sandbox with all parameters exposed // exposed... but time to make the UI!
-2. Repeated game with all parameters exposed
-3. Splash, with params for cool outro
-4. Integrate *everything*. // slides, outro
-5. Credits and rewards
+1. Create Sandbox
+2. Re-create Repeated Game w/ params exposed
+3. Re-create Splash, with cool outro
+4. Integrate & Write EVERYTHING
+5. Final round of playtesting
+6. Credits, Footnotes, Rewards
+7. Polish the whole dang thing
 
 MINOR SHTUFF
 
 - Word box class less annoying
 - Refactoring, ugh
-- Logic: Prober, Pavlov, TF2T, Random? // done
-- Slides in different files
+- Draw: Pavlov, TF2T, Random

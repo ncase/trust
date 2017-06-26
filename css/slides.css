@@ -44,17 +44,28 @@ body{
 	position: absolute;
 }
 
+/********* Fader *********/
+
 .fader{
 	-webkit-transition: opacity 0.3s ease-in-out;
 	-mos-transition: opacity 0.3s ease-in-out;
 	-ms-transition: opacity 0.3s ease-in-out;
 	transition: opacity 0.3s ease-in-out;
 }
-.wordbox{
+
+/******** Text Box ********/
+
+.textbox{
 	font-family: 'FuturaHandwritten';
 	color: #333;
 	font-size: 20px;
 }
+.textbox > div{
+	position: absolute;
+}
+
+/********* Button ********/
+
 .button{
 	z-index: 0;
 }

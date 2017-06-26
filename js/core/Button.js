@@ -24,7 +24,7 @@ function Button(config){
 	// Customize DOM
 	button.style.left = config.x+"px";
 	button.style.top = config.y+"px";
-	text.innerHTML = config.text;
+	text.innerHTML = Words.get(config.text_id);
 
 	// On hover...
 	hitbox.onmouseover = function(){

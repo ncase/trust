@@ -16,7 +16,7 @@ function SlideSelect(config){
 	};
 
 	// Populate dots
-	for(var i=0; i<slides.length; i++) self.addDot(slides[i]);
+	for(var i=0; i<self.slides.length; i++) self.addDot(self.slides[i]);
 
 }
 

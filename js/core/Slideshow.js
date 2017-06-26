@@ -1,3 +1,5 @@
+var SLIDES = [];
+
 function Slideshow(config){
 
 	var self = this;

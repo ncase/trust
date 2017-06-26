@@ -16,6 +16,7 @@
 
 <!-- Libraries -->
 <script src="js/lib/helpers.js"></script>
+<script src="js/lib/pegasus.min.js"></script>
 <script src="js/lib/minpubsub.src.js"></script>
 <script src="js/lib/q.js"></script>
 <script src="js/lib/pixi.min.js"></script>
@@ -27,34 +28,41 @@
 <script src="js/core/Slideshow.js"></script>
 <script src="js/core/SlideSelect.js"></script>
 <script src="js/core/Button.js"></script>
-<script src="js/core/WordBox.js"></script>
+<script src="js/core/TextBox.js"></script>
+<script src="js/core/Words.js"></script>
 
 <!-- Simulations -->
 <script src="js/sims/PD.js"></script>
 <script src="js/sims/SillyPixi.js"></script>
 <script src="js/sims/Tournament.js"></script>
 
+<!-- Slides -->
+<script src="js/slides/Slides_Ecology.js"></script>
+
 <!-- Main Code -->
-<script src="js/main.js"></script>
 <script>
 var slideshow, slideSelect;
 window.onload = function(){
 
-	// Slideshow
-	slideshow = new Slideshow({
-		dom: $("#slideshow"),
-		slides: slides
-	});
+	Words.convert("lang/en.html").then(function(){
 
-	// Slide Select
-	slideSelect = new SlideSelect({
-		dom: $("#select"),
-		slides: slides
-	});
+		// Slideshow
+		slideshow = new Slideshow({
+			dom: $("#slideshow"),
+			slides: SLIDES
+		});
 
-	// First slide!
-	slideshow.nextSlide();
-	//slideshow.gotoSlide("intro1");
+		// Slide Select
+		slideSelect = new SlideSelect({
+			dom: $("#select"),
+			slides: SLIDES
+		});
+
+		// First slide!
+		slideshow.nextSlide();
+		//slideshow.gotoSlide("intro1");
+
+	});
 
 };
 </script>

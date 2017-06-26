@@ -11,7 +11,7 @@ PD.PAYOFFS_DEFAULT = {
 
 PD.PAYOFFS = PD.PAYOFFS_DEFAULT;
 
-PD.NOISE = 0.0;
+PD.NOISE = 0;
 
 PD.getPayoffs = function(move1, move2){
 	var payoffs = PD.PAYOFFS;
@@ -179,7 +179,7 @@ function Logic_prober(){
 	self.play = function(){
 		if(moves.length>0){
 			// Testing phase
-			var move = moves.pop();
+			var move = moves.shift();
 			return move;
 		}else{
 			if(everCheatedMe){
