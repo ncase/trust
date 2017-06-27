@@ -1,3 +1,8 @@
+/**********************************
+
+RANDOM CRAP TO MAKE MY LIFE EASIER
+
+**********************************/
 
 // Pi is for unwashed plebians
 Math.TAU = 2*Math.PI;
@@ -40,3 +45,62 @@ var _removeFade = function(self, INSTANT){
 		return deferred.promise;
 	}
 };
+
+/*******
+
+Make a Sprite. e.g:
+
+_makeSprite("bg", {width:960});
+
+*******/
+function _makeSprite(textureName, options){
+	options = options || {};
+
+	// Make Sprite
+	var sprite = new PIXI.Sprite(PIXI.loader.resources[textureName].texture);
+
+	// Options
+	if(options.width!==undefined) _scaleToWidth(sprite, options.width);
+	if(options.anchorX!==undefined) sprite.anchor.x=options.anchorX;
+	if(options.anchorY!==undefined) sprite.anchor.y=options.anchorY;
+
+	// Gimme
+	return sprite;
+}
+
+/*******
+
+Make a MovieClip. e.g:
+
+_makeSprite("button", {width:960});
+
+*******/
+function _makeMovieClip(resourceName, options){
+	options = options || {};
+
+	// Make that MovieClip!
+	var resources = PIXI.loader.resources;
+	var resource = resources[resourceName];	
+	if(!resource) throw Error("There's no MovieClip named '"+resourceName+"'!");
+	var numFrames = Object.keys(resource.data.frames).length;
+	var frames = [];
+	for(var i=0; i<numFrames; i++){
+		var str = "0000" + i; // FOUR leading zeroes
+		str = str.substr(str.length-4);
+		frames.push(PIXI.Texture.fromFrame(resourceName+str));
+	}
+	var mc = new PIXI.extras.MovieClip(frames);
+
+	// Options
+	mc.gotoAndStop(0);
+	mc.anchor.x = 0.5;
+	mc.anchor.y = 0.5;
+	if(options.width!==undefined) _scaleToWidth(mc, options.width);
+	if(options.anchorX!==undefined) mc.anchor.x=options.anchorX;
+	if(options.anchorY!==undefined) mc.anchor.y=options.anchorY;
+	if(options.scale!==undefined) mc.scale.x=mc.scale.y=options.scale;
+
+	// Gimme
+	return mc;
+
+}

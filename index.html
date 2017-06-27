@@ -25,6 +25,7 @@
 <script>Ticker.framerate=60;</script>
 
 <!-- Core Engine -->
+<script src="js/core/Loader.js"></script>
 <script src="js/core/Slideshow.js"></script>
 <script src="js/core/SlideSelect.js"></script>
 <script src="js/core/Button.js"></script>
@@ -44,7 +45,10 @@
 var slideshow, slideSelect;
 window.onload = function(){
 
-	Words.convert("lang/en.html").then(function(){
+	Q.all([
+		Loader.loadAssets(Loader.manifest),
+		Words.convert("lang/en.html")
+	]).then(function(){
 
 		// Slideshow
 		slideshow = new Slideshow({

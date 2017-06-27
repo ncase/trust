@@ -11,7 +11,7 @@ PD.PAYOFFS_DEFAULT = {
 
 PD.PAYOFFS = PD.PAYOFFS_DEFAULT;
 
-PD.NOISE = 0;
+PD.NOISE = 0.05;
 
 PD.getPayoffs = function(move1, move2){
 	var payoffs = PD.PAYOFFS;
@@ -109,7 +109,7 @@ function Logic_tf2t(){
 	};
 }
 
-function Logic_grim(){
+function Logic_grudge(){
 	var self = this;
 	var everCheatedMe = false;
 	self.play = function(){

@@ -13,3 +13,4 @@ MINOR SHTUFF
 - Word box class less annoying
 - Refactoring, ugh
 - Draw: Pavlov, TF2T, Random
+- a better handwritten font, with REAL bold & italics???

@@ -1,23 +1,41 @@
 Tournament.SELECTION = 5;
-Tournament.NUM_TURNS = 20;
+Tournament.NUM_TURNS = 10;
 
 // CREATE A RING OF AGENTS
 /*Tournament.AGENTS = [
 	{strategy:"all_c", count:15},
 	{strategy:"all_d", count:5},
-	{strategy:"grim", count:0},
+	{strategy:"grudge", count:0},
 	{strategy:"tft", count:5},
 ];*/
 Tournament.AGENTS = [
-	{strategy:"all_c", count:15},
-	{strategy:"all_d", count:5},
-	{strategy:"tft", count:5},
-	//{strategy:"grim", count:3},
-	//{strategy:"prober", count:3},
-	//{strategy:"tf2t", count:13},
-	//{strategy:"pavlov", count:13},
-	//{strategy:"random", count:13}
+	{strategy:"all_c", count:13}, // OH THAT'S SO COOL. Mostly C: Pavlov wins, Mostly D: tit for two tats wins (with 5% mistake!)
+	//{strategy:"all_d", count:13},
+	{strategy:"tft", count:3},
+	//{strategy:"grudge", count:3},
+	//{strategy:"prober", count:6},
+	{strategy:"tf2t", count:3},
+	{strategy:"pavlov", count:3},
+	{strategy:"random", count:3}
 ];
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+
+// REGULAR LOAD
+Loader.addToManifest(Loader.manifest,{
+	tournament_peep: "assets/tournament_peep.json"
+});
+var PEEP_GRAPHICS = {
+	   tft: {frame:0}, 
+	 all_d: {frame:1},
+	 all_c: {frame:2},
+	grudge: {frame:3},
+	prober: {frame:4},
+	  tf2t: {frame:5},
+	pavlov: {frame:6},
+	random: {frame:7}
+};
 
 function Tournament(config){
 
@@ -409,7 +427,8 @@ function TournamentAgent(config){
 	self.graphics = g;
 
 	// Body!
-	var body = PIXI.Sprite.fromImage("assets/"+self.strategyName+".png");
+	var body = _makeMovieClip("tournament_peep");
+	body.gotoAndStop(PEEP_GRAPHICS[config.strategy].frame);
 	body.scale.set(0.5);
 	body.anchor.x = 0.5;
 	body.anchor.y = 0.75;

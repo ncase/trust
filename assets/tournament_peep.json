@@ -1,0 +1,75 @@
+﻿{"frames": {
+
+"tournament_peep0000":
+{
+	"frame": {"x":10,"y":10,"w":79,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":79,"h":140},
+	"sourceSize": {"w":79,"h":140}
+},
+"tournament_peep0001":
+{
+	"frame": {"x":99,"y":10,"w":79,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":79,"h":140},
+	"sourceSize": {"w":79,"h":140}
+},
+"tournament_peep0002":
+{
+	"frame": {"x":188,"y":10,"w":79,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":79,"h":140},
+	"sourceSize": {"w":79,"h":140}
+},
+"tournament_peep0003":
+{
+	"frame": {"x":277,"y":10,"w":79,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":79,"h":140},
+	"sourceSize": {"w":79,"h":140}
+},
+"tournament_peep0004":
+{
+	"frame": {"x":366,"y":10,"w":79,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":79,"h":140},
+	"sourceSize": {"w":79,"h":140}
+},
+"tournament_peep0005":
+{
+	"frame": {"x":10,"y":160,"w":79,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":79,"h":140},
+	"sourceSize": {"w":79,"h":140}
+},
+"tournament_peep0006":
+{
+	"frame": {"x":99,"y":160,"w":79,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":79,"h":140},
+	"sourceSize": {"w":79,"h":140}
+},
+"tournament_peep0007":
+{
+	"frame": {"x":188,"y":160,"w":79,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":79,"h":140},
+	"sourceSize": {"w":79,"h":140}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "15.2.0.66",
+	"image": "tournament_peep.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1"
+}
+}
