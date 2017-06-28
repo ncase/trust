@@ -5,11 +5,17 @@
 }
 
 body{
+	
 	margin:0;
 	overflow: hidden;
 
 	background: #fff; /*url('paper@2x.png');
 	background-size: 100px 100px;*/
+
+	font-family: 'FuturaHandwritten';
+	color: #333;
+	font-size: 20px;
+
 }
 #main{
 	width: 100%;
@@ -30,7 +36,7 @@ body{
 #slideshow{
 	
 	/*background: #bada55;*/
-	/*border: 1px solid rgba(0,0,0,0.2);*/
+	border: 1px solid rgba(0,0,0,0.2);
 	width:960px;
 	height:540px;
 
@@ -55,12 +61,12 @@ body{
 
 /******** Text Box ********/
 
-.textbox{
-	font-family: 'FuturaHandwritten';
-	color: #333;
-	font-size: 20px;
-}
+.textbox{}
 .textbox > div{
+	position: absolute;
+}
+
+.label{
 	position: absolute;
 }
 
@@ -110,6 +116,33 @@ body{
 }
 .button[deactivated=yes] #hitbox{
 	display: none;
+}
+
+
+/*************************/
+/****** SANDBOX UI *******/
+/*************************/
+
+#sandbox_tabs{
+	position: absolute;
+	left: 460px; top:-10px;
+	background: url(../assets/sandbox_tabs.png);
+	width:500px; height:470px;
+	background-size: auto 100%;
+}
+#sandbox_tabs > div{
+	position: absolute;
+}
+#sandbox_tabs .hitbox{
+	cursor: pointer;
+	font-size: 25px;
+	top: 22px;
+}
+#sandbox_tabs .sandbox_page{
+	width: 433px;
+	height: 385px;
+	left: 33px;
+	top: 80px;
 }
 
 /*************************/

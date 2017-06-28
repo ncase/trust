@@ -11,7 +11,7 @@ PD.PAYOFFS_DEFAULT = {
 
 PD.PAYOFFS = PD.PAYOFFS_DEFAULT;
 
-PD.NOISE = 0.05;
+PD.NOISE = 0;
 
 PD.getPayoffs = function(move1, move2){
 	var payoffs = PD.PAYOFFS;

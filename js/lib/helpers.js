@@ -46,6 +46,18 @@ var _removeFade = function(self, INSTANT){
 	}
 };
 
+// Make Label
+var _makeLabel = function(wordID, x, y, width, height){
+	var dom = document.createElement("div");
+	dom.className = "label";
+	if(x!==undefined) dom.style.left = x+"px";
+	if(y!==undefined) dom.style.top = y+"px";
+	if(width!==undefined) dom.style.width = width+"px";
+	if(height!==undefined) dom.style.height = height+"px";
+	dom.innerHTML = Words.get(wordID);
+	return dom;
+};
+
 /*******
 
 Make a Sprite. e.g:

@@ -81,7 +81,7 @@
 
 var hasStacks = false;
 try {
-    throw new Error();
+    // throw new Error(); // NICKY FIX -- STOP TRYING TO BE HELPFUL
 } catch (e) {
     hasStacks = !!e.stack;
 }
@@ -461,7 +461,7 @@ function captureLine() {
     }
 
     try {
-        throw new Error();
+        // throw new Error(); // NICKY FIX -- STOP TRYING TO BE HELPFUL
     } catch (e) {
         var lines = e.stack.split("\n");
         var firstLine = lines[0].indexOf("@") > 0 ? lines[1] : lines[2];

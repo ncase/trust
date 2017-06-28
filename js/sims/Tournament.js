@@ -8,16 +8,19 @@ Tournament.NUM_TURNS = 10;
 	{strategy:"grudge", count:0},
 	{strategy:"tft", count:5},
 ];*/
-Tournament.AGENTS = [
-	{strategy:"all_c", count:13}, // OH THAT'S SO COOL. Mostly C: Pavlov wins, Mostly D: tit for two tats wins (with 5% mistake!)
-	//{strategy:"all_d", count:13},
-	{strategy:"tft", count:3},
+Tournament.INITIAL_AGENTS = [
+	{strategy:"all_c", count:15},
+	{strategy:"all_d", count:5},
+	{strategy:"tft", count:5},
 	//{strategy:"grudge", count:3},
 	//{strategy:"prober", count:6},
-	{strategy:"tf2t", count:3},
-	{strategy:"pavlov", count:3},
-	{strategy:"random", count:3}
+	//{strategy:"tf2t", count:8},
+	//{strategy:"pavlov", count:3},
+	//{strategy:"random", count:3}
 ];
+
+// OH THAT'S SO COOL. Mostly C: Pavlov wins, Mostly D: tit for two tats wins (with 5% mistake!)
+// ALSO, NOISE: tft vs all_d. no random: tft wins. low random: tf2t wins. high random: all_d wins. totally random: nobody wins
 
 //////////////////////////////////////////////
 //////////////////////////////////////////////
@@ -57,8 +60,8 @@ function Tournament(config){
 
 	var _convertCountToArray = function(countList){
 		var array = [];
-		for(var i=0; i<Tournament.AGENTS.length; i++){
-			var A = Tournament.AGENTS[i];
+		for(var i=0; i<AGENTS.length; i++){
+			var A = AGENTS[i];
 			var strategy = A.strategy;
 			var count = A.count;
 			for(var j=0; j<count; j++){
@@ -82,7 +85,7 @@ function Tournament(config){
 		self.agentsContainer.removeChildren();
 		
 		// Convert to an array
-		self.agents = _convertCountToArray(Tournament.AGENTS);
+		self.agents = _convertCountToArray(AGENTS);
 
 		// Put 'em in a ring
 		var count = 0;
@@ -110,7 +113,6 @@ function Tournament(config){
 			return a.y - b.y;
 		});
 	};
-	self.populateAgents();
 
 	self.createNetwork = function(){
 
@@ -136,7 +138,23 @@ function Tournament(config){
 		}
 
 	};
-	self.createNetwork();
+
+
+	///////////////////////
+	// RESET //////////////
+	///////////////////////
+
+	var AGENTS;
+	self.reset = function(){
+		AGENTS = JSON.parse(JSON.stringify(Tournament.INITIAL_AGENTS));
+		self.populateAgents();
+		self.createNetwork();
+		self.isAutoPlaying = false;
+	};
+
+	subscribe("tournament/reset", self.reset);
+
+	self.reset();
 
 	////////////////////////////////////
 	// EVOLUTION ///////////////////////
@@ -159,10 +177,10 @@ function Tournament(config){
 		// The worst X
 		var worst = self.agentsSorted.slice(0,X);
 
-		// For each one, subtract from Tournament.AGENTS count, and KILL.
+		// For each one, subtract from AGENTS count, and KILL.
 		for(var i=0; i<worst.length; i++){
 			var badAgent = worst[i];
-			var config = Tournament.AGENTS.find(function(config){
+			var config = AGENTS.find(function(config){
 				return config.strategy==badAgent.strategyName;
 			});
 			config.count--; // remove one
@@ -181,10 +199,10 @@ function Tournament(config){
 		// The top X
 		var best = self.agentsSorted.slice(self.agentsSorted.length-X, self.agentsSorted.length);
 
-		// For each one, add to Tournament.AGENTS count
+		// For each one, add to AGENTS count
 		for(var i=0; i<best.length; i++){
 			var goodAgent = best[i];
-			var config = Tournament.AGENTS.find(function(config){
+			var config = AGENTS.find(function(config){
 				return config.strategy==goodAgent.strategyName;
 			});
 			config.count++; // ADD one
@@ -227,15 +245,27 @@ function Tournament(config){
 	var STAGE_REPRODUCE = 3;
 	self.STAGE = STAGE_REST;
 
-	/*
-	self.ALL_AT_ONCE = function(){
-		publish("tournament/play");
-		setTimeout(function(){ publish("tournament/eliminate"); },500);
-		setTimeout(function(){ publish("tournament/reproduce"); },1000);
-		setTimeout(self.ALL_AT_ONCE, 1500);
+	// AUTOPLAY
+	self.isAutoPlaying = false;
+	var _step = 0;
+	var _nextStep = function(){
+		if(_step==0) publish("tournament/play");
+		if(_step==1) publish("tournament/eliminate");
+		if(_step==2) publish("tournament/reproduce");
+		_step = (_step+1)%3;
 	};
-	setTimeout(self.ALL_AT_ONCE, 100);
-	*/
+	var _startAutoPlay = function(){
+		self.isAutoPlaying = true;
+		_nextStep();
+		setTimeout(function(){
+			if(self.isAutoPlaying) _startAutoPlay();
+		},500);
+	};
+	subscribe("tournament/autoplay", _startAutoPlay);
+	subscribe("tournament/step", function(){
+		self.isAutoPlaying = false;
+		_nextStep();
+	});
 
 	// ANIMATE
 	var _playIndex = 0;
@@ -252,7 +282,7 @@ function Tournament(config){
 				self.playOneTournament(); // FOR REAL, NOW.
 				_playIndex = 0;
 				self.STAGE = STAGE_REST;
-				slideshow.objects._b2.activate(); // activate NEXT button!
+				// slideshow.objects._b2.activate(); // activate NEXT button!
 			}
 		}
 
@@ -260,7 +290,7 @@ function Tournament(config){
 		if(self.STAGE == STAGE_ELIMINATE){
 			self.eliminateBottom(Tournament.SELECTION);
 			self.STAGE = STAGE_REST;
-			slideshow.objects._b3.activate(); // activate NEXT button!
+			// slideshow.objects._b3.activate(); // activate NEXT button!
 		}
 
 		// REPRODUCE!
@@ -285,7 +315,7 @@ function Tournament(config){
 			if(_tweenTimer>=1){
 				_tweenTimer = 0;
 				self.STAGE = STAGE_REST;
-				slideshow.objects._b1.activate(); // activate NEXT button!
+				// slideshow.objects._b1.activate(); // activate NEXT button!
 			}
 
 		}
@@ -294,23 +324,23 @@ function Tournament(config){
 
 	// PLAY A TOURNAMENT
 	self.deactivateAllButtons = function(){
-		slideshow.objects._b1.deactivate();
-		slideshow.objects._b2.deactivate();
-		slideshow.objects._b3.deactivate();
+		// slideshow.objects._b1.deactivate();
+		// slideshow.objects._b2.deactivate();
+		// slideshow.objects._b3.deactivate();
 	};
 	self._startPlay = function(){
 		self.STAGE=STAGE_PLAY;
-		self.deactivateAllButtons();
+		// self.deactivateAllButtons();
 	};
 	subscribe("tournament/play", self._startPlay);
 	self._startEliminate = function(){
 		self.STAGE=STAGE_ELIMINATE;
-		self.deactivateAllButtons();
+		// self.deactivateAllButtons();
 	};
 	subscribe("tournament/eliminate", self._startEliminate);
 	self._startReproduce = function(){
 		self.STAGE=STAGE_REPRODUCE;
-		self.deactivateAllButtons();
+		// self.deactivateAllButtons();
 	};
 	subscribe("tournament/reproduce", self._startReproduce);
 
@@ -323,6 +353,9 @@ function Tournament(config){
 	self.remove = function(INSTANT){
 		return _remove(self);
 	};
+
+	// TODO: KILL ALL LISTENERS, TOO.
+	// TODO: Don't screw up when paused or looking at new tab
 
 }
 
@@ -386,7 +419,7 @@ function TournamentConnection(config){
 	self.kill = function(){
 		if(self.IS_DEAD) return;
 		self.IS_DEAD = true;
-		self.graphics.parent.removeChild(self.graphics); // remove self's graphics
+		if(self.graphics.parent) self.graphics.parent.removeChild(self.graphics); // remove self's graphics
 	};
 
 };
@@ -506,7 +539,7 @@ function TournamentAgent(config){
 		}, 300, Ease.circOut).call(function(){
 			
 			// NOW remove graphics.
-			self.graphics.parent.removeChild(self.graphics);
+			if(self.graphics.parent) self.graphics.parent.removeChild(self.graphics);
 
 			// AND remove self from tournament
 			self.tournament.actuallyRemoveAgent(self);

@@ -24,7 +24,10 @@ function Button(config){
 	// Customize DOM
 	button.style.left = config.x+"px";
 	button.style.top = config.y+"px";
-	text.innerHTML = Words.get(config.text_id);
+	config.upperCase = (config.upperCase===undefined) ? true : config.upperCase;
+	var words = Words.get(config.text_id);
+	if(config.upperCase) words=words.toUpperCase();
+	text.innerHTML = words;
 
 	// On hover...
 	hitbox.onmouseover = function(){
