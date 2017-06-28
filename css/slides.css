@@ -129,6 +129,12 @@ body{
 	background: url(../assets/sandbox_tabs.png);
 	width:500px; height:470px;
 	background-size: auto 100%;
+
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none; 
+	cursor: default;
 }
 #sandbox_tabs > div{
 	position: absolute;
@@ -144,6 +150,33 @@ body{
 	left: 33px;
 	top: 80px;
 }
+.incdec{
+	width: 0; height: 0;
+	position: absolute;
+}
+.incdec > div{
+	position: absolute;
+}
+.incdec > .incdec_num{
+	width:50px; height:50px;
+	font-size: 25px;
+	text-align: center;
+    top: -16px;
+    left: -25px;
+    cursor: default;
+}
+.incdec > .incdec_control{
+	left:-10px;
+	width:20px; height:20px;
+	background: url(../assets/sandbox_incdec.png);
+	background-size: auto 100%;
+	cursor: pointer;
+}
+.incdec > .incdec_control[arrow=up]{ top:-35px; background-position:0px 0px; }
+.incdec > .incdec_control[arrow=up]:hover{ background-position:-20px 0px; }
+.incdec > .incdec_control[arrow=down]{ bottom:-35px; background-position:-40px 0px; }
+.incdec > .incdec_control[arrow=down]:hover{ background-position:-60px 0px; }
+
 
 /*************************/
 /***** SLIDE SELECT ******/

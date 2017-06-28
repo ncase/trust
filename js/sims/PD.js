@@ -9,7 +9,25 @@ PD.PAYOFFS_DEFAULT = {
 	T: 3 // temptation: you put no coin, got 3 coins anyway
 };
 
-PD.PAYOFFS = PD.PAYOFFS_DEFAULT;
+PD.PAYOFFS = JSON.parse(JSON.stringify(PD.PAYOFFS_DEFAULT));
+
+subscribe("pd/editPayoffs", function(payoffs){
+	PD.PAYOFFS = payoffs;
+});
+subscribe("pd/editPayoffs/P", function(value){ PD.PAYOFFS.P = value; });
+subscribe("pd/editPayoffs/S", function(value){ PD.PAYOFFS.S = value; });
+subscribe("pd/editPayoffs/R", function(value){ PD.PAYOFFS.R = value; });
+subscribe("pd/editPayoffs/T", function(value){ PD.PAYOFFS.T = value; });
+subscribe("pd/defaultPayoffs", function(){
+
+	PD.PAYOFFS = JSON.parse(JSON.stringify(PD.PAYOFFS_DEFAULT));
+
+	publish("pd/editPayoffs/P", [PD.PAYOFFS.P]);
+	publish("pd/editPayoffs/S", [PD.PAYOFFS.S]);
+	publish("pd/editPayoffs/R", [PD.PAYOFFS.R]);
+	publish("pd/editPayoffs/T", [PD.PAYOFFS.T]);
+
+});
 
 PD.NOISE = 0;
 

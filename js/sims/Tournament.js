@@ -82,7 +82,7 @@ function Tournament(config){
 	self.populateAgents = function(){
 
 		// Clear EVERYTHING
-		self.agentsContainer.removeChildren();
+		while(self.agents.length>0) self.agents[0].kill();
 		
 		// Convert to an array
 		self.agents = _convertCountToArray(AGENTS);
@@ -117,11 +117,7 @@ function Tournament(config){
 	self.createNetwork = function(){
 
 		// Clear EVERYTHING
-		self.connections = [];
-		self.networkContainer.removeChildren();
-		for(var i=0; i<self.agents.length; i++){
-			self.agents[i].clearConnections();
-		}
+		while(self.connections.length>0) self.connections[0].kill();
 		
 		// Connect all of 'em
 		for(var i=0; i<self.agents.length; i++){
@@ -129,14 +125,19 @@ function Tournament(config){
 			for(var j=i+1; j<self.agents.length; j++){
 				var playerB = self.agents[j];
 				var connection = new TournamentConnection({
-					from:playerA,
-					to:playerB
+					tournament: self,
+					from: playerA,
+					to: playerB
 				});
 				self.networkContainer.addChild(connection.graphics);
 				self.connections.push(connection);
 			}
 		}
 
+	};
+	self.actuallyRemoveConnection = function(connection){
+		var index = self.connections.indexOf(connection);
+		self.connections.splice(index,1);
 	};
 
 
@@ -146,10 +147,21 @@ function Tournament(config){
 
 	var AGENTS;
 	self.reset = function(){
+
+		// Agents & Network...
 		AGENTS = JSON.parse(JSON.stringify(Tournament.INITIAL_AGENTS));
 		self.populateAgents();
 		self.createNetwork();
-		self.isAutoPlaying = false;
+
+		// Animation...
+		self.STAGE = STAGE_REST;
+		_playIndex = 0;
+		_tweenTimer = 0;
+
+		// Stop autoplay!
+		publish("tournament/autoplay/stop");
+		_step = 0;
+
 	};
 
 	subscribe("tournament/reset", self.reset);
@@ -184,7 +196,7 @@ function Tournament(config){
 				return config.strategy==badAgent.strategyName;
 			});
 			config.count--; // remove one
-			badAgent.kill(); // KILL
+			badAgent.eliminate(); // ELIMINATE
 		}
 
 	};
@@ -249,6 +261,7 @@ function Tournament(config){
 	self.isAutoPlaying = false;
 	var _step = 0;
 	var _nextStep = function(){
+		if(self.STAGE!=STAGE_REST) return;
 		if(_step==0) publish("tournament/play");
 		if(_step==1) publish("tournament/eliminate");
 		if(_step==2) publish("tournament/reproduce");
@@ -261,9 +274,13 @@ function Tournament(config){
 			if(self.isAutoPlaying) _startAutoPlay();
 		},500);
 	};
-	subscribe("tournament/autoplay", _startAutoPlay);
-	subscribe("tournament/step", function(){
+	var _stopAutoPlay = function(){
 		self.isAutoPlaying = false;
+	};
+	subscribe("tournament/autoplay/start", _startAutoPlay);
+	subscribe("tournament/autoplay/stop", _stopAutoPlay);
+	subscribe("tournament/step", function(){
+		publish("tournament/autoplay/stop");
 		_nextStep();
 	});
 
@@ -271,6 +288,9 @@ function Tournament(config){
 	var _playIndex = 0;
 	var _tweenTimer = 0;
 	app.ticker.add(function(delta) {
+
+		// Tick
+		Tween.tick();
 
 		// PLAY!
 		if(self.STAGE == STAGE_PLAY){
@@ -281,6 +301,7 @@ function Tournament(config){
 			}else{
 				self.playOneTournament(); // FOR REAL, NOW.
 				_playIndex = 0;
+				_tweenTimer = 0;
 				self.STAGE = STAGE_REST;
 				// slideshow.objects._b2.activate(); // activate NEXT button!
 			}
@@ -289,7 +310,11 @@ function Tournament(config){
 		// ELIMINATE!
 		if(self.STAGE == STAGE_ELIMINATE){
 			self.eliminateBottom(Tournament.SELECTION);
-			self.STAGE = STAGE_REST;
+			_tweenTimer++;
+			if(_tweenTimer==_s(0.3)){
+				_tweenTimer = 0;
+				self.STAGE = STAGE_REST;
+			}
 			// slideshow.objects._b3.activate(); // activate NEXT button!
 		}
 
@@ -366,6 +391,8 @@ function Tournament(config){
 function TournamentConnection(config){
 
 	var self = this;
+	self.config = config;
+	self.tournament = config.tournament;
 
 	// Connect from & to
 	self.from = config.from;
@@ -419,7 +446,8 @@ function TournamentConnection(config){
 	self.kill = function(){
 		if(self.IS_DEAD) return;
 		self.IS_DEAD = true;
-		if(self.graphics.parent) self.graphics.parent.removeChild(self.graphics); // remove self's graphics
+		self.graphics.parent.removeChild(self.graphics); // remove self's graphics
+		self.tournament.actuallyRemoveConnection(self);
 	};
 
 };
@@ -445,6 +473,9 @@ function TournamentAgent(config){
 		for(var i=0;i<self.connections.length;i++) self.connections[i].dehighlight();
 	};
 	self.clearConnections = function(){
+		for(var i=0;i<self.connections.length;i++){
+			self.connections[i].kill();
+		}
 		self.connections = [];
 	};
 
@@ -521,30 +552,34 @@ function TournamentAgent(config){
 	};
 	self.updatePosition();
 
-	// KILL
-	self.kill = function(){
-		
-		// KILL ALL CONNECTIONS
-		for(var i=0;i<self.connections.length;i++){
-			self.connections[i].kill();
-		}
+	// ELIMINATE
+	self.eliminate = function(){
+
+		// INSTA-KILL ALL CONNECTIONS
+		self.clearConnections();
 
 		// Tween -- DIE!
 		scoreText.visible = false;
-		Tween.get(g).to({
+		Tween_get(g).to({
 			alpha: 0,
 			x: g.x+Math.random()*20-10,
 			y: g.y+Math.random()*20-10,
 			rotation: Math.random()*0.5-0.25
-		}, 300, Ease.circOut).call(function(){
-			
-			// NOW remove graphics.
-			if(self.graphics.parent) self.graphics.parent.removeChild(self.graphics);
+		}, _s(0.3), Ease.circOut).call(self.kill);
 
-			// AND remove self from tournament
-			self.tournament.actuallyRemoveAgent(self);
+	};
 
-		});
+	// KILL (actually insta-remove)
+	self.kill = function(){
+
+		// Remove ANY tweens
+		Tween.removeTweens(g);
+		
+		// NOW remove graphics.
+		g.parent.removeChild(g);
+
+		// AND remove self from tournament
+		self.tournament.actuallyRemoveAgent(self);
 
 	};
 

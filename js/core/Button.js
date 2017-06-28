@@ -25,9 +25,12 @@ function Button(config){
 	button.style.left = config.x+"px";
 	button.style.top = config.y+"px";
 	config.upperCase = (config.upperCase===undefined) ? true : config.upperCase;
-	var words = Words.get(config.text_id);
-	if(config.upperCase) words=words.toUpperCase();
-	text.innerHTML = words;
+	self.setText = function(text_id){
+		var words = Words.get(text_id);
+		if(config.upperCase) words=words.toUpperCase();
+		text.innerHTML = words;
+	};
+	self.setText(config.text_id);
 
 	// On hover...
 	hitbox.onmouseover = function(){
@@ -39,7 +42,10 @@ function Button(config){
 
 	// On click...
 	hitbox.onclick = function(){
-		if(self.active) publish(config.message);
+		if(self.active){
+			if(config.onclick) config.onclick();
+			if(config.message) publish(config.message);
+		}
 	};
 
 	// Activate/Deactivate

@@ -47,15 +47,33 @@ var _removeFade = function(self, INSTANT){
 };
 
 // Make Label
-var _makeLabel = function(wordID, x, y, width, height){
+var _makeLabel = function(wordID, config){
+	
 	var dom = document.createElement("div");
 	dom.className = "label";
-	if(x!==undefined) dom.style.left = x+"px";
-	if(y!==undefined) dom.style.top = y+"px";
-	if(width!==undefined) dom.style.width = width+"px";
-	if(height!==undefined) dom.style.height = height+"px";
+
 	dom.innerHTML = Words.get(wordID);
+	config = config || {};
+	
+	if(config.x!==undefined) dom.style.left = config.x+"px";
+	if(config.y!==undefined) dom.style.top = config.y+"px";
+	if(config.w!==undefined) dom.style.width = config.w+"px";
+	if(config.h!==undefined) dom.style.height = config.h+"px";
+
+	if(config.rotation!==undefined) dom.style.transform = "rotate("+config.rotation+"deg)";
+	if(config.align!==undefined) dom.style.textAlign = config.align;
+	if(config.color!==undefined) dom.style.color = config.color;
+
 	return dom;
+
+};
+
+// Tween
+var Tween_get = function(target){
+	return Tween.get(target, {useTicks:true});
+}
+var _s = function(seconds){
+	return Math.ceil(Ticker.framerate*seconds); // converts seconds to ticks
 };
 
 /*******
