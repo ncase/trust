@@ -1,22 +1,23 @@
 Tournament.SELECTION = 5;
+subscribe("rules/evolution",function(value){
+	Tournament.SELECTION = value;
+});
+
 Tournament.NUM_TURNS = 10;
+subscribe("rules/turns",function(value){
+	Tournament.NUM_TURNS = value;
+});
 
 // CREATE A RING OF AGENTS
-/*Tournament.AGENTS = [
-	{strategy:"all_c", count:15},
-	{strategy:"all_d", count:5},
-	{strategy:"grudge", count:0},
-	{strategy:"tft", count:5},
-];*/
 Tournament.INITIAL_AGENTS = [
-	{strategy:"all_c", count:15},
-	{strategy:"all_d", count:5},
 	{strategy:"tft", count:5},
-	//{strategy:"grudge", count:3},
-	//{strategy:"prober", count:6},
-	//{strategy:"tf2t", count:8},
-	//{strategy:"pavlov", count:3},
-	//{strategy:"random", count:3}
+	{strategy:"all_d", count:5},
+	{strategy:"all_c", count:15},
+	{strategy:"grudge", count:0},
+	{strategy:"prober", count:0},
+	{strategy:"tf2t", count:0},
+	{strategy:"pavlov", count:0},
+	{strategy:"random", count:0}
 ];
 
 // OH THAT'S SO COOL. Mostly C: Pavlov wins, Mostly D: tit for two tats wins (with 5% mistake!)
@@ -29,15 +30,15 @@ Tournament.INITIAL_AGENTS = [
 Loader.addToManifest(Loader.manifest,{
 	tournament_peep: "assets/tournament_peep.json"
 });
-var PEEP_GRAPHICS = {
-	   tft: {frame:0}, 
-	 all_d: {frame:1},
-	 all_c: {frame:2},
-	grudge: {frame:3},
-	prober: {frame:4},
-	  tf2t: {frame:5},
-	pavlov: {frame:6},
-	random: {frame:7}
+var PEEP_METADATA = {
+	   tft: {frame:0, color:"#4089DD"}, 
+	 all_d: {frame:1, color:"#52537F"},
+	 all_c: {frame:2, color:"#FF75FF"},
+	grudge: {frame:3, color:"#C4A401"},
+	prober: {frame:4, color:"#CC984C"},
+	  tf2t: {frame:5, color:"#88A8CE"},
+	pavlov: {frame:6, color:"#86C448"},
+	random: {frame:7, color:"#FF5E5E"}
 };
 
 function Tournament(config){
@@ -492,7 +493,7 @@ function TournamentAgent(config){
 
 	// Body!
 	var body = _makeMovieClip("tournament_peep");
-	body.gotoAndStop(PEEP_GRAPHICS[config.strategy].frame);
+	body.gotoAndStop(PEEP_METADATA[config.strategy].frame);
 	body.scale.set(0.5);
 	body.anchor.x = 0.5;
 	body.anchor.y = 0.75;
@@ -513,10 +514,7 @@ function TournamentAgent(config){
 	};
 	self.updateScore();
 	scoreText.visible = false;
-	/*subscribe("tournament/play",function(){
-		scoreText.visible = false;
-	});*/
-	subscribe("tournament/reproduce",function(){
+	var _handle = subscribe("tournament/reproduce",function(){
 		scoreText.visible = false;
 	});
 
@@ -580,6 +578,9 @@ function TournamentAgent(config){
 
 		// AND remove self from tournament
 		self.tournament.actuallyRemoveAgent(self);
+
+		// Unsub
+		unsubscribe(_handle);
 
 	};
 

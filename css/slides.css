@@ -74,6 +74,10 @@ body{
 
 .button{
 	z-index: 0;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none; 
 }
 .button #background{
 	position: absolute;
@@ -177,6 +181,44 @@ body{
 .incdec > .incdec_control[arrow=down]{ bottom:-35px; background-position:-40px 0px; }
 .incdec > .incdec_control[arrow=down]:hover{ background-position:-60px 0px; }
 
+.slider{
+	position: absolute;
+	height: 40px;
+}
+.slider > div{
+	position: absolute;
+}
+.slider > .slider_bg{
+	top:0;
+	width:100%; height:30px;
+	background: url(../assets/slider_bg.png);
+	background-size: auto 100%;
+}
+.slider > .slider_knob{
+	top:0;
+	width:30px; height:30px;
+	background: url(../assets/slider_knob.png);
+	background-size: 100% 100%;
+}
+
+.sandbox_pop{
+	position: absolute;
+}
+.sandbox_pop>div{
+	position: absolute;
+}
+.sandbox_pop_icon{
+	width: 40px;
+	height: 40px;
+	background: url(../assets/sandbox_hats.png);
+	background-size: auto 100%;
+}
+.sandbox_pop_label{
+	font-size: 18px;
+    width: 150px;
+    top: 8px;
+    left: 50px;
+}
 
 /*************************/
 /***** SLIDE SELECT ******/

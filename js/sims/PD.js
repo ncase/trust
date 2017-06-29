@@ -30,6 +30,9 @@ subscribe("pd/defaultPayoffs", function(){
 });
 
 PD.NOISE = 0;
+subscribe("rules/noise",function(value){
+	PD.NOISE = value;
+});
 
 PD.getPayoffs = function(move1, move2){
 	var payoffs = PD.PAYOFFS;
