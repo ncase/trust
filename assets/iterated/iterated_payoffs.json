@@ -1,0 +1,67 @@
+﻿{"frames": {
+
+"iterated_payoffs0000":
+{
+	"frame": {"x":10,"y":10,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0001":
+{
+	"frame": {"x":522,"y":10,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0002":
+{
+	"frame": {"x":1034,"y":10,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0003":
+{
+	"frame": {"x":10,"y":522,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0004":
+{
+	"frame": {"x":522,"y":522,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0005":
+{
+	"frame": {"x":1034,"y":522,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0006":
+{
+	"frame": {"x":10,"y":1034,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "15.2.0.66",
+	"image": "iterated_payoffs.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "1"
+}
+}

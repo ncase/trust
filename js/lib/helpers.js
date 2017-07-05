@@ -63,6 +63,7 @@ var _makeLabel = function(wordID, config){
 	if(config.rotation!==undefined) dom.style.transform = "rotate("+config.rotation+"deg)";
 	if(config.align!==undefined) dom.style.textAlign = config.align;
 	if(config.color!==undefined) dom.style.color = config.color;
+	if(config.size!==undefined) dom.style.fontSize = config.size;
 
 	return dom;
 

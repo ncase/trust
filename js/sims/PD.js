@@ -1,3 +1,14 @@
+var PEEP_METADATA = {
+	   tft: {frame:0, color:"#4089DD"}, 
+	 all_d: {frame:1, color:"#52537F"},
+	 all_c: {frame:2, color:"#FF75FF"},
+	grudge: {frame:3, color:"#C4A401"},
+	prober: {frame:4, color:"#CC984C"},
+	  tf2t: {frame:5, color:"#88A8CE"},
+	pavlov: {frame:6, color:"#86C448"},
+	random: {frame:7, color:"#FF5E5E"}
+};
+
 var PD = {};
 PD.COOPERATE = "COOPERATE";
 PD.CHEAT = "CHEAT";

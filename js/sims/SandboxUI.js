@@ -251,16 +251,18 @@ function SandboxUI(config){
 		// Difference... 
 		var diff = 25-total;
 		// If negative, remove one starting from BOTTOM, skipping anchor.
+		// (UNLESS IT'S ZERO)
 		if(diff<0){
 			for(var i=Tournament.INITIAL_AGENTS.length-1; i>=0 && diff<0; i--){
 				// do NOT adjust anchor.
 				var conf = Tournament.INITIAL_AGENTS[i];
 				if(conf.strategy==peepID) continue;
+				if(conf.count==0) continue; // DON'T DO IT IF IT'S ZERO
 				conf.count--; // REMOVE
 				diff++; // yay
 			}
 		}
-		// If positive, add one starting from top, skipping anchor.
+		// If positive, add one starting from TOP, skipping anchor.
 		if(diff>0){
 			for(var i=0; i<Tournament.INITIAL_AGENTS.length && diff>0; i++){
 				// do NOT adjust anchor.

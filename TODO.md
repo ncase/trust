@@ -16,3 +16,5 @@ MINOR SHTUFF
 - a better handwritten font, with REAL bold & italics???
 - rename Tit For Tat, so it FEELS nicer??? also block peeps who already know the answer... // Copycat Copykitten
 - rename all of 'em, really?
+- unsubscribe
+- slides: can have func() logic IN the slides.

@@ -28,18 +28,8 @@ Tournament.INITIAL_AGENTS = [
 
 // REGULAR LOAD
 Loader.addToManifest(Loader.manifest,{
-	tournament_peep: "assets/tournament_peep.json"
+	tournament_peep: "assets/tournament/tournament_peep.json"
 });
-var PEEP_METADATA = {
-	   tft: {frame:0, color:"#4089DD"}, 
-	 all_d: {frame:1, color:"#52537F"},
-	 all_c: {frame:2, color:"#FF75FF"},
-	grudge: {frame:3, color:"#C4A401"},
-	prober: {frame:4, color:"#CC984C"},
-	  tf2t: {frame:5, color:"#88A8CE"},
-	pavlov: {frame:6, color:"#86C448"},
-	random: {frame:7, color:"#FF5E5E"}
-};
 
 function Tournament(config){
 
@@ -403,8 +393,8 @@ function TournamentConnection(config){
 
 	// Graphics!
 	var g = new PIXI.Container();
-	var gray = PIXI.Sprite.fromImage("assets/connection.png");
-	var gold = PIXI.Sprite.fromImage("assets/connection_gold.png");
+	var gray = PIXI.Sprite.fromImage("assets/tournament/connection.png"); // TODO: PRELOAD
+	var gold = PIXI.Sprite.fromImage("assets/tournament/connection_gold.png"); // TODO: PRELOAD
 	gray.height = 1;
 	gold.height = 2;
 	gray.anchor.y = gold.anchor.y = 0.5;

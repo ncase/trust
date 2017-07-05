@@ -62,6 +62,10 @@ function Button(config){
 	if(config.active===undefined) config.active=true;
 	if(!config.active) self.deactivate();
 
+	// Listeners!
+	subscribe(self.id+"/activate", self.activate);
+	subscribe(self.id+"/deactivate", self.deactivate);
+
 	// Add...
 	self.add = function(INSTANT){
 		return _addFade(self, INSTANT);
