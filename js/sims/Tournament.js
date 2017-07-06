@@ -9,7 +9,7 @@ subscribe("rules/turns",function(value){
 });
 
 // CREATE A RING OF AGENTS
-Tournament.INITIAL_AGENTS = [
+/*Tournament.INITIAL_AGENTS = [
 	{strategy:"tft", count:5},
 	{strategy:"all_d", count:5},
 	{strategy:"all_c", count:15},
@@ -18,7 +18,19 @@ Tournament.INITIAL_AGENTS = [
 	{strategy:"tf2t", count:0},
 	{strategy:"pavlov", count:0},
 	{strategy:"random", count:0}
+];*/
+
+Tournament.INITIAL_AGENTS = [
+	{strategy:"tft", count:5},
+	{strategy:"all_d", count:5},
+	{strategy:"all_c", count:0},
+	{strategy:"grudge", count:0},
+	{strategy:"prober", count:0},
+	{strategy:"tf2t", count:5},
+	{strategy:"pavlov", count:5},
+	{strategy:"random", count:5}
 ];
+
 
 // OH THAT'S SO COOL. Mostly C: Pavlov wins, Mostly D: tit for two tats wins (with 5% mistake!)
 // ALSO, NOISE: tft vs all_d. no random: tft wins. low random: tf2t wins. high random: all_d wins. totally random: nobody wins
