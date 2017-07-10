@@ -55,30 +55,42 @@ function Iterated(config){
 	app.stage.addChild(self.payoffs);
 	self.payoffs.x = 350;
 	self.payoffs.y = 125;
-	self.payoffs.gotoAndStop(2);
+	self.payoffs.gotoAndStop(0);
 	self.highlightPayoff = function(payoffA){
 		if(payoffA==PD.PAYOFFS.R){
-			self.payoffs.gotoAndStop(3);
+			self.payoffs.gotoAndStop(4);
 			_l1.style.color = _l2.style.color = "#FFE663";
 		}
 		if(payoffA==PD.PAYOFFS.T){
-			self.payoffs.gotoAndStop(4);
+			self.payoffs.gotoAndStop(5);
 			_l1.style.color = _l4.style.color = "#FFE663";
 		}
 		if(payoffA==PD.PAYOFFS.S){
-			self.payoffs.gotoAndStop(5);
+			self.payoffs.gotoAndStop(6);
 			_l2.style.color = _l3.style.color = "#FFE663";
 		}
 		if(payoffA==PD.PAYOFFS.P){
-			self.payoffs.gotoAndStop(6);
+			self.payoffs.gotoAndStop(7);
 			_l3.style.color = _l4.style.color = "#FFE663";
 		}
 	};
 	self.dehighlightPayoff = function(){
-		self.payoffs.gotoAndStop(2);
+		self.payoffs.gotoAndStop(3);
 		[_l1,_l2,_l3,_l4].forEach(function(label){
 			label.style.color = "#333333";
 		});
+	};
+
+	// HACK
+	self.oneoffHighlight1 = function(){
+		self.dehighlightPayoff();
+		self.payoffs.gotoAndStop(1);
+		_l3.style.color = "#FFE663";
+	};
+	self.oneoffHighlight2 = function(){
+		self.dehighlightPayoff();
+		self.payoffs.gotoAndStop(2);
+		_l1.style.color = "#FFE663";
 	};
 
 	// Animiniminimination
@@ -98,7 +110,7 @@ function Iterated(config){
 		self.playerB.chooseHat(id);
 	};
 
-	self.chooseOpponent("prober");
+	self.chooseOpponent("tft");
 
 	self.playOneRound = function(yourMove){
 

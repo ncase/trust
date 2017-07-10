@@ -16,22 +16,20 @@ function Slideshow(config){
 		self.dom.innerHTML = "";
 		self.slideIndex = -1;
 		self.currentSlide = null;
+		self.objects = {};
 	};
 	self.reset();
 
-	// Remove ALL
-	self.removeAll = function(INSTANT){
-		for(var id in self.objects){
-			self.removeObject({id:id}, INSTANT);
-		}
-	};
+	//////////////////////////////////////////////////
+	/////////////// GO TO NEXT SLIDE /////////////////
+	//////////////////////////////////////////////////
 
 	// Go to next slide
 	self.nextSlide = function(INSTANT){
 
-		// removeAllOnKill?
-		if(self.currentSlide && self.currentSlide.removeAllOnKill){
-			self.removeAll(true);
+		// On End?
+		if(self.currentSlide && self.currentSlide.onend){
+			self.currentSlide.onend(self);
 		}
 
 		// Update the information
@@ -39,24 +37,13 @@ function Slideshow(config){
 		self.slideIndex++;
 		self.currentSlide = self.slides[self.slideIndex];
 
-		// Remove whatever
-		var remove = self.currentSlide.remove || [];
-		var promisesToRemove = [];
-		for(var i=0; i<remove.length; i++){
-			var promiseToRemove = self.removeObject(remove[i], INSTANT);
-			if(promiseToRemove) promisesToRemove.push(promiseToRemove);
+		// On Start
+		if(self.currentSlide.onstart){
+			self.currentSlide.onstart(self);
 		}
-		
-		// After removing, add whatever
-		var addObjects = function(){
-			var add = self.currentSlide.add || [];
-			for(var i=0; i<add.length; i++) self.addObject(add[i], INSTANT);
-		};
-		if(INSTANT || promisesToRemove.length==0) addObjects();
-		else Q.all(promisesToRemove).then(addObjects);
 
 		// Send out message!
-		publish("slideshow/slideChange", [self.currentSlide.id]);
+		// publish("slideshow/slideChange", [self.currentSlide.id]);
 
 	};
 
@@ -65,8 +52,61 @@ function Slideshow(config){
 		self.nextSlide();
 	});
 
+
+
+	//////////////////////////////////////////////////
+	///////////// SLIDESHOW OBJECTS //////////////////
+	//////////////////////////////////////////////////
+
+	// Objects!
+	self.objects = {};
+
+	// Add Object
+	self.add = function(objectConfig, INSTANT){
+
+		INSTANT = true; // hack, sure.
+
+		// Create object
+		var Classname = window[objectConfig.type];
+		var obj = new Classname(objectConfig);
+		obj.slideshow = self;
+
+		// Remember it
+		self.objects[objectConfig.id] = obj;
+
+		// Add it for real!
+		return obj.add(INSTANT); // return a possible promise
+
+	};
+
+	// Remove Object
+	self.remove = function(objectID, INSTANT){
+
+		INSTANT = true; // hack, sure.
+
+		// Find it...
+		var obj = self.objects[objectID];
+
+		// Remove from memory & DOM
+		delete self.objects[objectID];
+		return obj.remove(INSTANT); // return a possible promise
+
+	};
+
+	// Clear: Remove ALL objects
+	self.clear = function(INSTANT){
+		for(var id in self.objects){
+			self.remove(id, INSTANT);
+		}
+	};
+
+
+	//////////////////////////////////////////////////
+	///////////// FORCE GO TO SLIDE //////////////////
+	//////////////////////////////////////////////////
+
 	// FORCE go to a certain slide
-	self.gotoSlide = function(id){
+	/*self.gotoSlide = function(id){
 
 		// Go ALL the way to the past
 		self.reset();
@@ -83,37 +123,6 @@ function Slideshow(config){
 	// Subscribe to the "force goto" message...
 	subscribe("slideshow/goto", function(id){
 		self.gotoSlide(id);
-	});
-
-	// Objects!
-	self.objects = {};
-
-	// Add Object
-	self.addObject = function(objectConfig, INSTANT){
-
-		// Create object
-		var Classname = window[objectConfig.type];
-		var obj = new Classname(objectConfig);
-		obj.slideshow = self;
-
-		// Remember it
-		self.objects[objectConfig.id] = obj;
-
-		// Add it for real!
-		return obj.add(INSTANT); // return a possible promise
-
-	};
-
-	// Remove Object
-	self.removeObject = function(objectConfig, INSTANT){
-
-		// Find it...
-		var obj = self.objects[objectConfig.id];
-
-		// Remove from memory & DOM
-		delete self.objects[objectConfig.id];
-		return obj.remove(INSTANT); // return a possible promise
-
-	};
+	});*/
 
 }

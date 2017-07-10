@@ -4,6 +4,14 @@ RANDOM CRAP TO MAKE MY LIFE EASIER
 
 **********************************/
 
+// POLLUTE THIS NAMESPACE
+var _ = {};
+_.clear = function(){
+	var c = _.clear;
+	_ = {};
+	_.clear = c;
+}; // the most hack-y crap ever
+
 // Pi is for unwashed plebians
 Math.TAU = 2*Math.PI;
 

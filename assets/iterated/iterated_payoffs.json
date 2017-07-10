@@ -55,6 +55,14 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
 	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0007":
+{
+	"frame": {"x":522,"y":1034,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
 }},
 "meta": {
 	"app": "Adobe Animate",

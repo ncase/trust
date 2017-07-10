@@ -12,29 +12,25 @@ function TextBox(config){
 	self.dom.classList.add("fader");
 	self.dom.classList.add("textbox");
 
-	// All the text boxes, yo
-	self.boxes = config.boxes ? config.boxes : [config.box];
+	// Customize
+	self.dom.style.left = config.x+"px";
+	self.dom.style.top = config.y+"px";
+	self.dom.style.width = config.width+"px";
+	self.dom.style.height = config.height+"px";
 
-	// Create each textbox...
-	for(var i=0; i<self.boxes.length; i++){
+	// Optional params
+	if(config.align) self.dom.style.textAlign = config.align;
+	if(config.size) self.dom.style.fontSize = config.size;
 
-		// DOM
-		var textbox = document.createElement("div");
-		self.dom.appendChild(textbox);
-
-		// Customize
-		var box = self.boxes[i];
-		textbox.style.left = box.x+"px";
-		textbox.style.top = box.y+"px";
-		textbox.style.width = box.width+"px";
-		textbox.style.height = box.height+"px";
-		textbox.innerHTML = Words.get(box.text_id);
-
-		// Optional params
-		if(box.align) textbox.style.textAlign = box.align;
-		if(box.size) textbox.style.fontSize = box.size;
-
-	}
+	// Set Text!
+	self.setText = function(words){
+		self.dom.innerHTML = words;
+	};
+	self.setTextID = function(id){
+		self.text_id = id;
+		self.setText(Words.get(self.text_id));
+	};
+	self.setTextID(config.text_id);
 
 	// Add...
 	self.add = function(INSTANT){
