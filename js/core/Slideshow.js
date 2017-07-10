@@ -19,8 +19,20 @@ function Slideshow(config){
 	};
 	self.reset();
 
+	// Remove ALL
+	self.removeAll = function(INSTANT){
+		for(var id in self.objects){
+			self.removeObject({id:id}, INSTANT);
+		}
+	};
+
 	// Go to next slide
 	self.nextSlide = function(INSTANT){
+
+		// removeAllOnKill?
+		if(self.currentSlide && self.currentSlide.removeAllOnKill){
+			self.removeAll(true);
+		}
 
 		// Update the information
 		if(self.slideIndex >= self.slides.length-1) return;

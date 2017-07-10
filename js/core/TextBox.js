@@ -1,3 +1,6 @@
+/*
+
+*/
 function TextBox(config){
 
 	var self = this;
@@ -10,7 +13,7 @@ function TextBox(config){
 	self.dom.classList.add("textbox");
 
 	// All the text boxes, yo
-	self.boxes = config.boxes;
+	self.boxes = config.boxes ? config.boxes : [config.box];
 
 	// Create each textbox...
 	for(var i=0; i<self.boxes.length; i++){
@@ -26,6 +29,10 @@ function TextBox(config){
 		textbox.style.width = box.width+"px";
 		textbox.style.height = box.height+"px";
 		textbox.innerHTML = Words.get(box.text_id);
+
+		// Optional params
+		if(box.align) textbox.style.textAlign = box.align;
+		if(box.size) textbox.style.fontSize = box.size;
 
 	}
 

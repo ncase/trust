@@ -24,6 +24,10 @@ function Button(config){
 	// Customize DOM
 	button.style.left = config.x+"px";
 	button.style.top = config.y+"px";
+	if(config.fontSize){
+		text.style.fontSize = config.fontSize;
+		text.style.top = 14+(20-config.fontSize);
+	}
 	config.upperCase = (config.upperCase===undefined) ? true : config.upperCase;
 	self.setText = function(text_id){
 		var words = Words.get(text_id);

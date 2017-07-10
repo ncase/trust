@@ -1,6 +1,6 @@
 SLIDES.push({
 
-	id: "sim",
+	id: "sandbox",
 	add:[
 
 		// The tournament simulation

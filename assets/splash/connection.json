@@ -1,0 +1,27 @@
+﻿{"frames": {
+
+"connection0000":
+{
+	"frame": {"x":10,"y":10,"w":100,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":5},
+	"sourceSize": {"w":100,"h":5}
+},
+"connection0001":
+{
+	"frame": {"x":10,"y":25,"w":100,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":5},
+	"sourceSize": {"w":100,"h":5}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "15.2.0.66",
+	"image": "connection.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":128},
+	"scale": "1"
+}
+}

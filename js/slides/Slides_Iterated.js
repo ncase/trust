@@ -1,6 +1,6 @@
 SLIDES.push({
 
-	id: "sim",
+	id: "iterated",
 	add:[
 
 		// The Iterated simulation
