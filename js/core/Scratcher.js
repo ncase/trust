@@ -3,14 +3,18 @@
 var Scratcher = {};
 exports.Scratcher = Scratcher;
 
-Scratcher.scratch = function(){
+Scratcher.scratch = function(gotoID){
 
 	var dom = $("#scratcher");
 	dom.style.display = "block";
 
 	Scratcher.scratchAnim(true)
 	.then(function(){
-		publish("slideshow/next");
+		if(gotoID){
+			publish("slideshow/goto", [gotoID]);
+		}else{
+			publish("slideshow/next");
+		}
 	})
 	.then(function(){
 		return Scratcher.scratchAnim(false);

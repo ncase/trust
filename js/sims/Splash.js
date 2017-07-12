@@ -107,6 +107,7 @@ function Splash(config){
 
 	// Remove...
 	self.remove = function(INSTANT){
+		app.destroy();
 		return _remove(self);
 	};
 

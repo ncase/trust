@@ -110,8 +110,6 @@ function Iterated(config){
 		self.playerB.chooseHat(id);
 	};
 
-	self.chooseOpponent("tft");
-
 	self.playOneRound = function(yourMove){
 
 		// Make your moves!
@@ -136,8 +134,8 @@ function Iterated(config){
 			// Payoff Matrix
 			self.dehighlightPayoff();
 
-			// Buttons
-			self.activateButtons();
+			// End Round
+			publish("iterated/round/end");
 
 		});
 
@@ -147,23 +145,21 @@ function Iterated(config){
 	};
 
 	subscribe("iterated/cooperate", function(){
+		publish("iterated/round/start");
 		self.playOneRound(PD.COOPERATE);
-		self.deactivateButtons();
 	});
 
 	subscribe("iterated/cheat", function(){
+		publish("iterated/round/start");
 		self.playOneRound(PD.CHEAT);
-		self.deactivateButtons();
 	});
 
-	self.activateButtons = function(){
-		publish("buttonCooperate/activate");
-		publish("buttonCheat/activate");
-	};
-	self.deactivateButtons = function(){
-		publish("buttonCooperate/deactivate");
-		publish("buttonCheat/deactivate");
-	};
+	subscribe("iterated/newOpponent", function(id){
+		self.chooseOpponent(id);
+		self.playerA.resetFace();
+		self.playerB.resetFace();
+	});
+	self.chooseOpponent("tft");
 
 	///////////////////////////////////////////////
 	///////////// ADD, REMOVE, KILL ///////////////
@@ -176,6 +172,7 @@ function Iterated(config){
 
 	// Remove...
 	self.remove = function(INSTANT){
+		app.destroy();
 		return _remove(self);
 	};
 
@@ -228,6 +225,13 @@ function IteratedPeep(config){
 	self.eyebrows = _makeMovieClip("iterated_peep", {scale:0.5, anchorX:0.5, anchorY:0.95});
 	self.eyebrows.visible = false;
 	self.animated.addChild(self.eyebrows);
+
+	// RESET FACE
+	self.resetFace = function(){
+		self.eyebrows.visible = false;
+		self.face.gotoAndStop(1);
+		self.restingFace = true;
+	};
 
 	// Position & Flip?
 	g.y = 236;

@@ -378,12 +378,12 @@ function Tournament(config){
 	};
 
 	// Remove...
-	self.remove = function(INSTANT){
-		return _remove(self);
-	};
-
 	// TODO: KILL ALL LISTENERS, TOO.
 	// TODO: Don't screw up when paused or looking at new tab
+	self.remove = function(INSTANT){
+		app.destroy();
+		return _remove(self);
+	};
 
 }
 

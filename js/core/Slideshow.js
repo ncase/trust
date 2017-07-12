@@ -13,10 +13,18 @@ function Slideshow(config){
 
 	// Reset: INITIAL VARIABLES
 	self.reset = function(){
+
+		// On End?
+		if(self.currentSlide && self.currentSlide.onend){
+			self.currentSlide.onend(self);
+		}
+
+		// Reset
 		self.dom.innerHTML = "";
 		self.slideIndex = -1;
 		self.currentSlide = null;
 		self.objects = {};
+
 	};
 	self.reset();
 
@@ -43,7 +51,7 @@ function Slideshow(config){
 		}
 
 		// Send out message!
-		// publish("slideshow/slideChange", [self.currentSlide.id]);
+		publish("slideshow/slideChange", [self.currentSlide.id]);
 
 	};
 
@@ -106,23 +114,29 @@ function Slideshow(config){
 	//////////////////////////////////////////////////
 
 	// FORCE go to a certain slide
-	/*self.gotoSlide = function(id){
+	self.gotoSlide = function(id){
 
 		// Go ALL the way to the past
 		self.reset();
 
-		// And just move all the way forward, what a hack.
-		// TODO: a more efficient one that looks at id's FIRST.
-		self.nextSlide(true);
-		while(self.currentSlide.id != id){
-			self.nextSlide(true);
-		}
+		// Slide & SlideIndex
+		self.currentSlide = self.slides.find(function(slide){
+			return slide.id==id;
+		});
+		self.slideIndex = self.slides.indexOf(self.currentSlide);
+
+		// On JUMP & on Start
+		if(self.currentSlide.onjump) self.currentSlide.onjump(self);
+		if(self.currentSlide.onstart) self.currentSlide.onstart(self);
+
+		// Send out message!
+		publish("slideshow/slideChange", [self.currentSlide.id]);
 
 	};
 
 	// Subscribe to the "force goto" message...
 	subscribe("slideshow/goto", function(id){
 		self.gotoSlide(id);
-	});*/
+	});
 
 }

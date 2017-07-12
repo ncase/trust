@@ -16,7 +16,12 @@ function SlideSelect(config){
 	};
 
 	// Populate dots
-	for(var i=0; i<self.slides.length; i++) self.addDot(self.slides[i]);
+	for(var i=0; i<self.slides.length; i++){
+		var slide = self.slides[i];
+		if(slide.id){
+			self.addDot(slide);
+		}
+	}
 
 }
 
@@ -31,7 +36,7 @@ function SlideSelectDot(slide){
 	
 	// On Click
 	self.dom.onclick = function(){
-		publish("slideshow/goto", [slide.id]);
+		publish("slideshow/scratch", [slide.id]);
 	};
 
 	// Listen to when the slide changes

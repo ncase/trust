@@ -79,9 +79,14 @@ SLIDES.push({
 			message:"slideshow/next"
 		});
 
+	},
+
+	onend: function(self){
+		self.objects.iterated.dehighlightPayoff();
+		self.remove("topWords");
+		self.remove("btmWords");
+		self.remove("btnNext");
 	}
 
-},{
-	onstart:function(){
-	}
 });
+

@@ -44,10 +44,11 @@
 <script src="js/sims/SandboxUI.js"></script>
 
 <!-- Slides -->
-<script src="js/slides/Slides_Intro.js"></script>
-<script src="js/slides/Slides_OneOff.js"></script>
-<!--script src="js/slides/Slides_Iterated.js"></script>
-<script src="js/slides/Slides_Sandbox.js"></script-->
+<script src="js/slides/0_Slides_Intro.js"></script>
+<script src="js/slides/1_Slides_OneOff.js"></script>
+<script src="js/slides/2_Slides_Iterated.js"></script>
+<script src="js/slides/3_Slides_Tournament.js"></script>
+<!--script src="js/slides/Slides_Sandbox.js"></script-->
 
 <!-- Main Code -->
 <script>
@@ -66,10 +67,10 @@ window.onload = function(){
 		});
 
 		// Slide Select
-		/*slideSelect = new SlideSelect({
+		slideSelect = new SlideSelect({
 			dom: $("#select"),
 			slides: SLIDES
-		});*/
+		});
 
 		// First slide!
 		slideshow.nextSlide();
