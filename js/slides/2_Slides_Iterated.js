@@ -6,6 +6,7 @@ SLIDES.push({
 
 		// Iterated Simulation
 		self.add({id:"iterated", type:"Iterated", x:130, y:133});
+		self.objects.iterated.dehighlightPayoff();
 		
 	},
 
@@ -66,6 +67,4 @@ SLIDES.push({
 		self.clear();
 	}
 
-},{
-	onstart: function(self){}
 });

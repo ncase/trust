@@ -33,7 +33,8 @@ button[data-balloon] {
   font-size: 18px;
   padding: .5em 1em;
   white-space: nowrap;
-  margin-bottom: 11px;
+  /*margin-bottom: 11px;*/
+  margin-bottom: 26px;
 }
 [data-balloon]:before {
   background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba%2817,%2017,%2017,%200.9%29%22%20transform%3D%22rotate%280%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E') no-repeat;
@@ -41,7 +42,8 @@ button[data-balloon] {
   height: 6px;
   width: 18px;
   content: "";
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
+  margin-bottom: 20px;
 }
 [data-balloon]:hover:before,
 [data-balloon][data-balloon-visible]:before,
