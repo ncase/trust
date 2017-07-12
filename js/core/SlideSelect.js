@@ -43,6 +43,7 @@ function SlideSelectDot(slide){
 
 	// Listen to when the slide changes
 	subscribe("slideshow/slideChange", function(id){
+		if(!id) return; // nah
 		if(id==slide.id){
 			self.dom.setAttribute("selected","yes");
 		}else{
