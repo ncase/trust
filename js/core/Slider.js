@@ -60,7 +60,7 @@ function Slider(config){
 		knob.style.left = param*(config.width-30);
 
 	};
-	if(config.message) subscribe(config.message, self.setValue);
+	if(config.message) listen(self, config.message, self.setValue);
 
 	// Mouse events
 	var _isDragging = false;
@@ -101,13 +101,14 @@ function Slider(config){
 	////////////////////////////////////////
 
 	// Add...
-	self.add = function(INSTANT){
-		return _add(self, INSTANT);
+	self.add = function(){
+		_add(self);
 	};
 
 	// Remove...
-	self.remove = function(INSTANT){
-		return _remove(self, INSTANT);
+	self.remove = function(){
+		unlisten(self);
+		_remove(self);
 	};
 
 }

@@ -2,6 +2,7 @@ function SandboxUI(config){
 
 	var self = this;
 	self.id = config.id;
+	self.slideshow = config.slideshow;
 
 	// Create DOM
 	self.dom = document.createElement("div");
@@ -22,10 +23,10 @@ function SandboxUI(config){
 			}
 		}
 	});
-	subscribe("tournament/autoplay/stop",function(){
+	listen(self, "tournament/autoplay/stop",function(){
 		playButton.setText("label_play");
 	});
-	subscribe("tournament/autoplay/start",function(){
+	listen(self, "tournament/autoplay/start",function(){
 		playButton.setText("label_stop");
 	});
 	dom.appendChild(playButton.dom);
@@ -103,6 +104,7 @@ function SandboxUI(config){
 	page.appendChild(_makeLabel("sandbox_population", {x:0, y:0, w:433}));
 
 	// Create an icon, label, and slider... that all interact with each other.
+	var sliders = [];
 	var _makePopulationControl = function(x, y, peepID, defaultValue){
 
 		// DOM
@@ -134,7 +136,7 @@ function SandboxUI(config){
 		popAmount.style.textAlign = "right";
 		popAmount.style.color = PEEP_METADATA[peepID].color;
 		popDOM.appendChild(popAmount);
-		subscribe(message, function(value){
+		listen(self, message, function(value){
 			popAmount.innerHTML = value;
 		});
 
@@ -151,6 +153,8 @@ function SandboxUI(config){
 					_adjustPopulation(peepID, value);
 				}
 			});
+			sliders.push(popSlider);
+			popSlider.slideshow = self.slideshow;
 			popDOM.appendChild(popSlider.dom);
 		})(peepID);
 
@@ -312,9 +316,10 @@ function SandboxUI(config){
 					publish("pd/editPayoffs/"+letter,[value]);
 				}
 			});
-			subscribe("pd/editPayoffs/"+letter,function(value){
+			listen(self, "pd/editPayoffs/"+letter,function(value){
 				number.setValue(value);
 			});
+			number.slideshow = self.slideshow;
 			page.appendChild(number.dom);
 			numbers.push(number);
 
@@ -350,7 +355,9 @@ function SandboxUI(config){
 		min:1, max:50, step:1,
 		message: "rules/turns"
 	});
-	subscribe("rules/turns",function(value){
+	sliders.push(slider_turns);
+	slider_turns.slideshow = self.slideshow;
+	listen(self, "rules/turns",function(value){
 		var words = (value==1) ? Words.get("sandbox_rules_1_single") : Words.get("sandbox_rules_1"); // plural?
 		words = words.replace(/\[N\]/g, value+""); // replace [N] with the number value
 		rule_turns.innerHTML = words;
@@ -365,7 +372,9 @@ function SandboxUI(config){
 		min:1, max:12, step:1,
 		message: "rules/evolution"
 	});
-	subscribe("rules/evolution",function(value){
+	sliders.push(slider_evolution);
+	slider_evolution.slideshow = self.slideshow;
+	listen(self, "rules/evolution",function(value){
 		var words = (value==1) ? Words.get("sandbox_rules_2_single") : Words.get("sandbox_rules_2"); // plural?
 		words = words.replace(/\[N\]/g, value+""); // replace [N] with the number value
 		rule_evolution.innerHTML = words;
@@ -380,7 +389,9 @@ function SandboxUI(config){
 		min:0.00, max:0.50, step:0.01,
 		message: "rules/noise"
 	});
-	subscribe("rules/noise",function(value){
+	sliders.push(slider_noise);
+	slider_noise.slideshow = self.slideshow;
+	listen(self, "rules/noise",function(value){
 		value = Math.round(value*100);
 		var words = Words.get("sandbox_rules_3");
 		words = words.replace(/\[N\]/g, value+""); // replace [N] with the number value
@@ -405,6 +416,9 @@ function SandboxUI(config){
 
 	// Remove...
 	self.remove = function(INSTANT){
+		for(var i=0;i<numbers.length;i++) unlisten(numbers[i]);
+		for(var i=0;i<sliders.length;i++) unlisten(sliders[i]);
+		unlisten(self);
 		return _remove(self);
 	};
 

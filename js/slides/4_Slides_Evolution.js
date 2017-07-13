@@ -45,7 +45,7 @@ SLIDES.push({
 		// Button
 		self.add({
 			id:"button_step", type:"Button",
-			x:510, y:300, 
+			x:510, y:300, size:"short",
 			text_id:"button_step",
 			message: "tournament/step"
 		});
@@ -53,7 +53,7 @@ SLIDES.push({
 		// Button
 		self.add({
 			id:"button_next", type:"Button",
-			x:510, y:400, 
+			x:510, y:400, size:"short",
 			text_id:"label_next",
 			onclick:function(){
 				_.answer = "tft";

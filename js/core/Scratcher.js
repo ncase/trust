@@ -3,10 +3,22 @@
 var Scratcher = {};
 exports.Scratcher = Scratcher;
 
+Scratcher.isTransitioning = false;
+
 Scratcher.scratch = function(gotoID){
+
+	if(Scratcher.isTransitioning) return;
+	Scratcher.isTransitioning = true;
 
 	var dom = $("#scratcher");
 	dom.style.display = "block";
+
+	var width = $("#main").clientWidth;
+	var height = $("#main").clientHeight;
+	dom.style.width = width+"px";
+    dom.style.height = height+"px";
+    dom.style.left = -width/2+"px";
+    dom.style.top = -height/2+"px";
 
 	Scratcher.scratchAnim(true)
 	.then(function(){
@@ -21,6 +33,7 @@ Scratcher.scratch = function(gotoID){
 	})
 	.then(function(){
 		dom.style.display = "none";
+		Scratcher.isTransitioning = false;
 	});
 
 };

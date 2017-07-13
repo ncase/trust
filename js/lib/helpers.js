@@ -72,6 +72,7 @@ var _makeLabel = function(wordID, config){
 	if(config.align!==undefined) dom.style.textAlign = config.align;
 	if(config.color!==undefined) dom.style.color = config.color;
 	if(config.size!==undefined) dom.style.fontSize = config.size;
+	if(config.width!==undefined) dom.style.width = config.width;
 
 	return dom;
 
@@ -83,6 +84,39 @@ var Tween_get = function(target){
 }
 var _s = function(seconds){
 	return Math.ceil(Ticker.framerate*seconds); // converts seconds to ticks
+};
+
+/*******
+
+Hook listeners to an object,
+and unsubscribe ALL AT ONCE
+
+*******/
+
+var _listeners = [];
+var listen = function(object, message, callback){
+	var handler = subscribe(message, callback);
+	_listeners.push({
+		object: object,
+		handler: handler
+	});
+};
+var unlisten = function(object){
+	var objectListeners = _listeners.filter(function(l){
+		return l.object==object;
+	});
+	objectListeners.forEach(function(objectListener){
+		unsubscribe(objectListener.handler); // unsubscribe
+		_listeners.splice(_listeners.indexOf(objectListener), 1); // but also FORGET it
+	});
+}
+
+var debugListeners = function(){
+	var count = 0;
+	for(var sub in c_){
+		count += c_[sub].length;
+	}
+	console.log("there are currently "+count+" listeners!");
 };
 
 /*******

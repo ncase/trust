@@ -8,6 +8,7 @@ function Button(config){
 	button.className = "object";
 	button.classList.add("fader");
 	button.classList.add("button");
+	if(config.size) button.setAttribute("size", config.size);
 	self.dom = button;
 
 	// BG
@@ -28,10 +29,9 @@ function Button(config){
 		text.style.fontSize = config.fontSize;
 		text.style.top = 14+(20-config.fontSize);
 	}
-	config.upperCase = (config.upperCase===undefined) ? true : config.upperCase;
 	self.setText = function(text_id){
 		var words = Words.get(text_id);
-		if(config.upperCase) words=words.toUpperCase();
+		if(config.uppercase) words = words.toUpperCase();
 		text.innerHTML = words;
 	};
 	self.setText(config.text_id);
@@ -67,8 +67,10 @@ function Button(config){
 	if(!config.active) self.deactivate();
 
 	// Listeners!
-	subscribe(self.id+"/activate", self.activate);
-	subscribe(self.id+"/deactivate", self.deactivate);
+	if(self.id){
+		listen(self, self.id+"/activate", self.activate);
+		listen(self, self.id+"/deactivate", self.deactivate);
+	}
 
 	// Add...
 	self.add = function(INSTANT){
@@ -77,6 +79,7 @@ function Button(config){
 
 	// Remove...
 	self.remove = function(INSTANT){
+		unlisten(self);
 		return _removeFade(self, INSTANT);
 	};
 

@@ -69,13 +69,13 @@ function IncDecNumber(config){
 	///////////////////////////////////////
 
 	// Add...
-	self.add = function(INSTANT){
-		return _addFade(self, INSTANT);
+	self.add = function(){
+		_add(self);
 	};
 
 	// Remove...
-	self.remove = function(INSTANT){
-		return _removeFade(self, INSTANT);
+	self.remove = function(){
+		_remove(self);
 	};
 
 }

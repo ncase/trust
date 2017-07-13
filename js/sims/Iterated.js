@@ -25,13 +25,13 @@ function Iterated(config){
 	self.dom.appendChild(app.view);
 
 	// LABELS
-	var _l1 = _makeLabel("label_cooperate", {x:349, y:45, rotation:45, align:"center", color:"#333333", size:15});
+	var _l1 = _makeLabel("label_cooperate", {x:350, y:42, rotation:45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l1);
-	var _l2 = _makeLabel("label_cooperate", {x:277, y:45, rotation:-45, align:"center", color:"#333333", size:15});
+	var _l2 = _makeLabel("label_cooperate", {x:277, y:43, rotation:-45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l2);
-	var _l3 = _makeLabel("label_cheat", {x:416, y:96, rotation:45, align:"center", color:"#333333", size:15});
+	var _l3 = _makeLabel("label_cheat", {x:402, y:94, rotation:45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l3);
-	var _l4 = _makeLabel("label_cheat", {x:244, y:95, rotation:-45, align:"center", color:"#333333", size:15});
+	var _l4 = _makeLabel("label_cheat", {x:229, y:91, rotation:-45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l4);
 
 	///////////////////////////////////////////////
@@ -144,17 +144,17 @@ function Iterated(config){
 
 	};
 
-	subscribe("iterated/cooperate", function(){
+	listen(self, "iterated/cooperate", function(){
 		publish("iterated/round/start");
 		self.playOneRound(PD.COOPERATE);
 	});
 
-	subscribe("iterated/cheat", function(){
+	listen(self, "iterated/cheat", function(){
 		publish("iterated/round/start");
 		self.playOneRound(PD.CHEAT);
 	});
 
-	subscribe("iterated/newOpponent", function(id){
+	listen(self, "iterated/newOpponent", function(id){
 		self.chooseOpponent(id);
 		self.playerA.resetFace();
 		self.playerB.resetFace();
@@ -173,6 +173,7 @@ function Iterated(config){
 	// Remove...
 	self.remove = function(INSTANT){
 		app.destroy();
+		unlisten(self);
 		return _remove(self);
 	};
 

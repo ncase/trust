@@ -14,6 +14,9 @@ function Slideshow(config){
 	// Reset: INITIAL VARIABLES
 	self.reset = function(){
 
+		// CLEAR
+		if(self.clear) self.clear();
+
 		// On End?
 		if(self.currentSlide && self.currentSlide.onend){
 			self.currentSlide.onend(self);
@@ -76,6 +79,7 @@ function Slideshow(config){
 
 		// Create object
 		var Classname = window[objectConfig.type];
+		objectConfig.slideshow = self;
 		var obj = new Classname(objectConfig);
 		obj.slideshow = self;
 

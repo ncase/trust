@@ -20,14 +20,14 @@ SLIDES.push({
 
 		// Buttons
 		self.add({
-			id:"btnCheat", type:"Button", x:275, y:463, text_id:"label_cheat",
+			id:"btnCheat", type:"Button", x:275, y:463, text_id:"label_cheat", uppercase:true,
 			onclick:function(){
 				_.answer = "CHEAT";
 				publish("slideshow/next");
 			}
 		});
 		self.add({
-			id:"btnCooperate", type:"Button", x:495, y:460, text_id:"label_cooperate",
+			id:"btnCooperate", type:"Button", x:495, y:460, text_id:"label_cooperate", uppercase:true,
 			onclick:function(){
 				_.answer = "COOPERATE";
 				publish("slideshow/next");

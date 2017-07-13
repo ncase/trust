@@ -165,7 +165,7 @@ function Tournament(config){
 
 	};
 
-	subscribe("tournament/reset", self.reset);
+	listen(self, "tournament/reset", self.reset);
 
 	self.reset();
 
@@ -278,9 +278,9 @@ function Tournament(config){
 	var _stopAutoPlay = function(){
 		self.isAutoPlaying = false;
 	};
-	subscribe("tournament/autoplay/start", _startAutoPlay);
-	subscribe("tournament/autoplay/stop", _stopAutoPlay);
-	subscribe("tournament/step", function(){
+	listen(self, "tournament/autoplay/start", _startAutoPlay);
+	listen(self, "tournament/autoplay/stop", _stopAutoPlay);
+	listen(self, "tournament/step", function(){
 		publish("tournament/autoplay/stop");
 		_nextStep();
 	});
@@ -358,17 +358,17 @@ function Tournament(config){
 		self.STAGE=STAGE_PLAY;
 		// self.deactivateAllButtons();
 	};
-	subscribe("tournament/play", self._startPlay);
+	listen(self, "tournament/play", self._startPlay);
 	self._startEliminate = function(){
 		self.STAGE=STAGE_ELIMINATE;
 		// self.deactivateAllButtons();
 	};
-	subscribe("tournament/eliminate", self._startEliminate);
+	listen(self, "tournament/eliminate", self._startEliminate);
 	self._startReproduce = function(){
 		self.STAGE=STAGE_REPRODUCE;
 		// self.deactivateAllButtons();
 	};
-	subscribe("tournament/reproduce", self._startReproduce);
+	listen(self, "tournament/reproduce", self._startReproduce);
 
 	// Add...
 	self.add = function(INSTANT){
@@ -379,6 +379,8 @@ function Tournament(config){
 	// TODO: KILL ALL LISTENERS, TOO.
 	// TODO: Don't screw up when paused or looking at new tab
 	self.remove = function(INSTANT){
+		for(var i=0; i<self.agents.length; i++) unlisten(self.agents[i]);
+		unlisten(self);
 		app.destroy();
 		return _remove(self);
 	};
@@ -514,7 +516,7 @@ function TournamentAgent(config){
 	};
 	self.updateScore();
 	scoreText.visible = false;
-	var _handle = subscribe("tournament/reproduce",function(){
+	listen(self, "tournament/reproduce",function(){
 		scoreText.visible = false;
 	});
 
@@ -580,7 +582,7 @@ function TournamentAgent(config){
 		self.tournament.actuallyRemoveAgent(self);
 
 		// Unsub
-		unsubscribe(_handle);
+		unlisten(self);
 
 	};
 

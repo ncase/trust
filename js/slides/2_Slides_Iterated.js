@@ -24,22 +24,22 @@ SLIDES.push({
 		ROUND_NUM = 0;
 
 		self.add({
-			id:"buttonCheat", type:"Button", x:275, y:403, 
+			id:"buttonCheat", type:"Button", x:275, y:403, uppercase:true,
 			text_id:"label_cheat",
 			message:"iterated/cheat"
 		});
 
 		self.add({
-			id:"buttonCooperate", type:"Button", x:495, y:400, 
+			id:"buttonCooperate", type:"Button", x:495, y:400, uppercase:true,
 			text_id:"label_cooperate",
 			message:"iterated/cooperate"
 		});
 
-		_.listenerRoundStart = subscribe("iterated/round/start", function(){
+		listen(self, "iterated/round/start", function(){
 			publish("buttonCheat/deactivate");
 			publish("buttonCooperate/deactivate");
 		});
-		_.listenerRoundEnd = subscribe("iterated/round/end", function(){
+		listen(self, "iterated/round/end", function(){
 
 			publish("buttonCheat/activate");
 			publish("buttonCooperate/activate");
@@ -64,6 +64,7 @@ SLIDES.push({
 	},
 
 	onend: function(self){
+		unlisten(self);
 		self.clear();
 	}
 

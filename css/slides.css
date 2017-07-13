@@ -40,6 +40,12 @@ body{
 /******* SLIDESHOW *******/
 /*************************/
 
+#slideshow_container{
+	width:0; height:0;
+	position:absolute;
+	margin:auto; 
+	top:0; left:0; right:0; bottom:0;
+}
 #slideshow{
 	
 	/*background: #bada55;*/
@@ -49,8 +55,8 @@ body{
 
 	/* Center this thing */
 	position: absolute;
-	margin: auto;
-	top:0; left:0; right:0; bottom:0;
+	left:-480px;
+	top:-270px;
 
 }
 #slideshow .object{
@@ -126,7 +132,7 @@ body{
 	z-index: 100;
 }
 .button[hover=yes] #background{
-	background-position: 0px -125px;
+	background-position: 0px -125px !important;
 }
 .button[deactivated=yes] #background{
 	background-position: 0px -250px;
@@ -136,6 +142,29 @@ body{
 }
 .button[deactivated=yes] #hitbox{
 	display: none;
+}
+.button[size=short] #background{
+	background: url(../assets/ui/button_short.png);
+	background-size: 100%;
+	width:150px; left:-20px;
+}
+.button[size=short] #text{
+	width:105px;
+}
+.button[size=short] #hitbox{
+	width:115px;
+}
+.button[size=long] #background{
+	background: url(../assets/ui/button_long.png);
+	background-size: 100%;
+	width:400px;
+}
+.button[size=long] #text{
+	width:330px;
+	top: 11px;
+}
+.button[size=long] #hitbox{
+	width:345px;
 }
 
 
