@@ -1,3 +1,8 @@
+Loader.addToManifest(Loader.manifest,{
+	scratch_in: "assets/sounds/scratch_in.mp3",
+	scratch_out: "assets/sounds/scratch_out.mp3"
+});
+
 (function(exports){
 
 var Scratcher = {};
@@ -41,6 +46,7 @@ subscribe("slideshow/scratch", Scratcher.scratch);
 
 
 Scratcher.scratchAnim = function(scratchIn){
+
 	var dom = $("#scratcher");
 	var deferred = Q.defer();
 	var frame = 0;
@@ -53,7 +59,14 @@ Scratcher.scratchAnim = function(scratchIn){
 			Scratcher.gotoFrame(scratchIn, frame);
 		}
 	},40);
+
+	setTimeout(function(){
+		var sound = scratchIn ? Loader.sounds.scratch_in : Loader.sounds.scratch_out;
+		sound.volume(0.7).play();
+	},100);
+
 	return deferred.promise;
+
 };
 Scratcher.gotoFrame = function(scratchIn, frame){
 	var dom = $("#scratcher");

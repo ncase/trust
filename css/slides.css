@@ -97,6 +97,9 @@ body{
 	-moz-user-select: none;     /* Firefox all */
 	-ms-user-select: none;      /* IE 10+ */
 	user-select: none; 
+
+	transform-origin: 97.5px 27.5px;
+	transition: transform 0.1s ease-out;
 }
 .button #background{
 	position: absolute;
@@ -130,6 +133,7 @@ body{
 }
 .button[hover=yes]{
 	z-index: 100;
+	transform: scale(1.02, 1.02);
 }
 .button[hover=yes] #background{
 	background-position: 0px -125px !important;
@@ -143,6 +147,9 @@ body{
 .button[deactivated=yes] #hitbox{
 	display: none;
 }
+.button[size=short]{
+	transform-origin: 57.5px 27.5px;
+}
 .button[size=short] #background{
 	background: url(../assets/ui/button_short.png);
 	background-size: 100%;
@@ -153,6 +160,9 @@ body{
 }
 .button[size=short] #hitbox{
 	width:115px;
+}
+.button[size=long]{
+	transform-origin: 172.5px 27.5px;
 }
 .button[size=long] #background{
 	background: url(../assets/ui/button_long.png);
@@ -165,6 +175,9 @@ body{
 }
 .button[size=long] #hitbox{
 	width:345px;
+}
+.button:active{
+    transform: scale(0.95, 0.95);
 }
 
 

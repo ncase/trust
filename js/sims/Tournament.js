@@ -379,6 +379,7 @@ function Tournament(config){
 	// TODO: KILL ALL LISTENERS, TOO.
 	// TODO: Don't screw up when paused or looking at new tab
 	self.remove = function(INSTANT){
+		_stopAutoPlay();
 		for(var i=0; i<self.agents.length; i++) unlisten(self.agents[i]);
 		unlisten(self);
 		app.destroy();
