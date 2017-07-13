@@ -410,16 +410,16 @@ function SandboxUI(config){
 	/////////////////////////////////////////
 	
 	// Add...
-	self.add = function(INSTANT){
-		return _add(self);
+	self.add = function(){
+		_add(self);
 	};
 
 	// Remove...
-	self.remove = function(INSTANT){
+	self.remove = function(){
 		for(var i=0;i<numbers.length;i++) unlisten(numbers[i]);
 		for(var i=0;i<sliders.length;i++) unlisten(sliders[i]);
 		unlisten(self);
-		return _remove(self);
+		_remove(self);
 	};
 
 }

@@ -14,13 +14,13 @@ function Slideshow(config){
 	// Reset: INITIAL VARIABLES
 	self.reset = function(){
 
-		// CLEAR
-		if(self.clear) self.clear();
-
 		// On End?
 		if(self.currentSlide && self.currentSlide.onend){
 			self.currentSlide.onend(self);
 		}
+
+		// CLEAR
+		if(self.clear) self.clear();
 
 		// Reset
 		self.dom.innerHTML = "";
@@ -36,7 +36,7 @@ function Slideshow(config){
 	//////////////////////////////////////////////////
 
 	// Go to next slide
-	self.nextSlide = function(INSTANT){
+	self.nextSlide = function(){
 
 		// On End?
 		if(self.currentSlide && self.currentSlide.onend){
@@ -73,9 +73,7 @@ function Slideshow(config){
 	self.objects = {};
 
 	// Add Object
-	self.add = function(objectConfig, INSTANT){
-
-		INSTANT = true; // hack, sure.
+	self.add = function(objectConfig){
 
 		// Create object
 		var Classname = window[objectConfig.type];
@@ -87,29 +85,25 @@ function Slideshow(config){
 		self.objects[objectConfig.id] = obj;
 
 		// Add it for real!
-		return obj.add(INSTANT); // return a possible promise
+		return obj.add();
 
 	};
 
 	// Remove Object
-	self.remove = function(objectID, INSTANT){
-
-		INSTANT = true; // hack, sure.
+	self.remove = function(objectID){
 
 		// Find it...
 		var obj = self.objects[objectID];
 
 		// Remove from memory & DOM
 		delete self.objects[objectID];
-		return obj.remove(INSTANT); // return a possible promise
+		return obj.remove();
 
 	};
 
 	// Clear: Remove ALL objects
-	self.clear = function(INSTANT){
-		for(var id in self.objects){
-			self.remove(id, INSTANT);
-		}
+	self.clear = function(){
+		for(var id in self.objects) self.remove(id);
 	};
 
 

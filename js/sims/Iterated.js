@@ -135,7 +135,7 @@ function Iterated(config){
 			self.dehighlightPayoff();
 
 			// End Round
-			publish("iterated/round/end");
+			publish("iterated/round/end", payoffs);
 
 		});
 
@@ -166,16 +166,59 @@ function Iterated(config){
 	///////////////////////////////////////////////
 
 	// Add...
-	self.add = function(INSTANT){
-		return _add(self);
+	self.add = function(){
+		_add(self);
 	};
 
 	// Remove...
-	self.remove = function(INSTANT){
+	self.remove = function(){
 		app.destroy();
 		unlisten(self);
-		return _remove(self);
+		_remove(self);
 	};
+
+}
+
+function IteratedScoreboard(config){
+
+	var self = this;
+	self.config = config;
+
+	// DOM
+	self.dom = document.createElement("div");
+	self.dom.id = "scoreboard";
+	self.dom.className = "object";
+	self.dom.style.left = config.x+"px";
+	self.dom.style.top = config.y+"px";
+
+	// Left score
+	var left = document.createElement("div");
+	self.dom.appendChild(left);
+
+	// Right score
+	var right = document.createElement("div");
+	self.dom.appendChild(right);
+
+	// Reset
+	self.score = [0,0];
+	self.reset = function(){
+		self.score = [0,0];
+		self.showScore();
+	};
+	self.addScore = function(a,b){
+		self.score[0] += a;
+		self.score[1] += b;
+		self.showScore();
+	};
+	self.showScore = function(){
+		left.innerHTML = self.score[0];
+		right.innerHTML = self.score[1];
+	};
+	self.reset();
+
+	// Add & Remove
+	self.add = function(){ _add(self); };
+	self.remove = function(){ _remove(self); };
 
 }
 

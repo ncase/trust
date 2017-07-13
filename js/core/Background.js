@@ -18,14 +18,8 @@ function Background(config){
 	self.dom.style.height = height+"px";
 	self.dom.style.background = config.color;
 
-	// Add...
-	self.add = function(INSTANT){
-		return _addFade(self, INSTANT);
-	};
-
-	// Remove...
-	self.remove = function(INSTANT){
-		return _removeFade(self, INSTANT);
-	};
+	// Add & Remove
+	self.add = function(){ _add(self); };
+	self.remove = function(){ _remove(self); };
 
 }

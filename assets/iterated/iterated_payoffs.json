@@ -63,13 +63,29 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
 	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0008":
+{
+	"frame": {"x":1034,"y":1034,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
+},
+"iterated_payoffs0009":
+{
+	"frame": {"x":10,"y":1546,"w":502,"h":502},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":502,"h":502},
+	"sourceSize": {"w":502,"h":502}
 }},
 "meta": {
 	"app": "Adobe Animate",
 	"version": "15.2.0.66",
 	"image": "iterated_payoffs.png",
 	"format": "RGBA8888",
-	"size": {"w":2048,"h":2048},
+	"size": {"w":2048,"h":4096},
 	"scale": "1"
 }
 }

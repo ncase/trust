@@ -59,17 +59,15 @@ body{
 	top:-270px;
 
 }
-#slideshow .object{
+.object{
 	position: absolute;
+	transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
 }
 
 /********* Fader *********/
 
 .fader{
-	-webkit-transition: opacity 0.3s ease-in-out;
-	-mos-transition: opacity 0.3s ease-in-out;
-	-ms-transition: opacity 0.3s ease-in-out;
-	transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.5s ease-in-out;
 }
 
 /******** Text Box ********/
@@ -293,6 +291,31 @@ body{
 	z-index: 200;
 }
 
+/*************************/
+/******* SCOREBOARD *******/
+/*************************/
+
+#scoreboard{
+	position: absolute;
+	width:200px; height:100px;
+	background: url(../assets/iterated/iterated_scoreboard.png);
+	background-size: 100% 100%;
+}
+#scoreboard > div{
+	position: absolute;
+	width: 60px; height: 60px;
+	text-align: center;
+	font-size: 50px;
+	color: #666666;
+}
+#scoreboard > div:nth-child(1){
+	left: 20px;
+    top: 21px;
+}
+#scoreboard > div:nth-child(2){
+	right: 15px;
+    top: 21px;
+}
 
 /*************************/
 /***** SLIDE SELECT ******/

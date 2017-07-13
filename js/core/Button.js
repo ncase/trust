@@ -72,15 +72,8 @@ function Button(config){
 		listen(self, self.id+"/deactivate", self.deactivate);
 	}
 
-	// Add...
-	self.add = function(INSTANT){
-		return _addFade(self, INSTANT);
-	};
-
-	// Remove...
-	self.remove = function(INSTANT){
-		unlisten(self);
-		return _removeFade(self, INSTANT);
-	};
+	// Add & Remove
+	self.add = function(){ _add(self); };
+	self.remove = function(){ _remove(self); };
 
 }

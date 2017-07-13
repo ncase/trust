@@ -101,14 +101,14 @@ function Splash(config){
 	///////////////////////////////////////////////
 
 	// Add...
-	self.add = function(INSTANT){
-		return _add(self);
+	self.add = function(){
+		_add(self);
 	};
 
 	// Remove...
-	self.remove = function(INSTANT){
+	self.remove = function(){
 		app.destroy();
-		return _remove(self);
+		_remove(self);
 	};
 
 }

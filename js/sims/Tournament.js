@@ -371,19 +371,17 @@ function Tournament(config){
 	listen(self, "tournament/reproduce", self._startReproduce);
 
 	// Add...
-	self.add = function(INSTANT){
-		return _add(self);
+	self.add = function(){
+		_add(self);
 	};
 
 	// Remove...
-	// TODO: KILL ALL LISTENERS, TOO.
-	// TODO: Don't screw up when paused or looking at new tab
-	self.remove = function(INSTANT){
+	self.remove = function(){
 		_stopAutoPlay();
 		for(var i=0; i<self.agents.length; i++) unlisten(self.agents[i]);
 		unlisten(self);
 		app.destroy();
-		return _remove(self);
+		_remove(self);
 	};
 
 }
