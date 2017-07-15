@@ -11,11 +11,25 @@ SLIDES.push({
 		// Words on top & bottom
 		self.add({
 			id:"topWords", type:"TextBox", text_id:"oneoff_0_top",
-			x:80, y:10, width:800, height:100, align:"center"
+			x:130, y:10, width:700, height:100, align:"center"
 		});
 		self.add({
 			id:"btmWords", type:"TextBox", text_id:"oneoff_0_btm",
-			x:80, y:397, width:800, height:100, align:"center"
+			x:130, y:397, width:700, height:100, align:"center"
+		});
+
+		// Labels
+		self.add({
+			id:"labelYou", type:"TextBox",
+			x:211, y:201, width:50, height:50,
+			align:"center", color:"#aaa", size:17,
+			text_id:"label_you"
+		});
+		self.add({
+			id:"labelThem", type:"TextBox",
+			x:702, y:189, width:50, height:50,
+			align:"center", color:"#aaa", size:17,
+			text_id:"label_them"
 		});
 
 		// Buttons
@@ -34,40 +48,55 @@ SLIDES.push({
 			}
 		});
 
+	},
+	onend: function(self){
+		self.remove("labelYou");
+		self.remove("labelThem");
 	}
 
 },{
 
 	onstart: function(self){
 
+		var o = self.objects;
+
 		// Payoff
-		self.objects.iterated.oneoffHighlight1();
+		o.iterated.oneoffHighlight1(_.answer);
 
 		// Text
-		var t = self.objects.topWords;
-		var b = self.objects.btmWords;
+		var t = o.topWords;
+		var b = o.btmWords;
 		if(_.answer=="COOPERATE"){
-			t.setText(Words.get("oneoff_1_cooperated")+" "+Words.get("oneoff_1_top"));
+			t.setText(Words.get("oneoff_1_cooperated")+"<br>"+Words.get("oneoff_1_top"));
 		}else{
-			t.setText(Words.get("oneoff_1_cheated")+" "+Words.get("oneoff_1_top"));
+			t.setText(Words.get("oneoff_1_cheated")+"<br>"+Words.get("oneoff_1_top"));
 		}
 		b.setTextID("oneoff_1_btm");
+
+		// Hide & fade
+		_hide(o.topWords); _fadeIn(o.topWords, 150+10);
+		_hide(o.btmWords); _fadeIn(o.btmWords, 150+600);
+		_hide(o.btnCheat); _fadeIn(o.btnCheat, 150+1200);
+		_hide(o.btnCooperate); _fadeIn(o.btnCooperate, 150+1200);
+
 	}
 
 },{
 
 	onstart: function(self){
 
+		var o = self.objects;
+
 		// Payoff
-		self.objects.iterated.oneoffHighlight2();
+		o.iterated.oneoffHighlight2(_.answer);
 
 		// Text
-		var t = self.objects.topWords;
-		var b = self.objects.btmWords;
+		var t = o.topWords;
+		var b = o.btmWords;
 		if(_.answer=="COOPERATE"){
-			t.setText(Words.get("oneoff_2_cooperated")+" "+Words.get("oneoff_2_top"));
+			t.setText(Words.get("oneoff_2_cooperated")+"<br>"+Words.get("oneoff_2_top"));
 		}else{
-			t.setText(Words.get("oneoff_2_cheated")+" "+Words.get("oneoff_2_top"));
+			t.setText(Words.get("oneoff_2_cheated")+"<br>"+Words.get("oneoff_2_top"));
 		}
 		b.setTextID("oneoff_2_btm");
 
@@ -75,9 +104,15 @@ SLIDES.push({
 		self.remove("btnCheat");
 		self.remove("btnCooperate");
 		self.add({
-			id:"btnNext", type:"Button", x:385, y:460, text_id:"oneoff_button_next",
+			id:"btnNext", type:"Button", x:304, y:466, size:"long",
+			text_id:"oneoff_button_next", 
 			message:"slideshow/next"
 		});
+
+		// Hide & fade
+		_hide(o.topWords); _fadeIn(o.topWords, 150+10);
+		_hide(o.btmWords); _fadeIn(o.btmWords, 150+600);
+		_hide(o.btnNext); _fadeIn(o.btnNext, 150+1200);
 
 	},
 
@@ -86,6 +121,7 @@ SLIDES.push({
 		self.remove("topWords");
 		self.remove("btmWords");
 		self.remove("btnNext");
+		_.clear();
 	}
 
 });

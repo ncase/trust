@@ -1,33 +1,6 @@
-// Show the characters
-SLIDES.push({
-
-	id: "tournament",
-
-	onstart: function(self){
-
-		// Text
-		self.add({
-			id:"text", type:"TextBox",
-			x:160, y:10, width:640, height:500, align:"center", size:19,
-			text_id:"characters"
-		});
-
-		// Button
-		self.add({
-			id:"button", type:"Button", size:"long", x:385, y:466, 
-			text_id:"characters_button",
-			message:"slideshow/scratch"
-		});
-
-	},
-	onend: function(self){
-		self.clear();
-	}
-
-});
-
 // round-robin tournament, place your bets
 SLIDES.push({
+	id: "tournament",
 	onstart: function(self){
 
 		// Tournament

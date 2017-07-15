@@ -2,11 +2,11 @@ function Button(config){
 
 	var self = this;
 	self.id = config.id;
+	self.config = config;
 
 	// Create DOM
 	var button = document.createElement("div");
 	button.className = "object";
-	button.classList.add("fader");
 	button.classList.add("button");
 	if(config.size) button.setAttribute("size", config.size);
 	self.dom = button;
@@ -74,6 +74,9 @@ function Button(config){
 
 	// Add & Remove
 	self.add = function(){ _add(self); };
-	self.remove = function(){ _remove(self); };
+	self.remove = function(){
+		unlisten(self);
+		_remove(self);
+	};
 
 }

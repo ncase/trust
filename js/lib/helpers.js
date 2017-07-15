@@ -28,32 +28,6 @@ var _remove = function(self){
 	self.slideshow.dom.removeChild(self.dom);
 };
 
-// Add & Remove... with FADE
-var _addFade = function(self, INSTANT){
-	if(INSTANT){
-		_add(self);
-	}else{	
-		self.dom.style.opacity = 0;
-		_add(self);
-		setTimeout(function(){
-			self.dom.style.opacity = 1;
-		},10);
-	}
-};
-var _removeFade = function(self, INSTANT){
-	if(INSTANT){
-		_remove(self);
-	}else{
-		var deferred = Q.defer();
-		self.dom.style.opacity = 0;
-		setTimeout(function(){
-			_remove(self);
-			deferred.resolve();
-		},300);
-		return deferred.promise;
-	}
-};
-
 // Make Label
 var _makeLabel = function(wordID, config){
 	
@@ -63,6 +37,12 @@ var _makeLabel = function(wordID, config){
 	dom.innerHTML = Words.get(wordID);
 	config = config || {};
 	
+	_configText(config, dom);
+
+	return dom;
+
+};
+var _configText = function(config, dom){
 	if(config.x!==undefined) dom.style.left = config.x+"px";
 	if(config.y!==undefined) dom.style.top = config.y+"px";
 	if(config.w!==undefined) dom.style.width = config.w+"px";
@@ -73,10 +53,8 @@ var _makeLabel = function(wordID, config){
 	if(config.color!==undefined) dom.style.color = config.color;
 	if(config.size!==undefined) dom.style.fontSize = config.size;
 	if(config.width!==undefined) dom.style.width = config.width;
-
-	return dom;
-
-};
+	if(config.lineHeight) dom.style.lineHeight = config.lineHeight+"em";
+}
 
 // Tween
 var Tween_get = function(target){
@@ -84,6 +62,20 @@ var Tween_get = function(target){
 }
 var _s = function(seconds){
 	return Math.ceil(Ticker.framerate*seconds); // converts seconds to ticks
+};
+
+// Animation
+var _hide = function(object){
+	object.dom.style.opacity = 0;
+};
+var _fadeIn = function(object, time){
+	setTimeout(function(){
+		object.dom.classList.add("fader");
+		object.dom.style.opacity = 1;
+		setTimeout(function(){
+			object.dom.classList.remove("fader");
+		},500);
+	},time);
 };
 
 /*******

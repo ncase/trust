@@ -25,7 +25,7 @@ Scratcher.scratch = function(gotoID){
     dom.style.left = -width/2+"px";
     dom.style.top = -height/2+"px";
 
-	Scratcher.scratchAnim(true)
+	Scratcher.scratchAnim(dom, true)
 	.then(function(){
 		if(gotoID){
 			publish("slideshow/goto", [gotoID]);
@@ -34,7 +34,7 @@ Scratcher.scratch = function(gotoID){
 		}
 	})
 	.then(function(){
-		return Scratcher.scratchAnim(false);
+		return Scratcher.scratchAnim(dom, false);
 	})
 	.then(function(){
 		dom.style.display = "none";
@@ -45,9 +45,8 @@ Scratcher.scratch = function(gotoID){
 subscribe("slideshow/scratch", Scratcher.scratch);
 
 
-Scratcher.scratchAnim = function(scratchIn){
+Scratcher.scratchAnim = function(dom, scratchIn){
 
-	var dom = $("#scratcher");
 	var deferred = Q.defer();
 	var frame = 0;
 	var interval = setInterval(function(){
@@ -56,7 +55,7 @@ Scratcher.scratchAnim = function(scratchIn){
 			clearInterval(interval);
 			deferred.resolve();
 		}else{
-			Scratcher.gotoFrame(scratchIn, frame);
+			dom.style.backgroundPosition = (scratchIn?0:-100)+"% "+(frame*-100)+"%";
 		}
 	},40);
 
@@ -68,9 +67,33 @@ Scratcher.scratchAnim = function(scratchIn){
 	return deferred.promise;
 
 };
-Scratcher.gotoFrame = function(scratchIn, frame){
-	var dom = $("#scratcher");
-	dom.style.backgroundPosition = (scratchIn?0:-100)+"% "+(frame*-100)+"%";
+
+Scratcher.smallScratch = function(x,y,width,height,_onChange,_onComplete){
+
+	// Create DOM
+	var scratcher = document.createElement("div");
+	scratcher.style.left = x+"px";
+	scratcher.style.top = y+"px";
+	scratcher.style.width = width+"px";
+	scratcher.style.height = height+"px";
+	scratcher.className = "scratcher";
+	scratcher.style.display = "block";
+	slideshow.dom.appendChild(scratcher);
+
+	// Animate!
+	Scratcher.scratchAnim(scratcher, true)
+	.then(function(){
+		_onChange();
+	})
+	.then(function(){
+		return Scratcher.scratchAnim(scratcher, false);
+	})
+	.then(function(){
+		slideshow.dom.removeChild(scratcher); // Destroy DOM
+		_onComplete();
+	});
+
 };
+
 
 })(window);

@@ -63,11 +63,8 @@ body{
 	position: absolute;
 	transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
 }
-
-/********* Fader *********/
-
 .fader{
-	transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.5s ease-in-out !important;
 }
 
 /******** Text Box ********/
@@ -280,7 +277,7 @@ body{
 /******* SCRATCHER *******/
 /*************************/
 
-#scratcher{
+.scratcher{
 	position: absolute;
 	top:0; left:0;
 	width: 100%; height: 100%;
@@ -316,6 +313,47 @@ body{
 	right: 15px;
     top: 21px;
 }
+
+/*************************/
+/******* CHARACTERS *******/
+/*************************/
+
+.character{
+	position: absolute;
+	height: 114px;
+}
+.character #peep{
+	background: url(../assets/tournament/peep_characters.png);
+	background-size: auto 100%;
+	width: 105px;
+	height: 114px;
+	top: -5px;
+    left: -10px;
+}
+.character #desc{
+	width: calc(100% - 100px);
+	font-size: 18px;
+	height: 114px;
+	right: 0;
+	line-height: 1.2em;
+}
+.character #peep[char=tft]{    background-position: 0 0; }
+.character #peep[char=all_d]{  background-position: -105px 0; }
+.character #peep[char=all_c]{  background-position: -210px 0; }
+.character #peep[char=grudge]{ background-position: -315px 0; }
+.character #peep[char=prober]{ background-position: -420px 0; }
+.character #peep[char=tf2t]{   background-position: -525px 0; }
+.character #peep[char=pavlov]{ background-position: -630px 0; }
+.character #peep[char=random]{ background-position: -735px 0; }
+
+.tft{ color:#4089DD; }
+.all_d{ color:#52537F; }
+.all_c{ color:#FF75FF; }
+.grudge{ color:#C4A401; }
+.prober{ color:#CC984C; }
+.tf2t{ color:#88A8CE; }
+.pavlov{ color:#86C448; }
+.random{ color:#FF5E5E; }
 
 /*************************/
 /***** SLIDE SELECT ******/

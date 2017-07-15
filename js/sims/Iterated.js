@@ -25,13 +25,13 @@ function Iterated(config){
 	self.dom.appendChild(app.view);
 
 	// LABELS
-	var _l1 = _makeLabel("label_cooperate", {x:350, y:42, rotation:45, align:"center", color:"#333333", size:15, width:70});
+	var _l1 = _makeLabel("label_they_cooperate", {x:354, y:34, rotation:45, align:"center", color:"#333333", size:15, width:70, lineHeight:1});
 	self.dom.appendChild(_l1);
-	var _l2 = _makeLabel("label_cooperate", {x:277, y:43, rotation:-45, align:"center", color:"#333333", size:15, width:70});
+	var _l2 = _makeLabel("label_you_cooperate", {x:272, y:35, rotation:-45, align:"center", color:"#333333", size:15, width:70, lineHeight:1});
 	self.dom.appendChild(_l2);
-	var _l3 = _makeLabel("label_cheat", {x:402, y:94, rotation:45, align:"center", color:"#333333", size:15, width:70});
+	var _l3 = _makeLabel("label_they_cheat", {x:406, y:86, rotation:45, align:"center", color:"#333333", size:15, width:70, lineHeight:1});
 	self.dom.appendChild(_l3);
-	var _l4 = _makeLabel("label_cheat", {x:229, y:91, rotation:-45, align:"center", color:"#333333", size:15, width:70});
+	var _l4 = _makeLabel("label_you_cheat", {x:224, y:83, rotation:-45, align:"center", color:"#333333", size:15, width:70, lineHeight:1});
 	self.dom.appendChild(_l4);
 
 	///////////////////////////////////////////////
@@ -82,23 +82,39 @@ function Iterated(config){
 	};
 
 	// HACK
-	self.oneoffHighlight1 = function(){
+	self.oneoffHighlight1 = function(yourAnswer){
 		self.dehighlightPayoff();
 		self.payoffs.gotoAndStop(1);
-		_l3.style.color = "#FFE663";
+		var your = yourAnswer=="COOPERATE" ? _l2 : _l4;
+		your.style.color = _l3.style.color = "#FFE663";
 	};
-	self.oneoffHighlight2 = function(){
+	self.oneoffHighlight2 = function(yourAnswer){
 		self.dehighlightPayoff();
 		self.payoffs.gotoAndStop(2);
-		_l1.style.color = "#FFE663";
+		var your = yourAnswer=="COOPERATE" ? _l2 : _l4;
+		your.style.color = _l1.style.color = "#FFE663";
 	};
 
 	// Animiniminimination
+	var _introMachine = -1;
 	app.ticker.add(function(delta){
 		Tween.tick();
 		self.playerA.update(delta);
 		self.playerB.update(delta);
+
+		// IF: INTRODUCING MACHINE
+		if(_introMachine>0){
+			self.payoffs.gotoAndStop(4 + (Math.floor(_introMachine)%4));
+			_introMachine -= 0.33;
+			if(_introMachine<=0){
+				self.dehighlightPayoff();
+			}
+		}
+
 	});
+	self.introMachine = function(){
+		_introMachine = 40;
+	};
 
 	///////////////////////////////////////////////
 	///////////////// LISTENERS ///////////////////

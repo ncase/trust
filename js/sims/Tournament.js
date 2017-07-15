@@ -54,7 +54,6 @@ function Tournament(config){
 	self.dom.className = "object";
 	self.dom.style.width = 500;
 	self.dom.style.height = 500;
-	//self.dom.classList.add("fader");
 	self.dom.style.left = config.x+"px";
 	self.dom.style.top = config.y+"px";
 	//self.dom.style.border = "1px solid rgba(0,0,0,0.2)";

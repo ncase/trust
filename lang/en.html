@@ -3,29 +3,26 @@
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="intro">
-During the trench warfare<br>of World War I, peace broke out.
+During World War I, peace broke out.
 <br><br>
 
-It was Christmas 1914.
-Despite strict orders not to chill<br>
-with the enemy, British and German soldiers left their trenches,<br>
-and gathered to bury their dead, exchange gifts, and sing.
-This wasn't unique. Even long before Christmas,
-soldiers already had an unspoken system of "live and let live" --
-a small peace in a Great War.
+It was Christmas 1914 on the Western Front.<br>
+Despite strict orders <i>not</i> to chill out with the enemy, British<br>
+and German soldiers left their trenches, crossed No Man's Land,<br>
+and gathered together to bury their dead, to exchange gifts, to sing.
 <br><br>
 
-Meanwhile, the West is now at peace, and yet,
-we distrust our governments, media, and <i>each other</i> more and more.
-So, we gotta ask:
-<b>
-Why, even in the best of times, do friends become enemies?
-But also why, even in the worst of times, why do enemies become friends?
-</b>
+Meanwhile: it's 2017, the West has been at peace for decades, and<br>
+we're less trusting than ever. Fewer and fewer people say they trust their<br>
+governments, their media, or even <i>each other</i>. So here's our puzzle:
 <br><br>
 
-These are complex questions, but a simple idea from game<br>
-theory can help shed some light! So, to understand<br>our epidemic of distrust...
+<b>Why, even in good times, do friends become enemies?<br>
+And why, even in bad times, do enemies become friends?</b>
+<br><br>
+
+I think game theory can help explain our epidemic of distrust –<br>
+and how we can fix it! So, to understand all this...
 </p>
 <p id="intro_button">
 ...let's play a game. &rarr;
@@ -35,81 +32,179 @@ theory can help shed some light! So, to understand<br>our epidemic of distrust..
 <!-- - - - - - ONE OFF! - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
-<p id="oneoff_0_top">
-<b>THE GAME OF TRUST:</b>
-<br>
-There's a machine. If one player puts a coin in the machine, the <i>other</i> player gets three coins.
-A player can either choose to <b>COOPERATE</b> (put in one coin), or <b>CHEAT</b> (keep their coin).
+<p id="label_you_cooperate">
+you<br>cooperate
 </p>
+
+<p id="label_you_cheat">
+you<br>cheat
+</p>
+
+<p id="label_they_cooperate">
+they<br>cooperate
+</p>
+
+<p id="label_they_cheat">
+they<br>cheat
+</p>
+
+<p id="label_you">
+you<br>↙
+</p>
+<p id="label_them">
+other player<br>↘
+</p>
+
+<p id="oneoff_0_top">
+
+<b>THE GAME OF TRUST</b>
+<br>
+You have one choice.
+In front of you is a machine: if you put a coin in the machine,
+the <i>other player</i> gets three coins – and vice versa.
+You both can either choose to COOPERATE (put in coin), or CHEAT (don't put in coin).
+</p>
+
 <p id="oneoff_0_btm">
-But there's a problem. Think about it: if the other player CHEATS, what should you do?
+Let's say the other player cheats, and doesn't put in a coin.<br>
+What should you do?
 </p>
 
 <p id="oneoff_1_cheated">
-Fair enough – if the other player won't cooperate, why should you?
+Exactly! Why let that moocher mooch off of you?
 </p>
+
 <p id="oneoff_1_cooperated">
-Alas, turning the other cheek just gets you slapped on that cheek.
+Alas, turning the other cheek just gets you slapped!
 </p>
+
 <p id="oneoff_1_top">
-Cooperating while the other person cheats means you lose a coin while they get three. (-1 vs +3)
-However, both of you cheating means you both neither gain nor lose anything. (0 vs 0)
-Therefore, you should <b>CHEAT</b>.
+If you cooperate &amp; they cheat, you lose a coin while they gain three. (score: -1 vs +3)
+However, if you both cheat, neither of you gain or lose anything. (score: 0 vs 0)
+<b>Therefore: you should CHEAT.</b>
 </p>
+
 <p id="oneoff_1_btm">
-But if the other player <b>COOPERATES</b>, what should you do now?
+But let's say the other player cooperates, and puts in a coin.<br>
+What should you do now?
 </p>
 
 <p id="oneoff_2_cheated">
-Wow, that's mean. And also the correct answer!
+Wow, that's mean... and also the correct answer!
 </p>
+
 <p id="oneoff_2_cooperated">
-Yeah, seems like the right thing to do... but is it the *correct* thing to do?
+Sure, seems like the right thing to do... <i>or is it?</i>
 </p>
+
 <p id="oneoff_2_top">
-Because, if you both cooperate, you both lose one coin and gain three (+2 vs +2).
-But you can do <i>even better</i> – if you cheat while they cooperate,
-<i>you</i> can gain three coins at no cost, while they lose a coin. (+3 vs -1)
-Therefore, you should <i>still</i> <b>CHEAT</b>.
+Because if you both cooperate, you both give up a coin to gain three. (score: +2 vs +2)
+But if you cheat &amp; they cooperate, you gain three coins at their cost of one. (score: +3 vs -1)
+<b>Therefore: you "should" still CHEAT.</b>
 </p>
+
 <p id="oneoff_2_btm">
-blah blah blah blah. But what if...
+And <i>that's</i> the dilemma of trust.
+You'd both be better off trusting each other, but trust leaves you vulnerable.
+But what happens if we can...
 </p>
+
 <p id="oneoff_button_next">
-...we play more than once? &rarr;
+...play more than once? &rarr;
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
 <!-- - - - - - ITERATED - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
+<p id="iterated_intro_top">
+<b>Now, let's play for real.</b><br>
+You'll be playing against 5 different opponents, each with their own "personality".
+With each opponent, you'll play anywhere between 3 to 7 rounds.
+Can you trust them? Or rather... can they trust <i>you?</i>
+</p>
+
+<p id="iterated_intro_btm">
+Choose your first, <b>real</b> move:
+</p>
+
 <p id="iterated_info_1">
-opponent: 
+opponent: [X] of [Y]
+</p>
 </p>
 <p id="iterated_info_2">
 your total score: 
 </p>
 
-<!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - TOURNAMENT! - - - - - - -->
-<!-- - - - - - - - - - - - - - - - - -->
+<p id="iterated_score_start">
+And your total score is...
+</p>
+<p id="iterated_score_1">
+which is, wow, actually <i>impressively</i> bad.
+</p>
+<p id="iterated_score_2">
+which, uh, could be worse!
+</p>
+<p id="iterated_score_3">
+which ain't bad!
+</p>
+<p id="iterated_score_4">
+which is pretty good!
+</p>
+<p id="iterated_score_5">
+which is <i>perfect!</i> Congrats you have too much time on your hands.
+</p>
+<p id="iterated_score_x">
+...i have no idea how you did that.
+</p>
+<p id="iterated_score_end">
+(the lowest &amp; highest possible scores are 8 and 49, respectively)
+</p>
 
-<p id="characters">
-COPYCAT: I start with Cooperate, and then, I just copy whatever move you did last time. Meow
-<br><br>
-ALWAYS CHEAT: i hate you
-<br><br>
-ALWAYS COOPERATE: I love you! &lt;3
-<br><br>
-GRUDGER: "Listen y'all – I start Cooperatin', and I'll keep on Cooperatin'... but if you ever Cheat me once, pardner, I AIN'T EVER FORGIVIN' YOU."
-<br><br>
-DETECTIVE: "First: I analyze you. I start: Cooperate, Cheat, Cooperate, Cooperate. Then: if you retaliated with a Cheat, I switch to playing Copycat. But: if you never fight back, I switch to Always Cheat. My dear Watson: elementary."
-<br><br>
-now what if these characters were to play...
+<p id="who_were">
+So who were these strange characters you just played against?
+</p>
+
+<p id="character_tft">
+<b>COPYCAT:</b>
+Hello! I start with Cooperate, and afterwards, I just copy whatever you did in the last round. Meow
+</p>
+
+<p id="character_all_d">
+<b>ALWAYS CHEAT:</b>
+<i>the strong shall eat the weak</i>
+</p>
+
+<p id="character_all_c">
+<b>ALWAYS COOPERATE:</b>
+Let's be best friends! &lt;3
+</p>
+
+<p id="character_grudge">
+<b>GRUDGER:</b>
+Listen, stranger. I'll start cooperatin', and keep cooperation',
+but if y'all ever cheat me, I'LL CHEAT YOU BACK TIL THE END OF DAYS.
+</p>
+
+<p id="character_prober">
+<b>DETECTIVE:</b>
+First: I analyze you. I start: Cooperate, Cheat, Cooperate, Cooperate.
+If you cheat back, I'll act like Copycat.
+If you never cheat back, I'll act like Always Cheat, to exploit you.
+Elementary, my dear Watson.
+</p>
+
+<p id="characters_teaser">
+Now, what if these characters were to play...
 </p>
 <p id="characters_button">
 ...against each other? &rarr;
 </p>
+
+
+<!-- - - - - - - - - - - - - - - - - -->
+<!-- - - - - TOURNAMENT! - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - -->
 
 <p id="place_your_bets">
 It's tournament time!
