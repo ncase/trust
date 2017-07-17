@@ -1,0 +1,43 @@
+﻿{"frames": {
+
+"connection_flower0000":
+{
+	"frame": {"x":10,"y":10,"w":401,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":401,"h":720},
+	"sourceSize": {"w":401,"h":720}
+},
+"connection_flower0001":
+{
+	"frame": {"x":421,"y":10,"w":401,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":401,"h":720},
+	"sourceSize": {"w":401,"h":720}
+},
+"connection_flower0002":
+{
+	"frame": {"x":10,"y":740,"w":401,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":401,"h":720},
+	"sourceSize": {"w":401,"h":720}
+},
+"connection_flower0003":
+{
+	"frame": {"x":421,"y":740,"w":401,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":401,"h":720},
+	"sourceSize": {"w":401,"h":720}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "15.2.0.66",
+	"image": "connection_flower.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":2048},
+	"scale": "1"
+}
+}

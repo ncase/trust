@@ -14,6 +14,8 @@ Tournament.resetGlobalVariables = function(){
 		{strategy:"random", count:5}
 	];
 
+	Tournament.FLOWER_CONNECTIONS = false;
+
 	publish("pd/defaultPayoffs");
 
 	PD.NOISE = 0;
@@ -38,7 +40,8 @@ subscribe("rules/turns",function(value){
 
 // REGULAR LOAD
 Loader.addToManifest(Loader.manifest,{
-	tournament_peep: "assets/tournament/tournament_peep.json"
+	tournament_peep: "assets/tournament/tournament_peep.json",
+	connection_flower: "assets/tournament/connection_flower.json"
 });
 
 function Tournament(config){
@@ -122,15 +125,18 @@ function Tournament(config){
 		// Connect all of 'em
 		for(var i=0; i<self.agents.length; i++){
 			var playerA = self.agents[i];
+			var flip = false;
 			for(var j=i+1; j<self.agents.length; j++){
 				var playerB = self.agents[j];
 				var connection = new TournamentConnection({
 					tournament: self,
 					from: playerA,
-					to: playerB
+					to: playerB,
+					flower_flip: flip
 				});
 				self.networkContainer.addChild(connection.graphics);
 				self.connections.push(connection);
+				flip = !flip;
 			}
 		}
 
@@ -167,6 +173,48 @@ function Tournament(config){
 	listen(self, "tournament/reset", self.reset);
 
 	self.reset();
+
+	////////////////////////////////////
+	// SHOW MATCHES ////////////////////
+	////////////////////////////////////
+
+	self.playMatch = function(number){
+
+		// GET OUR MATCH
+		var matches = [];
+		for(var a=0; a<self.agents.length; a++){
+			for(var b=a+1; b<self.agents.length; b++){
+				matches.push([self.agents[a], self.agents[b]]);
+			}
+		}
+		var match = matches[number];
+
+		// Highlight match
+		self.dehighlightAllConnections();
+		var connections = match[0].connections;
+		var connection = connections.filter(function(c){
+			if(c.from==match[0] && c.to==match[1]) return true;
+			if(c.from==match[1] && c.to==match[0]) return true;
+			return false;
+		})[0];
+		connection.highlight();
+
+		// Actually PLAY the game -- HACK: HARD-CODE 10 ROUNDS
+		var scores = PD.playRepeatedGame(match[0], match[1], 10);
+
+		// Return ALL this data...
+		return {
+			charA: match[0].strategyName,
+			charB: match[1].strategyName,
+			scoreA: scores.totalA,
+			scoreB: scores.totalB,
+			payoffs: scores.payoffs
+		}
+
+	};
+	self.dehighlightAllConnections = function(){
+		for(var i=0; i<self.connections.length; i++) self.connections[i].dehighlight();
+	};
 
 	////////////////////////////////////
 	// EVOLUTION ///////////////////////
@@ -303,7 +351,7 @@ function Tournament(config){
 				_playIndex = 0;
 				_tweenTimer = 0;
 				self.STAGE = STAGE_REST;
-				// slideshow.objects._b2.activate(); // activate NEXT button!
+				publish("tournament/step/completed", ["play"]);
 			}
 		}
 
@@ -314,8 +362,8 @@ function Tournament(config){
 			if(_tweenTimer==_s(0.3)){
 				_tweenTimer = 0;
 				self.STAGE = STAGE_REST;
+				publish("tournament/step/completed", ["eliminate"]);
 			}
-			// slideshow.objects._b3.activate(); // activate NEXT button!
 		}
 
 		// REPRODUCE!
@@ -340,7 +388,7 @@ function Tournament(config){
 			if(_tweenTimer>=1){
 				_tweenTimer = 0;
 				self.STAGE = STAGE_REST;
-				// slideshow.objects._b1.activate(); // activate NEXT button!
+				publish("tournament/step/completed", ["reproduce"]);
 			}
 
 		}
@@ -348,24 +396,16 @@ function Tournament(config){
 	});
 
 	// PLAY A TOURNAMENT
-	self.deactivateAllButtons = function(){
-		// slideshow.objects._b1.deactivate();
-		// slideshow.objects._b2.deactivate();
-		// slideshow.objects._b3.deactivate();
-	};
 	self._startPlay = function(){
 		self.STAGE=STAGE_PLAY;
-		// self.deactivateAllButtons();
 	};
 	listen(self, "tournament/play", self._startPlay);
 	self._startEliminate = function(){
 		self.STAGE=STAGE_ELIMINATE;
-		// self.deactivateAllButtons();
 	};
 	listen(self, "tournament/eliminate", self._startEliminate);
 	self._startReproduce = function(){
 		self.STAGE=STAGE_REPRODUCE;
-		// self.deactivateAllButtons();
 	};
 	listen(self, "tournament/reproduce", self._startReproduce);
 
@@ -402,24 +442,46 @@ function TournamentConnection(config){
 	self.to.connections.push(self);
 
 	// Graphics!
-	var g = new PIXI.Container();
-	var gray = PIXI.Sprite.fromImage("assets/tournament/connection.png"); // TODO: PRELOAD
-	var gold = PIXI.Sprite.fromImage("assets/tournament/connection_gold.png"); // TODO: PRELOAD
-	gray.height = 1;
-	gold.height = 2;
-	gray.anchor.y = gold.anchor.y = 0.5;
-	g.addChild(gray);
-	g.addChild(gold);
+	var g;
+	if(Tournament.FLOWER_CONNECTIONS){
+		g = _makeMovieClip("connection_flower");
+		g.anchor.x = 0;
+		g.anchor.y = 0;
+		g.scale.set(0.5);
+	}else{
+		g = _makeMovieClip("connection");
+		g.anchor.x = 0;
+		g.anchor.y = 0.5;
+		g.height = 1;
+	}
 	self.graphics = g;
+	var _flowerLong = false;
+	var _updateFlower = function(highlight){
+		var frame = 0;
+		if(highlight) frame+=2;
+		if(_flowerLong) frame+=1;
+		g.gotoAndStop(frame);
+	};
+	if(config.flower_flip){
+		g.scale.y *= -1;
+	}
 
 	// Highlight or no?
 	self.highlight = function(){
-		gray.visible = false;
-		gold.visible = true;
+		if(Tournament.FLOWER_CONNECTIONS){
+			_updateFlower(true);
+		}else{
+			g.height = 3;
+			g.gotoAndStop(1);
+		}
 	};
 	self.dehighlight = function(){
-		gray.visible = true;
-		gold.visible = false;
+		if(Tournament.FLOWER_CONNECTIONS){
+			_updateFlower(false);
+		}else{
+			g.height = 1;
+			g.gotoAndStop(0);
+		}
 	};
 	self.dehighlight();
 
@@ -435,9 +497,28 @@ function TournamentConnection(config){
 
 		g.x = f.x; 
 		g.y = f.y;
-		g.rotation = a;
 
-		gray.width = gold.width = dist;
+		if(Tournament.FLOWER_CONNECTIONS){
+			if(dist<250){
+				_flowerLong = false;
+				if(config.flower_flip){
+					g.rotation = a+Math.TAU/10;
+				}else{
+					g.rotation = a-Math.TAU/10;
+				}
+			}else{
+				_flowerLong = true;
+				if(config.flower_flip){
+					g.rotation = a+Math.TAU/5;
+				}else{
+					g.rotation = a-Math.TAU/5;
+				}
+			}
+			_updateFlower();
+		}else{
+			g.rotation = a;
+			g.width = dist;
+		}
 
 	};
 	self.updateGraphics();

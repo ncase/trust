@@ -1,6 +1,3 @@
-/*
-
-*/
 function TextBox(config){
 
 	var self = this;

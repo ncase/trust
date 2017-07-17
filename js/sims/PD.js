@@ -2,8 +2,8 @@ var PEEP_METADATA = {
 	   tft: {frame:0, color:"#4089DD"}, 
 	 all_d: {frame:1, color:"#52537F"},
 	 all_c: {frame:2, color:"#FF75FF"},
-	grudge: {frame:3, color:"#C4A401"},
-	prober: {frame:4, color:"#CC984C"},
+	grudge: {frame:3, color:"#efc701"},
+	prober: {frame:4, color:"#f6b24c"},
 	  tf2t: {frame:5, color:"#88A8CE"},
 	pavlov: {frame:6, color:"#86C448"},
 	random: {frame:7, color:"#FF5E5E"}
@@ -74,6 +74,9 @@ PD.playOneGame = function(playerA, playerB){
 	playerA.addPayoff(payoffs[0]);
 	playerB.addPayoff(payoffs[1]);
 
+	// Return the payoffs...
+	return payoffs;
+
 };
 
 PD.playRepeatedGame = function(playerA, playerB, turns){
@@ -83,9 +86,20 @@ PD.playRepeatedGame = function(playerA, playerB, turns){
 	playerB.resetLogic();
 
 	// Play N turns
+	var scores = {
+		totalA:0,
+		totalB:0,
+		payoffs:[]
+	};
 	for(var i=0; i<turns; i++){
-		PD.playOneGame(playerA, playerB);
+		var p = PD.playOneGame(playerA, playerB);
+		scores.payoffs.push(p);
+		scores.totalA += p[0];
+		scores.totalB += p[1];
 	}
+
+	// Return the scores...
+	return scores;
 
 };
 

@@ -48,7 +48,6 @@ body{
 }
 #slideshow{
 	
-	/*background: #bada55;*/
 	/*border: 1px solid rgba(0,0,0,0.2);*/
 	width:960px;
 	height:540px;
@@ -134,7 +133,7 @@ body{
 	background-position: 0px -125px !important;
 }
 .button[deactivated=yes] #background{
-	background-position: 0px -250px;
+	background-position: 0px -250px !important;
 }
 .button[deactivated=yes] #text{
 	color: #CCCCCC;
@@ -349,11 +348,49 @@ body{
 .tft{ color:#4089DD; }
 .all_d{ color:#52537F; }
 .all_c{ color:#FF75FF; }
-.grudge{ color:#C4A401; }
-.prober{ color:#CC984C; }
+.grudge{ color:#efc701; }
+.prober{ color:#f6b24c; }
 .tf2t{ color:#88A8CE; }
 .pavlov{ color:#86C448; }
 .random{ color:#FF5E5E; }
+
+.icon{
+	width:25px; height:25px;
+	background: url(../assets/ui/sandbox_hats.png);
+	background-size: auto 100%;
+	display: inline-block;
+	position: relative;
+    top: 1px;
+}
+.icon_label{
+	display: inline-block;
+	font-size: 20px;
+	position: relative;
+    top: -3px;
+}
+.tft .icon{ 		background-position: 0 0; }
+.all_d .icon{ 	background-position: -25px 0; }
+.all_c .icon{ 	background-position: -50px 0; }
+.grudge .icon{ 	background-position: -75px 0; }
+.prober .icon{ 	background-position: -100px 0; }
+.tf2t .icon{ 	background-position: -125px 0; }
+.pavlov .icon{ 	background-position: -150px 0; }
+.random .icon{ 	background-position: -175px 0; }
+
+/*************************/
+/******* MISC STUFF *******/
+/*************************/
+
+.score_small{
+	width:40px; height:40px;
+	background: url(../assets/tournament/score_small.png);
+	background-size: auto 100%;
+	display: inline-block;
+}
+.score_small[payoff=R]{ background-position: 0 0; }
+.score_small[payoff=T]{ background-position: -40px 0; }
+.score_small[payoff=S]{ background-position: -80px 0; }
+.score_small[payoff=P]{ background-position: -120px 0; }
 
 /*************************/
 /***** SLIDE SELECT ******/

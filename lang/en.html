@@ -2,6 +2,8 @@
 <!-- - - - - - INTRO! - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
+<!-- TODO: Focus ONLY on social trust, not governments -->
+
 <p id="intro">
 During World War I, peace broke out.
 <br><br>
@@ -117,6 +119,8 @@ But what happens if we can...
 <!-- - - - - - ITERATED - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
+<!-- TO DO: WEAVE IN MORE ABOUT TRENCHES. "CHOOSE WISELY" -->
+
 <p id="iterated_intro_top">
 <b>Now, let's play for real.</b><br>
 You'll be playing against 5 different opponents, each with their own "personality".
@@ -182,15 +186,15 @@ Let's be best friends! &lt;3
 
 <p id="character_grudge">
 <b>GRUDGER:</b>
-Listen, stranger. I'll start cooperatin', and keep cooperation',
-but if y'all ever cheat me, I'LL CHEAT YOU BACK TIL THE END OF DAYS.
+Listen, pardner. I'll start cooperatin', and keep cooperation',
+but if y'all ever cheat me, I'LL CHEAT YOU BACK 'TIL THE END OF TARNATION.
 </p>
 
 <p id="character_prober">
 <b>DETECTIVE:</b>
 First: I analyze you. I start: Cooperate, Cheat, Cooperate, Cooperate.
-If you cheat back, I'll act like Copycat.
-If you never cheat back, I'll act like Always Cheat, to exploit you.
+If you cheat back, I'll act like <span class="tft">Copycat</span>.
+If you never cheat back, I'll act like <span class="all_d">Always Cheat</span>, to exploit you.
 Elementary, my dear Watson.
 </p>
 
@@ -208,31 +212,93 @@ Now, what if these characters were to play...
 
 <p id="place_your_bets">
 It's tournament time!
-These five characters will now play against each other – 10 paired games, 10 rounds per game.
+Each character will now play against every other character:
+that's 10 paired matches, and 10 rounds per match.
 <br><br>
-Place your bets: who do you think will get the highest *total* score?
+Who do you think will get the highest <i>total</i> score?
+Think carefully about it, and then<br>
+<b>PLACE YOUR BETS:</b>
+</p>
+
+<p id="tournament_intro">
+Alright, you placed your bet on [CHAR]!
+Let's go through the matches one by one, and see how the tournament plays out...
+</p>
+
+<p id="first_match">
+first match &rarr;
 </p>
 
 <p id="next_match">
-next match
+next match &rarr;
 </p>
 
-<p id="tournament_winner">
-COPYCAT! (Note: this play-style is also known in game theory as "Tit For Tat")
-<br><br>
+<p id="match_header_1">
+<b>Match #[N]:</b> [A] vs [B]
+</p>
+<p id="match_header_2">
+<b>Rounds:</b>
+</p>
+<p id="match_header_3">
+<b>Total Scores:</b> [A] vs [B]
+</p>
+
+<p id="tournament_1">
+&nbsp;
+</p>
+<p id="tournament_2">
+Oh, by the way...
+</p>
+<p id="tournament_3">
+[trench live &amp; let live stuff]
+</p>
+<p id="tournament_4">
+[trench live &amp; let live stuff]
+</p>
+<p id="tournament_5">
+[trench live &amp; let live stuff]
+</p>
+<p id="tournament_6">
+[trench live &amp; let live stuff]
+</p>
+<p id="tournament_7">
+[trench live &amp; let live stuff]
+</p>
+<p id="tournament_8">
+[trench live &amp; let live stuff]
+</p>
+<p id="tournament_9">
+[trench live &amp; let live stuff]
+</p>
+<p id="tournament_10">
+Anyway -- and the winner is...
+</p>
+
+<p id="the_winner_is">
+(drumroll please...) &rarr;
+</p>
+
+<p id="tournament_winner_1">
+<b class="tft">COPYCAT!</b>
+</p>
+<p id="tournament_winner_2_yay">
 Congrats, you placed your bet on the right horse.
-<br><br>
-Sorry, //////.
-<br><br>
-Now, here's the strange thing: Copycat can _never_ beat another player in the trust game (because it never tries to take advantage of others), it can only ever do _as well as_ the other player. And yet overall, Copycat wins! This, despite being simpler than Detective, nicer than Always Cheat, and more forgiving than Grudger. It almost seems to imply that the Golden Rule is not just a moral truth, but a *mathematical* truth:
-<br><br>
-*Do unto others as you would have them do unto you.* ~Copycat
-<br><br>
-And *that's* why "peace" broke out in the trenches of World War I. Each side was playing a deadly game of trust with each other, but because the nature of trench warfare means they have to face the same group of soldiers over and over again, that allowed a Copycat-like strategy – the unspoken law of "live and let live" – to evolve.
 </p>
-
+<p id="tournament_winner_2_nay">
+(Sorry, [CHAR].)
+</p>
+<p id="tournament_winner_3">
+<span class="tft">Copycat</span> goes by many names.
+The Golden Rule, reciprocal altruism, tit for tat, or... <i>live and let live.</i>
+That's why "peace" could emerge in the trenches of World War I:
+when you're forced to play the same game with the
+same <i>specific people</i> (not just the same generic "enemy") over and over again --
+<span class="tft">Copycat</span> doesn't just win the battle, it wins the war.
+<br><br>
+But if things change a lot when you play multiple rounds of the same game, what if we play...
+</p>
 <p id="tournament_teaser">
-...but does Copycat *always* win? &rarr;
+...multiple <i>tournaments?</i> &rarr;
 </p>
 
 
@@ -241,13 +307,185 @@ And *that's* why "peace" broke out in the trenches of World War I. Each side was
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="evolution_intro">
+Now, let's let our population of players <i>evolve over time</i>. It's a 3-step dance:
 </p>
-
+<p id="evolution_intro_1">
+<b>1. PLAY A TOURNAMENT</b><br>
+Let them all play against each other, and tally up their scores.
+</p>
+<p id="evolution_intro_2">
+<b>2. ELIMINATE LOSERS</b><br>
+Get rid of the 5 worst players. (if there's a tie, pick randomly between them)
+</p>
+<p id="evolution_intro_3">
+<b>3. REPRODUCE WINNERS</b><br>
+Clone the 5 best players. (if there's a tie, pick randomly between them)
+</p>
+<p id="evolution_intro_footer">
+...and REPEAT, for as long as you'd like.
+Note: you don't have to wait for people to literally die &amp; reproduce for culture to evolve --
+all that's needed is that "unsuccessful" behaviors go away, and "successful" behaviors are imitated.
+So now...
+</p>
 <p id="evolution_intro_button">
+...let's see this in action. &rarr;
 </p>
 
-<p id="button_step">
-step
+<p id="evo_1">
+Say we start with the following population of players:
+<span class="all_c">15 Always Cooperates</span>,
+<span class="all_d">5 Always Cheats</span>, and
+<span class="tft">5 Copycats</span>.
+(We'll ignore <span class="grudge">Grudger</span> &amp; <span class="prober">Detective</span> for now)
+<br><br>
+We're going to do the tournament-eliminate-reproduce dance a dozen times or so.
+Let's make another bet! Who do you think will win the <i>first</i> tournament?
+</p>
+
+<p id="evo_2_all_c">
+Makes sense, <span class="all_c">Always Cooperate</span> outnumbers everyone else right now...
+</p>
+<p id="evo_2_all_d">
+Makes sense, <span class="all_d">Always Cheat</span> has a lot of <span class="all_c">Always Cooperates</span> to exploit...
+</p>
+<p id="evo_2_tft">
+Makes sense, <span class="tft">Copycat</span> won the tournament last time, why not again?...
+</p>
+<p id="evo_2">
+Let's see if you're correct:
+</p>
+
+<p id="label_play_tournament">
+1) play tournament
+</p>
+<p id="label_eliminate_bottom_5">
+2) eliminate bottom 5
+</p>
+<p id="label_reproduce_top_5">
+3) reproduce top 5
+</p>
+
+<p id="evo_3_all_c">
+Alas, <span class="all_c">Always Cooperate</span> got eaten up by
+<span class="all_d">Always Cheat</span>, whose numbers have now increased by 5.
+</p>
+<p id="evo_3_all_d">
+Sadly, you were correct! The <span class="all_d">Always Cheaters</span> won this time, 
+and their numbers increased by 5.
+</p>
+<p id="evo_3_tft">
+Alas, <span class="tft">Copycat</span> did not win – but at least they didn't do as bad
+as <span class="all_c">Always Cooperate</span>, who got eaten up by <span class="all_d">Always Cheat</span>,
+whose numbers have now increased by 5.
+</p>
+<p id="evo_3">
+But let's try a few more rounds of this...
+</p>
+
+<p id="evo_4">
+<span class="all_d">Always Cheat</span> is still growing,
+at the expense of <span class="all_c">Always Cooperate</span>...
+</p>
+
+<p id="evo_5">
+And now, all the <span class="all_c">Always Cooperates</span> are dead.
+But, wait...
+</p>
+
+<p id="evo_6">
+That's right: the <span class="all_d">Always Cheats</span> became a victim of their own success!
+They exploited the naive <span class="all_c">Always Cooperaters</span>,
+but once they ran out of them, they had to face the <span class="tft">Copycats</span>:
+who <i>are</i> nice, but not naive.
+</p>
+
+<!-- TODO: Freeman-Dyson???? -->
+<!-- TODO: (other strategies will be introduced later) -->
+
+<p id="evo_7">
+By simply copying the other player's moves,
+<span class="tft">Copycats</span> can play nice with each other,
+while <span class="all_d">Always Cheats</span> just cheat themselves.
+Not only that, but it also means <span class="tft">Copycat</span>
+can give <span class="all_d">Always Cheat</span>
+a taste of their own medicine.
+</p>
+
+<p id="evo_8">
+And so, as a result...
+</p>
+
+<p id="evo_9">
+...<span class="tft">Copycat</span> inherits the earth.
+</p>
+<p id="evo_9_all_c">
+So, although your bet was off -- the nice-but-naive <span class="all_c">Always Cooperaters</span>
+were doomed from the start -- in the end, a <i>smart</i> form of niceness prevailed,
+and the <span class="all_d">Always Cheaters</span> were squashed.
+</p>
+<p id="evo_9_all_d">
+So, in the short run you were right - <span class="all_d">Always Cheat</span> won the first few rounds,
+but in the end, its exploitativeness was its downfall.
+</p>
+<p id="evo_9_tft">
+So, in the long run, you were right - <span class="tft">Copycat</span> wins!
+<span class="all_d">Always Cheat</span> may have won in the short run,
+but its exploitativeness was its downfall.
+</p>
+<p id="evo_9_end">
+This reminds me of a quote:
+<br><br>
+<i>"We are punished by our sins, not for them."</i><br>
+~ Elbert Hubbard
+</p>
+<p id="evo_9_btn">
+(oh, and by the way...)
+</p>
+
+<p id="evo_10">
+(...this result is similar even if we put
+<span class="grudge">Grudger</span> &amp; <span class="prober">Detective</span> back in:)
+</p>
+
+<p id="evo_autoplay">
+start the evolution process!
+</p>
+<p id="evo_autoplay_stop">
+stop the evolution process
+</p>
+
+<!-- More reference to game theory earlier? -->
+<!-- TODO: More "me" and "I"??? -->
+
+<p id="evo_10_followup">
+(Note: occasionally, a few <span class="grudge">Grudgers</span> may stick around,
+because when all players except <span class="grudge">Grudger</span> &amp; <span class="tft">Copycat</span> 
+are eliminated, the two tie.)
+<br><br>
+So, it seems the math of game theory is telling us something:
+that <span class="tft">Copycat's</span> philosophy,
+"Do unto others as you would have them do unto you", may be not just a 
+<i>moral</i> truth, but also a <i>mathematical</i> truth.
+However...
+</p>
+<p id="evo_10_btn">
+...there's a problem: &rarr;
+</p>
+
+<p id="evo_11">
+There are jerks. Look around.
+<br><br>
+If <span class="tft">Copycat</span> is the strategy in this repeated game of trust that's so powerful --
+that even soldiers in the trenches of World War I independently "evolved" a similar strategy -- 
+why, then, are there so many un-trusting, un-trustworthy people around?
+<br><br>
+A clue's in that sentence itself. "In <i>this</i> repeated game of trust."
+So far we've only talked about change in the players:
+what about <i>a change in the game?</i>
+What could lead to...
+</p>
+<p id="evo_11_btn">
+...the evolution of <i>distrust?</i>
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
@@ -293,6 +531,11 @@ After each tournament, eliminate the bottom [N] player &amp; reproduce the top [
 In each round of a one-on-one game, there's a [N]% chance a player makes a mistake
 </p>
 
+<p id="sandbox_end">
+...once you're done playing around in Sandbox Mode, click:
+</p>
+
+
 
 <!-- - - - - - - - - - - - - - - - - -->
 <!-- - - - - CONCLUSION! - - - - - - -->
@@ -322,39 +565,59 @@ blah blah blah blah<br>
 <!-- - - - - THE PLAYERS - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
-<p id="label_tft">
-Copycat
-</p>
+<p id="label_tft">Copycat</p>
 <p id="label_short_tft">
 copycat
 </p>
-
-<p id="label_all_d">
-Always Cheat
+<p id="icon_tft">
+<span class="tft">
+	<span class="icon"></span>
+	<span class="icon_label">Copycat</span>
+</span>
 </p>
+
+<p id="label_all_d">Always Cheat</p>
 <p id="label_short_all_d">
 cheater
 </p>
-
-<p id="label_all_c">
-Always Cooperate
+<p id="icon_all_d">
+<span class="all_d">
+	<span class="icon"></span>
+	<span class="icon_label">All Cheat</span>
+</span>
 </p>
+
+<p id="label_all_c">Always Cooperate</p>
 <p id="label_short_all_c">
 cooperater
 </p>
-
-<p id="label_grudge">
-Grudger
+<p id="icon_all_c">
+<span class="all_c">
+	<span class="icon"></span>
+	<span class="icon_label">All Cooperate</span>
+</span>
 </p>
+
+<p id="label_grudge">Grudger</p>
 <p id="label_short_grudge">
 grudger
 </p>
-
-<p id="label_prober">
-Detective
+<p id="icon_grudge">
+<span class="grudge">
+	<span class="icon"></span>
+	<span class="icon_label">Grudger</span>
+</span>
 </p>
+
+<p id="label_prober">Detective</p>
 <p id="label_short_prober">
 detective
+</p>
+<p id="icon_prober">
+<span class="prober">
+	<span class="icon"></span>
+	<span class="icon_label">Detective</span>
+</span>
 </p>
 
 <p id="label_tf2t">
@@ -419,20 +682,8 @@ payoffs
 rules
 </p>
 
-<p id="label_play_tournament">
-1) play tournament
-</p>
-
-<p id="label_eliminate_bottom_5">
-2) eliminate bottom 5
-</p>
-
-<p id="label_reproduce_top_5">
-3) reproduce top 5
-</p>
-
 <p id="label_next">
-next
+next &rarr;
 </p>
 
 
