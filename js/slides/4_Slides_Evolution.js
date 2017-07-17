@@ -110,8 +110,8 @@ SLIDES.push({
 		var x = 510;
 		var y = 200;
 		var nextStep;
-		var textStep = 2;
-		// var textStep = 8;
+		// var textStep = 2;
+		var textStep = 8;
 		self.add({
 			id:"step_1", type:"Button", x:x, y:y, 
 			text_id: "label_play_tournament", size:"long",
@@ -205,22 +205,24 @@ SLIDES.push({
 SLIDES.push({
 	onstart: function(self){
 
-		// Tournament
 		var o = self.objects;
-		Tournament.resetGlobalVariables();
-		Tournament.INITIAL_AGENTS = [
-			{strategy:"all_c", count:5},
-			{strategy:"all_d", count:5},
-			{strategy:"tft", count:5},
-			{strategy:"grudge", count:5},
-			{strategy:"prober", count:6}
-		];
-		o.tournament.reset();
-		_hide(o.tournament); _fadeIn(o.tournament, 10);
+		
+		// SCRATCH IN TOURNAMENT
+		Scratcher.smallScratch(0, 0, 480, 540, function(){
+			Tournament.resetGlobalVariables();
+			Tournament.INITIAL_AGENTS = [
+				{strategy:"all_c", count:5},
+				{strategy:"all_d", count:5},
+				{strategy:"tft", count:5},
+				{strategy:"grudge", count:5},
+				{strategy:"prober", count:6}
+			];
+			o.tournament.reset();
+		});
 
 		// The same with grudger & detetive!
 		o.text.setTextID("evo_10");
-		_hide(o.text); _fadeIn(o.text, 400);
+		_hide(o.text); _fadeIn(o.text, 1000);
 
 		// Button: start/stop
 		var isPlaying = false;
@@ -239,7 +241,7 @@ SLIDES.push({
 				}
 			}
 		});
-		_hide(o.autoplay); _fadeIn(o.autoplay, 600);
+		_hide(o.autoplay); _fadeIn(o.autoplay, 1200);
 
 		// Listen...
 		var step = 0;
@@ -284,7 +286,7 @@ SLIDES.push({
 	onstart: function(self){
 		var o = self.objects;
 
-		// Oh no
+		// TODO: FART SOUND
 		Tournament.resetGlobalVariables();
 		Tournament.INITIAL_AGENTS = [
 			{strategy:"all_d", count:24},
@@ -294,7 +296,7 @@ SLIDES.push({
 
 		// Text
 		o.text.setTextID("evo_11");
-		_hide(o.text); _fadeIn(o.text, 200);
+		//_hide(o.text); _fadeIn(o.text, 100);
 
 		// Next
 		self.add({
@@ -302,12 +304,13 @@ SLIDES.push({
 			text_id:"evo_11_btn", size:"long",
 			message: "slideshow/next"
 		});
-		_hide(o.next); _fadeIn(o.next, 500);
+		//_hide(o.next); _fadeIn(o.next, 200);
 
 	},
 	onend: function(self){
 		self.remove("text");
 		self.remove("next");
+		_.clear();
 	}
 });
 

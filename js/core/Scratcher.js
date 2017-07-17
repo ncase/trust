@@ -83,14 +83,14 @@ Scratcher.smallScratch = function(x,y,width,height,_onChange,_onComplete){
 	// Animate!
 	Scratcher.scratchAnim(scratcher, true)
 	.then(function(){
-		_onChange();
+		if(_onChange) _onChange();
 	})
 	.then(function(){
 		return Scratcher.scratchAnim(scratcher, false);
 	})
 	.then(function(){
 		slideshow.dom.removeChild(scratcher); // Destroy DOM
-		_onComplete();
+		if(_onComplete) _onComplete();
 	});
 
 };
