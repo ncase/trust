@@ -14,7 +14,7 @@ function SandboxUI(config){
 	/////////////////////////////////////////
 
 	var playButton = new Button({
-		x:130, y:135, text_id:"label_play",
+		x:130, y:135, text_id:"label_start",
 		onclick: function(){
 			if(slideshow.objects.tournament.isAutoPlaying){
 				publish("tournament/autoplay/stop");
@@ -24,7 +24,7 @@ function SandboxUI(config){
 		}
 	});
 	listen(self, "tournament/autoplay/stop",function(){
-		playButton.setText("label_play");
+		playButton.setText("label_start");
 	});
 	listen(self, "tournament/autoplay/start",function(){
 		playButton.setText("label_stop");
@@ -298,48 +298,16 @@ function SandboxUI(config){
 
 	// Labels
 	page.appendChild(_makeLabel("sandbox_payoffs", {x:0, y:0, w:433}));
-	page.appendChild(_makeLabel("label_cooperate", {x:212, y:64, rotation:45, align:"center", color:"#cccccc"}));
-	page.appendChild(_makeLabel("label_cooperate", {x:116, y:64, rotation:-45, align:"center", color:"#cccccc"}));
-	page.appendChild(_makeLabel("label_cheat", {x:309, y:137, rotation:45, align:"center", color:"#cccccc"}));
-	page.appendChild(_makeLabel("label_cheat", {x:70, y:137, rotation:-45, align:"center", color:"#cccccc"}));
-
-	// Inc(rement) De(crement) Numbers
-	// which are symmetrical, and update each other!
-	var numbers = [];
-	var _makeIncDec = function(letter,x,y){
-		(function(letter,x,y){
-
-			var number = new IncDecNumber({
-				x:x, y:y, max:5, min:-5,
-				value: PD.PAYOFFS_DEFAULT[letter],
-				onchange: function(value){
-					publish("pd/editPayoffs/"+letter,[value]);
-				}
-			});
-			listen(self, "pd/editPayoffs/"+letter,function(value){
-				number.setValue(value);
-			});
-			number.slideshow = self.slideshow;
-			page.appendChild(number.dom);
-			numbers.push(number);
-
-		})(letter,x,y);
-	};
-
-	_makeIncDec("R", 191, 127);
-	_makeIncDec("R", 233, 127);
-
-	_makeIncDec("T", 121, 197);
-	_makeIncDec("S", 161, 197);
-
-	_makeIncDec("S", 263, 197);
-	_makeIncDec("T", 306, 197);
-
-	_makeIncDec("P", 192, 268);
-	_makeIncDec("P", 232, 268);
+	
+	// PAYOFFS
+	var payoffsUI = new PayoffsUI({x:64, y:47, slideshow:self});
+	page.appendChild(payoffsUI.dom);
 
 	// Reset
-	var resetPayoffs = new Button({x:240, y:300, text_id:"sandbox_reset_payoffs", message:"pd/defaultPayoffs"});
+	var resetPayoffs = new Button({
+		x:320, y:300, text_id:"sandbox_reset_payoffs", size:"short",
+		message:"pd/defaultPayoffs"
+	});
 	page.appendChild(resetPayoffs.dom);
 
 	/////////////////////////////////////////
@@ -369,7 +337,7 @@ function SandboxUI(config){
 	var rule_evolution = _makeLabel("sandbox_rules_2", {x:0, y:100, w:433});
 	var slider_evolution = new Slider({
 		x:0, y:165, width:430,
-		min:1, max:12, step:1,
+		min:1, max:10, step:1,
 		message: "rules/evolution"
 	});
 	sliders.push(slider_evolution);
@@ -416,7 +384,8 @@ function SandboxUI(config){
 
 	// Remove...
 	self.remove = function(){
-		for(var i=0;i<numbers.length;i++) unlisten(numbers[i]);
+		payoffsUI.remove();
+		//for(var i=0;i<numbers.length;i++) unlisten(numbers[i]);
 		for(var i=0;i<sliders.length;i++) unlisten(sliders[i]);
 		unlisten(self);
 		_remove(self);

@@ -15,8 +15,9 @@ function Slideshow(config){
 	self.reset = function(){
 
 		// On End?
-		if(self.currentSlide && self.currentSlide.onend){
-			self.currentSlide.onend(self);
+		if(self.currentSlide){
+			if(self.currentSlide.onend) self.currentSlide.onend(self);
+			unlisten(_); // hax
 		}
 
 		// CLEAR
@@ -114,7 +115,7 @@ function Slideshow(config){
 	// FORCE go to a certain slide
 	self.gotoSlide = function(id){
 
-		// Go ALL the way to the past
+		// RESET IT ALL.
 		self.reset();
 
 		// Slide & SlideIndex

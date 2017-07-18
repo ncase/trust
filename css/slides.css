@@ -35,6 +35,9 @@ body{
 	height: 60px;
 	background: #222;
 }
+s{
+	text-decoration: line-through;
+}
 
 /*************************/
 /******* SLIDESHOW *******/
@@ -85,6 +88,13 @@ body{
 
 /********* Button ********/
 
+.no-select{
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none; 
+	cursor: default;
+}
 .button{
 	z-index: 0;
 	-webkit-user-select: none;  /* Chrome all / Safari all */
@@ -151,6 +161,8 @@ body{
 }
 .button[size=short] #text{
 	width:105px;
+	font-size: 18px;
+    top: 18px;
 }
 .button[size=short] #hitbox{
 	width:115px;
@@ -251,6 +263,14 @@ body{
 	width:30px; height:30px;
 	background: url(../assets/ui/slider_knob.png);
 	background-size: 100% 100%;
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+	cursor: grab;
+}
+.slider > .slider_knob:active{
+	cursor: -webkit-grabbing;
+	cursor: -moz-grabbing;
+	cursor: grabbing;
 }
 
 .sandbox_pop{

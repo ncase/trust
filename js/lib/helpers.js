@@ -48,6 +48,8 @@ var _configText = function(config, dom){
 	if(config.w!==undefined) dom.style.width = config.w+"px";
 	if(config.h!==undefined) dom.style.height = config.h+"px";
 
+	if(config.noSelect) dom.classList.add("no-select");
+
 	if(config.rotation!==undefined) dom.style.transform = "rotate("+config.rotation+"deg)";
 	if(config.align!==undefined) dom.style.textAlign = config.align;
 	if(config.color!==undefined) dom.style.color = config.color;

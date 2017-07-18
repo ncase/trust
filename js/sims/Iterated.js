@@ -3,7 +3,6 @@ Loader.addToManifest(Loader.manifest,{
 	iterated_machine: "assets/iterated/iterated_machine.json",
 	iterated_payoffs: "assets/iterated/iterated_payoffs.json",
 	iterated_peep: "assets/iterated/iterated_peep.json"
-	//iterated_scoreboard: "assets/iterated/iterated_scoreboard.json"
 });
 
 function Iterated(config){
