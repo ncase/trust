@@ -320,7 +320,7 @@ function Tournament(config){
 		_nextStep();
 		setTimeout(function(){
 			if(self.isAutoPlaying) _startAutoPlay();
-		},500);
+		},150);
 	};
 	var _stopAutoPlay = function(){
 		self.isAutoPlaying = false;
@@ -342,24 +342,33 @@ function Tournament(config){
 
 		// PLAY!
 		if(self.STAGE == STAGE_PLAY){
-			if(_playIndex>0) self.agents[_playIndex-1].dehighlightConnections();
-			if(_playIndex<self.agents.length){
-				self.agents[_playIndex].highlightConnections();
-				_playIndex++;
-			}else{
+			/*if(self.isAutoPlaying){
 				self.playOneTournament(); // FOR REAL, NOW.
 				_playIndex = 0;
 				_tweenTimer = 0;
 				self.STAGE = STAGE_REST;
 				publish("tournament/step/completed", ["play"]);
-			}
+			}else{*/
+				if(_playIndex>0 && _playIndex<self.agents.length+1) self.agents[_playIndex-1].dehighlightConnections();
+				if(_playIndex>1 && _playIndex<self.agents.length+2) self.agents[_playIndex-2].dehighlightConnections();
+				if(_playIndex<self.agents.length){
+					self.agents[_playIndex].highlightConnections();
+					_playIndex += self.isAutoPlaying ? 2 : 1;
+				}else{
+					self.playOneTournament(); // FOR REAL, NOW.
+					_playIndex = 0;
+					_tweenTimer = 0;
+					self.STAGE = STAGE_REST;
+					publish("tournament/step/completed", ["play"]);
+				}
+			//}
 		}
 
 		// ELIMINATE!
 		if(self.STAGE == STAGE_ELIMINATE){
 			self.eliminateBottom(Tournament.SELECTION);
 			_tweenTimer++;
-			if(_tweenTimer==_s(0.3)){
+			if(_tweenTimer==_s(0.3) || self.isAutoPlaying){
 				_tweenTimer = 0;
 				self.STAGE = STAGE_REST;
 				publish("tournament/step/completed", ["eliminate"]);
@@ -375,6 +384,7 @@ function Tournament(config){
 			}
 
 			// Middle...
+			_tweenTimer += self.isAutoPlaying ? 0.15 : 0.05;
 			for(var i=0;i<self.agents.length;i++){
 				var a = self.agents[i];
 				a.tweenAngle(_tweenTimer);
@@ -382,7 +392,6 @@ function Tournament(config){
 			}
 			self.sortAgentsByDepth();
 			for(var i=0;i<self.connections.length;i++) self.connections[i].updateGraphics();
-			_tweenTimer += 0.05;
 
 			// End
 			if(_tweenTimer>=1){
@@ -636,15 +645,16 @@ function TournamentAgent(config){
 
 		// INSTA-KILL ALL CONNECTIONS
 		self.clearConnections();
+		scoreText.visible = false;
 
 		// Tween -- DIE!
-		scoreText.visible = false;
+		var duration = self.tournament.isAutoPlaying ? 0.13 : 0.3;
 		Tween_get(g).to({
 			alpha: 0,
 			x: g.x+Math.random()*20-10,
 			y: g.y+Math.random()*20-10,
 			rotation: Math.random()*0.5-0.25
-		}, _s(0.3), Ease.circOut).call(self.kill);
+		}, _s(duration), Ease.circOut).call(self.kill);
 
 	};
 

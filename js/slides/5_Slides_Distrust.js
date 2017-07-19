@@ -140,7 +140,7 @@ SLIDES.push({
 			self.add({
 				id:"continueButton", type:"Button",
 				x:x+215, y:y, size:"short",
-				text_id:"distrust_2_btn",
+				text_id:"label_continue",
 				message: "slideshow/next"
 			});
 			_hide(o.continueLabel); _fadeIn(o.continueLabel, 100);
@@ -228,7 +228,7 @@ SLIDES.push({
 			self.add({
 				id:"continueButton", type:"Button",
 				x:340, y:471, size:"short",
-				text_id:"distrust_2_btn",
+				text_id:"label_continue",
 				message: "slideshow/next"
 			});
 			_hide(o.continueLabel); _fadeIn(o.continueLabel, 100);
