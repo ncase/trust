@@ -13,13 +13,13 @@ SLIDES.push({
 		// Label & Button for next...
 		self.add({
 			id:"label_next", type:"TextBox",
-			x:14, y:481, width:800, align:"right",
+			x:40, y:481, width:550, align:"right",
 			text_id: "sandbox_end"
 		});
 		self.add({
 			id:"button_next", type:"Button",
-			x:831, y:465, size:"short",
-			text_id:"label_next",
+			x:605, y:465, size:"long",
+			text_id:"sandbox_end_btn",
 			message: "slideshow/scratch"
 		});
 		

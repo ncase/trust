@@ -1,8 +1,14 @@
 Loader.addToManifest(Loader.manifest,{
+
 	iterated_coin: "assets/iterated/iterated_coin.json",
 	iterated_machine: "assets/iterated/iterated_machine.json",
 	iterated_payoffs: "assets/iterated/iterated_payoffs.json",
-	iterated_peep: "assets/iterated/iterated_peep.json"
+	iterated_peep: "assets/iterated/iterated_peep.json",
+
+	// SFX
+	coin_insert: "assets/sounds/coin_insert.mp3",
+	coin_get: "assets/sounds/coin_get.mp3",
+
 });
 
 function Iterated(config){
@@ -129,12 +135,14 @@ function Iterated(config){
 
 		// Make your moves!
 		var A = yourMove;
+		if(yourMove=="TRIP") A=PD.CHEAT;
 		var B = self.opponentLogic.play();
 
 		// Get payoffs
 		var payoffs = PD.getPayoffs(A,B);
 
 		// ANIMATE the moves: betrayal or what?
+		self.playerA.TRIP = (yourMove=="TRIP");
 		var animPromise1 = self.playerA.playMove(payoffs[0]); // reward, temptation, sucker, punishment, etc...
 		var animPromise2 = self.playerB.playMove(payoffs[1]);
 
@@ -167,6 +175,11 @@ function Iterated(config){
 	listen(self, "iterated/cheat", function(){
 		publish("iterated/round/start");
 		self.playOneRound(PD.CHEAT);
+	});
+
+	listen(self, "iterated/TRIP", function(){
+		publish("iterated/round/start");
+		self.playOneRound("TRIP");
 	});
 
 	listen(self, "iterated/newOpponent", function(id){
@@ -306,8 +319,11 @@ function IteratedPeep(config){
 	/////// ACTUALLY ANIMATING THE MOVES ////////
 	/////////////////////////////////////////////
 
+	var _isTripping = false;
 	var _isHopping = false;
+	var _faceTripped = false;
 	var _hopTimer = 0;
+	var _faceTimer = 0;
 	self.update = function(delta){
 
 		// Blinking
@@ -317,13 +333,22 @@ function IteratedPeep(config){
 			if(self.face.currentFrame==1 && Math.random()<0.01) self.face.gotoAndStop(2);
 		}
 
+		// Face Tripped
+		if(_faceTripped){
+			_faceTimer += 0.25;
+			var frame = 18+(Math.floor(_faceTimer)%5);
+			self.face.gotoAndStop(frame);
+		}
+
 		// Hopping
-		if(_isHopping){
-			_hopTimer += delta;
-			self.animated.y = -Math.abs(Math.sin(_hopTimer*0.4))*6;
-		}else{
-			self.animated.y = 0;
-			_hopTimer = 0;
+		if(!_isTripping){
+			if(_isHopping){
+				_hopTimer += delta;
+				self.animated.y = -Math.abs(Math.sin(_hopTimer*0.4))*6;
+			}else{
+				self.animated.y = 0;
+				_hopTimer = 0;
+			}
 		}
 	};
 
@@ -351,7 +376,13 @@ function IteratedPeep(config){
 		Tween_get(self.coin)
 			.to({x:60, y:-75}, _s(0.1), Ease.circOut)
 			.wait(_s(0.2))
-			.call(_animate2);
+			.call(function(){
+				if(self.TRIP){
+					_animate2_alt();
+				}else{
+					_animate2();
+				}
+			});
 	};
 
 	// Walk towards machine
@@ -362,21 +393,57 @@ function IteratedPeep(config){
 			.call(_animate3);
 	};
 
+	// ALT: Walk... and TRIP. 
+	var _animate2_alt = function(){
+		_isHopping = true;
+		Tween_get(self.animated)
+			.to({x:70/5}, _s(0.1), Ease.linear)
+			.call(function(){
+				_isHopping = false;
+				_isTripping = true;
+			})
+			.to({rotation:Math.TAU/4.9, y:-11}, _s(0.05), Ease.quadIn)
+			.call(function(){
+				self.eyebrows.visible = false;
+				_faceTripped = true;
+				self.coin.visible = false;
+				g.scale.x = 1.2;
+				g.scale.y = 1/g.scale.x;
+				Tween_get(g.scale)
+					.to({x:1, y:1}, _s(0.5), Ease.elasticOut);
+			})
+			.wait(_s(0.1))
+			.call(_animate3_alt);
+	};
+
 	// Put coin in OR DON'T -- SHOW PAYOFF ON FACE
 	var _animate3 = function(){
 		_isHopping = false;
 
 		// Rewarded or Suckered: PUT COIN IN
 		if(self.payoff==PD.PAYOFFS.R || self.payoff==PD.PAYOFFS.S){
+
 			Tween_get(self.coin)
 				.to({x:95, y:-25}, _s(0.3), Ease.circInOut)
 				.call(function(){
+
 					self.restingFace = false;
 					self.eyebrows.visible = false;
 					if(self.payoff==PD.PAYOFFS.R) self.face.gotoAndStop(8); // Reward Face!
 					if(self.payoff==PD.PAYOFFS.S) self.face.gotoAndStop(9); // Sucker Face!
 					self.coin.visible = false;
+
+					// SOUND
+					if(config.opponent){
+						setTimeout(function(){
+							Loader.sounds.coin_insert.stereo(0.9).volume(0.3).play();
+						},50);
+					}else{
+						Loader.sounds.coin_insert.stereo(-0.9).volume(0.3).play();
+					}
+
 				});
+
 		}
 
 		// Punished or Tempted: DID NOT PUT COIN IN
@@ -405,6 +472,13 @@ function IteratedPeep(config){
 
 	};
 
+	// ALT: Show dizzy face lay down for a while
+	var _animate3_alt = function(){
+		Tween_get(self.animated)
+			.wait(_s(0.9))
+			.call(_animate4_alt);
+	};
+
 	// Walk back
 	var _animate4 = function(){
 		_isHopping = true;
@@ -413,20 +487,34 @@ function IteratedPeep(config){
 			.call(_animate5);
 	};
 
+	// ALT: Get back up
+	var _animate4_alt = function(){
+		Tween_get(self.animated)
+			.to({x:0, y:0, rotation:0}, _s(0.5), Ease.quadInOut)
+			.call(function(){
+				_isTripping = false;
+				_animate5();
+			});
+	};
+
 	// Face back to "normal", put coin back, get coins (if any) thrown at you
 	var _animate5 = function(){
 
 		_isHopping = false;
 
 		// Face back to normal
-		self.restingFace = true;
+		if(!self.TRIP){
+			self.restingFace = true;
+		}
 
 		// Eyebrows, yo
-		self.eyebrows.visible = true;
-		if(self.payoff==PD.PAYOFFS.P) self.eyebrows.gotoAndStop(3); // Punishment
-		if(self.payoff==PD.PAYOFFS.R) self.eyebrows.gotoAndStop(4); // Reward
-		if(self.payoff==PD.PAYOFFS.S) self.eyebrows.gotoAndStop(5); // Sucker
-		if(self.payoff==PD.PAYOFFS.T) self.eyebrows.gotoAndStop(6); // Temptation
+		if(!self.TRIP){
+			self.eyebrows.visible = true;
+			if(self.payoff==PD.PAYOFFS.P) self.eyebrows.gotoAndStop(3); // Punishment
+			if(self.payoff==PD.PAYOFFS.R) self.eyebrows.gotoAndStop(4); // Reward
+			if(self.payoff==PD.PAYOFFS.S) self.eyebrows.gotoAndStop(5); // Sucker
+			if(self.payoff==PD.PAYOFFS.T) self.eyebrows.gotoAndStop(6); // Temptation
+		}
 
 		// Put coin away if not already
 		if(self.coin.visible){
@@ -445,11 +533,22 @@ function IteratedPeep(config){
 				var c = self.payoffCoins[i];
 				c.x = 155;
 				c.y = -25;
-				(function(c){
+				(function(c,i,payoff){
 					Tween_get(c)
 						.wait(_s(i*0.2+0.1))
 						.call(function(){
 							c.visible = true;
+
+							// COIN GET SOUND
+							if(self.payoff==PD.PAYOFFS.R && i==2) return; // NOT last coin.
+							if(config.opponent){
+								setTimeout(function(){
+									Loader.sounds.coin_get.stereo(0.9).volume(0.1).play();
+								},50);
+							}else{
+								Loader.sounds.coin_get.stereo(-0.9).volume(0.1).play();
+							}
+
 						})
 						.to({x:0}, _s(0.3), Ease.linear)
 						.call(function(){
@@ -459,7 +558,7 @@ function IteratedPeep(config){
 						.wait(_s(i*0.2+0.1))
 						.to({y:-120}, _s(0.15), Ease.circOut) // y
 						.to({y:-20}, _s(0.15), Ease.circIn); // y
-				})(c);
+				})(c,i,self.payoff);
 			}
 
 			Tween_get(self.animated)
@@ -477,6 +576,11 @@ function IteratedPeep(config){
 
 	// DONE
 	var _animateDone = function(){
+		if(self.TRIP){
+			self.restingFace = true;
+			self.face.gotoAndStop(2); // BLINK
+		}
+		_faceTripped = false;
 		self.animationDeferred.resolve();
 	};
 

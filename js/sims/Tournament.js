@@ -4,14 +4,14 @@ Tournament.resetGlobalVariables = function(){
 	Tournament.NUM_TURNS = 10;
 
 	Tournament.INITIAL_AGENTS = [
-		{strategy:"tft", count:5},
-		{strategy:"all_d", count:5},
-		{strategy:"all_c", count:0},
-		{strategy:"grudge", count:0},
-		{strategy:"prober", count:0},
-		{strategy:"tf2t", count:5},
-		{strategy:"pavlov", count:5},
-		{strategy:"random", count:5}
+		{strategy:"tft", count:3},
+		{strategy:"all_d", count:3},
+		{strategy:"all_c", count:3},
+		{strategy:"grudge", count:3},
+		{strategy:"prober", count:3},
+		{strategy:"tf2t", count:3},
+		{strategy:"pavlov", count:3},
+		{strategy:"random", count:4}
 	];
 
 	Tournament.FLOWER_CONNECTIONS = false;
@@ -335,7 +335,7 @@ function Tournament(config){
 	// ANIMATE
 	var _playIndex = 0;
 	var _tweenTimer = 0;
-	app.ticker.add(function(delta) {
+	var _tick = function(delta){
 
 		// Tick
 		Tween.tick();
@@ -385,6 +385,7 @@ function Tournament(config){
 
 			// Middle...
 			_tweenTimer += self.isAutoPlaying ? 0.15 : 0.05;
+			if(_tweenTimer>1) _tweenTimer=1;
 			for(var i=0;i<self.agents.length;i++){
 				var a = self.agents[i];
 				a.tweenAngle(_tweenTimer);
@@ -402,7 +403,8 @@ function Tournament(config){
 
 		}
 
-	});
+	};
+	app.ticker.add(_tick);
 
 	// PLAY A TOURNAMENT
 	self._startPlay = function(){

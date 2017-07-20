@@ -110,8 +110,9 @@ SLIDES.push({
 		var x = 510;
 		var y = 200;
 		var nextStep;
-		// var textStep = 2;
-		var textStep = 8;
+		// [FOR DEBUGGING]
+		var textStep = 2;
+		// var textStep = 8;
 		self.add({
 			id:"step_1", type:"Button", x:x, y:y, 
 			text_id: "label_play_tournament", size:"long",

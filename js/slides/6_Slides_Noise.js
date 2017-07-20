@@ -1,3 +1,5 @@
+// [FOR DEBUGGING]
+
 // One-off with noise
 SLIDES.push({
 	id: "noise",
@@ -22,7 +24,7 @@ SLIDES.push({
 		// STAGES
 		var STAGES = [
 			{button:"cooperate", message:"cooperate"},
-			{button:"cooperate", message:"cheat"},
+			{button:"cooperate", message:"TRIP"},
 			{button:"cooperate", message:"cooperate"},
 			{button:"cheat", message:"cheat"}
 		];
@@ -151,6 +153,7 @@ SLIDES.push({
 
 // Tournament: simpleton wins
 SLIDES.push({
+	//id:"noise",// [FOR DEBUGGING]
 	onstart: function(self){
 
 		var o = self.objects;
@@ -218,11 +221,11 @@ SLIDES.push({
 		// BUTTONS for playing //////////////////
 		/////////////////////////////////////////
 
-		var x = 135;
+		var x = 172;
 		var y = 175;
 		var dy = 70;
 		self.add({
-			id:"playButton", type:"Button",
+			id:"playButton", type:"Button", size:"short",
 			x:x, y:y, text_id:"label_start",
 			onclick: function(){
 				if(o.tournament.isAutoPlaying){
@@ -239,11 +242,11 @@ SLIDES.push({
 			o.playButton.setText("label_stop");
 		});
 		self.add({
-			id:"stepButton", type:"Button", 
+			id:"stepButton", type:"Button",  size:"short",
 			x:x, y:y+dy, text_id:"label_step", message:"tournament/step"
 		});
 		self.add({
-			id:"resetButton", type:"Button",
+			id:"resetButton", type:"Button", size:"short",
 			x:x, y:y+dy*2, text_id:"label_reset", message:"tournament/reset"
 		});
 
@@ -360,8 +363,6 @@ SLIDES.push({
 		unlisten(_.misc);
 	}
 });
-
-// TODO: SMALLER SANDBOX-PLAY BUTTONS
 
 SLIDES.push({
 	onstart: function(self){

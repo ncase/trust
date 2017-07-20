@@ -21,6 +21,18 @@ body{
 	font-size: 20px;
 
 }
+#preloader{
+	position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+}
 #main{
 	width: 100%;
 	height: calc(100% - 60px);
@@ -160,8 +172,8 @@ s{
 }
 .button[size=short] #text{
 	width:105px;
-	font-size: 18px;
-    top: 18px;
+	/*font-size: 18px;
+    top: 18px;*/
 }
 .button[size=short] #hitbox{
 	width:115px;

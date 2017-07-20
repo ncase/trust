@@ -14,7 +14,7 @@ function SandboxUI(config){
 	/////////////////////////////////////////
 
 	var playButton = new Button({
-		x:130, y:135, text_id:"label_start",
+		x:172, y:135, text_id:"label_start", size:"short",
 		onclick: function(){
 			if(slideshow.objects.tournament.isAutoPlaying){
 				publish("tournament/autoplay/stop");
@@ -32,11 +32,11 @@ function SandboxUI(config){
 	dom.appendChild(playButton.dom);
 
 	var stepButton = new Button({
-		x:130, y:135+70, text_id:"label_step", message:"tournament/step"
+		x:172, y:135+70, text_id:"label_step", message:"tournament/step", size:"short"
 	});
 	dom.appendChild(stepButton.dom);
 	
-	var resetButton = new Button({x:130, y:135+70*2, text_id:"label_reset", message:"tournament/reset"});
+	var resetButton = new Button({x:172, y:135+70*2, text_id:"label_reset", message:"tournament/reset", size:"short"});
 	dom.appendChild(resetButton.dom);
 
 	/////////////////////////////////////////
@@ -165,14 +165,14 @@ function SandboxUI(config){
 	var xDiff = 220;
 	var yDiff = 80;
 	var yOff = 40;
-	_makePopulationControl(    0, yOff+0,       "tft",		5);
-	_makePopulationControl(xDiff, yOff+0,       "all_d",	5);
-	_makePopulationControl(    0, yOff+yDiff,   "all_c",	15);
-	_makePopulationControl(xDiff, yOff+yDiff,   "grudge",	0);
-	_makePopulationControl(    0, yOff+yDiff*2, "prober",	0);
-	_makePopulationControl(xDiff, yOff+yDiff*2, "tf2t",		0);
-	_makePopulationControl(    0, yOff+yDiff*3, "pavlov",	0);
-	_makePopulationControl(xDiff, yOff+yDiff*3, "random",	0);
+	_makePopulationControl(    0, yOff+0,       "tft",		3);
+	_makePopulationControl(xDiff, yOff+0,       "all_d",	3);
+	_makePopulationControl(    0, yOff+yDiff,   "all_c",	3);
+	_makePopulationControl(xDiff, yOff+yDiff,   "grudge",	3);
+	_makePopulationControl(    0, yOff+yDiff*2, "prober",	3);
+	_makePopulationControl(xDiff, yOff+yDiff*2, "tf2t",		3);
+	_makePopulationControl(    0, yOff+yDiff*3, "pavlov",	3);
+	_makePopulationControl(xDiff, yOff+yDiff*3, "random",	4);
 
 	// Adjust the WHOLE population...
 	/******************************
@@ -267,11 +267,13 @@ function SandboxUI(config){
 			}
 		}
 		// If positive, add one starting from TOP, skipping anchor.
+		// (UNLESS IT'S ZERO)
 		if(diff>0){
 			for(var i=0; i<Tournament.INITIAL_AGENTS.length && diff>0; i++){
 				// do NOT adjust anchor.
 				var conf = Tournament.INITIAL_AGENTS[i];
 				if(conf.strategy==peepID) continue;
+				if(conf.count==0) continue; // DO NOT ADD IF ZERO
 				conf.count++; // ADD
 				diff--; // yay
 			}

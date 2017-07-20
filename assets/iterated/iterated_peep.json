@@ -143,6 +143,46 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":302,"h":402},
 	"sourceSize": {"w":302,"h":402}
+},
+"iterated_peep0018":
+{
+	"frame": {"x":10,"y":1246,"w":302,"h":402},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":302,"h":402},
+	"sourceSize": {"w":302,"h":402}
+},
+"iterated_peep0019":
+{
+	"frame": {"x":322,"y":1246,"w":302,"h":402},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":302,"h":402},
+	"sourceSize": {"w":302,"h":402}
+},
+"iterated_peep0020":
+{
+	"frame": {"x":634,"y":1246,"w":302,"h":402},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":302,"h":402},
+	"sourceSize": {"w":302,"h":402}
+},
+"iterated_peep0021":
+{
+	"frame": {"x":946,"y":1246,"w":302,"h":402},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":302,"h":402},
+	"sourceSize": {"w":302,"h":402}
+},
+"iterated_peep0022":
+{
+	"frame": {"x":1258,"y":1246,"w":302,"h":402},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":302,"h":402},
+	"sourceSize": {"w":302,"h":402}
 }},
 "meta": {
 	"app": "Adobe Animate",

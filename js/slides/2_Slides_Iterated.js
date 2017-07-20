@@ -113,16 +113,17 @@ SLIDES.push({
 		_hide(o.info);
 
 		// ROUNDS
-		var ROUNDS = [
+		// [FOR DEBUGGING]
+		/*var ROUNDS = [
 			{id:"tft", num:1},
-		]; // FOR TESTING
-		/*var ROUNDS = [ // and min & max score...
+		];*/
+		var ROUNDS = [ // and min & max score...
 			{id:"tft", num:5}, // min 3, max 11
 			{id:"all_d", num:4}, // min -4, max 0
 			{id:"all_c", num:4}, // min 8, max 12
 			{id:"grudge", num:5}, // min -1, max 11
 			{id:"prober", num:7} // min 2, max 15
-		]; // TOTAL... MIN 8, MAX 49*/
+		]; // TOTAL... MIN 8, MAX 49
 		ROUND_INDEX = 0;
 		ROUND_NUM = 0;
 

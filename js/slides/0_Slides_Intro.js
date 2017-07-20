@@ -15,6 +15,8 @@ Labels should be in the en.html folder
 *********************/
 
 Loader.addToManifest(Loader.manifest,{
+
+	// CSS ASSETS
 	cssAsset0: "assets/ui/button.png",
 	cssAsset1: "assets/ui/button_short.png",
 	cssAsset2: "assets/ui/button_long.png",
@@ -27,7 +29,11 @@ Loader.addToManifest(Loader.manifest,{
 	cssAsset9: "assets/iterated/iterated_scoreboard.png",
 	cssAsset10: "assets/tournament/peep_characters.png",
 	cssAsset11: "assets/ui/sandbox_hats.png",
-	cssAsset12: "assets/tournament/score_small.png"
+	cssAsset12: "assets/tournament/score_small.png",
+
+	// Music!
+	bg_music: "assets/sounds/bg_music.mp3"
+
 });
 
 SLIDES.push({
@@ -67,13 +73,15 @@ SLIDES.push({
 
 		// PRELOADER
 		listen(self,"preloader/progress", function(ratio){
-			console.log(ratio);
 			_loadingWords(ratio);
 		});
 		listen(self,"preloader/done", function(){
 			o.loading_button.setText("loading_done");
 			o.loading_button.activate();
-			o.loading_button.config.message = "start/game";
+			o.loading_button.config.onclick = function(){
+				publish("start/game");
+				Loader.sounds.bg_music.volume(0.8).loop(true).play(); // play music!
+			};
 		});
 
 	},

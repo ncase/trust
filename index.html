@@ -6,13 +6,14 @@
 	<link rel="stylesheet" href="css/balloon.css">
 </head>
 <body>
-	<div id="main">
+	<div id="preloader">loading...</div>
+	<div style="display:none" id="main">
 		<div id="slideshow_container">
 			<div id="slideshow"></div>
 			<div id="scratcher"></div>
 		</div>
 	</div>
-	<div id="footer">
+	<div style="display:none" id="footer">
 		<div id="select"></div>
 	</div>
 </body>
@@ -75,6 +76,11 @@ window.onload = function(){
 		Words.convert("lang/en.html")
 	]).then(function(){
 
+		// CHANGE DOM
+		document.body.removeChild($("#preloader"));
+		$("#main").style.display = "block";
+		$("#footer").style.display = "block";
+
 		// Slideshow
 		slideshow = new Slideshow({
 			dom: $("#slideshow"),
@@ -88,8 +94,12 @@ window.onload = function(){
 		});
 		slideSelect.dom.style.display = "none";
 		subscribe("start/game", function(){
-			publish("slideshow/next");
 			slideSelect.dom.style.display = "block";
+
+			// [FOR DEBUGGING]
+			//publish("slideshow/next");
+			publish("slideshow/scratch", ["noise"]);
+
 		});
 
 		// LOAD REAL THINGS
@@ -105,7 +115,6 @@ window.onload = function(){
 
 		// First slide!
 		slideshow.nextSlide();
-		//slideshow.gotoSlide("noise");
 
 	});
 

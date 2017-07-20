@@ -62,7 +62,7 @@ Scratcher.scratchAnim = function(dom, scratchIn){
 
 	setTimeout(function(){
 		var sound = scratchIn ? Loader.sounds.scratch_in : Loader.sounds.scratch_out;
-		sound.volume(0.7).play();
+		sound.play();
 	},100);
 
 	return deferred.promise;
