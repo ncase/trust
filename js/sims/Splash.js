@@ -1,4 +1,4 @@
-Loader.addToManifest(Loader.manifest,{
+Loader.addToManifest(Loader.manifestPreload,{
 	splash_peep: "assets/splash/splash_peep.json",
 	connection: "assets/splash/connection.json"
 });

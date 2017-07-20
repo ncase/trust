@@ -28,6 +28,9 @@ function Button(config){
 	self.setText = function(text_id){
 		var words = Words.get(text_id);
 		if(config.uppercase) words = words.toUpperCase();
+		self.setText2(words);
+	};
+	self.setText2 = function(words){
 		text.innerHTML = words;
 	};
 	self.setText(config.text_id);

@@ -9,7 +9,7 @@
 	<div id="main">
 		<div id="slideshow_container">
 			<div id="slideshow"></div>
-			<div id="scratcher" class="scratcher"></div>
+			<div id="scratcher"></div>
 		</div>
 	</div>
 	<div id="footer">
@@ -69,8 +69,9 @@
 var slideshow, slideSelect;
 window.onload = function(){
 
+	// PRELOADER
 	Q.all([
-		Loader.loadAssets(Loader.manifest),
+		Loader.loadAssets(Loader.manifestPreload),
 		Words.convert("lang/en.html")
 	]).then(function(){
 
@@ -85,10 +86,26 @@ window.onload = function(){
 			dom: $("#select"),
 			slides: SLIDES
 		});
+		slideSelect.dom.style.display = "none";
+		subscribe("start/game", function(){
+			publish("slideshow/next");
+			slideSelect.dom.style.display = "block";
+		});
+
+		// LOAD REAL THINGS
+		Loader.loadAssets(
+			Loader.manifest,
+			function(){
+				publish("preloader/done");
+			},
+			function(ratio){
+				publish("preloader/progress", [ratio]);
+			}
+		);
 
 		// First slide!
-		//slideshow.nextSlide();
-		slideshow.gotoSlide("noise");
+		slideshow.nextSlide();
+		//slideshow.gotoSlide("noise");
 
 	});
 

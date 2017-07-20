@@ -17,6 +17,7 @@ Scratcher.scratch = function(gotoID){
 
 	var dom = $("#scratcher");
 	dom.style.display = "block";
+	dom.className = "scratcher";
 
 	var width = $("#main").clientWidth;
 	var height = $("#main").clientHeight;

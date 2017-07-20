@@ -151,7 +151,6 @@ SLIDES.push({
 
 // Tournament: simpleton wins
 SLIDES.push({
-	id: "noise",
 	onstart: function(self){
 
 		var o = self.objects;
