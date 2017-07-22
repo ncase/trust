@@ -268,12 +268,26 @@ function SandboxUI(config){
 		}
 		// If positive, add one starting from TOP, skipping anchor.
 		// (UNLESS IT'S ZERO)
+		var everyoneElseWasZero = true;
 		if(diff>0){
 			for(var i=0; i<Tournament.INITIAL_AGENTS.length && diff>0; i++){
 				// do NOT adjust anchor.
 				var conf = Tournament.INITIAL_AGENTS[i];
 				if(conf.strategy==peepID) continue;
 				if(conf.count==0) continue; // DO NOT ADD IF ZERO
+				everyoneWasZero = false;
+				conf.count++; // ADD
+				diff--; // yay
+			}
+		}
+		// ...edge case. fine w/e
+		if(everyoneElseWasZero){
+			for(var i=0; i<Tournament.INITIAL_AGENTS.length && diff>0; i++){
+				// do NOT adjust anchor.
+				var conf = Tournament.INITIAL_AGENTS[i];
+				if(conf.strategy==peepID) continue;
+				// if(conf.count==0) continue; // DO NOT ADD IF ZERO
+				// everyoneWasZero = false;
 				conf.count++; // ADD
 				diff--; // yay
 			}
@@ -302,12 +316,12 @@ function SandboxUI(config){
 	page.appendChild(_makeLabel("sandbox_payoffs", {x:0, y:0, w:433}));
 	
 	// PAYOFFS
-	var payoffsUI = new PayoffsUI({x:64, y:47, slideshow:self});
+	var payoffsUI = new PayoffsUI({x:84, y:41, scale:0.9, slideshow:self});
 	page.appendChild(payoffsUI.dom);
 
 	// Reset
 	var resetPayoffs = new Button({
-		x:320, y:300, text_id:"sandbox_reset_payoffs", size:"short",
+		x:240, y:300, text_id:"sandbox_reset_payoffs",
 		message:"pd/defaultPayoffs"
 	});
 	page.appendChild(resetPayoffs.dom);

@@ -97,10 +97,13 @@ window.onload = function(){
 			slideSelect.dom.style.display = "block";
 
 			// [FOR DEBUGGING]
-			//publish("slideshow/next");
-			publish("slideshow/scratch", ["noise"]);
+			publish("slideshow/next");
+			//publish("slideshow/scratch", ["conclusion"]);
 
 		});
+
+		// DEBUGGING
+		//Howler.mute(true);
 
 		// LOAD REAL THINGS
 		Loader.loadAssets(

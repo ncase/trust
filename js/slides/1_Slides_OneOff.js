@@ -79,6 +79,9 @@ SLIDES.push({
 		_hide(o.btnCheat); _fadeIn(o.btnCheat, 150+1200);
 		_hide(o.btnCooperate); _fadeIn(o.btnCooperate, 150+1200);
 
+	},
+	onend: function(self){
+		self.remove("btmWords");
 	}
 
 },{
@@ -92,19 +95,21 @@ SLIDES.push({
 
 		// Text
 		var t = o.topWords;
-		var b = o.btmWords;
 		if(_.answer=="COOPERATE"){
 			t.setText(Words.get("oneoff_2_cooperated")+"<br>"+Words.get("oneoff_2_top"));
 		}else{
 			t.setText(Words.get("oneoff_2_cheated")+"<br>"+Words.get("oneoff_2_top"));
 		}
-		b.setTextID("oneoff_2_btm");
+		self.add({
+			id:"btmWords", type:"TextBox", text_id:"oneoff_2_btm",
+			x:130, y:392, width:700, height:100, align:"center"
+		});
 
 		// Replace button
 		self.remove("btnCheat");
 		self.remove("btnCooperate");
 		self.add({
-			id:"btnNext", type:"Button", x:304, y:466, size:"long",
+			id:"btnNext", type:"Button", x:304, y:481, size:"long",
 			text_id:"oneoff_button_next", 
 			message:"slideshow/next"
 		});

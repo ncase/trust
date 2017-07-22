@@ -35,7 +35,7 @@ function Splash(config){
 	// PEEPS
 	var peeps = [];
 	self.addPeep = function(x, y){
-		var peep = new SplashPeep({ x:x, y:y, app:app });
+		var peep = new SplashPeep({ x:x, y:y, app:app, blush:config.blush });
 		peeps.push(peep);
 		peepsContainer.addChild(peep.graphics);
 	};
@@ -121,6 +121,7 @@ function SplashPeep(config){
 	// Graphics!
 	var g = _makeMovieClip("splash_peep", {scale:0.3});
 	self.graphics = g;
+	if(config.blush) g.gotoAndStop(1);
 	if(Math.random()<0.5) g.scale.x*=-1; // Flip?
 
 	// Them variables...

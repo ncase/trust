@@ -7,13 +7,21 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":302,"h":402},
 	"sourceSize": {"w":302,"h":402}
+},
+"splash_peep0001":
+{
+	"frame": {"x":10,"y":422,"w":302,"h":402},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":302,"h":402},
+	"sourceSize": {"w":302,"h":402}
 }},
 "meta": {
 	"app": "Adobe Animate",
 	"version": "15.2.0.66",
 	"image": "splash_peep.png",
 	"format": "RGBA8888",
-	"size": {"w":512,"h":512},
+	"size": {"w":512,"h":1024},
 	"scale": "1"
 }
 }

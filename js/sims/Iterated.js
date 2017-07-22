@@ -8,6 +8,7 @@ Loader.addToManifest(Loader.manifest,{
 	// SFX
 	coin_insert: "assets/sounds/coin_insert.mp3",
 	coin_get: "assets/sounds/coin_get.mp3",
+	evil_laugh: "assets/sounds/evil_laugh.mp3",
 
 });
 
@@ -202,6 +203,8 @@ function Iterated(config){
 	self.remove = function(){
 		app.destroy();
 		unlisten(self);
+		self.playerA.kill();
+		self.playerB.kill();
 		_remove(self);
 	};
 
@@ -457,6 +460,14 @@ function IteratedPeep(config){
 					if(self.payoff==PD.PAYOFFS.P) self.face.gotoAndStop(7); // Punishment Face
 					if(self.payoff==PD.PAYOFFS.T) self.face.gotoAndStop(10); // Temptation Face!
 
+					// EVIL LAUGH
+					if(self.payoff==PD.PAYOFFS.T){
+						setTimeout(function(){
+							var stereo = (config.opponent) ? 0.9 : -0.9;
+							Loader.sounds.evil_laugh.stereo(stereo).volume(1).play();
+						},100);
+					}
+
 					if(self.payoff==PD.PAYOFFS.T){
 						_isHopping = true;
 					}
@@ -582,6 +593,16 @@ function IteratedPeep(config){
 		}
 		_faceTripped = false;
 		self.animationDeferred.resolve();
+	};
+
+	// KILL
+	self.kill = function(){
+		// Remove ALL tweens
+		Tween.removeTweens(self.animated);
+		Tween.removeTweens(self.coin);
+		for(var i=0;i<self.payoffCoins.length;i++){
+			Tween.removeTweens(self.payoffCoins[i]);
+		}
 	};
 
 

@@ -84,6 +84,12 @@ SLIDES.push({
 
 		var o = self.objects;
 
+		// Words to the side
+		self.add({
+			id:"text_extra", type:"TextBox",
+			x:510, y:230, width:450, height:500
+		});
+
 		var showTournament = function(num){
 
 			var words = "";
@@ -124,12 +130,16 @@ SLIDES.push({
 			match_header = match_header.replace(/\[B\]/g, "<span class='"+charB+"'>"+scoreB+"</span>");
 			words += match_header+"<br><br><br>";
 
-			// Extra info
-			words += Words.get("tournament_"+(num+1));
-
 			// PUT IN THE WORDS
 			o.text.setText(words);
 			_hide(o.text); _fadeIn(o.text, 100);
+
+			// Extra info
+			o.text_extra.setTextID("tournament_"+(num+1));
+			_hide(o.text_extra); _fadeIn(o.text_extra, 100+250);
+
+			// FADE IN BUTTON
+			_hide(o.button); _fadeIn(o.button, 100+500);
 
 			// FINAL MATCH?
 			if(_matchNumber==9){
@@ -137,10 +147,6 @@ SLIDES.push({
 			}
 
 		};
-
-		// MATCH NUMBER!
-		_matchNumber = 0;
-		showTournament(_matchNumber);
 
 		// "Next Match" Button
 		self.add({
@@ -158,10 +164,14 @@ SLIDES.push({
 				publish("slideshow/next");
 			};
 		};
-		_hide(o.button); _fadeIn(o.button, 100+500);
+
+		// MATCH NUMBER!
+		_matchNumber = 0;
+		showTournament(_matchNumber);
 
 	},
 	onend: function(self){
+		self.remove("text_extra");
 		self.remove("button");
 	}
 });

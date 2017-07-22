@@ -286,104 +286,14 @@ SLIDES.push({
 		// Worse...
 		self.add({
 			id:"next", type:"Button",
-			x:0, y:410, size:"long",
+			x:0, y:450, size:"long",
 			text_id:"distrust_5_btn",
-			message: "slideshow/next"
+			message: "slideshow/scratch"
 		});
 		_hide(o.next); _fadeIn(o.next, 400);
 
 	},
 	onend: function(self){	
-		self.remove("text");
-		self.remove("next");
-	}
-});
-
-// Play with BOTH
-SLIDES.push({
-	onstart: function(self){
-
-		var o = self.objects;
-		_.misc = {};
-
-		// TOURNAMENT
-		Tournament.resetGlobalVariables();
-		Tournament.INITIAL_AGENTS = [
-			{strategy:"all_c", count:23},
-			{strategy:"all_d", count:1},
-			{strategy:"tft", count:1}
-		];
-		PD.PAYOFFS.P = -4;
-		PD.PAYOFFS.S = -1;
-		PD.PAYOFFS.R = 1;
-		PD.PAYOFFS.T = 3;
-		o.tournament.reset();
-
-		// Words
-		self.add({
-			id:"text", type:"TextBox",
-			x:0, y:0, width:450, height:500,
-			text_id:"distrust_6"
-		});
-		_hide(o.text); _fadeIn(o.text, 100);
-		listen(_.misc, "payoffs/onchange", function(value){
-			o.tournament.reset();
-		});
-
-		// SLIDER
-		// HAX - COPY PASTE CODE WHATEVER
-		var x = 0;
-		var y = 95;
-		self.add({
-			id:"roundsLabel", type:"TextBox",
-			x:0, y:y, width:450, size:25, noSelect:true
-		});
-		self.add({
-			id:"roundsSlider", type:"Slider",
-			x:0, y:y+30, width:450,
-			min:1, max:20, step:1,
-			message: "rules/turns"
-		});
-		var _updateLabel = function(value){
-			var words = (value==1) ? Words.get("sandbox_rules_1_single") : Words.get("sandbox_rules_1"); // plural?
-			words = words.replace(/\[N\]/g, value+""); // replace [N] with the number value
-			o.roundsLabel.setText("<b>"+words+"</b>");
-		};
-		listen(_.misc, "rules/turns", function(value){
-			_updateLabel(value);
-			o.tournament.reset();
-		});
-		o.roundsSlider.setValue(10);
-		_updateLabel(10);
-		_hide(o.roundsLabel); _fadeIn(o.roundsLabel, 300);
-		_hide(o.roundsSlider); _fadeIn(o.roundsSlider, 300);
-
-		// PAYOFFS
-		self.add({
-			id:"payoffs", type:"PayoffsUI",
-			x:105, y:170, scale:0.8, slideshow:self
-		});
-		_hide(o.payoffs); _fadeIn(o.payoffs, 300);
-
-		// Words
-		self.add({
-			id:"text2", type:"TextBox",
-			x:0, y:410, width:450, height:500,
-			text_id:"distrust_6_end"
-		});
-		_hide(o.text2); _fadeIn(o.text2, 500);
-
-		// FINALLY.
-		self.add({
-			id:"next", type:"Button",
-			x:0, y:475, size:"long",
-			text_id:"distrust_6_btn",
-			message: "slideshow/scratch"
-		});
-		_hide(o.next); _fadeIn(o.next, 700);
-
-	},
-	onend: function(self){
 		unlisten(_);
 		unlisten(_.misc);
 		self.clear();
