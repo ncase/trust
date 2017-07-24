@@ -479,8 +479,9 @@ SLIDES.push({
 		unlisten(_.misc);
 		self.remove("noiseLabel");
 		self.remove("noiseSlider");
-		self.remove("continueLabel");
-		self.remove("continueButton");
+		var o = self.objects;
+		if(o.continueLabel) self.remove("continueLabel");
+		if(o.continueButton) self.remove("continueButton");
 		self.remove("text");
 	}
 });

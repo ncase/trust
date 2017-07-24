@@ -152,8 +152,9 @@ SLIDES.push({
 		unlisten(_.misc);
 		self.remove("roundsLabel");
 		self.remove("roundsSlider");
-		self.remove("continueLabel");
-		self.remove("continueButton");
+		var o = self.objects;
+		if(o.continueLabel) self.remove("continueLabel");
+		if(o.continueButton) self.remove("continueButton");
 	}
 });
 
@@ -264,8 +265,9 @@ SLIDES.push({
 		self.remove("payoffs");
 		self.remove("text2");
 		self.remove("note2");
-		self.remove("continueLabel");
-		self.remove("continueButton");
+		var o = self.objects;
+		if(o.continueLabel) self.remove("continueLabel");
+		if(o.continueButton) self.remove("continueButton");
 	}
 });
 
