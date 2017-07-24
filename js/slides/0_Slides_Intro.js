@@ -80,7 +80,7 @@ SLIDES.push({
 			o.loading_button.activate();
 			o.loading_button.config.onclick = function(){
 				publish("start/game");
-				Loader.sounds.bg_music.volume(0.8).loop(true).play(); // play music!
+				Loader.sounds.bg_music.volume(0.75).loop(true).play(); // play music!
 			};
 		});
 

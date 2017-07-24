@@ -9,6 +9,9 @@ Loader.addToManifest(Loader.manifest,{
 	coin_insert: "assets/sounds/coin_insert.mp3",
 	coin_get: "assets/sounds/coin_get.mp3",
 	evil_laugh: "assets/sounds/evil_laugh.mp3",
+	whoosh: "assets/sounds/whoosh.mp3",
+	thump: "assets/sounds/thump.mp3",
+	machine_start: "assets/sounds/machine_start.mp3"
 
 });
 
@@ -120,6 +123,7 @@ function Iterated(config){
 	});
 	self.introMachine = function(){
 		_introMachine = 40;
+		Loader.sounds.machine_start.volume(0.8).play();
 	};
 
 	///////////////////////////////////////////////
@@ -407,6 +411,10 @@ function IteratedPeep(config){
 			})
 			.to({rotation:Math.TAU/4.9, y:-11}, _s(0.05), Ease.quadIn)
 			.call(function(){
+
+				Loader.sounds.thump.stereo(-0.9).volume(0.9).play();
+				Loader.sounds.squeak.stereo(-0.9).volume(0.9).play();
+
 				self.eyebrows.visible = false;
 				_faceTripped = true;
 				self.coin.visible = false;
@@ -459,6 +467,15 @@ function IteratedPeep(config){
 					self.eyebrows.visible = false;
 					if(self.payoff==PD.PAYOFFS.P) self.face.gotoAndStop(7); // Punishment Face
 					if(self.payoff==PD.PAYOFFS.T) self.face.gotoAndStop(10); // Temptation Face!
+
+					// WHOOSH SOUND
+					if(config.opponent){
+						setTimeout(function(){
+							Loader.sounds.whoosh.stereo(0.9).volume(0.8).play();
+						},50);
+					}else{
+						Loader.sounds.whoosh.stereo(-0.9).volume(0.8).play();
+					}
 
 					// EVIL LAUGH
 					if(self.payoff==PD.PAYOFFS.T){

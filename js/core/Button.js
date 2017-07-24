@@ -1,3 +1,12 @@
+Loader.addToManifest(Loader.manifest,{
+
+	// SFX
+	button1: "assets/sounds/button1.mp3",
+	button2: "assets/sounds/button2.mp3",
+	button3: "assets/sounds/button3.mp3"
+
+});
+
 function Button(config){
 
 	var self = this;
@@ -45,10 +54,25 @@ function Button(config){
 
 	// On click...
 	hitbox.onclick = function(){
+
+		if(parseFloat(getComputedStyle(self.dom).opacity)<0.5) return; // DON'T CLICK INVISIBLE BUTTONS
+
 		if(self.active){
+
+			// Sound!
+			if(config.sound){
+				Loader.sounds[config.sound].play();
+			}else{
+				var num = Math.ceil(Math.random()*3);
+				Loader.sounds["button"+num].play();
+			}
+
+			// Actual Logic
 			if(config.onclick) config.onclick();
 			if(config.message) publish(config.message);
+
 		}
+
 	};
 
 	// Activate/Deactivate

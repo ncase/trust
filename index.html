@@ -2,20 +2,21 @@
 <html>
 <head>
 
-	<!-- TRANSLATE: 'title' -->
+	<!-- META -->
 	<title>The Evolution of Trust</title>
+	<meta name="description" content="an interactive guide to the game theory of why &amp; how we trust each other"/>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=640">
+	<!--meta name="viewport" content="width=640"-->
 	<link rel="icon" type="image/png" href="favicon.png">
 
-	<!-- TRANSLATE: 'name' and 'description' -->
+	<!-- Facebook Shtuff -->
 	<meta itemprop="name" content="The Evolution of Trust">
 	<meta itemprop="description" content="an interactive guide to the game theory of why &amp; how we trust each other">
 	<meta itemprop="image" content="http://ncase.me/trust/social/thumbnail.png">
 
-	<!-- TRANSLATE: 'twitter:title' and 'twitter:description' -->
+	<!-- Twitter Shtuff -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@ncasenmare">
 	<meta name="twitter:title" content="The Evolution of Trust">
@@ -23,7 +24,7 @@
 	<meta name="twitter:creator" content="@ncasenmare">
 	<meta name="twitter:image" content="http://ncase.me/trust/social/thumbnail.png">
 
-	<!-- TRANSLATE: 'og:title' and 'og:description' -->
+	<!-- Shmoogle Shtuff -->
 	<meta property="og:title" content="The Evolution of Trust">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="http://ncase.me/trust/">
@@ -44,7 +45,14 @@
 		</div>
 	</div>
 	<div style="display:none" id="footer">
+		<div id="sound" sound="on" class="no-select">
+			<div id="sound_icon"></div>
+			<div id="sound_on">ON</div>
+			<div id="sound_off">OFF</div>
+		</div>
 		<div id="select"></div>
+		<sharing text="People no longer trust each other. Why? And how can we fix it? An interactive guide to the game theory of trust:"
+				 link="http://ncase.me/trust/"></sharing>
 	</div>
 </body>
 </html>
@@ -60,6 +68,7 @@
 <script>var createjs = window;</script>
 <script src="js/lib/tweenjs-0.6.2.min.js"></script>
 <script>Ticker.framerate=60; Ticker.paused=true;</script>
+<script src="js/lib/sharing.js"></script>
 
 <!-- Core Engine -->
 <script src="js/core/Loader.js"></script>
@@ -93,63 +102,6 @@
 <script src="js/slides/7_Slides_Sandbox.js"></script>
 <script src="js/slides/8_Slides_Conclusion.js"></script>
 <script src="js/slides/9_Slides_Credits.js"></script>
-<!--script src="js/slides/Slides_Sandbox.js"></script-->
 
 <!-- Main Code -->
-<script>
-var slideshow, slideSelect;
-window.onload = function(){
-
-	// PRELOADER
-	Q.all([
-		Loader.loadAssets(Loader.manifestPreload),
-		Words.convert("lang/en.html")
-	]).then(function(){
-
-		// CHANGE DOM
-		document.body.removeChild($("#preloader"));
-		$("#main").style.display = "block";
-		$("#footer").style.display = "block";
-
-		// Slideshow
-		slideshow = new Slideshow({
-			dom: $("#slideshow"),
-			slides: SLIDES
-		});
-
-		// Slide Select
-		slideSelect = new SlideSelect({
-			dom: $("#select"),
-			slides: SLIDES
-		});
-		slideSelect.dom.style.display = "none";
-		subscribe("start/game", function(){
-			slideSelect.dom.style.display = "block";
-
-			// [FOR DEBUGGING]
-			publish("slideshow/next");
-			//publish("slideshow/scratch", ["conclusion"]);
-
-		});
-
-		// DEBUGGING
-		//Howler.mute(true);
-
-		// LOAD REAL THINGS
-		Loader.loadAssets(
-			Loader.manifest,
-			function(){
-				publish("preloader/done");
-			},
-			function(ratio){
-				publish("preloader/progress", [ratio]);
-			}
-		);
-
-		// First slide!
-		slideshow.nextSlide();
-
-	});
-
-};
-</script>
+<script src="js/main.js"></script>

@@ -1,3 +1,8 @@
+Loader.addToManifest(Loader.manifest,{
+	// SFX
+	fart: "assets/sounds/fart.mp3"
+});
+
 // Evolution Intro
 SLIDES.push({
 	id: "evolution",
@@ -287,7 +292,10 @@ SLIDES.push({
 	onstart: function(self){
 		var o = self.objects;
 
-		// TODO: FART SOUND
+		// FART SOUNDS
+		Loader.sounds.fart.play();
+
+		// New tournament...
 		Tournament.resetGlobalVariables();
 		Tournament.INITIAL_AGENTS = [
 			{strategy:"all_d", count:24},

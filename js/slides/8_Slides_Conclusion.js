@@ -40,7 +40,7 @@ SLIDES.push({
 		});
 		self.add({
 			id:"text8", type:"TextBox",
-			x:94, y:440, width:500, align:"right",
+			x:74, y:440, width:520, align:"right",
 			text_id:"conclusion_4"
 		});
 

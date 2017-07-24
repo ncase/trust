@@ -1,3 +1,8 @@
+Loader.addToManifest(Loader.manifest,{
+	// SFX
+	drumroll: "assets/sounds/drumroll.mp3"
+});
+
 // round-robin tournament, place your bets
 SLIDES.push({
 	id: "tournament",
@@ -203,9 +208,14 @@ SLIDES.push({
 			message: "slideshow/scratch"
 		});
 
-		// FADE
-		_hide(o.text); _fadeIn(o.text, 100);
-		_hide(o.button); _fadeIn(o.button, 100+500);
+		// DRUMROLL
+		Loader.sounds.drumroll.play();
+		_hide(o.text);
+		_hide(o.button);
+		setTimeout(function(){
+			_show(o.text);
+			_show(o.button);
+		},2000);
 
 	},
 	onend: function(self){

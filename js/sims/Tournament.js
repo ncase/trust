@@ -41,7 +41,12 @@ subscribe("rules/turns",function(value){
 // REGULAR LOAD
 Loader.addToManifest(Loader.manifest,{
 	tournament_peep: "assets/tournament/tournament_peep.json",
-	connection_flower: "assets/tournament/connection_flower.json"
+	connection_flower: "assets/tournament/connection_flower.json",
+
+	// SFX
+	squeak: "assets/sounds/squeak.mp3",
+	bonk: "assets/sounds/bonk.mp3"
+
 });
 
 function Tournament(config){
@@ -408,14 +413,23 @@ function Tournament(config){
 
 	// PLAY A TOURNAMENT
 	self._startPlay = function(){
+		if(!self.isAutoPlaying){
+			Loader.sounds.coin_get.volume(0.1).play();
+		}
 		self.STAGE=STAGE_PLAY;
 	};
 	listen(self, "tournament/play", self._startPlay);
 	self._startEliminate = function(){
+		if(!self.isAutoPlaying){
+			Loader.sounds.squeak.volume(0.4).play();
+		}
 		self.STAGE=STAGE_ELIMINATE;
 	};
 	listen(self, "tournament/eliminate", self._startEliminate);
 	self._startReproduce = function(){
+		if(!self.isAutoPlaying){
+			Loader.sounds.bonk.volume(0.3).play();
+		}
 		self.STAGE=STAGE_REPRODUCE;
 	};
 	listen(self, "tournament/reproduce", self._startReproduce);

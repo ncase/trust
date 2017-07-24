@@ -1,6 +1,7 @@
 Loader.addToManifest(Loader.manifestPreload,{
 	splash_peep: "assets/splash/splash_peep.json",
-	connection: "assets/splash/connection.json"
+	connection: "assets/splash/connection.json",
+	cssAsset13: "assets/ui/sound.png"
 });
 
 function Splash(config){

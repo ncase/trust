@@ -51,6 +51,61 @@ s{
 }
 
 /*************************/
+/******* SOUND *******/
+/*************************/
+#sound{
+	position: absolute;
+	left:13px;
+	top:5px;
+	width: 100px;
+	height: 50px;
+	cursor: pointer;
+}
+#sound > div{
+	position: absolute;
+}
+#sound #sound_icon{
+	background: url(../assets/ui/sound.png);
+	background-size: auto 100%;
+	width: 40px;
+	height: 40px;
+	top: 5px;
+	left:2px;
+}
+#sound #sound_on, #sound #sound_off{
+	left: 52px;
+    font-size: 30px;
+    line-height: 55px;
+}
+#sound #sound_on{
+	color:#fff;
+}
+#sound #sound_off{
+	color:#595959;
+}
+#sound[sound=off] #sound_icon{
+	background-position: -40px 0;
+}
+#sound[sound=on] #sound_on, #sound[sound=off] #sound_off{
+	display: block;
+}
+#sound[sound=off] #sound_on, #sound[sound=on] #sound_off{
+	display: none;
+}
+
+.sharing{
+	position: absolute;
+	width:120px;
+	height:40px;
+	top:10px;
+	right:13px;
+}
+.sharing img{
+	width: 40px;
+	height: 40px;
+}
+
+/*************************/
 /******* SLIDESHOW *******/
 /*************************/
 
@@ -100,18 +155,18 @@ s{
 /********* Button ********/
 
 .no-select{
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-	-moz-user-select: none;     /* Firefox all */
-	-ms-user-select: none;      /* IE 10+ */
-	user-select: none; 
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	cursor: default;
 }
 .button{
 	z-index: 0;
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-	-moz-user-select: none;     /* Firefox all */
-	-ms-user-select: none;      /* IE 10+ */
-	user-select: none; 
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 
 	transform-origin: 97.5px 27.5px;
 	transition: transform 0.1s ease-out;
