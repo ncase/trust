@@ -342,11 +342,11 @@ SLIDES.push({
 		var dy = 70;
 		_addButton("tf2t", x, y); _addButton("pavlov", x+dx, y);
 		_addButton("random", x, y+dy); _addButton("tft", x+dx, y+dy);
-		_addButton("all_c", x, y+dy*2);
+		_addButton("all_d", x, y+dy*2);
 
 	},
 	onend: function(self){
-		self.remove("bet_all_c");
+		self.remove("bet_all_d");
 		self.remove("bet_tft");
 		self.remove("bet_tf2t");
 		self.remove("bet_pavlov");
