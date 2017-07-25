@@ -9,7 +9,8 @@ SLIDES.push({
 
 		// Iterated Simulation
 		self.add({id:"iterated", type:"Iterated", x:130, y:133});
-		self.objects.iterated.dehighlightPayoff();
+		o.iterated.dehighlightPayoff();
+		o.iterated.playerA.chooseHat("tft");
 
 		// Words on top & bottom
 		self.add({

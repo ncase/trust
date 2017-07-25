@@ -209,7 +209,7 @@ SLIDES.push({
 		});
 
 		// DRUMROLL
-		Loader.sounds.drumroll.play();
+		Loader.sounds.drumroll.volume(0.8).play();
 		_hide(o.text);
 		_hide(o.button);
 		setTimeout(function(){

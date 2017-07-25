@@ -7,6 +7,20 @@ SLIDES.push({
 		// Iterated Simulation
 		self.add({id:"iterated", type:"Iterated", x:130, y:133});
 		self.objects.iterated.dehighlightPayoff();
+
+		// Labels
+		self.add({
+			id:"labelYou", type:"TextBox",
+			x:211, y:201, width:50, height:50,
+			align:"center", color:"#aaa", size:17,
+			text_id:"label_you"
+		});
+		self.add({
+			id:"labelThem", type:"TextBox",
+			x:702, y:189, width:50, height:50,
+			align:"center", color:"#aaa", size:17,
+			text_id:"label_them"
+		});
 		
 	},
 
@@ -54,6 +68,8 @@ SLIDES.push({
 	onend: function(self){
 		self.remove("topWords");
 		self.remove("btmWords");
+		self.remove("labelYou");
+		self.remove("labelThem");
 	}
 
 });
@@ -87,7 +103,7 @@ SLIDES.push({
 		//////////////////////////
 
 		// Move it
-		self.objects.iterated.dom.style.top = 183;
+		o.iterated.dom.style.top = 183;
 
 		// Scoreboard!
 		self.add({id:"scoreboard", type:"IteratedScoreboard", x:378, y:85});

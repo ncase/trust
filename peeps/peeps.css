@@ -1,0 +1,106 @@
+@font-face{
+	font-family: 'FuturaHandwritten';
+	font-style: normal;
+	src: url('../css/FuturaHandwritten.ttf') format('truetype');
+}
+
+body{
+	background: #222;
+	font-family: "FuturaHandwritten";
+	font-size: 22px;
+	color: #222;
+	margin: 0;
+}
+
+/********************************/
+/********************************/
+
+#credits{
+	width: 600px;
+	margin: 50px auto;
+	font-weight: 100;
+	color: #fff;
+	font-size: 20px;
+}
+
+.credit_intro{
+	font-size: 25px;
+}
+.credit_intro a{
+	color: #dd3939;
+}
+.credit_intro a:hover{
+	color: #ee6060;
+}
+
+#credits hr{
+	border:none;
+	border-bottom: 4px dashed #444;
+	margin-top: 30px;
+}
+
+.credits_peeps{
+	overflow: hidden;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.credits_peeps > div{
+	position: relative;
+	width: 150px;
+	height: 210px;
+	text-align: center;
+	display: inline-block;
+	margin-right: -6px;
+}
+.credits_peeps > div > img:nth-child(1){
+	position: absolute;
+	left: 0;
+	width: 150px;
+	bottom: 30px;
+}
+.credits_peeps > div > img:nth-child(2){
+	position: absolute;
+	width: 50px;
+	right: 5px;
+	bottom: 30px;
+}
+.credits_peeps > div > span{
+	display: block;
+	position: absolute;
+	bottom:0;
+	width: 150px;
+	height: 20px;
+	text-transform: lowercase;
+}
+
+.credits_polygons{
+	margin-top: 15px;
+	overflow: hidden;
+	color: #ddd;
+	font-size: 18px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.credits_polygons > div{
+	display: inline-block;
+}
+.credits_polygons > div > img{
+	width: 40px;
+	position: relative;
+	top:10px;
+}
+.credits_polygons > div > span{
+	text-transform: lowercase;
+}
+
+.credits_names{
+	margin-top: 30px;
+	overflow: hidden;
+	color: #bbb;
+	font-size: 16px;
+	padding-bottom: 20px;
+	text-align: center;
+	-webkit-columns: 150px 3;
+	   -moz-columns: 150px 3;
+	        columns: 150px 3;
+}

@@ -123,7 +123,7 @@ function Iterated(config){
 	});
 	self.introMachine = function(){
 		_introMachine = 40;
-		Loader.sounds.machine_start.volume(0.8).play();
+		Loader.sounds.machine_start.volume(0.65).play();
 	};
 
 	///////////////////////////////////////////////

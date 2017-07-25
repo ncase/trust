@@ -4,7 +4,7 @@ window.onload = function(){
 	// PRELOADER
 	Q.all([
 		Loader.loadAssets(Loader.manifestPreload),
-		Words.convert("lang/en.html")
+		Words.convert("words.html")
 	]).then(function(){
 
 		// CHANGE DOM
@@ -29,7 +29,7 @@ window.onload = function(){
 
 			// [FOR DEBUGGING]
 			publish("slideshow/next");
-			//publish("slideshow/scratch", ["conclusion"]);
+			//publish("slideshow/scratch", ["credits"]);
 
 		});
 

@@ -500,3 +500,26 @@ s{
 	background: #fff;
 }
 
+/*************************/
+/***** CREDITS ******/
+/*************************/
+
+.credits{
+	color: #888;
+}
+.credits .big{
+	font-size:40px;
+	line-height: 42px;
+	color:#fff;
+}
+.credits .divider{
+	display: block;
+	height: 45px;
+}
+.credits a{
+	color:#dd4040;
+}
+.credits a:hover{
+	color:#ee5151;
+}
+

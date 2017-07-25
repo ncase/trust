@@ -50,8 +50,8 @@ SLIDES.push({
 
 	},
 	onend: function(self){
-		self.remove("labelYou");
-		self.remove("labelThem");
+		//self.remove("labelYou");
+		//self.remove("labelThem");
 	}
 
 },{

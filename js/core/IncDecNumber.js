@@ -48,6 +48,7 @@ function IncDecNumber(config){
 	up.onclick = function(){
 		self.setValue(self.value+1);
 		self.onchange(self.value);
+		Loader.sounds.button2.play(); // higher pitch
 	};
 	dom.appendChild(up);
 
@@ -57,6 +58,7 @@ function IncDecNumber(config){
 	down.onclick = function(){
 		self.setValue(self.value-1);
 		self.onchange(self.value);
+		Loader.sounds.button1.play(); // lower pitch
 	};
 	dom.appendChild(down);
 
