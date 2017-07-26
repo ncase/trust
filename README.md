@@ -1,6 +1,6 @@
 !["The Evolution of Trust"](https://i.imgur.com/kde760y.png)
 
-#PLAY IT HERE: [http://ncase.me/trust/](http://ncase.me/trust/)
+#	PLAY IT HERE: [http://ncase.me/trust/](http://ncase.me/trust/)
 
 ---
 
@@ -33,6 +33,6 @@
 
 ---
 
-#"LICENSE"
+#	"LICENSE"
 
 [Creative Commons Zero](https://github.com/ncase/trust/blob/gh-pages/LICENSE): it's a public domain dedication, so basically, do whatever you want! Attribution is super appreciated, but I'm not gonna send legal goons after you or anything.
