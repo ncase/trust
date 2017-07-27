@@ -170,6 +170,8 @@ s{
 
 	transform-origin: 97.5px 27.5px;
 	transition: transform 0.1s ease-out;
+
+	text-align: center;
 }
 .button #background{
 	position: absolute;

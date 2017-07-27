@@ -20,6 +20,16 @@ function Button(config){
 	if(config.size) button.setAttribute("size", config.size);
 	self.dom = button;
 
+	// TOOLTIP?
+	if(config.tooltip){
+		self.dom.style.width = 190;
+		self.dom.style.height = 55;
+		self.dom.style.position = "absolute";
+		self.dom.setAttribute("data-balloon-length", "large");
+		self.dom.setAttribute("data-balloon", Words.get(config.tooltip));
+		self.dom.setAttribute("data-balloon-pos", "left");
+	}
+
 	// BG
 	var bg = document.createElement("div");
 	bg.id = "background";

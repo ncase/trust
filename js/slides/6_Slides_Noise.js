@@ -188,6 +188,7 @@ SLIDES.push({
 				self.add({
 					id:"bet_"+character, type:"Button", x:x, y:y, 
 					text_id: "icon_"+character,
+					tooltip: "who_"+character,
 					onclick:function(){
 						_.answer = character;
 						publish("slideshow/next");
@@ -203,6 +204,14 @@ SLIDES.push({
 		_addButton("random", x, y+dy); _addButton("tft", x+dx, y+dy);
 		_addButton("all_c", x, y+dy*2);
 
+		// WHO'S WHO?
+		self.add({
+			id:"forgot", type:"TextBox",
+			x:715, y:435, width:190, height:50,
+			align:"center", color:"#aaa", size:15,
+			text_id:"forgot_whos_who"
+		});
+
 	},
 	onend: function(self){
 		self.remove("bet_all_c");
@@ -210,6 +219,7 @@ SLIDES.push({
 		self.remove("bet_tf2t");
 		self.remove("bet_pavlov");
 		self.remove("bet_random");
+		self.remove("forgot");
 	}
 });
 
@@ -331,6 +341,7 @@ SLIDES.push({
 				self.add({
 					id:"bet_"+character, type:"Button", x:x, y:y, 
 					text_id: "icon_"+character,
+					tooltip: "who_"+character,
 					onclick:function(){
 						_.answer = character;
 						publish("slideshow/next");
@@ -346,6 +357,14 @@ SLIDES.push({
 		_addButton("random", x, y+dy); _addButton("tft", x+dx, y+dy);
 		_addButton("all_d", x, y+dy*2);
 
+		// WHO'S WHO?
+		self.add({
+			id:"forgot", type:"TextBox",
+			x:715, y:435, width:190, height:50,
+			align:"center", color:"#aaa", size:15,
+			text_id:"forgot_whos_who"
+		});
+
 	},
 	onend: function(self){
 		self.remove("bet_all_d");
@@ -353,6 +372,7 @@ SLIDES.push({
 		self.remove("bet_tf2t");
 		self.remove("bet_pavlov");
 		self.remove("bet_random");
+		self.remove("forgot");
 	}
 });
 

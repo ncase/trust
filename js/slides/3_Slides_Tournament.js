@@ -33,6 +33,7 @@ SLIDES.push({
 				self.add({
 					id:"bet_"+character, type:"Button", x:x, y:y, 
 					text_id: "icon_"+character,
+					tooltip: "who_"+character,
 					onclick:function(){
 						_.answer = character;
 						publish("slideshow/next");
@@ -45,6 +46,14 @@ SLIDES.push({
 		_addButton("all_d", 510, 300+25);
 		_addButton("grudge", 730, 300+25);
 		_addButton("prober", 510, 380+25);
+
+		// WHO'S WHO?
+		self.add({
+			id:"forgot", type:"TextBox",
+			x:728, y:408, width:200, height:50,
+			align:"center", color:"#aaa", size:16,
+			text_id:"forgot_whos_who"
+		});
 		
 	},
 	onend: function(self){
@@ -53,6 +62,7 @@ SLIDES.push({
 		self.remove("bet_all_d");
 		self.remove("bet_grudge");
 		self.remove("bet_prober");
+		self.remove("forgot");
 	}
 });
 
