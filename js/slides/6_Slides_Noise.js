@@ -7,6 +7,8 @@ SLIDES.push({
 
 		var o = self.objects;
 
+		Tournament.resetGlobalVariables();
+
 		// Iterated Simulation
 		self.add({id:"iterated", type:"Iterated", x:130, y:133});
 		o.iterated.dehighlightPayoff();

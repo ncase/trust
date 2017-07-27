@@ -5,6 +5,8 @@ SLIDES.push({
 
 	onstart: function(self){
 
+		Tournament.resetGlobalVariables();
+
 		// Iterated Simulation
 		self.add({id:"iterated", type:"Iterated", x:130, y:133});
 

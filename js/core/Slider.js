@@ -80,23 +80,49 @@ function Slider(config){
 		}
 
 	};
-	dom.addEventListener("mousedown",function(event){
+	var _onDomMouseDown = function(event){
 		if(config.onselect) config.onselect();
 		_mouseToParam(event);
 		_isDragging = true;
 		_offsetX = 0;
-	},false);
-	knob.addEventListener("mousedown",function(event){
+	};
+	var _onKnobMouseDown = function(event){
 		_isDragging = true;
 		if(config.onselect) config.onselect();
 		_offsetX = event.clientX - knob.getBoundingClientRect().left;
-	},false);
-	window.addEventListener("mousemove",function(event){
+	};
+	var _onWindowMouseMove = function(event){
 		if(_isDragging) _mouseToParam(event);
-	},false);
-	window.addEventListener("mouseup",function(){
+	};
+	var _onWindowMouseUp = function(){
 		_isDragging = false;
+	};
+	dom.addEventListener("mousedown",_onDomMouseDown,false);
+	knob.addEventListener("mousedown",_onKnobMouseDown,false);
+	window.addEventListener("mousemove",_onWindowMouseMove,false);
+	window.addEventListener("mouseup",_onWindowMouseUp,false);
+
+	// FOR TOUCH
+	var _fakeEventWrapper = function(event){
+		var fake = {};
+		fake.clientX = event.changedTouches[0].clientX;
+		fake.clientY = event.changedTouches[0].clientY;
+		return fake;
+	};
+	dom.addEventListener("touchstart",function(event){
+		event = _fakeEventWrapper(event);
+		_onDomMouseDown(event);
 	},false);
+	knob.addEventListener("touchstart",function(event){
+		event = _fakeEventWrapper(event);
+		_onKnobMouseDown(event);
+	},false);
+	window.addEventListener("touchmove",function(event){
+		event = _fakeEventWrapper(event);
+		_onWindowMouseMove(event);
+	},false);
+	window.addEventListener("touchend",_onWindowMouseUp,false);
+
 
 	////////////////////////////////////////
 
