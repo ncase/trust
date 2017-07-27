@@ -134,12 +134,12 @@ SLIDES.push({
 			{id:"tft", num:1},
 		];*/
 		var ROUNDS = [ // and min & max score...
-			{id:"tft", num:5}, // min 3, max 11
+			{id:"tft", num:5}, // min 2, max 11
 			{id:"all_d", num:4}, // min -4, max 0
 			{id:"all_c", num:4}, // min 8, max 12
 			{id:"grudge", num:5}, // min -1, max 11
 			{id:"prober", num:7} // min 2, max 15
-		]; // TOTAL... MIN 8, MAX 49
+		]; // TOTAL... MIN 7, MAX 49
 		ROUND_INDEX = 0;
 		ROUND_NUM = 0;
 
@@ -214,8 +214,8 @@ SLIDES.push({
 		if(score==49) scoreTextID="5";
 		else if(score>=34) scoreTextID="4";
 		else if(score>=22) scoreTextID="3";
-		else if(score>=9) scoreTextID="2";
-		else if(score==8) scoreTextID="1";
+		else if(score>=8) scoreTextID="2";
+		else if(score==7) scoreTextID="1";
 		else scoreTextID="x";
 		scoreTextID = "iterated_score_"+scoreTextID;
 
