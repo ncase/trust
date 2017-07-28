@@ -18,13 +18,10 @@ Words.convert = function(filepath){
 
 	// check language
 	var lang = undefined;
-	var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == 'lang') {
-            lang = decodeURIComponent(pair[1]);
-        }
+	var pathending = window.location.pathname.split('/').pop();
+
+	if (pathending.substring(pathending.length-5) == '.html') {
+        lang = pathending.substring(0, pathending.length-5);
     }
 
 	// Get dat stuff
@@ -47,7 +44,7 @@ Words.convert = function(filepath){
         deferred.resolve(Words.text);
     };
 
-	var request = lang ? pegasus('languages/'+ lang + '_' + filepath) : pegasus(filepath);
+	var request = lang ? pegasus(lang + '_' + filepath) : pegasus(filepath);
 
 	request.then(
 		
