@@ -19,7 +19,7 @@ function Iterated(config){
 
 	var self = this;
 	self.id = config.id;
-	
+
 	// DOM
 	self.dom = document.createElement("div");
 	self.dom.className = "object";
@@ -34,13 +34,13 @@ function Iterated(config){
 	self.dom.appendChild(app.view);
 
 	// LABELS
-	var _l1 = _makeLabel("label_they_cooperate", {x:354, y:34, rotation:45, align:"center", color:"#333333", size:15, width:70, lineHeight:1});
+	var _l1 = _makeLabel("label_they_cooperate", {x:354, y:34, rotation:45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l1);
-	var _l2 = _makeLabel("label_you_cooperate", {x:272, y:35, rotation:-45, align:"center", color:"#333333", size:15, width:70, lineHeight:1});
+	var _l2 = _makeLabel("label_you_cooperate", {x:272, y:35, rotation:-45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l2);
-	var _l3 = _makeLabel("label_they_cheat", {x:406, y:86, rotation:45, align:"center", color:"#333333", size:15, width:70, lineHeight:1});
+	var _l3 = _makeLabel("label_they_cheat", {x:406, y:86, rotation:45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l3);
-	var _l4 = _makeLabel("label_you_cheat", {x:224, y:83, rotation:-45, align:"center", color:"#333333", size:15, width:70, lineHeight:1});
+	var _l4 = _makeLabel("label_you_cheat", {x:224, y:83, rotation:-45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l4);
 
 	///////////////////////////////////////////////
@@ -400,7 +400,7 @@ function IteratedPeep(config){
 			.call(_animate3);
 	};
 
-	// ALT: Walk... and TRIP. 
+	// ALT: Walk... and TRIP.
 	var _animate2_alt = function(){
 		_isHopping = true;
 		Tween_get(self.animated)
@@ -624,4 +624,3 @@ function IteratedPeep(config){
 
 
 }
-
