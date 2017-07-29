@@ -4,7 +4,7 @@
 
 本作品 *The Evolution of Trust* 属于公共领域，多亏了现有的知识共享许可和开源的资源，才能顺利地诞生！本项目用到的全部音乐、音效、以及代码列举如下：
 
-**音乐：** "Bleu" by Komiku (CC Zero). [Download their full album on Free Music Archive](http://freemusicarchive.org/music/Komiku/Its_time_for_adventure_/)
+**音乐：** "Bleu" by Komiku (CC Zero). [在 Free Music Archive 上下载他们的整张专辑](http://freemusicarchive.org/music/Komiku/Its_time_for_adventure_/)
 
 **音效：**
 
