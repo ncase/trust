@@ -1,6 +1,6 @@
 !["The Evolution of Trust"](https://i.imgur.com/kde760y.png)
 
-#	游戏在这儿: [http://sekai.co/trust/](http://sekai.co/trust/)
+#	本项目为[http://ncase.me/trust/](http://ncase.me/trust/)的非官方简体中文版，地址为[http://sekai.co/trust/](http://sekai.co/trust/)（正在建设中）
 
 本作品 *The Evolution of Trust* 属于公共领域，多亏了现有的知识共享许可和开源的资源，才能顺利地诞生！本项目用到的全部音乐、音效、以及代码列举如下：
 
