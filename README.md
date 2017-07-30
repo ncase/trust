@@ -32,7 +32,7 @@
 #	How-To: Translate this thang!
 
 **Step 1)** Fork or download this repo    
-(if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that Github can automatically generate a webpage for it!)
+(if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
 
 **Step 2)** Translate the following files:
 
