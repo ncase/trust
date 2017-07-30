@@ -23,7 +23,7 @@
 
 * [PIXI.js](http://www.pixijs.com/) 用于渲染图像
 * [Howler.js](https://howlerjs.com/) 用于声音
-* [Tween.js](http://www.createjs.com/tweenjs) 用于动画的渐变
+* [Tween.js](http://www.createjs.com/tweenjs) 用于动画补间(感谢 V2EX 的 @geelaw 指正翻译)
 * [Balloon.css](https://kazzkiq.github.io/balloon.css/) 用于弹窗显示工具小提示
 * [Q](https://github.com/kriskowal/q/) 用于 promises
 * [MinPubSub](https://github.com/daniellmb/MinPubSub) 用于发布和订阅
