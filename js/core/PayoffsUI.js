@@ -21,10 +21,10 @@ function PayoffsUI(config){
 	dom.appendChild(bg.dom);
 
 	// Labels
-	dom.appendChild(_makeLabel("label_cooperate", {x:148, y:17, rotation:45, align:"center", color:"#cccccc", size:15}));
-	dom.appendChild(_makeLabel("label_cooperate", {x:52, y:17, rotation:-45, align:"center", color:"#cccccc", size:15}));
-	dom.appendChild(_makeLabel("label_cheat", {x:245, y:90, rotation:45, align:"center", color:"#cccccc", size:15}));
-	dom.appendChild(_makeLabel("label_cheat", {x:6, y:90, rotation:-45, align:"center", color:"#cccccc", size:15}));
+	dom.appendChild(_makeLabel("label_cooperate", {x:148, y:17, rotation:45, align:"center", color:"#cccccc", size:15, width:70, lineHeight:1}));
+	dom.appendChild(_makeLabel("label_cooperate", {x:52, y:17, rotation:-45, align:"center", color:"#cccccc", size:15, width:70, lineHeight:1}));
+	dom.appendChild(_makeLabel("label_cheat", {x:245, y:90, rotation:45, align:"center", color:"#cccccc", size:15, width:70, lineHeight:1}));
+	dom.appendChild(_makeLabel("label_cheat", {x:6, y:90, rotation:-45, align:"center", color:"#cccccc", size:15, width:70, lineHeight:1}));
 
 	// Inc(rement) De(crement) Numbers
 	// which are symmetrical, and update each other!
