@@ -34,13 +34,13 @@ function Iterated(config){
 	self.dom.appendChild(app.view);
 
 	// LABELS
-	var _l1 = _makeLabel("label_they_cooperate", {x:354, y:34, rotation:45, align:"center", color:"#333333", size:15, width:70});
+	var _l1 = _makeLabel("label_they_cooperate", {x:359, y:29, rotation:45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l1);
-	var _l2 = _makeLabel("label_you_cooperate", {x:272, y:35, rotation:-45, align:"center", color:"#333333", size:15, width:70});
+	var _l2 = _makeLabel("label_you_cooperate", {x:267, y:30, rotation:-45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l2);
-	var _l3 = _makeLabel("label_they_cheat", {x:406, y:86, rotation:45, align:"center", color:"#333333", size:15, width:70});
+	var _l3 = _makeLabel("label_they_cheat", {x:411, y:81, rotation:45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l3);
-	var _l4 = _makeLabel("label_you_cheat", {x:224, y:83, rotation:-45, align:"center", color:"#333333", size:15, width:70});
+	var _l4 = _makeLabel("label_you_cheat", {x:219, y:78, rotation:-45, align:"center", color:"#333333", size:15, width:70});
 	self.dom.appendChild(_l4);
 
 	///////////////////////////////////////////////
