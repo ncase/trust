@@ -50,6 +50,22 @@ s{
 	text-decoration: line-through;
 }
 
+#translations{
+	margin: 10px auto;
+    font-size: 16px;
+    line-height: 21px;
+    color: #fff;
+    text-align: center;
+}
+#translations a{
+	color:#dd4040;
+}
+#translations a:hover{
+	color:#ee5151;
+}
+
+
+
 /*************************/
 /******* SOUND *******/
 /*************************/
