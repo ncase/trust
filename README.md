@@ -34,7 +34,8 @@
 Translations done so far:
 [Chinese](http://sekai.co/trust/),
 [Brazilian Portuguese](https://brunolemos.github.io/trust/),
-[French](https://ayowel.github.io/trust/)
+[French](https://ayowel.github.io/trust/),
+[Spain Spanish](https://ccamara.github.io/trust/)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
