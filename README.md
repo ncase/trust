@@ -29,6 +29,8 @@
 * [MinPubSub](https://github.com/daniellmb/MinPubSub) for publish/subscribe
 * [Pegasus](https://github.com/typicode/pegasus) for me being too lazy to write my own XHR
 
+**Font:** [Futura Handwritten](http://www.dafont.com/futurahandwritten.font) by Bill Snyder
+
 #	How-To: Translate this thang!
 
 Translations done so far:
