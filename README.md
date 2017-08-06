@@ -35,6 +35,7 @@
 
 Translations done so far:
 [Chinese](http://sekai.co/trust/),
+[Chinese (Taiwan)](https://audreyt.github.io/trust-zh-TW/),
 [Brazilian Portuguese](https://brunolemos.github.io/trust/),
 [French](https://ayowel.github.io/trust/),
 [Spain Spanish](https://ccamara.github.io/trust/),
