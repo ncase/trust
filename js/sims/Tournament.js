@@ -229,11 +229,8 @@ function Tournament(config){
 	self.agentsSorted = null;
 	self.playOneTournament = function(){
 		PD.playOneTournament(self.agents, Tournament.NUM_TURNS);
-		self.agentsSorted = self.agents.slice();
-		self.agentsSorted.sort(function(a,b){
-			if(a.coins==b.coins) return (Math.random()<0.5); // if equal, random
-			return a.coins-b.coins; // otherwise, sort as per usual
-		});
+		self.agentsSorted = _shuffleArray(self.agents.slice());
+		self.agentsSorted.sort(function(a,b){ return a.coins-b.coins; });
 	};
 
 	// Get rid of X worst

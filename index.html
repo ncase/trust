@@ -1,22 +1,50 @@
+<!--
+
+TRANSLATION GUIDE:
+https://github.com/ncase/trust#how-to-translate-this-thang
+
+Hello fan-translaters!
+First off, thank you so much for taking the time to help out,
+I super appreciate it. :3 Anyway, to make translation a bit easier
+(or at least less painful) I've scattered comments about on
+what things you should translate, plus any additional info
+
+Translate the following files:
+
+    index.html - The title & social sharing text (a few words)
+    words.html - All the words for the interactive itself (~3,300 words)
+    (optional) notes/index.html - The footnotes (~1,100 words)
+    (optional) peeps/index.html - The full credits (a few words)
+
+Many thanks again!
+
+<3,
+~ Nicky Case
+
+-->
 <!doctype>
 <html>
 <head>
 
+<<<<<<< HEAD
 	<!-- META -->
 	<title>信任的进化</title>
+=======
+	<!-- TO TRANSLATE: "title", "description" -->
+	<title>The Evolution of Trust</title>
+>>>>>>> staging
 	<meta name="description" content="an interactive guide to the game theory of why &amp; how we trust each other"/>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
-	<!--meta name="viewport" content="width=640"-->
 	<link rel="icon" type="image/png" href="favicon.png">
 
-	<!-- Facebook Shtuff -->
+	<!-- TO TRANSLATE: "name", "description" -->
 	<meta itemprop="name" content="The Evolution of Trust">
 	<meta itemprop="description" content="an interactive guide to the game theory of why &amp; how we trust each other">
 	<meta itemprop="image" content="social/thumbnail.png">
 
-	<!-- Twitter Shtuff -->
+	<!-- TO TRANSLATE: "name", "description" -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@ncasenmare">
 	<meta name="twitter:title" content="The Evolution of Trust">
@@ -24,7 +52,7 @@
 	<meta name="twitter:creator" content="@ncasenmare">
 	<meta name="twitter:image" content="social/thumbnail.png">
 
-	<!-- Shmoogle Shtuff -->
+	<!-- TO TRANSLATE: "name", "description" -->
 	<meta property="og:title" content="The Evolution of Trust">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="http://sekai.co/trust/">
@@ -32,8 +60,8 @@
 	<meta property="og:description" content="an interactive guide to the game theory of why &amp; how we trust each other">
 
 	<!-- Styles -->
-	<link rel="stylesheet" href="css/slides.css">
-	<link rel="stylesheet" href="css/balloon.css">
+	<link rel="stylesheet" href="css/slides.css?v7">
+	<link rel="stylesheet" href="css/balloon.css?v7">
 
 	<!-- tracking -->
 	<script>
@@ -48,7 +76,7 @@
 	</script>
 </head>
 <body>
-	<div id="preloader">loading...</div>
+	<div id="preloader">loading...</div> <!-- TRANSLATE THIS -->
 	<div style="display:none" id="main">
 		<div id="slideshow_container">
 			<div id="slideshow"></div>
@@ -58,61 +86,88 @@
 	<div style="display:none" id="footer">
 		<div id="sound" sound="on" class="no-select">
 			<div id="sound_icon"></div>
-			<div id="sound_on">ON</div>
-			<div id="sound_off">OFF</div>
+			<div id="sound_on">ON</div> <!-- TRANSLATE THIS -->
+			<div id="sound_off">OFF</div> <!-- TRANSLATE THIS -->
 		</div>
 		<div id="select"></div>
+<<<<<<< HEAD
 		<sharing text="人们不再彼此相互信任，为什么？我们改怎么改变这种情况？一个合作博弈伦的互动讲解手册："
 				 link="http://sekai.co/trust/"></sharing>
+=======
+
+		<!-- TRANSLATE "title" & "text". Make sure it's less than 112 characters, for Twitter's sake -->
+		<!-- Also, change "link" to whatever the link for the translated version will be! -->
+		<sharing title="The Evolution of Trust"
+				 text="People no longer trust each other. Why? And how can we fix it? An interactive guide to the game theory of trust:"
+				 link="http://ncase.me/trust/"></sharing>
+
+		<!-- List of translations thus far! -->
+		<div id="translations">
+			fan-translations so far:
+			<a href="https://github.com/ncase/trust#how-to-translate-this-thang" target="_blank">(add your own!)</a> |
+			<a href="https://ccamara.github.io/trust/">Español de España</a> |
+			<a href="https://ayowel.github.io/trust/">Français</a> | 
+			<a href="https://jkoelling.github.io/trust/">Deutsch</a> |
+			<a href="https://likzet.github.io/trust/">Русский</a> |
+			<a href="https://brunolemos.github.io/trust/">Português do Brasil</a> | 
+			<a href="http://sekai.co/trust/">中文</a> | 
+			<a href="https://audreyt.github.io/trust-zh-TW/">中文（臺灣）</a>	
+		</div>
+
+>>>>>>> staging
 	</div>
 </body>
 </html>
 
 <!-- Libraries -->
-<script src="js/lib/helpers.js?fixed"></script>
-<script src="js/lib/pegasus.js?fixed"></script>
+<script src="js/lib/helpers.js?v7"></script>
+<script src="js/lib/pegasus.js?v7"></script>
 <script>var c_ = {};</script>
-<script src="js/lib/minpubsub.src.js?fixed"></script>
-<script src="js/lib/q.js?fixed"></script>
-<script src="js/lib/pixi.min.js?fixed"></script>
-<script src="js/lib/howler.js?fixed"></script>
+<script src="js/lib/minpubsub.src.js?v7"></script>
+<script src="js/lib/q.js?v7"></script>
+<script src="js/lib/pixi.min.js?v7"></script>
+<script src="js/lib/howler.js?v7"></script>
 <script>var createjs = window;</script>
-<script src="js/lib/tweenjs-0.6.2.min.js?fixed"></script>
+<script src="js/lib/tweenjs-0.6.2.min.js?v7"></script>
 <script>Ticker.framerate=60; Ticker.paused=true;</script>
-<script src="js/lib/sharing.js?fixed"></script>
+<script src="js/lib/sharing.js?v7"></script>
 
 <!-- Core Engine -->
-<script src="js/core/Loader.js?fixed"></script>
-<script src="js/core/Slideshow.js?fixed"></script>
-<script src="js/core/SlideSelect.js?fixed"></script>
-<script src="js/core/Button.js?fixed"></script>
-<script src="js/core/TextBox.js?fixed"></script>
-<script src="js/core/Words.js?fixed"></script>
-<script src="js/core/IncDecNumber.js?fixed"></script>
-<script src="js/core/Slider.js?fixed"></script>
-<script src="js/core/Scratcher.js?fixed"></script>
-<script src="js/core/Background.js?fixed"></script>
-<script src="js/core/ImageBox.js?fixed"></script>
-<script src="js/core/PayoffsUI.js?fixed"></script>
+<script src="js/core/Loader.js?v7"></script>
+<script src="js/core/Slideshow.js?v7"></script>
+<script src="js/core/SlideSelect.js?v7"></script>
+<script src="js/core/Button.js?v7"></script>
+<script src="js/core/TextBox.js?v7"></script>
+<script src="js/core/Words.js?v7"></script>
+<script src="js/core/IncDecNumber.js?v7"></script>
+<script src="js/core/Slider.js?v7"></script>
+<script src="js/core/Scratcher.js?v7"></script>
+<script src="js/core/Background.js?v7"></script>
+<script src="js/core/ImageBox.js?v7"></script>
+<script src="js/core/PayoffsUI.js?v7"></script>
 
 <!-- Simulations -->
-<script src="js/sims/Splash.js?fixed"></script>
-<script src="js/sims/PD.js?fixed"></script>
-<script src="js/sims/Iterated.js?fixed"></script>
-<script src="js/sims/Tournament.js?fixed"></script>
-<script src="js/sims/SandboxUI.js?fixed"></script>
+<script src="js/sims/Splash.js?v7"></script>
+<script src="js/sims/PD.js?v7"></script>
+<script src="js/sims/Iterated.js?v7"></script>
+<script src="js/sims/Tournament.js?v7"></script>
+<script src="js/sims/SandboxUI.js?v7"></script>
 
 <!-- Slides -->
-<script src="js/slides/0_Slides_Intro.js?fixed"></script>
-<script src="js/slides/1_Slides_OneOff.js?fixed"></script>
-<script src="js/slides/2_Slides_Iterated.js?fixed"></script>
-<script src="js/slides/3_Slides_Tournament.js?fixed"></script>
-<script src="js/slides/4_Slides_Evolution.js?fixed"></script>
-<script src="js/slides/5_Slides_Distrust.js?fixed"></script>
-<script src="js/slides/6_Slides_Noise.js?fixed"></script>
-<script src="js/slides/7_Slides_Sandbox.js?fixed"></script>
-<script src="js/slides/8_Slides_Conclusion.js?fixed"></script>
-<script src="js/slides/9_Slides_Credits.js?fixed"></script>
+<script src="js/slides/0_Slides_Intro.js?v7"></script>
+<script src="js/slides/1_Slides_OneOff.js?v7"></script>
+<script src="js/slides/2_Slides_Iterated.js?v7"></script>
+<script src="js/slides/3_Slides_Tournament.js?v7"></script>
+<script src="js/slides/4_Slides_Evolution.js?v7"></script>
+<script src="js/slides/5_Slides_Distrust.js?v7"></script>
+<script src="js/slides/6_Slides_Noise.js?v7"></script>
+<script src="js/slides/7_Slides_Sandbox.js?v7"></script>
+<script src="js/slides/8_Slides_Conclusion.js?v7"></script>
+<script src="js/slides/9_Slides_Credits.js?v7"></script>
 
 <!-- Main Code -->
+<<<<<<< HEAD
 <script src="js/main.js?fixed"></script>
+=======
+<script src="js/main.js?v7"></script>
+>>>>>>> staging

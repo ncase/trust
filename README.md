@@ -29,6 +29,37 @@
 * [MinPubSub](https://github.com/daniellmb/MinPubSub) 用于发布和订阅
 * [Pegasus](https://github.com/typicode/pegasus) 用于……我懒得不想写自己的 XHR
 
+**Font:** [Futura Handwritten](http://www.dafont.com/futurahandwritten.font) by Bill Snyder
+
+#	How-To: Translate this thang!
+
+目前为止的翻译版本:
+[中文](http://sekai.co/trust/),
+[中文（台灣）](https://audreyt.github.io/trust-zh-TW/),
+[巴西葡语](https://brunolemos.github.io/trust/),
+[法语](https://ayowel.github.io/trust/),
+[西班牙语](https://ccamara.github.io/trust/),
+[俄语](https://likzet.github.io/trust/),
+[德语](https://jkoelling.github.io/trust/)
+
+**第一步：** Fork 或者下载这个软件仓库
+(if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
+
+**Step 2)** 翻译以下的文件:
+
+`index.html` -- 标题，以及社交分享文字（少量单词）
+`words.html` -- 所有的文字以及交互本身（约三千单词）
+(可选) `notes/index.html` -- 一些脚注（约一千一百单词）
+(可选) `peeps/index.html` -- 完整的致谢列表（少量单词）
+
+**Step 3)** Remember to test your translation! You can test things locally using [http-server](https://www.npmjs.com/package/http-server) or [MAMP](https://www.mamp.info/en/).
+
+**Step 4)** Email me with a link to your forked repo / the translated files, at `N {{at}} NCASE {{dot}} ME` There may be a few things here and there we need to fix! (also, if you run into any issues, please email me as well! I may take a while to respond since I'm away the next couple weeks)
+
+**Step 5)** Wait for me to stop being busy and/or lazy and actually link your translated version from the main English version
+
+**Step 6)** Party! 🎉
+
 #	"许可协议"
 
 [Creative Commons Zero](https://github.com/ncase/trust/blob/gh-pages/LICENSE): 本协议适用于对于公共领域的无私奉献，从根本上来说，您可以做任何事！欢迎署名，我不会对您追究任何法律责任。
