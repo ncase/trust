@@ -33,24 +33,24 @@
 
 #	How-To: Translate this thang!
 
-目前为止的翻译版本:
-[中文](http://sekai.co/trust/),
-[中文（台灣）](https://audreyt.github.io/trust-zh-TW/),
-[巴西葡语](https://brunolemos.github.io/trust/),
-[法语](https://ayowel.github.io/trust/),
-[西班牙语](https://ccamara.github.io/trust/),
-[俄语](https://likzet.github.io/trust/),
-[德语](https://jkoelling.github.io/trust/)
+Translations done so far:
+[Chinese](http://sekai.co/trust/),
+[Chinese (Taiwan)](https://audreyt.github.io/trust-zh-TW/),
+[Brazilian Portuguese](https://brunolemos.github.io/trust/),
+[French](https://ayowel.github.io/trust/),
+[Spain Spanish](https://ccamara.github.io/trust/),
+[Russian](https://likzet.github.io/trust/),
+[German](https://jkoelling.github.io/trust/)
 
-**第一步：** Fork 或者下载这个软件仓库
+**Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
 
-**Step 2)** 翻译以下的文件:
+**Step 2)** Translate the following files:
 
-`index.html` -- 标题，以及社交分享文字（少量单词）
-`words.html` -- 所有的文字以及交互本身（约三千单词）
-(可选) `notes/index.html` -- 一些脚注（约一千一百单词）
-(可选) `peeps/index.html` -- 完整的致谢列表（少量单词）
+`index.html` -- The title & social sharing text (a few words)    
+`words.html` -- All the words for the interactive itself (~3,300 words)    
+(optional) `notes/index.html` -- The footnotes (~1,100 words)    
+(optional) `peeps/index.html` -- The full credits (a few words)
 
 **Step 3)** Remember to test your translation! You can test things locally using [http-server](https://www.npmjs.com/package/http-server) or [MAMP](https://www.mamp.info/en/).
 
