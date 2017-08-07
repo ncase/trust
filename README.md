@@ -43,7 +43,8 @@ Translations done so far:
 [Spain Spanish](https://ccamara.github.io/trust/),
 [Russian](https://likzet.github.io/trust/),
 [German](https://jkoelling.github.io/trust/),
-[Italian](https://lvdt.github.io/trust/)
+[Italian](https://lvdt.github.io/trust/),
+[Turkish](https://osaatcioglu.github.io/trust)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
