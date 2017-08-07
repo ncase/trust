@@ -29,7 +29,7 @@
 * [MinPubSub](https://github.com/daniellmb/MinPubSub) 用于发布和订阅
 * [Pegasus](https://github.com/typicode/pegasus) 用于……我懒得不想写自己的 XHR
 
-**Font:** [Futura Handwritten](http://www.dafont.com/futurahandwritten.font) by Bill Snyder
+**字体：** [Futura Handwritten](http://www.dafont.com/futurahandwritten.font) by Bill Snyder
 
 #	How-To: Translate this thang!
 
