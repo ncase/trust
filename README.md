@@ -41,7 +41,7 @@ Translations done so far:
 [Brazilian Portuguese](https://brunolemos.github.io/trust/),
 [French](https://ayowel.github.io/trust/),
 [Spain Spanish](https://ccamara.github.io/trust/),
-[Russian](https://likzet.github.io/trust/),
+[Russian](https://notdotteam.github.io/trust/),
 [German](https://jkoelling.github.io/trust/),
 [Italian](https://lvdt.github.io/trust/),
 [Turkish](https://osaatcioglu.github.io/trust)
