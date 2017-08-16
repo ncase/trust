@@ -33,14 +33,18 @@
 
 #	How-To: Translate this thang!
 
+**[NOTE: Before you decide to make a translation, check the "Issues" tab to see if someone else is already working on it! Maybe you can collaborate. And if no one else is, please create a new Issue in this repo so that others know you're working on it!]**
+
 Translations done so far:
 [Chinese](http://sekai.co/trust/),
 [Chinese (Taiwan)](https://audreyt.github.io/trust-zh-TW/),
 [Brazilian Portuguese](https://brunolemos.github.io/trust/),
 [French](https://ayowel.github.io/trust/),
 [Spain Spanish](https://ccamara.github.io/trust/),
-[Russian](https://likzet.github.io/trust/),
-[German](https://jkoelling.github.io/trust/)
+[Russian](https://notdotteam.github.io/trust/),
+[German](https://jkoelling.github.io/trust/),
+[Italian](https://lvdt.github.io/trust/),
+[Turkish](https://osaatcioglu.github.io/trust)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
