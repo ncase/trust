@@ -36,7 +36,7 @@
 **[NOTE: Before you decide to make a translation, check the "Issues" tab to see if someone else is already working on it! Maybe you can collaborate. And if no one else is, please create a new Issue in this repo so that others know you're working on it!]**
 
 Translations done so far:
-[Chinese](http://sekai.co/trust/),
+[Chinese (Simplified)](https://sekai.co/trust/),
 [Chinese (Taiwan)](https://audreyt.github.io/trust-zh-TW/),
 [Brazilian Portuguese](https://brunolemos.github.io/trust/),
 [French](https://ayowel.github.io/trust/),
