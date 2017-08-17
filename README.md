@@ -33,7 +33,12 @@
 
 #	How-To: Translate this thang!
 
-**[NOTE: Before you decide to make a translation, check the "Issues" tab to see if someone else is already working on it! Maybe you can collaborate. And if no one else is, please create a new Issue in this repo so that others know you're working on it!]**
+**[IMPORTANT:
+BEFORE YOU DECIDE TO MAKE A TRANSLATION, CHECK THE "ISSUES" TAB ABOVE,
+TO SEE IF SOMEONE ELSE IS ALREADY WORKING ON IT.
+If so, maybe you can collaborate!
+And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
+so that others know you're working on it!]**
 
 Translations done so far:
 [Chinese (Simplified)](https://sekai.co/trust/),
