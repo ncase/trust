@@ -45,7 +45,8 @@ Translations done so far:
 [German](https://jkoelling.github.io/trust/),
 [Italian](https://lvdt.github.io/trust/),
 [Turkish](https://osaatcioglu.github.io/trust),
-[Polish](https://sin.github.io/trust/)
+[Polish](https://sin.github.io/trust/),
+[Vietnamese](https://nghiatt90.github.io/trust-vn/)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
