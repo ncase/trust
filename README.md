@@ -55,7 +55,11 @@ Translations done so far:
 [Greek](https://lightspot21.github.io/trust/),
 [Persian/Farsi](https://hamed.github.io/trust/),
 [Hungarian](http://ncase.me/trust-hu/),
-[Catalan](https://fbricart.github.io/trust/)
+[Catalan](https://fbricart.github.io/trust/),
+[Arabic](https://mudaraljundi.github.io/trust/),
+[Bulgarian](http://ncase.me/trust-bg/),
+[Korean](https://osori.github.io/trust-ko/),
+[Romanian](https://github.com/enFactorial/trust)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
