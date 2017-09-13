@@ -41,6 +41,7 @@ And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
 so that others know you're working on it!]**
 
 Translations done so far:
+[Japanese](https://htlife.github.io/trust_jp/),
 [Chinese (Simplified)](https://sekai.co/trust/),
 [Chinese (Taiwan)](https://audreyt.github.io/trust-zh-TW/),
 [Brazilian Portuguese](https://brunolemos.github.io/trust/),
