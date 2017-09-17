@@ -41,11 +41,13 @@ And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
 so that others know you're working on it!]**
 
 Translations done so far:
+[Japanese](https://htlife.github.io/trust_jp/),
 [Chinese (Simplified)](https://sekai.co/trust/),
 [Chinese (Taiwan)](https://audreyt.github.io/trust-zh-TW/),
 [Brazilian Portuguese](https://brunolemos.github.io/trust/),
 [French](https://ayowel.github.io/trust/),
 [Spain Spanish](https://ccamara.github.io/trust/),
+[Latin American Spanish](https://maeriens.github.io/trust/),
 [Russian](https://notdotteam.github.io/trust/),
 [German](https://jkoelling.github.io/trust/),
 [Italian](https://lvdt.github.io/trust/),
@@ -59,7 +61,7 @@ Translations done so far:
 [Arabic](https://mudaraljundi.github.io/trust/),
 [Bulgarian](http://ncase.me/trust-bg/),
 [Korean](https://osori.github.io/trust-ko/),
-[Romanian](https://github.com/enFactorial/trust)
+[Romanian](https://enfactorial.github.io/trust/)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
