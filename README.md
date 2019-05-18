@@ -65,7 +65,8 @@ Translations done so far:
 [Ukrainian](https://yaroslav-f.github.io/trust/),
 [Croatian](http://www.varljiv.org/evolucija-povjerenja/index.html),
 [Swedish](http://trust.alicedarner.se/),
-[Estonian](http://ncase.me/trust-et/)
+[Estonian](http://ncase.me/trust-et/),
+[Czech](https://nextghost.github.io/trust/)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
