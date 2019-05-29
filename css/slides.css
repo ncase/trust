@@ -293,9 +293,9 @@ s{
 	position: absolute;
 }
 #sandbox_tabs .hitbox{
-	cursor: pointer;
-	font-size: 25px;
-	top: 22px;
+    cursor: pointer;
+    font-size: 17px;
+    top: 27px;
 }
 #sandbox_tabs .sandbox_page{
 	width: 433px;
@@ -371,7 +371,7 @@ s{
 	background-size: auto 100%;
 }
 .sandbox_pop_label{
-	font-size: 18px;
+	font-size: 15px;
     width: 150px;
     top: 8px;
     left: 50px;
@@ -469,7 +469,7 @@ s{
 }
 .icon_label{
 	display: inline-block;
-	font-size: 20px;
+	font-size: 17px;
 	position: relative;
     top: -3px;
 }
