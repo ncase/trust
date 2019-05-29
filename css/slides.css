@@ -1,7 +1,7 @@
 @font-face{
-	font-family: 'FuturaHandwritten';
+	font-family: Pangolin;
 	font-style: normal;
-	src: url('FuturaHandwritten.ttf') format('truetype');
+	src: url('Pangolin-Regular.ttf') format('truetype');
 }
 
 html,body{
@@ -16,7 +16,7 @@ body{
 
 	background: #fff;
 
-	font-family: 'FuturaHandwritten';
+	font-family: 'Pangolin';
 	color: #333;
 	font-size: 20px;
 
@@ -201,7 +201,7 @@ s{
 }
 .button #text{
 	
-	font-family: 'FuturaHandwritten';
+	font-family: 'Pangolin';
 	color: #000;
 	font-size: 24px;
 
