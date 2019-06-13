@@ -38,7 +38,7 @@ One core part of Cultural Evolution Theory is culture evolves the same way life 
 
 The reason why I think Cultural Evolution is so promising, is that it could integrate *all* the human sciences: psychology, sociology, economics, anthropology, political science, neuroscience, biology. The greatest problems of our time do not obey conventional academic boundaries – so, it's about dang time we created a common language between the sciences and humanities.
 
-If you want to learn more about Cultural Evolution Theory, I highly recommend Joseph Heinlich's 2015 book, [The Secret of Our Success](http://press.princeton.edu/titles/10543.html)!
+If you want to learn more about Cultural Evolution Theory, I highly recommend Joseph Henrich's 2015 book, [The Secret of Our Success](http://press.princeton.edu/titles/10543.html)!
 
 **"[Always Cheat's] exploitativeness was its downfall"**
 
@@ -68,7 +68,7 @@ There's another forgiving variant of Tit For Tat called *Generous Tit For Tat*. 
 
 **"Simpleton"**
 
-Also known as Pavlov, or Win-Shift-Lose-Stay.
+Also known as Pavlov, or Win-Stay-Lose-Shift.
 
 **"Our modern media [...] has increased our miscommunication"**
 
