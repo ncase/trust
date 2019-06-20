@@ -56,7 +56,8 @@ s{
     line-height: 21px;
     color: #fff;
     text-align: center;
-    width: 950px;
+    width: 900px;
+    letter-spacing: -0.5px;
 }
 #translations a{
 	color:#dd4040;
