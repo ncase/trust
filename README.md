@@ -67,7 +67,8 @@ Translations done so far:
 [Swedish](http://trust.alicedarner.se/),
 [Estonian](http://ncase.me/trust-et/),
 [Czech](https://nextghost.github.io/trust/),
-[Latvian](https://reversedfate.github.io/trust/)
+[Latvian](https://reversedfate.github.io/trust/),
+[Dutch](https://rayraz.github.io/trust/)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
