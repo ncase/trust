@@ -18,7 +18,7 @@ body{
 
 	font-family: 'FuturaHandwritten';
 	color: #333;
-	font-size: 17.5px;
+	font-size: 18px;
 
 }
 #preloader{
@@ -204,7 +204,7 @@ s{
 	
 	font-family: 'FuturaHandwritten';
 	color: #000;
-	font-size: 24px;
+	font-size: 23px;
 
 	width: 180px;
 	height: 30px;
@@ -295,7 +295,7 @@ s{
 }
 #sandbox_tabs .hitbox{
 	cursor: pointer;
-	font-size: 25px;
+	font-size: 22px;
 	top: 22px;
 }
 #sandbox_tabs .sandbox_page{
