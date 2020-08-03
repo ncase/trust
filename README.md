@@ -72,6 +72,8 @@ Translations done so far:
 [Finnish](https://1luap.github.io/trust/),
 [Danish](https://mok0.github.io/trust/),
 [Bahasa Indonesia](https://chairulakmal.github.io/trust/)
+[Albanian](https://kreshnik.github.io/trust/),
+[Macedonian](https://stosto2.github.io/trust/)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
