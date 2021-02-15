@@ -73,7 +73,10 @@ Translations done so far:
 [Danish](https://mok0.github.io/trust/),
 [Bahasa Indonesia](https://chairulakmal.github.io/trust/)
 [Albanian](https://kreshnik.github.io/trust/),
-[Macedonian](https://stosto2.github.io/trust/)
+[Macedonian](https://stosto2.github.io/trust/),
+[Slovenian](https://matejko124.github.io/trust/),
+[Armenian](https://kamee.gitlab.io/trust/),
+[Filipino (Tagalog)](https://tiwalaph.github.io/TiwalaPH/)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
