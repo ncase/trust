@@ -116,6 +116,13 @@ SLIDES.push({
 			text_id:"intro"
 		});
 
+		var _showYear = function(){
+			var currentYear = Words.get("intro");
+			currentYear = currentYear.replace(/\[X\]/g, new Date().getFullYear());
+			self.objects.intro_text.setText(currentYear);
+		};
+		_showYear();
+
 		// Button
 		self.add({
 			id:"intro_button", type:"Button", x:304, y:466, size:"long",
