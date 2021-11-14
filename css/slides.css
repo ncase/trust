@@ -10,7 +10,7 @@ html,body{
 }
 
 body{
-	
+
 	margin:0;
 	overflow: hidden;
 
@@ -52,7 +52,7 @@ s{
 
 #translations{
 	margin: 10px auto;
-    font-size: 10.5px;
+    font-size: 10px;
     line-height: 19px;
     color: #fff;
     text-align: center;
@@ -130,11 +130,11 @@ s{
 #slideshow_container{
 	width:0; height:0;
 	position:absolute;
-	margin:auto; 
+	margin:auto;
 	top:0; left:0; right:0; bottom:0;
 }
 #slideshow{
-	
+
 	/*border: 1px solid rgba(0,0,0,0.2);*/
 	width:960px;
 	height:540px;
@@ -201,7 +201,7 @@ s{
 	cursor: default;
 }
 .button #text{
-	
+
 	font-family: 'FuturaHandwritten';
 	color: #000;
 	font-size: 24px;
@@ -287,7 +287,7 @@ s{
 	-webkit-user-select: none;  /* Chrome all / Safari all */
 	-moz-user-select: none;     /* Firefox all */
 	-ms-user-select: none;      /* IE 10+ */
-	user-select: none; 
+	user-select: none;
 	cursor: default;
 }
 #sandbox_tabs > div{
@@ -542,4 +542,3 @@ s{
 .credits a:hover{
 	color:#ee5151;
 }
-
