@@ -1,1224 +1,1210 @@
 <!--
 
-THIS FILE HAS ABOUT 3,300 WORDS TO TRANSLATE
+BU FAYLDA TAXMINAN 3300 SO‘Z TARJIMA QILINISHI KERAK
 
-TRANSLATION NOTES:
+TARJIMA BO‘YICHA E’TIBORLI NUQTALAR:
 
-When translating this thing, only edit the stuff that's BETWEEN the <tags>, like so:
+Ushbu narsani tarjima qilayotganda, faqat <teglar> ICHIDAGI narsalarni tahrirlang, masalan:
 
     <p id="still_english">hello</p>
     =>
-    <p id="still_english">bonjour</p>
+    <p id="still_english">salom</p>
 
-Also, DON'T change anything between the [square brackets], like so:
+Shuningdek, [kvadrat qavslar] ichidagi narsalarni O‘ZGARTIRMANG, masalan:
 
     Number #[N]
     =>
-    Numero #[N]
+    Raqam #[N]
 
-Exception to the "don't change tags" rule:
-Feel free to move around the italics & bold tags, so that the emphasis
-on the right phrases/words still makes sense!
+“Teglar o‘zgartirilmasin” qoidasidan istisno:
+Kursiv va qalin teglarni (<i> yoki <b>) mos tarzda ko‘chirishga ruxsat beriladi, shunda urg‘u to‘g‘ri so‘z yoki iboralarga tushadi!
 
-    <i>italics</i>
-    <b>bold</b>
+    <i>kursiv</i>
+    <b>qalin</b>
 
-Also, some HTML weirdness you might want to know:
+Bundan tashqari, HTML’dagi ba’zi g‘alati belgilarni bilishingiz kerak:
 
-    &amp; is an ampersand "&" sign
-    &#8226; is a dot
-    &rarr; is a rightward-facing arrow
-    &lt; is a "<" sign
+    & – “&” belgisi
+    • – nuqta
+    → – o‘ngga qaragan strelka
+    < – “<” belgisi
 
-ALSO! I'd love for you to credit yourself as a translator!
-You can add your own name in the <p id="subtitle"> section
+SHUNINGDEK! Tarjimachi sifatida o‘zingizni e’tirof etishingizni istardim!
+Ismingizni <p id="subtitle"> qismiga qo‘shishingiz mumkin.
 
-Thanks again!
+Yana bir bor rahmat!
 ~ Nicky Case
 
 -->
 
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - META STUFF - - - - - - -->
+<!-- - - - - - META QISM - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="meta_title">
-The Evolution of Trust
+Ishonchning evolyutsiyasi
 </p>
 <p id="meta_desc">
-an interactive guide to the game theory of why &amp; how we trust each other
+bir-birimizga nima uchun va qanday ishonishimiz haqidagi o‘yin nazariyasiga interaktiv yo‘l-yo‘riq
 </p>
 <p id="meta_loading">
-loading...
+yuklanmoqda...
 </p>
 <p id="meta_on">
-ON
+YOQILGAN
 </p>
 <p id="meta_off">
-OFF
+O‘CHIRILGAN
 </p>
 
-
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - TITLE! - - - - - - - - -->
+<!-- - - - - - SARLAVHA! - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="title">
 <span style="font-size:0.75em">THE</span><br>
-EVOLUTION<br>
-<span style="font-size:0.75em">OF TRUST</span>
+ISHONCHNING<br>
+<span style="font-size:0.75em">EVOLYUTSIYASI</span>
 </p>
 <p id="subtitle">
+o‘yin vaqti: 30 daqiqa • Nicky Case, 2017-yil iyul
 
-playing time: 30 min &#8226; by nicky case, july 2017
-
-<!-- TRANSLATION NOTE: UNCOMMENT THE FOLLOWING & ADD YOUR OWN NAME! -->
+<!-- TARJIMA E’TIBORI: QUYIDAGINI IZOHDAN CHIQARING VA O‘Z ISMINGIZNI QO‘SHING! -->
 <!--
 <br>
-translated by YOUR NAME HERE
-&#8226;
-<a href="http://ncase.me/trust/">original English version</a>
+tarjimachi: SIZNING ISMINGIZ BU YERDA
+•
+<a href="http://ncase.me/trust/">inglizcha asl nusxa</a>
 -->
 
 </p>
 
 <p id="loading">
-loading...
+yuklanmoqda...
 </p>
 <p id="loading_done">
-PLAY &rarr;
+O‘YNA →
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - INTRO! - - - - - - - - -->
+<!-- - - - - - KIRISH! - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="intro">
-During World War I, peace broke out.
+Birinchi jahon urushi paytida tinchlik boshlandi.
 <br><br>
 
-It was Christmas 1914 on the Western Front.<br>
-Despite strict orders <i>not</i> to chillax with the enemy, British<br>
-and German soldiers left their trenches, crossed No Man's Land,<br>
-and gathered to bury their dead, exchange gifts, and play games.
+Bu voqea 1914-yil Rojdestvo bayrami, G‘arbiy frontda sodir bo'ldi.<br>
+Dushman bilan <i>urush</i> haqidagi qat’iy buyruqlarga qaramay, Britaniya<br>
+va Germaniya askarlari xandaqlarni tark etib, bir-birining yerini kesib o‘tishdi<br>
+va o‘liklarini dafn qilish, sovg‘alar almashish va o‘yinlar o‘ynash uchun yig‘ilishdi.
 <br><br>
 
-Meanwhile: it's 2017, the West has been at peace for decades, and<br>
-wow, we <i>suck</i> at trust. Surveys show that, over the past forty years,
-fewer and fewer people say they trust each other. So here's our puzzle:
+Hozir esa: 2017-yil, G‘arb o‘nlab yillar davomida tinchlikda yashamoqda, lekin<br>
+biz <i>ishonchda juda yomonmiz</i>. So‘rovlar shuni ko‘rsatadiki, so‘nggi qirq yil ichida<br>
+bir-biriga ishonadigan odamlar soni kamayib bormoqda. Shunday ekan, bizning muammomiz:
 <br><br>
 
-<b>Why, even in peacetime, do friends become enemies?<br>
-And why, even in wartime, do enemies become friends?</b>
+<b>Nega, hatto tinchlik davrida ham, do‘stlar dushmanga aylanadi?<br>
+Va nega, hatto urush vaqtida ham, dushmanlar do‘stga aylanadi?</b>
 <br><br>
 
-I think <b>game theory</b> can help explain our epidemic of distrust –<br>
-and how we can fix it! So, to understand all this...
+Menimcha, <b>o‘yin nazariyasi</b> ishonchsizlik epidemiyasini tushuntirishga yordam beradi –<br>
+va uni qanday tuzatish mumkin! Buni tushunish uchun...
 </p>
 <p id="intro_button">
-...let's play a game. &rarr;
+...keling, o‘yin o‘ynaymiz. →
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - ONE OFF! - - - - - - - -->
+<!-- - - - - - BIR MARTALIK! - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="label_you_cooperate">
-you<br>cooperate
+siz<br>hamkorlik qilasiz
 </p>
 
 <p id="label_you_cheat">
-you<br>cheat
+siz<br>aldaysiz
 </p>
 
 <p id="label_they_cooperate">
-they<br>cooperate
+ular<br>hamkorlik qilishadi
 </p>
 
 <p id="label_they_cheat">
-they<br>cheat
+ular<br>aldashadi
 </p>
 
 <p id="label_you">
-you<br>↙
+siz<br>↙
 </p>
 <p id="label_them">
-other player<br>↘
+boshqa o‘yinchi<br>↘
 </p>
 
 <p id="oneoff_0_top">
 
-<b>THE GAME OF TRUST</b>
+<b>ISHONÇ O‘YINI</b>
 <br>
-You have one choice.
-In front of you is a machine: if you put a coin in the machine,
-the <i>other player</i> gets three coins – and vice versa.
-You both can either choose to COOPERATE (put in coin), or CHEAT (don't put in coin).
+Sizda bir tanlov bor.
+Sizning oldingizda mashina: agar siz mashinaga tanga qo‘ysangiz,
+<i>boshqa o‘yinchi</i> uchta tanga oladi – va aksincha.
+Ikalangiz ham HAMKORLIK QILISH (tanga qo‘yish) yoki ALDASH (tanga qo‘ymaslik) ni tanlashingiz mumkin.
 </p>
 
 <p id="oneoff_0_btm">
-<b>Let's say the other player cheats, and doesn't put in a coin.</b><br>
-What should you do?
+<b>Aytaylik, boshqa o‘yinchi aldaydi va tanga qo‘ymaydi.</b><br>
+Siz nima qilasiz?
 </p>
 
 <p id="oneoff_1_cheated">
-Exactly! Why let that moocher mooch off of you?
+Aynan shunday! Nega bu foydalanuvchiga sizdan foydalanishiga yo‘l qo‘yasiz?
 </p>
 
 <p id="oneoff_1_cooperated">
-Alas, turning the other cheek just gets you slapped!
+Afsuski, boshqa yonoqni burish faqat sizga shapaloq uradi!
 </p>
 
 <p id="oneoff_1_top">
-If you cooperate &amp; they cheat, you lose a coin while they gain three. (score: -1 vs +3)
-However, if you both cheat, neither of you gain or lose anything. (score: 0 vs 0)
-<b>Therefore: you should CHEAT.</b>
+Agar siz hamkorlik qilsangiz va ular aldasa, siz bir tanga yo‘qotasiz, ular esa uchta tanga oladi. (hisob: -1 vs +3)
+Ammo, agar ikkalangiz ham aldagan bo‘lsangiz, hech kim na yutadi, na yo‘qotadi. (hisob: 0 vs 0)
+<b>Shuning uchun: siz ALDASHINGIZ kerak.</b>
 </p>
 
 <p id="oneoff_1_btm">
-<b>But let's say the other player cooperates, and puts in a coin.</b><br>
-What should you do now?
+<b>Ammo, aytaylik, boshqa o‘yinchi hamkorlik qiladi va tanga qo‘yadi.</b><br>
+Endi nima qilasiz?
 </p>
 
 <p id="oneoff_2_cheated">
-Wow, that's mean... and also the correct answer!
+Haa, bu shafqatsiz... lekin bu to‘g‘ri javob!
 </p>
 
 <p id="oneoff_2_cooperated">
-Sure, seems like the right thing to do... <b>OR IS IT??</b>
+Albatta, bu to‘g‘ri harakatdek tuyuladi... <b>YO‘KI SHUNDAYMI??</b>
 </p>
 
 <p id="oneoff_2_top">
-Because if you both cooperate, you both give up a coin to gain three. (score: +2 vs +2)
-But if you cheat &amp; they cooperate, you gain three coins at their cost of one. (score: +3 vs -1)
-<b>Therefore: you "should" still CHEAT.</b>
+Chunki agar ikkalangiz hamkorlik qilsangiz, ikkalangiz bir tanga berib, uchta tanga olasiz. (hisob: +2 vs +2)
+Lekin agar siz aldab, ular hamkorlik qilsa, siz ularning bir tangasi evaziga uchta tanga olasiz. (hisob: +3 vs -1)
+<b>Shuning uchun: siz baribir ALDASHINGIZ “kerak”.</b>
 </p>
 
 <p id="oneoff_2_btm">
-And <i>that's</i> our dilemma.
-Trust is nice, but it can let others take advantage of you -- or shoot you as you come unarmed out of a trench.
-Sometimes, distrust <i>is</i> rational!
-But now, what happens if we play this game...
+Mana shu bizning dilemmamiz.
+Ishonch yoqimli, lekin bu boshqalarga sizdan foydalanishiga yoki qurolsiz xandaqdan chiqayotganingizda sizni otib tashlashiga imkon beradi.
+Ba’zida, ishonchsizlik <i>ratsional</i>dir!
+Endi esa, agar biz bu o‘yinni...
 </p>
 
 <p id="oneoff_button_next">
-...more than once? &rarr;
+...bir necha marta o‘ynasak-chi? →
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - ITERATED - - - - - - - -->
+<!-- - - - - - TAKRORLANGAN - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="iterated_intro_top">
-<b>Now, let's play for real.</b>
-You'll be playing against 5 different opponents, each with their own game "strategy".
-With each opponent, you'll play anywhere between 3 to 7 rounds.
-(You won't know in advance when the last round is)
-Can you trust them? Or rather... can they trust <i>you?</i>
+<b>Endi, haqiqiy o‘ynaymiz.</b>
+Siz 5 xil raqibga qarshi o‘ynaysiz, har birining o‘ziga xos o‘yin “strategiyasi” bor.
+Har bir raqib bilan 3 dan 7 gacha raund o‘ynaysiz.
+(Oxirgi raund qachon bo‘lishini oldindan bilmaysiz)
+Ularga ishonish mumkinmi? Yoki... ular sizga <i>ishonishi</i> mumkinmi?
 </p>
 
 <p id="iterated_intro_btm">
-Pick your first, <i>real</i> move. <b>Choose wisely.</b>
+Birinchi, <i>haqiqiy</i> harakatingizni tanlang. <b>Ehtiyotkorlik bilan tanlang.</b>
 </p>
 
 <p id="iterated_info_1">
-opponent: [X] of [Y]
-</p>
+raqib: [X] / [Y]
 </p>
 <p id="iterated_info_2">
-your total score: 
+sizning umumiy hisobingiz: 
 </p>
 
 <p id="iterated_score_start">
-And your total score is...
+Va sizning umumiy hisobingiz...
 </p>
 <p id="iterated_score_1">
-which is, wow, actually <i>impressively</i> bad.
+bu, voy, aslida <i>hayratlanarli darajada</i> yomon.
 </p>
 <p id="iterated_score_2">
-which, uh, could be worse!
+bu, uhh, bundan yomonroq bo‘lishi mumkin edi!
 </p>
 <p id="iterated_score_3">
-which ain't bad!
+bu yomon emas!
 </p>
 <p id="iterated_score_4">
-which is pretty good!
+bu juda yaxshi!
 </p>
 <p id="iterated_score_5">
-which is <i>perfect!</i> Congrats you have too much time on your hands.
+bu <i>mukammal!</i> Tabriklar, sizda juda ko‘p vaqt bor.
 </p>
 <p id="iterated_score_x">
-...i have no idea how you did that.
+...buni qanday qilganingizni bilmayman.
 </p>
 <p id="iterated_score_end">
-(the lowest &amp; highest possible scores are 7 and 49, respectively)
+(eng past va eng yuqori mumkin bo‘lgan ballar mos ravishda 7 va 49)
 </p>
 
 <p id="who_were">
-So who were these strange characters you just played against?
+Xo'sh, siz hozirgina o‘ynagan bu g‘alati personajlar kimlar edi?
 </p>
 
 <p id="character_tft">
-<b>COPYCAT:</b>
-Hello! I start with Cooperate, and afterwards, I just copy whatever you did in the last round. Meow
+<b>KOPIKAT:</b>
+Salom! Men Hamkorlik bilan boshlayman, keyin esa siz oxirgi raundda nima qilgan bo‘lsangiz, shuni takrorlayman. Miyov
 </p>
 
 <p id="character_all_d">
-<b>ALWAYS CHEAT:</b>
-<i>the strong shall eat the weak</i>
+<b>DOIMO ALDAYDI:</b>
+<i>kuchlilar zaiflarni yeydi</i>
 </p>
 
 <p id="character_all_c">
-<b>ALWAYS COOPERATE:</b>
-Let's be best friends! &lt;3
+<b>DOIMO HAMKORLIK QILADI:</b>
+Keling, eng yaxshi do‘stlar bo‘laylik! <3
 </p>
 
 <p id="character_grudge">
-<b>GRUDGER:</b>
-Listen, pardner. I'll start cooperatin', and keep cooperatin',
-but if y'all ever cheat me, I'LL CHEAT YOU BACK 'TIL THE END OF TARNATION.
+<b>XAFACHI:</b>
+Tinglang, do‘stim. Men hamkorlik bilan boshlayman va hamkorlikda davom etaman,
+lekin agar siz bir marta bo‘lsa ham meni aldasangiz, OXIRIGACHA SIZNI ALDAYMAN.
 </p>
 
 <p id="character_prober">
-<b>DETECTIVE:</b>
-First: I analyze you. I start: Cooperate, Cheat, Cooperate, Cooperate.
-If you cheat back, I'll act like <span class="tft">Copycat</span>.
-If you never cheat back, I'll act like <span class="all_d">Always Cheat</span>, to exploit you.
-Elementary, my dear Watson.
+<b>DETEKTIV:</b>
+Birinchi: Men sizni tahlil qilaman. Boshlayman: Hamkorlik, Aldash, Hamkorlik, Hamkorlik.
+Agar siz aldab javob qaytarsangiz, men <span class="tft">Kopikat</span> kabi harakat qilaman.
+Agar siz hech qachon aldab javob qaytarmasangiz, men <span class="all_d">Doimo Aldaydi</span> kabi harakat qilaman, sizdan foydalanish uchun.
+Elementar, azizim Watson.
 </p>
 
 <p id="characters_teaser">
-Now, what if these characters were to play...
+Endi, agar bu personajlar bir-biriga qarshi...
 </p>
 <p id="characters_button">
-...against each other? &rarr;
+...o‘ynasa-chi? →
 </p>
 
-
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - TOURNAMENT! - - - - - - -->
+<!-- - - - - - TURNIR! - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="place_your_bets">
-It's tournament time!
-Each character will now play against every other character:
-that's 10 paired matches, and 10 rounds per match.
+Turnir vaqti keldi!
+Endi har bir personaj boshqa har bir personajga qarshi o‘ynaydi:
+bu 10 ta juft o‘yin, har bir o‘yinda 10 raund.
 <br><br>
-Who do you think will get the highest <i>total</i> score?
-<b>Think carefully about it... and then
-PLACE YOUR BETS:</b>
+Kimning <i>umumiy</i> balli eng yuqori bo‘ladi deb o‘ylaysiz?
+<b>Bu haqda yaxshilab o‘ylab ko‘ring... va keyin
+GAROVINGIZNI QO‘YING:</b>
 </p>
 
 <p id="tournament_intro">
-Alright, you placed your bet on [CHAR]!
-Let's go through the matches one by one, and see how the tournament plays out...
+Xo'sh, siz [CHAR] ga garov qo‘ydingiz!
+Keling, o‘yinlarni birma-bir ko‘rib chiqaylik va turnir qanday o‘tishini bilib olaylik...
 </p>
 
 <p id="first_match">
-first match &rarr;
+birinchi o‘yin →
 </p>
 
 <p id="next_match">
-next match &rarr;
+keyingi o‘yin →
 </p>
 
 <p id="match_header_1">
-<b>Match #[N]:</b> [A] vs [B]
+<b>#[N] o‘yin:</b> [A] vs [B]
 </p>
 <p id="match_header_2">
-<b>Rounds:</b>
+<b>Raundlar:</b>
 </p>
 <p id="match_header_3">
-<b>Total Scores:</b> [A] vs [B]
+<b>Umumiy ballar:</b> [A] vs [B]
 </p>
 
 <p id="tournament_1">
-Oh, by the way...
+Aytgancha...
 </p>
 <p id="tournament_2">
-...You may be skeptical about that Christmas Truce story about the World War I trenches.
-Surely that was just a fluke?
+...Birinchi jahon urushidagi xandaqlardagi Rojdestvo sulhi hikoyasiga shubha bilan qarashingiz mumkin.
+Bu shunchaki tasodif bo‘lganmi?
 </p>
 <p id="tournament_3">
-Yes, the truce was dramatic, but it was <i>neither unique, nor unusual</i>.
+Ha, sulh dramatik edi, lekin bu <i>na yagona, na noodatiy</i> edi.
 </p>
 <p id="tournament_4">
-Not <i>every</i> trench joined in the peace, but it was pretty widespread.
-Many front-lines came up with the idea independently, and again: <i>despite</i> specific, strict orders not to.
+Har bir xandaq tinchlikka qo‘shilmadi, lekin bu juda keng tarqalgan edi.
+Ko‘pgina front chiziqlari bu g‘oyani mustaqil ravishda o‘ylab topishdi va yana: <i>qat’iy, maxsus buyruqlarga qaramay</i>.
 </p>
 <p id="tournament_5">
-And in fact, even <i>before</i> Christmas, several front-lines already <i>had</i>
-established an unofficial, secret peace.
+Aslida, hatto Rojdestvodan <i>oldin</i>, bir nechta front chiziqlari allaqachon
+norasmiy, yashirin tinchlik o‘rnatgan edi.
 </p>
 <p id="tournament_6">
-They called it: <b>the "live and let live" system.</b>
-Basically, you don't shoot me, I don't shoot you. And this worked, in a lot of places!
+Ular buni: <b>“yashash va yashashga ruxsat berish” tizimi</b> deb atashdi.
+Asosan, sen meni otmaysan, men seni otmayman. Bu ko‘p joylarda ishladi!
 </p>
 <p id="tournament_7">
-You may still be skeptical. Most soldiers don't spontaneously form peace with the enemy.
-What's so special about <i>trench</i> warfare? 
+Siz hali ham shubhalanishingiz mumkin. Ko‘p askarlar dushman bilan o‘z-o‘zidan tinchlik o‘rnatmaydi.
+<i>Xandaq</i> urushida qaysi jihat boshqalaridan farqli?
 </p>
 <p id="tournament_8">
-Well, here's what's unique about the trenches:
-unlike almost every other form of war,
-you have to face the same <i>specific soldiers</i> every day.
+Xo'sh, xandaqlardagi o‘ziga xoslik shundaki:
+deyarli barcha boshqa urush turlaridan farqli o‘laroq,
+siz har kuni bir xil <i>maxsus askarlarga</i> duch kelasiz.
 </p>
 <p id="tournament_9">
-<b>It's a repeated game.</b> And that makes <i>all</i> the difference.
+<b>Bu takrorlanadigan o‘yin.</b> Va bu <i>hamma</i> farqni keltirib chiqaradi.
 </p>
 <p id="tournament_10">
-Anyway. And the winner is...
+Nima bo‘lganda ham. G‘olib esa...
 </p>
 
 <p id="the_winner_is">
-(drumroll please...) &rarr;
+(baraban tovushlari, iltimos...) →
 </p>
 
 <p id="tournament_winner_1">
-<b class="tft">COPYCAT!</b>
+<b class="tft">KOPIKAT!</b>
 </p>
 <p id="tournament_winner_2_yay">
-Congrats, you placed your bet on the right horse.
+Tabriklar, siz to‘g‘ri garov qo‘ydingiz.
 </p>
 <p id="tournament_winner_2_nay">
-(Apologies to your bet, [CHAR].)
+(Garovingiz uchun uzr, [CHAR].)
 </p>
 <p id="tournament_winner_3">
-<span class="tft">Copycat</span> goes by many names.
-The Golden Rule, reciprocal altruism, tit for tat, or... <b>live and let live.</b>
-That's why "peace" could emerge in the trenches of World War I:
-when you're forced to play the same game with the
-same <i>specific people</i> (not just the same generic "enemy") over and over again --
-<span class="tft">Copycat</span> doesn't just win the battle, it wins the war.
+<span class="tft">Kopikat</span> ko‘p nomlar bilan tanilgan.
+Oltin qoida, o‘zaro altruizm, tit for tat, yoki... <b>yashash va yashashga ruxsat berish.</b>
+Birinchi jahon urushidagi xandaqlarda “tinchlik” paydo bo‘lishining sababi shu:
+agar siz bir xil o‘yinni bir xil <i>maxsus odamlar</i> bilan (faqat umumiy “dushman” emas) qayta-qayta o‘ynashga majbur bo‘lsangiz --
+<span class="tft">Kopikat</span> nafaqat jangda, balki urushda ham g‘alaba qozonadi.
 <br><br>
-But if things change a lot when you play multiple rounds of the same game, what if we play...
+Ammo, agar bir xil o‘yinni bir necha raund o‘ynash ko‘p narsani o‘zgartirsa, agar biz...
 </p>
 <p id="tournament_teaser">
-...multiple <i>tournaments?</i> &rarr;
+...bir nechta <i>turnir</i> o‘ynasak-chi? →
 </p>
 
-
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - EVOLUTION! - - - - - - -->
+<!-- - - - - - EVOLYUTSIYA! - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="evolution_intro">
-Now, let's let our population of players <i>evolve over time</i>. It's a 3-step dance:
+Endi, keling, o‘yinchilar populyatsiyasini <i>vaqt o‘tishi bilan evolyutsiyalashiga</i> ruxsat beraylik. Bu 3 bosqichli raqs:
 </p>
 <p id="evolution_intro_1">
-<b>1. PLAY A TOURNAMENT</b><br>
-Let them all play against each other, and tally up their scores.
+<b>1. TURNIR O‘YNA</b><br>
+Ularning hammasini bir-biriga qarshi o‘ynating va ballarni hisoblang.
 </p>
 <p id="evolution_intro_2">
-<b>2. ELIMINATE LOSERS</b><br>
-Get rid of the 5 worst players. (if there's a tie, pick randomly between them)
+<b>2. YUTQAZGANLARNI YO‘Q QIL</b><br>
+Eng yomon 5 o‘yinchini olib tashlang. (agar tenglik bo‘lsa, ular orasidan tasodifiy tanlang)
 </p>
 <p id="evolution_intro_3">
-<b>3. REPRODUCE WINNERS</b><br>
-Clone the 5 best players. (if there's a tie, pick randomly between them)
+<b>3. G‘OLIBLARNI KO‘PAYTIR</b><br>
+Eng yaxshi 5 o‘yinchini klonlang. (agar tenglik bo‘lsa, ular orasidan tasodifiy tanlang)
 </p>
 <p id="evolution_intro_footer">
-...and REPEAT, for as long as you'd like.
-Note: you don't have to wait for people to literally die &amp; reproduce for culture to evolve --
-all that's needed is that "unsuccessful" behaviors go away, and "successful" behaviors are imitated.
-So now...
+...va xohlagancha TAKRORLANG.
+Eslatma: madaniyat evolyutsiyasi uchun odamlarning so‘z bilan o‘lishi yoki ko‘payishi shart emas --
+faqat “muvaffaqiyatsiz” xatti-harakatlar yo‘qolishi va “muvaffaqiyatli” xatti-harakatlar taqlid qilinishi kerak.
+Endi...
 </p>
 <p id="evolution_intro_button">
-...let's see this in action. &rarr;
+...buni amalda ko‘raylik. →
 </p>
 
 <p id="evo_1">
-Say we start with the following population of players:
-<span class="all_c">15 Always Cooperates</span>,
-<span class="all_d">5 Always Cheats</span>, and
-<span class="tft">5 Copycats</span>.
-(We'll ignore <span class="grudge">Grudger</span> &amp; <span class="prober">Detective</span> for now)
+Aytaylik, biz quyidagi o‘yinchilar populyatsiyasidan boshlaymiz:
+<span class="all_c">15 Doimo Hamkorlik Qiladi</span>,
+<span class="all_d">5 Doimo Aldaydi</span> va
+<span class="tft">5 Kopikat</span>.
+(Biz hozircha <span class="grudge">Xafachi</span> va <span class="prober">Detektiv</span>ni e’tiborsiz qoldiramiz)
 <br><br>
-We're going to do the tournament-eliminate-reproduce dance a dozen times or so.
-Let's make another bet! Who do you think will win the <i>first</i> tournament?
-<b>PLACE YOUR BETS, AGAIN:</b>
+Biz turnir-yo‘q qilish-ko‘paytirish raqsini o‘n ikki marta yoki shunga yaqin bajaramoqchimiz.
+Yana bir garov qilaylik! Sizningcha, <i>birinchi</i> turnirda kim g‘alaba qozonadi?
+<b>YANA GAROV QO‘YING:</b>
 </p>
 
 <p id="evo_2_all_c">
-Makes sense, <span class="all_c">Always Cooperate</span> outnumbers everyone else right now...
+Tushunarli, hozir <span class="all_c">Doimo Hamkorlik Qiladi</span> hammadan ko‘p...
 </p>
 <p id="evo_2_all_d">
-Makes sense, <span class="all_d">Always Cheat</span> has a lot of <span class="all_c">Always Cooperates</span> to exploit...
+Tushunarli, <span class="all_d">Doimo Aldaydi</span> <span class="all_c">Doimo Hamkorlik Qiladi</span>dan foydalanish uchun ko‘p imkoniyatga ega...
 </p>
 <p id="evo_2_tft">
-Makes sense, <span class="tft">Copycat</span> won the tournament last time, why not again?...
+Tushunarli, <span class="tft">Kopikat</span> o‘tgan turnirda g‘alaba qozongan, nega yana emas?...
 </p>
 <p id="evo_2">
-Let's see if you're correct:
+Keling, sizning to‘g‘ri topgan yoki xato qilganigizni bilib olaylik:
 </p>
 
 <p id="label_play_tournament">
-1) play tournament
+1) turnir o‘ynash
 </p>
 <p id="label_eliminate_bottom_5">
-2) eliminate bottom 5
+2) eng past 5 ni yo‘q qilish
 </p>
 <p id="label_reproduce_top_5">
-3) reproduce top 5
+3) eng yuqori 5 ni ko‘paytirish
 </p>
 
 <p id="evo_3_all_c">
-Alas, <span class="all_c">Always Cooperate</span> got eaten up by
-<span class="all_d">Always Cheat</span>, whose numbers have now increased by 5.
+Afsuski, <span class="all_c">Doimo Hamkorlik Qiladi</span> 
+<span class="all_d">Doimo Aldaydi</span> tomonidan yeb qo‘yildi, ularning soni endi 5 taga oshdi.
 </p>
 <p id="evo_3_all_d">
-Sadly, you were correct! The <span class="all_d">Always Cheaters</span> won this time, 
-and their numbers increased by 5.
+Afsuski, siz to‘g‘ri aytdingiz! Bu safar <span class="all_d">Doimo Aldaydi</span> g‘alaba qozondi,
+va ularning soni 5 taga oshdi.
 </p>
 <p id="evo_3_tft">
-Alas, <span class="tft">Copycat</span> did not win – but at least they didn't do as bad
-as <span class="all_c">Always Cooperate</span>. They got eaten up by <span class="all_d">Always Cheat</span>,
-whose numbers have now increased by 5.
+Afsuski, <span class="tft">Kopikat</span> g‘alaba qozonmadi – lekin hech bo‘lmaganda ular
+<span class="all_c">Doimo Hamkorlik Qiladi</span> kabi yomon natija ko‘rsatmadi. Ular <span class="all_d">Doimo Aldaydi</span> tomonidan yeb qo‘yildi,
+ularning soni endi 5 taga oshdi.
 </p>
 <p id="evo_3">
-But let's try a few more rounds of this...
+Lekin keling, yana bir necha raund sinab ko‘raylik...
 </p>
 
 <p id="evo_4">
-<span class="all_d">Always Cheat</span> is still growing,
-at the expense of <span class="all_c">Always Cooperate</span>...
+<span class="all_d">Doimo Aldaydi</span> hali ham o‘smoqda,
+<span class="all_c">Doimo Hamkorlik Qiladi</span> hisobiga...
 </p>
 
 <p id="evo_5">
-And now, all the <span class="all_c">Always Cooperates</span> are dead.
-But, wait...
+Endi esa, barcha <span class="all_c">Doimo Hamkorlik Qiladi</span>lar o‘ldi.
+Lekin, kuting...
 </p>
 
 <p id="evo_6">
-That's right: the <span class="all_d">Always Cheats</span> became a victim of their own success!
-They exploited the naive <span class="all_c">Always Cooperators</span>,
-but once they ran out of them, they had to face the <span class="tft">Copycats</span>:
-who <i>are</i> nice, but not naive.
+To‘g‘ri: <span class="all_d">Doimo Aldaydi</span> o‘z muvaffaqiyatining qurboniga aylandi!
+Ular sodda <span class="all_c">Doimo Hamkorlik Qiladi</span>larni ekspluatatsiya qilishdi,
+lekin ular tugagach, ularga <span class="tft">Kopikat</span>lar bilan yuzlashishga to‘g‘ri keldi:
+ular <i>yoqimli</i>, lekin sodda emas.
 </p>
 
 <p id="evo_7">
-By simply copying the other player's moves,
-<span class="tft">Copycats</span> can play nice with each other,
-while <span class="all_d">Always Cheats</span> just cheat themselves!
-Not only that, but it also means <span class="tft">Copycat</span>
-can give <span class="all_d">Always Cheat</span>
-a taste of their own medicine.
+Boshqa o‘yinchining harakatlarini oddiygina nusxalash orqali,
+<span class="tft">Kopikat</span>lar bir-biri bilan yoqimli o‘ynay oladi,
+<span class="all_d">Doimo Aldaydi</span>lar esa o‘zlarini aldaydi!
+Bundan tashqari, bu <span class="tft">Kopikat</span> 
+<span class="all_d">Doimo Aldaydi</span>ga o‘z dori-darmonini tatib ko‘rish imkonini beradi.
 </p>
 
 <p id="evo_8">
-And so, as a result...
+Shunday qilib, natijada...
 </p>
 
 <p id="evo_9">
-...<span class="tft">Copycat</span> inherits the earth.
+...<span class="tft">Kopikat</span> yerni meros qilib oladi.
 </p>
 <p id="evo_9_all_c">
-So, although your bet was off -- the nice-but-naive <span class="all_c">Always Cooperators</span>
-were doomed from the start -- in the end, a <i>smart</i> form of niceness prevailed,
-and the <span class="all_d">Always Cheaters</span> were squashed.
+Shunday qilib, sizning garovingiz noto‘g‘ri bo‘ldi – yoqimli, lekin sodda <span class="all_c">Doimo Hamkorlik Qiladi</span>lar boshidanoq muvaffaqiyatsizlikka uchragan edi – lekin oxir-oqibat, <i>aqlli</i> yoqimlilik g‘alaba qozondi,
+va <span class="all_d">Doimo Aldaydi</span>lar ezildi.
 </p>
 <p id="evo_9_all_d">
-So, in the short run you were right - <span class="all_d">Always Cheat</span> won the first few rounds,
-but in the end, its exploitativeness was its downfall.
+Shunday qilib, qisqa muddatda siz haq edingiz – <span class="all_d">Doimo Aldaydi</span> dastlabki bir necha raundda g‘alaba qozondi,
+lekin oxir-oqibat, uning ekspluatatsion tabiati uning halokati bo‘ldi.
 </p>
 <p id="evo_9_tft">
-So, in the long run, you were right - <span class="tft">Copycat</span> wins!
-<span class="all_d">Always Cheat</span> may have won in the short run,
-but its exploitativeness was its downfall.
+Shunday qilib, uzoq muddatda siz haq edingiz – <span class="tft">Kopikat</span> g‘alaba qozonadi!
+<span class="all_d">Doimo Aldaydi</span> qisqa muddatda g‘alaba qozongan bo‘lishi mumkin,
+lekin uning ekspluatatsion tabiati uning halokati bo‘ldi.
 </p>
 <p id="evo_9_end">
-This reminds me of a quote:
+Bu menga bir iqtibosni eslatadi:
 <br><br>
-<i>"We are punished by our sins, not for them."</i><br>
+<i>“Biz gunoh qilganimiz uchun emas, balki o‘sha gunohlar oqibatida jazolanamiz(Bu yerda Hubbard shuni demoqchi: odamlar qilgan xatolari (gunohlari) uchun alohida bir jazoga uchramaydi, balki o‘sha xatolar o‘z-o‘zidan jazoga sabab bo‘ladi. Masalan:
+
+Agar biror kishi yolg‘on gapirsa, jazosi — ishonch yo‘qotiladi.
+
+Agar kimdir hiyla qilsa, odamlar undan yuz o‘giradi. Bu o‘ziyozilgan "jazodir".
+
+Ya’ni, bu fikrda odamning harakati o‘zi bilan birga jazoni olib keladi — tashqi kuch (sud, hukumat, Xudo) jazo berishi shart emas. Gunohning o‘zi ichida jazo mujassam.).”</i><br>
 ~ Elbert Hubbard
 </p>
 <p id="evo_9_btn">
-(oh, and by the way...)
+(aytmoqchi...)
 </p>
 
 <p id="evo_10">
-(...this result is similar even if we put
-<span class="grudge">Grudger</span> &amp; <span class="prober">Detective</span> back in:)
+(...agar biz <span class="grudge">Xafachi</span> va <span class="prober">Detektiv</span>ni qaytarib qo‘ysak ham, natija shunga o‘xshash bo‘ladi:)
 </p>
 
 <p id="evo_autoplay">
-start the evolution process!
+evolyutsiya jarayonini boshlang!
 </p>
 <p id="evo_autoplay_stop">
-stop the evolution process
+evolyutsiya jarayonini to‘xtating
 </p>
 
 <p id="evo_10_followup">
-(Note: sometimes, a few <span class="grudge">Grudgers</span> may stick around,
-because when all players except <span class="grudge">Grudger</span> &amp; <span class="tft">Copycat</span> 
-are eliminated, the two tie.)
+(Eslatma: ba’zida bir nechta <span class="grudge">Xafachi</span>lar qolib ketishi mumkin,
+chunki <span class="grudge">Xafachi</span> va <span class="tft">Kopikat</span>dan boshqa barcha o‘yinchilar yo‘q qilinganda, ular tenglik qiladi.)
 <br><br>
-So, it seems the math of game theory is telling us something:
-that <span class="tft">Copycat's</span> philosophy,
-"Do unto others as you would have them do unto you", may be not just a 
-<i>moral</i> truth, but also a <i>mathematical</i> truth.
-However...
+Shunday qilib, o‘yin nazariyasining matematikasi bizga nimanidir aytmoqda:
+<span class="tft">Kopikat</span>ning falsafasi,
+“Boshqalarga o‘zingga qilinmoqchi bo‘lganidek muomala qil”, nafaqat 
+<i>axloqiy</i> haqiqat, balki <i>matematik</i> haqiqat ham bo‘lishi mumkin.
+Ammo...
 </p>
 <p id="evo_10_btn">
-...there's a problem: &rarr;
+...bir muammo bor: →
 </p>
 
 <p id="evo_11">
-Look around. The world's full of total jerkwads.
+Atrofga qarang. Dunyo yomon odamlarga to‘la.
 <br><br>
-If <span class="tft">Copycat</span> is the strategy in this repeated game of trust that's so powerful --
-that even soldiers in World War I trenches independently "evolved" a similar strategy, called "live and let live" -- 
-why, then, are there so many un-trusting, un-trustworthy people?
-What's causing our epidemic of un-trust?
+Agar <span class="tft">Kopikat</span> ushbu takrorlanadigan ishonch o‘yinida shunchalik kuchli strategiya bo‘lsa –
+hatto Birinchi jahon urushidagi xandaqlardagi askarlar mustaqil ravishda “yashash va yashashga ruxsat berish” deb atalgan shunga o‘xshash strategiyani “evolyutsiyalashgan” bo‘lsa – 
+nega unda bunchalik ko‘p ishonmaydigan, ishonchga loyiq bo‘lmagan odamlar bor?
+Bizning ishonchsizlik epidemiyamizga nima sabab bo‘lmoqda?
 <br><br>
-A clue's in that sentence itself. "In <i>this</i> repeated game of trust."
-So far we've only talked about change in the players:
-what about <i>a change in the game?</i>
-What could lead to...
+Bir maslahat shu jumlaning o‘zida. “Ushbu <i>takrorlanadigan ishonch o‘yinida</i>.”
+Hozirgacha biz faqat o‘yinchilardagi o‘zgarishlar haqida gapirdik:
+o‘yin <i>o‘zgarishi</i> haqida-chi?
+Nima...
 </p>
 <p id="evo_11_btn">
-...the evolution of <i>distrust?</i>
+...<i>ishonchsizlikning evolyutsiyasi</i>ga olib kelishi mumkin?
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - DISTRUST - - - - - - -->
+<!-- - - - - - ISHONCHSIZLIK - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="distrust_1">
-Before everything goes to heck, let's start with something nice!
-Here's a world filled entirely with <span class="all_c">Always Cooperates</span>,
-except for one <span class="all_d">Always Cheat</span> and one <span class="tft">Copycat</span>.
+Hamma narsa yomonlashguncha, keling, yoqimli narsadan boshlaylik!
+Mana, butunlay <span class="all_c">Doimo Hamkorlik Qiladi</span>lar bilan to‘lgan dunyo,
+faqat bitta <span class="all_d">Doimo Aldaydi</span> va bitta <span class="tft">Kopikat</span>dan tashqari.
 <br><br>
-Use the buttons on the right to <b>START</b> the sim,
-go through it <b>step-by-step</b>, or <b>reset</b> it. &rarr;
+O‘ngdagi tugmalardan foydalanib, simulyatsiyani <b>BOSHLANG</b>,
+uni <b>bosqichma-bosqich</b> o‘ting yoki <b>qayta tiklang</b>. →
 </p>
 
 <p id="distrust_2">
-As you already know, <span class="tft">Copycat</span> wins handily in the long run,
-under our current rules!
+Siz allaqachon bilasizki, <span class="tft">Kopikat</span> hozirgi qoidalarimiz bo‘yicha uzoq muddatda osonlikcha g‘alaba qozonadi!
 <br><br>
-But that's under our <i>current</i> rules, which say that
-players play against each other for <i>10</i> rounds per match.
-Does <span class="tft">Copycat</span> still win at 7 rounds? 5 rounds? 3? 2? 1?
+Ammo bu bizning <i>hozirgi</i> qoidalarimiz bo‘yicha, unda o‘yinchilar har bir o‘yinda <i>10</i> raund o‘ynashadi.
+<span class="tft">Kopikat</span> 7 raundda ham g‘alaba qozonadimi? 5 raundda? 3? 2? 1?
 <br><br>
-<b>Change the number of rounds</b> with the slider below,
-then <b>START</b> the sim, and see what happens.
-Feel free to experiment!
+<b>Raundlar sonini</b> quyidagi slayder bilan o‘zgartiring,
+keyin simulyatsiyani <b>BOSHLANG</b> va nima bo‘lishini ko‘ring.
+O‘z sinovlaringizni o‘tkazing!
 </p>
 
 <p id="distrust_2_end">
-once you're done playing around, click:
+o‘ynashni tugatganingizdan so‘ng, bosing:
 </p>
 
 <p id="distrust_3">
-As you saw, if you don't play enough rounds, (here: 5 or less)
-<span class="all_d">ALWAYS CHEAT</span> dominates.
+Siz ko‘rganingizdek, agar raundlar yetarli bo‘lmasa (bu yerda: 5 yoki undan kam)
+<span class="all_d">DOIMO ALDAYDI</span> hukmronlik qiladi.
 <br><br>
-In 1985, when Americans were asked how many close friends they had,
-the most common answer was "three". In 2004, the most common answer was <i>"zero"</i>.
-We now have fewer friends across class, racial, economic, and political lines,
-because we have fewer friends -- <i>period.</i>
-And as you just discovered for yourself,
-<b>the fewer "repeat interactions" there are, the more distrust will spread.</b>
+1985-yilda amerikaliklardan qancha yaqin do‘stlari borligi so‘ralganda,
+eng keng tarqalgan javob “uchta” edi. 2004-yilda eng keng tarqalgan javob <i>“nol”</i> edi.
+Bizda sinfiy, irqi, iqtisodiy va siyosiy chegaralar bo‘ylab kamroq do‘stlar bor,
+chunki bizda umuman <i>kamroq do‘stlar</i> bor.
+Va siz hozirgina o‘zingiz kashf qilganingizdek,
+<b>qancha kam “takroriy o‘zaro ta’sirlar” bo‘lsa, ishonchsizlik shunchalik tarqaladi.</b>
 <br><br>
-(no, mass media doesn't count:
-it must be <i>two-way</i> interactions between <i>specific individuals</i>.)
+(yo‘q, ommaviy axborot vositalari hisoblanmaydi:
+bu <i>ikki tomonlama</i> o‘zaro ta’sir bo‘lishi kerak, <i>maxsus shaxslar</i> o‘rtasida.)
 </p>
 <p id="distrust_3_btn">
-and oh, it gets worse... &rarr;
+va oh, bu yanada yomonlashadi... →
 </p>
 
 <p id="distrust_4">
-There's <i>another</i> way to breed distrust.
-Here are the "payoffs" for the trust game:
+Ishonchsizlikni keltirib chiqarishning <i>yana bir</i> yo‘li bor.
+Mana ishonch o‘yini uchun “to‘lovlar”:
 </p>
 <p id="distrust_4_2">
-With the normal payoffs, <span class="tft">Copycat</span> wins.
-But now, <b>change the "both cooperate" reward from +2 to +1</b>,
-then click <b>START</b>.
-Even though +1 is still <i>more</i> than the punishment for both cheating (0)...
-what happens?
+Oddiy to‘lovlar bilan <span class="tft">Kopikat</span> g‘alaba qozonadi.
+Lekin endi, <b>“ikkalasi hamkorlik qiladi” mukofotini +2 dan +1 ga o‘zgartiring</b>,
+keyin <b>BOSHLANG</b> ni bosing.
+Garchi +1 hali ham ikkalasi aldaganidagi jazo (0) dan <i>ko‘proq</i> bo‘lsa ham...
+nima bo‘ladi?
 </p>
 <p id="distrust_4_note">
-feel free to play around with different payoffs!
-once you're done, click:
+turli to‘lovlar bilan o‘ynab ko‘ring!
+tugatganingizdan so‘ng, bosing:
 </p>
 <p id="distrust_4_note_2">
-(simulating: 10 rounds per match)
+(simulyatsiya: har o‘yinda 10 raund)
 </p>
 
 <p id="distrust_5">
-The same thing happens:
-with a lower "win-win" reward, <span class="all_d">Always Cheat</span> takes over.
-Game theory has two powerful ideas about this:
+Xuddi shunday narsa sodir bo‘ladi:
+past “g‘alaba-g‘alaba” mukofoti bilan <span class="all_d">Doimo Aldaydi</span> hukmronlik qiladi.
+O‘yin nazariyasida bu haqda ikkita kuchli g‘oya bor:
 <br><br>
-<b>"Zero-sum game".</b> This is the sadly common belief that a gain for "us"
-<i>must</i> come at a loss to "them", and vice versa.
+<b>“Nol summali o‘yin”.</b> Bu afsuski keng tarqalgan e’tiqod, unda “biz” uchun yutuq
+<i>sizning yo‘qotishingiz</i> hisobiga bo‘lishi kerak, va aksincha.
 <br><br>
-<b>"Non-zero-sum game".</b> This is when people make the hard effort
-to create a win-win solution! (or at least, avoid a lose-lose)
-Without the non-zero-sum game, <i>trust cannot evolve.</i>
+<b>“Nol summali bo‘lmagan o‘yin”.</b> Bu odamlar g‘alaba-g‘alaba yechimini yaratish uchun
+qattiq harakat qilganda bo‘ladi! (yoki hech bo‘lmaganda, yo‘qotish-yo‘qotishdan qochish)
+Nol summali bo‘lmagan o‘yin bo‘lmasa, <i>ishonch evolyutsiyalasha olmaydi.</i>
 <br><br>
-Speaking of which,
-let's now look at our third &amp; final barrier to the evolution of trust...
+Aytgancha,
+endi ishonch evolyutsiyasining uchinchi va oxirgi to‘sig‘iga qaraylik...
 </p>
 <p id="distrust_5_btn">
-<s>Misteaks</s> Mistakes. &rarr;
+<s>Xatolar</s> Xatolar. →
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - NOISE! - - - - - - - -->
+<!-- - - - - - SHOVQIN! - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="noise_1">
-As cool as <span class="tft">Copycat</span> is, it has a huge, fatal weakness I haven't mentioned yet.
-To understand the problem, let's say two <span class="tft">Copycats</span> are playing against each other:
+<span class="tft">Kopikat</span> qanchalik ajoyib bo‘lmasin, men hali aytmagan katta, halokatli zaif tomoni bor.
+Muammoni tushunish uchun, aytaylik, ikkita <span class="tft">Kopikat</span> bir-biriga qarshi o‘ynayapti:
 </p>
 <p id="noise_1_end">
-Being "nice" players, both their first moves will be:
+“Yoqimli” o‘yinchilar sifatida, ikkalasining birinchi harakati quyidagicha bo‘ladi:
 </p>
 
 <p id="noise_2">
-And normally, they'd just pay back each others' kindness and sing Kumbaya until the end of time.
+Odatda, ular bir-birining yaxshiligini qaytarib, vaqt oxirigacha Kumbaya kuylashardi.
 </p>
 <p id="noise_2_end">
-But what if, while trying to reciprocate goodness...
+Lekin agar, yaxshilikni qaytarishga urinayotganda...
 </p>
 
 <p id="noise_3">
-<b>OH NO</b>
+<b>OY VAY</b>
 <br>
-Mistakes, miscommunication, misinterpretations -- accidents happen all the time in real life.
+Xatolar, noto‘g‘ri aloqa, noto‘g‘ri talqinlar – haqiqiy hayotda doim sodir bo‘ladi.
 </p>
 <p id="noise_3_end">
-But if the other person doesn't <i>think</i> it was an accident...
+Ammo agar boshqa odam bu tasodif deb <i>o‘ylamasa</i>...
 </p>
 
 <p id="noise_4">
-<b>OH NO TIMES TWO</b>
+<b>IKKI MARTA OY VAY</b>
 <br>
-The other player, being a <span class="tft">Copycat</span>, <i>had</i> to retaliate...
+Boshqa o‘yinchi, <span class="tft">Kopikat</span> bo‘lgani uchun, <i>javob qaytarishga</i> majbur edi...
 </p>
 <p id="noise_4_end">
-...and you, being a <span class="tft">Copycat</span> as well, will <i>also</i> have to retaliate...
+...va siz, ham <span class="tft">Kopikat</span> bo‘lganingiz uchun, <i>ham</i> javob qaytarishingiz kerak...
 </p>
 
 <p id="noise_5">
-Thus, like the Hatfields and McCoys,
-these two <span class="tft">Copycats</span> will spiral into an endless cycle of vengeance...
-that started over a single mistake, long ago.
+Shunday qilib, Xetfildlar va Makkoylar kabi,
+bu ikki <span class="tft">Kopikat</span> bir marta xato tufayli boshlangan cheksiz qasos tsikliga tushadi...
 </p>
 <p id="noise_5_end">
-Tragic. But now, are there <i>other</i> types of players who can...
+Fojiali. Lekin endi, xatolarga...
 </p>
 <p id="noise_5_btn">
-...deal with mistakes? &rarr;
+...bardosh bera oladigan boshqa o‘yinchilar bormi? →
 </p>
 
 <p id="noise_characters">
-Let's meet some new faces! (or, new hats, anyway)
+Keling, yangi yuzlar bilan tanishaylik! (yoki, har holda, yangi shlyapalar)
 </p>
 
 <p id="character_tf2t">
-<b>COPYKITTEN:</b><br>
-Hello! I'm like <span class="tft">Copycat</span>,
-except I Cheat back only after you Cheat me twice in a row.
-After all, the first one could be a mistake! Purrrrr
+<b>KOPIKITTEN:</b><br>
+Salom! Men <span class="tft">Kopikat</span>ga o‘xshayman,
+faqat siz meni ketma-ket ikki marta aldaganingizdan keyingina aldab javob qaytaraman.
+Axir, birinchisi xato bo‘lishi mumkin! Purrrrr
 </p>
 
 <p id="character_pavlov">
-<b>SIMPLETON:</b><br>
-hi i try start cooperate.
-if you cooperate back, i do <i>same thing</i> as last move, even if it mistake.
-if you cheat back, i do <i>opposite thing</i> as last move, even if it mistake.
+<b>SODDA:</b><br>
+salom, men hamkorlik bilan boshlayman.
+agar siz hamkorlik qilsangiz, men oxirgi harakatimni <i>takrorlayman</i>, hatto bu xato bo‘lsa ham.
+agar siz aldab javob qaytarsangiz, men oxirgi harakatimning <i>aksini</i> qilaman, hatto bu xato bo‘lsa ham.
 </p>
 
 <p id="character_random">
-<b>RANDOM:</b><br>
-<i>Monkey robot! Ninja pizza tacos! lol i'm so random</i><br>
-(Just plays Cheat or Cooperate randomly with a 50/50 chance)
+<b>TASODIFIY:</b><br>
+<i>Maymun robot! Ninja pitsa takolari! lol men juda tasodifiy</i><br>
+(Faqat 50/50 ehtimol bilan Aldash yoki Hamkorlik qiladi)
 </p>
 
 <p id="noise_characters_end">
-Alright, let's see how well these peeps do when they...
+Xo'sh, keling, bu odamlar qanchalik yaxshi ishlayotganini ko‘raylik...
 </p>
 <p id="noise_characters_btn">
-...play in a tournament &rarr;
+...turnirda o‘ynaganda →
 </p>
 
 <p id="noise_evo_1">
-Let's start with a dozen
-<span class="all_c">Always Cooperates</span>,
-versus our old winner, the fair <span class="tft">Copycat</span>,
-and our three new characters:
-the forgiving <span class="tf2t">Copykitten</span>,
-the dull <span class="pavlov">Simpleton</span>, and
-the silly <span class="random">Random</span>.
+Keling, o‘n ikkita
+<span class="all_c">Doimo Hamkorlik Qiladi</span>dan boshlaylik,
+bizning eski g‘olibimiz, adolatli <span class="tft">Kopikat</span>ga qarshi,
+va uchta yangi personajimiz:
+kechiruvchi <span class="tf2t">Kopikitten</span>,
+zerikarli <span class="pavlov">Sodda</span> va
+ahmoq <span class="random">Tasodifiy</span>.
 <br><br>
-In each round of a match, players have a small chance of making a mistake. (let's say, 5%)
-Who do you think will come out on top?
-<b>Think carefully, then PLACE YOUR BETS:</b>
+Har bir o‘yin raundida o‘yinchilarning xato qilish ehtimoli kichik. (deylik, 5%)
+Sizningcha, kim g‘alaba qozonadi?
+<b>Yaxshilab o‘ylab ko‘ring, so‘ng GAROV QO‘YING:</b>
 </p>
 
 <p id="noise_evo_2">
-Alright, you bet [CHAR] wins. Let's find out!
-Use the controls to your left to <b>START</b> the sim in quick mode,
-or go through it <b>step-by-step</b>.
+Xo'sh, siz [CHAR] g‘alaba qozonadi deb garov qo‘ydingiz. Keling, bilib olaylik!
+Chapdagi boshqaruvlardan foydalanib, simulyatsiyani tez rejimda <b>BOSHLANG</b>,
+yoki uni <b>bosqichma-bosqich</b> o‘ting.
 </p>
 <p id="noise_evo_2_2_correct">
-You were correct -- 
+Siz to‘g‘ri aytdingiz – 
 </p>
 <p id="noise_evo_2_2_incorrect">
-Your bet was close, but no cigar -- 
+Garovingiz yaqin edi, lekin sovrin yo‘q – 
 </p>
 <p id="noise_evo_2_2">
-<span class="pavlov">Simpleton</span> wins!
-This is because <span class="pavlov">Simpleton</span> is actually capable of
-exploiting <span class="all_c">Always Cooperate</span>. They both start cooperating,
-but if <span class="pavlov">Simpleton</span> makes a mistake and cheats,
-since <span class="all_c">Always Cooperate</span> never retaliates,
-<i>it'll keep cheating them</i>.
+<span class="pavlov">Sodda</span> g‘alaba qozonadi!
+Buning sababi, <span class="pavlov">Sodda</span> aslida
+<span class="all_c">Doimo Hamkorlik Qiladi</span>ni ekspluatatsiya qila oladi. Ular ikkalasi hamkorlik bilan boshlaydi,
+lekin agar <span class="pavlov">Sodda</span> xato qilib aldasa,
+<span class="all_c">Doimo Hamkorlik Qiladi</span> hech qachon javob qaytarmagani uchun,
+<i>uni aldayveradi</i>.
 </p>
 <p id="noise_evo_2_2_btn">
-Now let's try...
+Endi keling...
 </p>
 
 <p id="noise_evo_3">
-...the same thing as before, except instead of half-<span class="all_c">Always Cooperate</span>,
-it's half-<span class="all_d">Always Cheat</span>. It's a much <i>less</i> forgiving,
-<i>more</i> hostile environment.
+...avvalgidek, lekin yarim <span class="all_c">Doimo Hamkorlik Qiladi</span> o‘rniga,
+yarim <span class="all_d">Doimo Aldaydi</span> bo‘lsin. Bu ancha <i>kechirmsiz</i>,
+<i>ko‘proq dushman</i> muhit.
 <br><br>
-Who do you think will win now? <b>Think, then PLACE YOUR BETS:</b>
+Endi kim g‘alaba qozonadi deb o‘ylaysiz? <b>O‘ylab ko‘ring, so‘ng GAROV QO‘YING:</b>
 </p>
 
 <p id="noise_evo_4">
-You bet on [CHAR]. Again, go through the simulation...
+Siz [CHAR] ga garov qo‘ydingiz. Yana simulyatsiyani o‘ting...
 </p>
 <p id="noise_evo_4_2_correct">
-You were right on the money -- 
+Siz pulga to‘g‘ri keldingiz – 
 </p>
 <p id="noise_evo_4_2_incorrect">
-Good guess, but someone else took the prize -- 
+Yaxshi taxmin, lekin boshqa birov sovrinni oldi – 
 </p>
 <p id="noise_evo_4_2">
-<span class="tf2t">Copykitten</span> wins this time!
-That's surprising that with an even <i>meaner</i> starting population,
-<span class="tf2t">Copykitten</span>,
-a <i>more forgiving</i> version of <span class="tft">Copycat</span>,
-was the most successful! (note: <span class="tf2t">Copykitten</span> is so forgiving
-it doesn't even <i>entirely</i> wipe out <span class="tft">Copycat</span>. it shares room)
+Bu safar <span class="tf2t">Kopikitten</span> g‘alaba qozonadi!
+Bu hayratlanarli, chunki hatto <i>yanada yomonroq</i> boshlang‘ich populyatsiya bilan,
+<span class="tf2t">Kopikitten</span>,
+<span class="tft">Kopikat</span>ning <i>ko‘proq kechiruvchi</i> versiyasi,
+eng muvaffaqiyatli bo‘ldi! (eslatma: <span class="tf2t">Kopikitten</span> shunchalik kechiruvchiki,
+hatto <span class="tft">Kopikat</span>ni <i>butunlay</i> yo‘q qilmaydi. U bilan joyni bo‘lishadi)
 <br><br>
-In this case, a bit of "miscommunication" (5% chance of mistake each round) could lead
-to more <i>forgiveness</i>. But is this true for <i>all</i> levels...
+Bu holatda, bir oz “noto‘g‘ri aloqa” (har raundda 5% xato ehtimoli) ko‘proq <i>kechirimlilik</i>ga olib kelishi mumkin. Lekin bu <i>hamma</i> darajalar uchun to‘g‘rimi...
 </p>
 <p id="noise_evo_4_2_btn">
-...of miscommunication?
+...noto‘g‘ri aloqa?
 </p>
 
 <p id="noise_evo_5">
-<b>Use the slider below to change the amount of "miscommunication", then hit START.</b>
-At 5%, <span class="tf2t">Copykitten</span> wins.
-What happens at 0%? Or 20%? Or 50%? (it only goes up to 50%,
-because at that point, <i>every</i> move is a coin flip) 
+<b>Quyidagi slayderdan foydalanib, “noto‘g‘ri aloqa” miqdorini o‘zgartiring, so‘ng START ni bosing.</b>
+5% da <span class="tf2t">Kopikitten</span> g‘alaba qozonadi.
+0% da nima bo‘ladi? Yoki 20%? Yoki 50%? (u faqat 50% gacha boradi,
+chunki o‘sha paytda <i>har bir</i> harakat tanga tashlash kabi bo‘ladi)
 </p>
 <p id="noise_evo_5_continue">
-When you're done playing around, click:
+O‘ynashni tugatganingizda, bosing:
 </p>
 
 <p id="noise_evo_6">
-The results turn out something like this:<br>
-<b>At 0%,</b> the fair <span class="tft">Copycat</span> wins!
-<b>At 1% to 9%,</b> the forgiving <span class="tf2t">Copykitten</span> wins!
-<b>At 10% to 49%:</b> the unfair, unforgiving <span class="all_d">Always Cheat</span> wins.
-<b>At 50%,</b> <i>nobody wins ever.</i>
+Natijalar taxminan shunday bo‘ladi:<br>
+<b>0% da,</b> adolatli <span class="tft">Kopikat</span> g‘alaba qozonadi!
+<b>1% dan 9% gacha,</b> kechiruvchi <span class="tf2t">Kopikitten</span> g‘alaba qozonadi!
+<b>10% dan 49% gacha:</b> adolatsiz, kechirimsiz <span class="all_d">Doimo Aldaydi</span> g‘alaba qozonadi.
+<b>50% da,</b> <i>hech kim hech qachon g‘alaba qozonmaydi.</i>
 <br><br>
-This is why "miscommunication" is such an interesting barrier to trust:
-a <i>little</i> bit of it leads to forgiveness,
-but <i>too much</i> and it leads to widespread distrust!
-I think our modern media technology,
-as much as it's helped us increase communication...
-has increased our <i>miscommunication</i> much more.
+Shuning uchun “noto‘g‘ri aloqa” ishonch uchun shunchalik qiziqarli to‘siq:
+uning <i>ozgina</i> miqdori kechirimlilikka olib keladi,
+lekin <i>hadidan oshiq</i> bo‘lsa, keng tarqalgan ishonchsizlikka olib keladi!
+Menimcha, zamonaviy media texnologiyalarimiz,
+bizga aloqani oshirishga yordam berganidek...
+bizning <i>noto‘g‘ri aloqa</i>mizni yanada ko‘proq oshirgan.
 <br><br>
-At last, let's experiment with <i>all</i> the numbers, the knobs and sliders.
-Let's play...
+Nihoyat, keling, <i>hamma</i> raqamlar, tugmalar va slayderlar bilan tajriba qilaylik.
+Keling...
 </p>
 <p id="noise_evo_6_btn">
-...in the Sandbox Mode!
+...Sandbox rejimida o‘ynaylik!
 </p>
 
-
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - SANDBOX! - - - - - - - -->
+<!-- - - - - - SANDBOX! - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="sandbox_population">
-Start off with this distribution of players:
+O‘yinchilarning ushbu taqsimotidan boshlang:
 </p>
 
 <p id="sandbox_payoffs">
-The payoffs in a one-on-one game are:
+Bir-biriga qarshi o‘yindagi to‘lovlar:
 </p>
 <p id="sandbox_reset_payoffs">
-set default
+standart sozlamalarni o‘rnatish
 </p>
 
 <!--
-When translating the following, keep the "[N]", with square brackets,
-as a placeholder for the number. Some of these need double-translations,
-one for the plural version, one for the singular version.
+Quyidagini tarjima qilayotganda, [N] ni, kvadrat qavslar bilan,
+raqam uchun joy saqlovchi sifatida saqlang. Ba’zilar uchun ikki marta tarjima kerak,
+biri ko‘plik uchun, biri birlik uchun.
 -->
 
 <p id="sandbox_rules_1">
-Play [N] rounds per match:
+Har o‘yinda [N] raund o‘ynang:
 </p>
 <p id="sandbox_rules_1_single">
-Play [N] round per match:
+Har o‘yinda [N] raund o‘ynang:
 </p>
 
 <p id="sandbox_rules_2">
-After each tournament, eliminate the bottom [N] players &amp; reproduce the top [N] players:
+Har bir turnirdan so‘ng, eng past [N] o‘yinchini yo‘q qiling va eng yuqori [N] o‘yinchini ko‘paytiring:
 </p>
 <p id="sandbox_rules_2_single">
-After each tournament, eliminate the bottom [N] player &amp; reproduce the top [N] player:
+Har bir turnirdan so‘ng, eng past [N] o‘yinchini yo‘q qiling va eng yuqori [N] o‘yinchini ko‘paytiring:
 </p>
 
 <p id="sandbox_rules_3">
-During each round, there's a [N]% chance a player makes a mistake:
+Har bir raundda o‘yinchi xato qilishining [N]% ehtimoli bor:
 </p>
 
 <p id="sandbox_end">
-<b>NOTE: Sandbox Mode is totally optional.</b>
-Feel free to skip it, or play around! Once you're done, let's recap...
+<b>ESLATMA: Sandbox rejimi mutlaqo ixtiyoriy.</b>
+Uni o‘tkazib yuborishingiz yoki o‘ynashingiz mumkin! Tugatganingizdan so‘ng, keling, xulosani ko‘rib chiqaylik...
 </p>
 <p id="sandbox_end_btn">
-what we learnt today! &rarr;
+bugun nimalarni o‘rgandik! →
 </p>
 
-
-
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - CONCLUSION! - - - - - - -->
+<!-- - - - - XULOSA! - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="conclusion_0">
-Game theory has shown us the three things we need for the evolution of trust:
+O‘yin nazariyasi bizga ishonch evolyutsiyasi uchun uchta narsa kerakligini ko‘rsatdi:
 </p>
 <p id="conclusion_1_a">
-1. REPEAT INTERACTIONS
+1. TAKRORIY O‘ZARO TA’SIRLAR
 </p>
 <p id="conclusion_1_a2">
-Trust keeps a relationship going,
-but you need the knowledge of possible future repeat interactions <i>before</i> trust can evolve.
+Ishonch munosabatlarni davom ettiradi,
+lekin ishonch evolyutsiyalanishi uchun <i>oldin</i> kelajakda takroriy o‘zaro ta’sirlar bo‘lishi mumkinligini bilish kerak.
 </p>
 <p id="conclusion_2_a">
-2. POSSIBLE WIN-WINS
+2. MUMKIN BO‘LGAN G‘ALABA-G‘ALABA
 </p>
 <p id="conclusion_2_a2">
-You must be playing a non-zero-sum game,
-a game where it's at least possible that <i>both</i> players can be better off -- a win-win.
+Siz nol summali bo‘lmagan o‘yin o‘ynashingiz kerak,
+bu o‘yinda hech bo‘lmaganda <i>ikkala</i> o‘yinchi ham yaxshi holatda bo‘lishi mumkin – g‘alaba-g‘alaba.
 </p>
 <p id="conclusion_3_a">
-3. LOW MISCOMMUNICATION
+3. KAM NOTO‘G‘RI ALOQA
 </p>
 <p id="conclusion_3_a2">
-If the level of miscommunication is <i>too</i> high, trust breaks down.
-But when there's a little bit of miscommunication, it pays to be <i>more</i> forgiving.
+Agar noto‘g‘ri aloqa darajasi <i>hadidan oshiq</i> bo‘lsa, ishonch buziladi.
+Lekin ozgina noto‘g‘ri aloqa bo‘lganda, <i>ko‘proq</i> kechiruvchi bo‘lish foyda keltiradi.
 </p>
 <p id="conclusion_4">
-Of course, real-world trust is affected by much more than this.
-There's reputation, shared values, contracts, cultural markers, blah blah blah.
-And let's not forget...
+Albatta, haqiqiy dunyodagi ishonch bundan ko‘ra ko‘proq narsalarga ta’sir qiladi.
+Obro‘, umumiy qadriyatlar, shartnomalar, madaniy belgilarga va hokazolarga.
+Va shuni unutmaylik...
 </p>
 <p id="conclusion_btn">
-...the <i>biggest</i> lesson. &rarr;
+...eng <i>katta</i> saboq. →
 </p>
 
 <p id="outro_1">
-If there's one big takeaway<br>
-from <i>all</i> of game theory, it's this:
+Agar o‘yin nazariyasidan bitta katta xulosa bo‘lsa,<br>
+u shu:
 <br><br>
-<b>What the game is, defines what the players do.</b><br>
-Our problem today isn't just that people are losing trust,<br>
-it's that our <i>environment</i> acts against the evolution of trust.
+<b>O‘yin nima bo‘lsa, o‘yinchilar nima qilishini belgilaydi.</b><br>
+Bugungi muammomiz nafaqat odamlar ishonchni yo‘qotayotgani,<br>
+balki bizning <i>muhitimiz</i> ishonch evolyutsiyasiga qarshi ishlaydi.
 <br><br>
-That may seem cynical or naive -- that we're "merely" products of our environment --
-but as game theory reminds us, we <i>are</i> each others' environment.
-<b>In the short run, the game defines the players. But in the long run,
-it's us players who define the game.</b>
+Bu sinik yoki sodda tuyulishi mumkin – biz “faqat” muhitimiz mahsulotimiz –
+lekin o‘yin nazariyasi bizga eslatadiki, biz <i>bir-birimizning muhitimizmiz</i>.
+<b>Qisqa muddatda o‘yin o‘yinchilarni belgilaydi. Lekin uzoq muddatda,
+biz o‘yinchilar o‘yinni belgilaymiz.</b>
 <br><br>
-So, do what <i>you</i> can do, to create the conditions necessary to evolve trust.
-Build relationships. Find win-wins. Communicate clearly.
-Maybe then, we can stop firing at each other, get out of our own trenches,
-cross No Man's Land to come together...
+Shunday ekan, ishonch evolyutsiyasi uchun zarur shart-sharoitlarni yaratish uchun
+<i>siz</i> nima qila olishingizni qiling.
+Munosabatlar o‘rnating. G‘alaba-g‘alaba toping. Aniq muloqot qiling.
+Shunda, ehtimol, biz bir-birimizga o‘q uzishni to‘xtatib, o‘z xandaqlarimizdan chiqib,
+Hech kimning yerini kesib o‘tib, birlashishimiz mumkin...
 </p>
 
 <p id="outro_1_btn">
-and all learn...
+va hammamiz o‘rganamiz...
 </p>
 
 <p id="outro_2">
-...to live and let live.
+...yashash va yashashga ruxsat berish.
 </p>
 
 <p id="outro_2_credits">
-"A Christmas Truce between Opposing Trenches"
-Illustrated by AC Michael.
-Published in <i>The Illustrated London News</i>, January 9, 1915.
+“Qarama-qarshi xandaqlar o‘rtasidagi Rojdestvo sulhi”
+AC Michael tomonidan tasvirlangan.
+<i>The Illustrated London News</i>da nashr etilgan, 1915-yil 9-yanvar.
 </p>
 
 <p id="outro_2_btn">
-&lt;3
+<3
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - - CREDITS! - - - - - - -->
+<!-- - - - - - KREDITLAR! - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="credits">
 <span class="credits">
 
-created by:<br>
+yaratuvchi:<br>
 <span class="big">NICKY CASE</span><br>
-<a href="http://ncase.me/" target="_blank">play my other shtuff</a>
+<a href="http://ncase.me/" target="_blank">boshqa narsalarimni o‘ynang</a>
 •
-<a href="https://twitter.com/ncasenmare" target="_blank">follow my tweeter</a>
+<a href="https://twitter.com/ncasenmare" target="_blank">tvitterimni kuzating</a>
 <br>
-<a href="https://github.com/ncase/trust/#play-it-here-httpncasemetrust" target="_blank">download the music &amp; source code</a>
+<a href="https://github.com/ncase/trust/#play-it-here-httpncasemetrust" target="_blank">musiqa va manba kodini yuklab oling</a>
 
 <span class="divider"></span>
 
-based off robert axelrod's 1984 book,<br>
-<span class="big">"THE EVOLUTION OF COOPERATION"</span><br>
-<a href="notes" target="_blank">read my footnotes for this game</a>
+Robert Axelrodning 1984-yildagi kitobiga asoslangan,<br>
+<span class="big">"HAMKORLIKNING EVOLYUTSIYASI"</span><br>
+<a href="notes" target="_blank">ushbu o‘yin uchun izohlarimni o‘qing</a>
 
 <span class="divider"></span>
 
-lots of love and thanks to<br>
-<span class="big">MY PATREON SUPPORTERS</span><br>
-<a href="peeps" target="_blank">see my drawings of 'em</a>
+ko‘p sevgi va rahmat<br>
+<span class="big">Mening Patreon yordamchilarimga</span><br>
+<a href="peeps" target="_blank">ularning rasmlarimni ko‘ring</a>
 •
-<a href="https://www.patreon.com/ncase" target="_blank">throw coins at me on patreon &lt;3</a>
+<a href="https://www.patreon.com/ncase" target="_blank">patreonda menga tanga tashlang <3</a>
 
 <span class="divider"></span>
 
-p.s: want more learning-by-playing?<br>
-check out 
-<a href="http://explorabl.es/" target="_blank">explorable explanations</a>!
+p.s: ko‘proq o‘ynab o‘rganishni xohlaysizmi?<br>
+<a href="http://explorabl.es/" target="_blank">tushunarli tushuntirishlar</a>ni ko‘ring!
 
 </span>
 </p>
 
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - THE PLAYERS - - - - - - -->
+<!-- - - - - - O‘YINCHILAR - - - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
-<p id="label_tft">Copycat</p>
+<p id="label_tft">Kopikat</p>
 <p id="label_short_tft">
-copycat
+kopikat
 </p>
 <p id="icon_tft">
 <span class="tft">
 	<span class="icon"></span>
-	<span class="icon_label">Copycat</span>
+	<span class="icon_label">Kopikat</span>
 </span>
 </p>
 
-<p id="label_all_d">Always Cheat</p>
+<p id="label_all_d">Doimo Aldaydi</p>
 <p id="label_short_all_d">
-cheater
+alaydigan
 </p>
 <p id="icon_all_d">
 <span class="all_d">
 	<span class="icon"></span>
-	<span class="icon_label">All Cheat</span>
+	<span class="icon_label">Hammasi Aldaydi</span>
 </span>
 </p>
 
-<p id="label_all_c">Always Cooperate</p>
+<p id="label_all_c">Doimo Hamkorlik Qiladi</p>
 <p id="label_short_all_c">
-cooperator
+hamkor
 </p>
 <p id="icon_all_c">
 <span class="all_c">
 	<span class="icon"></span>
-	<span class="icon_label">All Cooperate</span>
+	<span class="icon_label">Hammasi Hamkorlik Qiladi</span>
 </span>
 </p>
 
-<p id="label_grudge">Grudger</p>
+<p id="label_grudge">Xafachi</p>
 <p id="label_short_grudge">
-grudger
+xafachi
 </p>
 <p id="icon_grudge">
 <span class="grudge">
 	<span class="icon"></span>
-	<span class="icon_label">Grudger</span>
+	<span class="icon_label">Xafachi</span>
 </span>
 </p>
 
-<p id="label_prober">Detective</p>
+<p id="label_prober">Detektiv</p>
 <p id="label_short_prober">
-detective
+detektiv
 </p>
 <p id="icon_prober">
 <span class="prober">
 	<span class="icon"></span>
-	<span class="icon_label">Detective</span>
+	<span class="icon_label">Detektiv</span>
 </span>
 </p>
 
-<p id="label_tf2t">Copykitten</p>
+<p id="label_tf2t">Kopikitten</p>
 <p id="label_short_tf2t">
-copykitten
+kopikitten
 </p>
 <p id="icon_tf2t">
 <span class="tf2t">
 	<span class="icon"></span>
-	<span class="icon_label">Copykitten</span>
+	<span class="icon_label">Kopikitten</span>
 </span>
 </p>
 
-<p id="label_pavlov">Simpleton</p>
+<p id="label_pavlov">Sodda</p>
 <p id="label_short_pavlov">
-simpleton
+sodda
 </p>
 <p id="icon_pavlov">
 <span class="pavlov">
 	<span class="icon"></span>
-	<span class="icon_label">Simpleton</span>
+	<span class="icon_label">Sodda</span>
 </span>
 </p>
 
-<p id="label_random">Random</p>
+<p id="label_random">Tasodifiy</p>
 <p id="label_short_random">
-random
+tasodifiy
 </p>
 <p id="icon_random">
 <span class="random">
 	<span class="icon"></span>
-	<span class="icon_label">Random</span>
+	<span class="icon_label">Tasodifiy</span>
 </span>
 </p>
 
 <p id="forgot_whos_who">
-(forgot who's who? hover buttons to see descriptions of each character!)
+(kim kimligini unutdingizmi? har bir personajning tavsifini ko‘rish uchun tugmalar ustiga sichqonchani olib boring!)
 </p>
 <p id="who_tft">
-Starts with Cooperate. Then, it simply repeats whatever YOU did in the last round.
+Hamkorlik bilan boshlaydi. Keyin, u faqat siz oxirgi raundda nima qilgan bo‘lsangiz, shuni takrorlaydi.
 </p>
 <p id="who_all_d">
-Always cheats.
+Doim aldaydi.
 </p>
 <p id="who_all_c">
-Always cooperates.
+Doim hamkorlik qiladi.
 </p>
 <p id="who_grudge">
-Starts with Cooperate, and keeps cooperating until you cheat it even once.
-Afterwards, it always plays Cheat.
+Hamkorlik bilan boshlaydi va siz uni bir marta bo‘lsa ham aldaganingizgacha hamkorlik qiladi.
+Keyin u doim Aldashni o‘ynaydi.
 </p>
 <p id="who_prober">
-Starts with: Cooperate, Cheat, Cooperate, Cooperate.
-Afterwards, if you ever retaliate with a Cheat, it plays like a Copycat.
-Otherwise, it plays like an Always Cheat.
+Boshlaydi: Hamkorlik, Aldash, Hamkorlik, Hamkorlik.
+Keyin, agar siz bir marta bo‘lsa ham Aldash bilan javob qaytarsangiz, u Kopikat kabi o‘ynaydi.
+Aks holda, u Doimo Aldaydi kabi o‘ynaydi.
 </p>
 <p id="who_tf2t">
-Starts with Cooperate.
-Only retaliates with a Cheat if you cheated it TWICE in a row.
+Hamkorlik bilan boshlaydi.
+Faqat siz uni ketma-ket IKKI marta aldaganingizdan keyin Aldash bilan javob qaytaradi.
 </p>
 <p id="who_pavlov">
-Starts with Cooperate.
-Then, if you cooperated in last round, it repeats its last move (even if it was an accident).
-But if you cheated in last round, it switches its last move (even if it was an accident).
+Hamkorlik bilan boshlaydi.
+Keyin, agar siz oxirgi raundda hamkorlik qilgan bo‘lsangiz, u oxirgi harakatini takrorlaydi (hatto bu xato bo‘lsa ham).
+Lekin agar siz oxirgi raundda aldagan bo‘lsangiz, u oxirgi harakatining aksini qiladi (hatto bu xato bo‘lsa ham).
 </p>
 <p id="who_random">
-Randomly cheats or cooperates with 50-50 chance
+50-50 ehtimol bilan tasodifiy ravishda aldaydi yoki hamkorlik qiladi
 </p>
 
-
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - - SMALL LABELS! - - - - - -->
+<!-- - - - - KICHIK YORLIQLAR! - - - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="label_cooperate">
-cooperate
+hamkorlik qilish
 </p>
 
 <p id="label_cheat">
-cheat
+aldash
 </p>
 
 <p id="label_play">
-play
+o‘ynash
 </p>
 
 <p id="label_start">
-START
+BOSHLASH
 </p>
 
 <p id="label_stop">
-STOP
+TO‘XTATISH
 </p>
 
 <p id="label_step">
-step
+bosqich
 </p>
 
 <p id="label_reset">
-reset
+qayta tiklash
 </p>
 
 <p id="label_population">
-population
+populyatsiya
 </p>
 
 <p id="label_payoffs">
-payoffs
+to‘lovlar
 </p>
 
 <p id="label_rules">
-rules
+qoidalar
 </p>
 
 <p id="label_next">
-next &rarr;
+keyingi →
 </p>
 
 <p id="label_continue">
-continue
+davom etish
 </p>
 
-
 <!-- - - - - - - - - - - - - - - - - -->
-<!-- - - - NAVIGATING CHAPTERS - - - -->
+<!-- - - - - BO‘LIMLAR NAVIGATSIYASI - -->
 <!-- - - - - - - - - - - - - - - - - -->
 
 <p id="chapter_intro">
-0. Introduction
+0. Kirish
 </p>
 <p id="chapter_oneoff">
-1. One Game
+1. Bir o‘yin
 </p>
 <p id="chapter_iterated">
-2. Repeated Game
+2. Takrorlangan o‘yin
 </p>
 <p id="chapter_tournament">
-3. One Tournament
+3. Bir turnir
 </p>
 <p id="chapter_evolution">
-4. Repeated Tournament
+4. Takrorlangan turnir
 </p>
 <p id="chapter_distrust">
-5. The Evolution of Distrust
+5. Ishonchsizlikning evolyutsiyasi
 </p>
 <p id="chapter_noise">
-6. Making Mistaeks
+6. Xatolar qilish
 </p>
 <p id="chapter_sandbox">
-7. Sandbox Mode
+7. Sandbox rejimi
 </p>
 <p id="chapter_conclusion">
-8. Conclusion
+8. Xulosa
 </p>
 <p id="chapter_credits">
-9. Credits
+9. Kreditlar
 </p>
