@@ -281,7 +281,12 @@ s{
 .button:active{
     transform: scale(0.95, 0.95);
 }
-
+.button, .text-box, .slide {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+}
 
 /*************************/
 /****** SANDBOX UI *******/
