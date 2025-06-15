@@ -18,7 +18,7 @@ Ushbu loyiha Nicky Case’ning asl “The Evolution of Trust” o‘yinining ([h
 - `notes/index.html`: Izohlar (~1,100 so‘z, ixtiyoriy).
 - `peeps/index.html`: Kreditlar va homiylar ro‘yxati (bir necha so‘z, ixtiyoriy).
 
-Tarjimachi: [Ismingizni bu yerga yozing, masalan, Farrux]  
+Tarjimachi: Farruxbek Valijonov.  
 Tarjima Nicky Case’ning ko‘rsatmalariga ([https://github.com/ncase/trust#how-to-translate-this-thang](https://github.com/ncase/trust#how-to-translate-this-thang)) asosan amalga oshirildi.
 
 ---
@@ -86,6 +86,6 @@ Agar siz ham tarjima qilishni xohlasangiz, iltimos, asl repositoriyning “Issue
 
 ## Aloqa
 
-Tarjima bo‘yicha savollar yoki takliflar bo‘lsa, [tarjimachi ismingiz yoki GitHub profilingiz] bilan bog‘laning. Asl loyiha muallifi Nicky Case bilan aloqa uchun: `n@ncase.me`.
+Tarjima bo‘yicha savollar yoki takliflar bo‘lsa, https://github.com/farrux05-ai, yoki telegramda @farruxbekvalijonov bilan bog‘laning. Asl loyiha muallifi Nicky Case bilan aloqa uchun: `n@ncase.me`.
 
 O‘zbek tilidagi “Ishonchning evolyutsiyasi” loyihasiga xush kelibsiz! 🎉
