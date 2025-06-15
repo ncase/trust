@@ -1,22 +1,23 @@
 <!--
 
-TRANSLATION GUIDE:
+TARJIMA YO‘RIQNOMASI:
 https://github.com/ncase/trust#how-to-translate-this-thang
 
-Hello fan-translaters!
-First off, thank you so much for taking the time to help out,
-I super appreciate it. :3 Anyway, to make translation a bit easier
-(or at least less painful) I've scattered comments about on
-what things you should translate, plus any additional info
+Salom, muxlis-tarjimachilar!
+Avvalo, yordam berish uchun vaqt ajratganingiz uchun katta rahmat,
+buni juda qadrlayman. :3 Tarjimani biroz osonlashtirish
+(yoki hech bo‘lmaganda kamroq og‘riqli qilish) uchun
+nimalarni tarjima qilish kerakligi va qo‘shimcha ma’lumotlar haqida
+izohlar qoldirdim.
 
-Translate the following files:
+Quyidagi fayllarni tarjima qiling:
 
-    index.html - The title & social sharing text (a few words)
-    words.html - All the words for the interactive itself (~3,300 words)
-    (optional) notes/index.html - The footnotes (~1,100 words)
-    (optional) peeps/index.html - The full credits (a few words)
+    index.html - Sarlavha va ijtimoiy tarmoqlarda ulashish matni (bir necha so‘z)
+    words.html - Interaktiv uchun barcha so‘zlar (~3,300 so‘z)
+    (ixtiyoriy) notes/index.html - Izohlar (~1,100 so‘z)
+    (ixtiyoriy) peeps/index.html - To‘liq kreditlar (bir necha so‘z)
 
-Many thanks again!
+Yana bir bor katta rahmat!
 
 <3,
 ~ Nicky Case
@@ -26,33 +27,33 @@ Many thanks again!
 <html>
 <head>
 
-	<!-- TO TRANSLATE: "title", "description" -->
-	<title>The Evolution of Trust</title>
-	<meta name="description" content="an interactive guide to the game theory of why &amp; how we trust each other"/>
+	<!-- TARJIMA QILISH: "title", "description" -->
+	<title>Ishonchning evolyutsiyasi</title>
+	<meta name="description" content="biz nima uchun va qanday qilib bir-birimizga ishonamiz: o‘yin nazariyasiga interaktiv yo‘riqnoma"/>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
 	<link rel="icon" type="image/png" href="favicon.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
-	<meta itemprop="name" content="The Evolution of Trust">
-	<meta itemprop="description" content="an interactive guide to the game theory of why &amp; how we trust each other">
+	<!-- TARJIMA QILISH: "name", "description" -->
+	<meta itemprop="name" content="Ishonchning evolyutsiyasi">
+	<meta itemprop="description" content="biz nima uchun va qanday qilib bir-birimizga ishonamiz: o‘yin nazariyasiga interaktiv yo‘riqnoma">
 	<meta itemprop="image" content="http://ncase.me/trust/social/thumbnail.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
+	<!-- TARJIMA QILISH: "name", "description" -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@ncasenmare">
-	<meta name="twitter:title" content="The Evolution of Trust">
-	<meta name="twitter:description" content="an interactive guide to the game theory of why &amp; how we trust each other">
+	<meta name="twitter:title" content="Ishonchning evolyutsiyasi">
+	<meta name="twitter:description" content="biz nima uchun va qanday qilib bir-birimizga ishonamiz: o‘yin nazariyasiga interaktiv yo‘riqnoma">
 	<meta name="twitter:creator" content="@ncasenmare">
 	<meta name="twitter:image" content="http://ncase.me/trust/social/thumbnail.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
-	<meta property="og:title" content="The Evolution of Trust">
+	<!-- TARJIMA QILISH: "name", "description" -->
+	<meta property="og:title" content="Ishonchning evolyutsiyasi">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="http://ncase.me/trust/">
 	<meta property="og:image" content="http://ncase.me/trust/social/thumbnail.png">
-	<meta property="og:description" content="an interactive guide to the game theory of why &amp; how we trust each other">
+	<meta property="og:description" content="biz nima uchun va qanday qilib bir-birimizga ishonamiz: o‘yin nazariyasiga interaktiv yo‘riqnoma">
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="css/slides.css?v11">
@@ -60,7 +61,7 @@ Many thanks again!
 
 </head>
 <body>
-	<div id="preloader">loading...</div> <!-- TRANSLATE THIS -->
+	<div id="preloader">yuklanmoqda...</div> <!-- BU TARJIMA QILINSIN -->
 	<div style="display:none" id="main">
 		<div id="slideshow_container">
 			<div id="slideshow"></div>
@@ -70,58 +71,58 @@ Many thanks again!
 	<div style="display:none" id="footer">
 		<div id="sound" sound="on" class="no-select">
 			<div id="sound_icon"></div>
-			<div id="sound_on">ON</div> <!-- TRANSLATE THIS -->
-			<div id="sound_off">OFF</div> <!-- TRANSLATE THIS -->
+			<div id="sound_on">YOQILGAN</div> <!-- BU TARJIMA QILINSIN -->
+			<div id="sound_off">O‘CHIRILGAN</div> <!-- BU TARJIMA QILINSIN -->
 		</div>
 		<div id="select"></div>
 
-		<!-- TRANSLATE "title" & "text". Make sure it's less than 112 characters, for Twitter's sake -->
-		<!-- Also, change "link" to whatever the link for the translated version will be! -->
-		<sharing title="The Evolution of Trust"
-				 text="People no longer trust each other. Why? And how can we fix it? An interactive guide to the game theory of trust:"
-				 link="http://ncase.me/trust/"></sharing>
+		<!-- "title" va "text" TARJIMA QILINSIN. Twitter uchun 112 belgidan kam bo‘lsin -->
+		<!-- Shuningdek, "link" ni tarjima qilingan versiya uchun havolaga o‘zgartiring! -->
+		<sharing title="Ishonchning evolyutsiyasi"
+				 text="Odamlar endi bir-biriga ishonmaydi. Nima uchun? Buni qanday tuzatamiz? Ishonchning o‘yin nazariyasiga yo‘riqnoma:"
+				 link="https://farrux05-ai.github.io/O-yin-nazariyasi/"></sharing>
 
-		<!-- List of translations thus far! -->
+		<!-- Hozirgacha mavjud tarjimalar ro‘yxati! -->
 		<div id="translations">
-			fan-translations:
-			<a href="https://github.com/ncase/trust#how-to-translate-this-thang" target="_blank">(add one!)</a>&nbsp;
-			<a href="https://ccamara.github.io/trust/">Español de España</a>&nbsp;
-			<a href="https://maeriens.github.io/trust/">Español Latino</a>&nbsp;
-			<a href="https://ayowel.github.io/trust/">Français</a>&nbsp;
-			<a href="https://chairulakmal.github.io/trust/">Bahasa Indonesia</a>&nbsp;
-			<a href="https://jkoelling.github.io/trust/">Deutsch</a>&nbsp;
-			<a href="https://lvdt.github.io/trust/">Italiano</a>&nbsp;
-			<a href="http://trust.alicedarner.se/">Svenska</a>&nbsp;
-			<a href="https://rayraz.github.io/trust/">Nederlands</a>&nbsp;
-			<a href="https://mok0.github.io/trust/">dansk</a>&nbsp;
-			<a href="https://januscahill.github.io/trust/">Esperanto</a>&nbsp;
-			<a href="https://notdotteam.github.io/trust/">Русский</a>&nbsp;
-			<a href="https://brunolemos.github.io/trust/">Português do Brasil</a>&nbsp;
-			<a href="https://osaatcioglu.github.io/trust/">Türkçe</a>&nbsp;
-			<a href="https://sin.github.io/trust/">Polski</a>&nbsp;
-			<a href="http://ncase.me/trust-hu/">Magyar</a>&nbsp;
-			<a href="https://tiwalaph.github.io/TiwalaPH/">Filipino</a>&nbsp;
-			<a href="https://matejko124.github.io/trust/">Slovenski jezik</a>&nbsp;
-			<a href="http://www.varljiv.org/evolucija-povjerenja/index.html">hrvatski</a>&nbsp;
-			<a href="http://ncase.me/trust-et/">eesti</a>&nbsp;
-			<a href="https://nextghost.github.io/trust/">Česky</a>&nbsp;
-			<a href="https://reversedfate.github.io/trust/">latviešu valoda</a>&nbsp;
-			<a href="https://1luap.github.io/trust/">suomi</a>&nbsp;
-			<a href="https://fbricart.github.io/trust/">Català</a>&nbsp;
-			<a href="https://enfactorial.github.io/trust/">Română</a>&nbsp;
-			<a href="https://kreshnik.github.io/trust/">Shqip</a>&nbsp;
-			<a href="https://kamee.gitlab.io/trust/">Հայերեն</a>&nbsp;
-			<a href="https://stosto2.github.io/trust/">македонски јазик</a>&nbsp;
-			<a href="https://lightspot21.github.io/trust/">ελληνικά</a>&nbsp;
-			<a href="https://yaroslav-f.github.io/trust/">Українська</a>&nbsp;
-			<a href="http://ncase.me/trust-bg/">български език</a>&nbsp;
-			<a href="https://nghiatt90.github.io/trust-vn/">Tiếng Việt</a>&nbsp;
-			<a href="https://osori.github.io/trust-ko/">한국어</a>&nbsp;
-			<a href="https://htlife.github.io/trust_jp/">日本語</a>&nbsp;
-			<a href="https://sekai.co/trust/">中文（简体）</a>&nbsp;
-			<a href="https://audreyt.github.io/trust-zh-TW/">中文（臺灣）</a>	&nbsp;
-			<a href="http://myhtmlcopy.epizy.com/trust/">ไทย</a> &nbsp;
-			<a href="https://hamed.github.io/trust/">فارسی</a>&nbsp;
+			muxlis-tarjimachilar:
+			<a href="https://github.com/ncase/trust#how-to-translate-this-thang" target="_blank">(yana birini qo‘shing!)</a> 
+			<a href="https://ccamara.github.io/trust/">Español de España</a> 
+			<a href="https://maeriens.github.io/trust/">Español Latino</a> 
+			<a href="https://ayowel.github.io/trust/">Français</a> 
+			<a href="https://chairulakmal.github.io/trust/">Bahasa Indonesia</a> 
+			<a href="https://jkoelling.github.io/trust/">Deutsch</a> 
+			<a href="https://lvdt.github.io/trust/">Italiano</a> 
+			<a href="http://trust.alicedarner.se/">Svenska</a> 
+			<a href="https://rayraz.github.io/trust/">Nederlands</a> 
+			<a href="https://mok0.github.io/trust/">dansk</a> 
+			<a href="https://januscahill.github.io/trust/">Esperanto</a> 
+			<a href="https://notdotteam.github.io/trust/">Русский</a> 
+			<a href="https://brunolemos.github.io/trust/">Português do Brasil</a> 
+			<a href="https://osaatcioglu.github.io/trust/">Türkçe</a> 
+			<a href="https://sin.github.io/trust/">Polski</a> 
+			<a href="http://ncase.me/trust-hu/">Magyar</a> 
+			<a href="https://tiwalaph.github.io/TiwalaPH/">Filipino</a> 
+			<a href="https://matejko124.github.io/trust/">Slovenski jezik</a> 
+			<a href="http://www.varljiv.org/evolucija-povjerenja/index.html">hrvatski</a> 
+			<a href="http://ncase.me/trust-et/">eesti</a> 
+			<a href="https://nextghost.github.io/trust/">Česky</a> 
+			<a href="https://reversedfate.github.io/trust/">latviešu valoda</a> 
+			<a href="https://1luap.github.io/trust/">suomi</a> 
+			<a href="https://fbricart.github.io/trust/">Català</a> 
+			<a href="https://enfactorial.github.io/trust/">Română</a> 
+			<a href="https://kreshnik.github.io/trust/">Shqip</a> 
+			<a href="https://kamee.gitlab.io/trust/">Հայերեն</a> 
+			<a href="https://stosto2.github.io/trust/">македонски јазик</a> 
+			<a href="https://lightspot21.github.io/trust/">ελληνικά</a> 
+			<a href="https://yaroslav-f.github.io/trust/">Українська</a> 
+			<a href="http://ncase.me/trust-bg/">български език</a> 
+			<a href="https://nghiatt90.github.io/trust-vn/">Tiếng Việt</a> 
+			<a href="https://osori.github.io/trust-ko/">한국어</a> 
+			<a href="https://htlife.github.io/trust_jp/">日本語</a> 
+			<a href="https://sekai.co/trust/">中文（简体）</a> 
+			<a href="https://audreyt.github.io/trust-zh-TW/">中文（臺灣）</a>	 
+			<a href="http://myhtmlcopy.epizy.com/trust/">ไทย</a>  
+			<a href="https://hamed.github.io/trust/">فارسی</a> 
 			<a href="https://mudaraljundi.github.io/trust/">العربية</a>
 		</div>
 
