@@ -1,273 +1,202 @@
-/* O'yin uchun tuzatilgan Balloon.css tooltip */
+/* O'yin uchun tuzatilgan Balloon.css tooltip v2 */
 
-/* Asosiy tooltip stillari */
-button[data-balloon] {
-  overflow: visible;
-}
-
+/* Asosiy tooltip konfiguratsiyasi */
 [data-balloon] {
   position: relative;
   cursor: pointer;
 }
 
-[data-balloon]:before,
-[data-balloon]:after {
+[data-balloon]::before,
+[data-balloon]::after {
   opacity: 0;
-  pointer-events: none;
-  transition: all 0.18s ease-out 0.18s;
-  position: absolute;
-  z-index: 10000; /* Juda yuqori z-index */
-  transform-origin: center;
   visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  z-index: 10000;
+  transform-origin: center;
 }
 
-/* Tooltip matn qutisi */
-[data-balloon]:after {
-  background: var(--balloon-color, rgba(17, 17, 17, 0.9));
-  border-radius: 4px;
-  color: #fff;
+/* Tooltip matni */
+[data-balloon]::after {
   content: attr(data-balloon);
-  font-size: var(--balloon-font-size, 12px);
-  font-weight: normal;
+  background: var(--balloon-color, rgba(17, 17, 17, 0.9));
+  color: #fff;
   padding: 8px 12px;
-  white-space: nowrap;
+  font-size: var(--balloon-font-size, 12px);
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 4px;
+  white-space: normal;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.39);
   max-width: 300px;
   word-wrap: break-word;
-  text-align: center;
-  line-height: 1.2;
-  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.39);
 }
 
-/* Tooltip arrow */
-[data-balloon]:before {
+/* Tooltip uchi */
+[data-balloon]::before {
   content: "";
   width: 0;
   height: 0;
   border: 5px solid transparent;
 }
 
-/* Yuqoriga ko'rsatuvchi tooltip (default) */
-[data-balloon]:not([data-balloon-pos]):before,
-[data-balloon]:not([data-balloon-pos]):after,
-[data-balloon][data-balloon-pos="up"]:before,
-[data-balloon][data-balloon-pos="up"]:after {
+/* Holat: Hover yoki ko'rsatilgan */
+[data-balloon]:hover::before,
+[data-balloon]:hover::after,
+[data-balloon][data-balloon-visible]::before,
+[data-balloon][data-balloon-visible]::after {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Yuqoriga (default) */
+[data-balloon]:not([data-balloon-pos]),
+[data-balloon][data-balloon-pos="up"] {
+  --balloon-translate: -10px;
+}
+[data-balloon]:not([data-balloon-pos])::after,
+[data-balloon][data-balloon-pos="up"]::after {
   bottom: 100%;
   left: 50%;
-  transform: translate(-50%, var(--balloon-move, -10px));
-}
-
-[data-balloon]:not([data-balloon-pos]):after,
-[data-balloon][data-balloon-pos="up"]:after {
+  transform: translate(-50%, var(--balloon-translate));
   margin-bottom: 10px;
 }
-
-[data-balloon]:not([data-balloon-pos]):before,
-[data-balloon][data-balloon-pos="up"]:before {
+[data-balloon]:not([data-balloon-pos])::before,
+[data-balloon][data-balloon-pos="up"]::before {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   border-top-color: var(--balloon-color, rgba(17, 17, 17, 0.9));
   margin-bottom: 5px;
 }
 
-/* Hover holatida tooltip ko'rsatish */
-[data-balloon]:hover:before,
-[data-balloon]:hover:after,
-[data-balloon][data-balloon-visible]:before,
-[data-balloon][data-balloon-visible]:after {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, 0);
-  pointer-events: auto;
-}
-
-/* Pastga ko'rsatuvchi tooltip */
-[data-balloon-pos="down"]:before,
-[data-balloon-pos="down"]:after {
-  bottom: auto;
+/* Pastga */
+[data-balloon][data-balloon-pos="down"]::after {
   top: 100%;
-  transform: translate(-50%, var(--balloon-move, 10px));
-}
-
-[data-balloon-pos="down"]:after {
+  left: 50%;
+  transform: translate(-50%, 10px);
   margin-top: 10px;
 }
-
-[data-balloon-pos="down"]:before {
-  border-top-color: transparent;
+[data-balloon][data-balloon-pos="down"]::before {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   border-bottom-color: var(--balloon-color, rgba(17, 17, 17, 0.9));
   margin-top: 5px;
-  margin-bottom: 0;
 }
 
-[data-balloon-pos="down"]:hover:before,
-[data-balloon-pos="down"]:hover:after,
-[data-balloon-pos="down"][data-balloon-visible]:before,
-[data-balloon-pos="down"][data-balloon-visible]:after {
-  transform: translate(-50%, 0);
-}
-
-/* Chapga ko'rsatuvchi tooltip */
-[data-balloon-pos="left"]:before,
-[data-balloon-pos="left"]:after {
-  bottom: auto;
-  left: auto;
+/* Chapga */
+[data-balloon][data-balloon-pos="left"]::after {
   right: 100%;
   top: 50%;
-  transform: translate(var(--balloon-move, -10px), -50%);
-}
-
-[data-balloon-pos="left"]:after {
+  transform: translate(-10px, -50%);
   margin-right: 10px;
 }
-
-[data-balloon-pos="left"]:before {
-  border-top-color: transparent;
+[data-balloon][data-balloon-pos="left"]::before {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
   border-left-color: var(--balloon-color, rgba(17, 17, 17, 0.9));
   margin-right: 5px;
 }
 
-[data-balloon-pos="left"]:hover:before,
-[data-balloon-pos="left"]:hover:after,
-[data-balloon-pos="left"][data-balloon-visible]:before,
-[data-balloon-pos="left"][data-balloon-visible]:after {
-  transform: translate(0, -50%);
-}
-
-/* O'ngga ko'rsatuvchi tooltip */
-[data-balloon-pos="right"]:before,
-[data-balloon-pos="right"]:after {
-  bottom: auto;
+/* O'ngga */
+[data-balloon][data-balloon-pos="right"]::after {
   left: 100%;
   top: 50%;
-  transform: translate(var(--balloon-move, 10px), -50%);
-}
-
-[data-balloon-pos="right"]:after {
+  transform: translate(10px, -50%);
   margin-left: 10px;
 }
-
-[data-balloon-pos="right"]:before {
-  border-top-color: transparent;
+[data-balloon][data-balloon-pos="right"]::before {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
   border-right-color: var(--balloon-color, rgba(17, 17, 17, 0.9));
   margin-left: 5px;
 }
 
-[data-balloon-pos="right"]:hover:before,
-[data-balloon-pos="right"]:hover:after,
-[data-balloon-pos="right"][data-balloon-visible]:before,
-[data-balloon-pos="right"][data-balloon-visible]:after {
-  transform: translate(0, -50%);
-}
-
-/* Turli uzunlikdagi tooltip-lar */
-[data-balloon-length]:after {
-  white-space: normal;
-}
-
-[data-balloon-length="small"]:after {
-  width: 80px;
-}
-
-[data-balloon-length="medium"]:after {
-  width: 150px;
-}
-
-[data-balloon-length="large"]:after {
-  width: 260px;
-}
-
-[data-balloon-length="xlarge"]:after {
+/* Tooltip uzunlik turlari */
+[data-balloon-length="small"]::after { width: 80px; }
+[data-balloon-length="medium"]::after { width: 150px; }
+[data-balloon-length="large"]::after { width: 260px; }
+[data-balloon-length="xlarge"]::after {
   width: 90vw;
   max-width: 380px;
 }
-
-@media screen and (max-width: 768px) {
-  [data-balloon-length="xlarge"]:after {
-    width: 90vw;
-  }
-}
-
-[data-balloon-length="fit"]:after {
+[data-balloon-length="fit"]::after {
   width: max-content;
   max-width: 300px;
 }
 
 /* Qator uzilishi */
-[data-balloon][data-balloon-break]:after {
+[data-balloon][data-balloon-break]::after {
   white-space: pre-line;
 }
 
-/* FontAwesome uchun */
-[data-balloon].font-awesome:after {
+/* FontAwesome integratsiya */
+[data-balloon].font-awesome::after {
   font-family: FontAwesome, Arial, sans-serif;
 }
 
-/* O'yin uchun maxsus sozlamalar */
-:root {
-  --balloon-color: rgba(17, 17, 17, 0.9);
-  --balloon-font-size: 12px;
-  --balloon-move: 10px;
-}
-
-/* O'yin tugmalari uchun maxsus tooltip */
-.game-button[data-balloon]:after {
+/* Game tugmalar uchun */
+.game-button[data-balloon]::after {
   font-size: 11px;
   padding: 6px 10px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 3px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
-
-/* O'yin tugmalari hover holati */
-.game-button:hover[data-balloon]:after {
+.game-button:hover[data-balloon]::after {
   background: rgba(0, 0, 0, 0.9);
 }
 
-/* Responsive sozlamalar */
+/* O'zgaruvchilar */
+:root {
+  --balloon-color: rgba(17, 17, 17, 0.9);
+  --balloon-font-size: 12px;
+}
+
+/* Responsiv dizayn */
 @media screen and (max-width: 480px) {
-  [data-balloon]:after {
+  [data-balloon]::after {
     font-size: 11px;
     padding: 6px 8px;
     max-width: 200px;
   }
-  
-  [data-balloon-length="large"]:after,
-  [data-balloon-length="xlarge"]:after {
+  [data-balloon-length="large"]::after,
+  [data-balloon-length="xlarge"]::after {
     width: 80vw;
     max-width: 250px;
   }
 }
 
-/* Touch qurilmalar uchun */
+/* Touch qurilmalar */
 @media (hover: none) {
-  [data-balloon]:before,
-  [data-balloon]:after {
+  [data-balloon]::before,
+  [data-balloon]::after {
     transition-delay: 0s;
   }
 }
 
-/* High contrast mode uchun */
+/* High Contrast Mode */
 @media (prefers-contrast: high) {
-  [data-balloon]:after {
+  [data-balloon]::after {
     background: #000;
     color: #fff;
     border: 1px solid #fff;
   }
-  
-  [data-balloon]:before {
-    border-top-color: #000;
-  }
-  
-  [data-balloon-pos="down"]:before {
-    border-top-color: transparent;
+  [data-balloon][data-balloon-pos="down"]::before {
     border-bottom-color: #000;
   }
-  
-  [data-balloon-pos="left"]:before {
-    border-top-color: transparent;
+  [data-balloon][data-balloon-pos="left"]::before {
     border-left-color: #000;
   }
-  
-  [data-balloon-pos="right"]:before {
-    border-top-color: transparent;
+  [data-balloon][data-balloon-pos="right"]::before {
     border-right-color: #000;
+  }
+  [data-balloon]:not([data-balloon-pos])::before {
+    border-top-color: #000;
   }
 }
