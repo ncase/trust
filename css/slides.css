@@ -10,17 +10,17 @@ html,body{
 }
 
 body{
-
 	margin:0;
 	overflow: hidden;
-
 	background: #fff;
-
 	font-family: 'FuturaHandwritten';
 	color: #333;
 	font-size: 20px;
-
+	/* Asosiy matn uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
+
 #preloader{
 	position: absolute;
     margin: auto;
@@ -33,12 +33,14 @@ body{
     font-size: 30px;
     text-align: center;
 }
+
 #main{
 	width: 100%;
 	height: calc(100% - 60px);
 	position: relative;
 	overflow: hidden;
 }
+
 #footer{
 	position: absolute;
 	z-index: 1000;
@@ -46,6 +48,7 @@ body{
 	height: 60px;
 	background: #222;
 }
+
 s{
 	text-decoration: line-through;
 }
@@ -58,15 +61,20 @@ s{
     text-align: center;
     width: 960px;
     letter-spacing: -0.5px;
+    /* Tarjimalar uchun word-wrap */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
 }
+
 #translations a{
 	color:#dd4040;
+	word-wrap: break-word;
 }
+
 #translations a:hover{
 	color:#ee5151;
 }
-
-
 
 /*************************/
 /******* SOUND *******/
@@ -79,9 +87,11 @@ s{
 	height: 50px;
 	cursor: pointer;
 }
+
 #sound > div{
 	position: absolute;
 }
+
 #sound #sound_icon{
 	background: url(../assets/ui/sound.png);
 	background-size: auto 100%;
@@ -90,23 +100,36 @@ s{
 	top: 5px;
 	left:2px;
 }
+
 #sound #sound_on, #sound #sound_off{
 	left: 52px;
     font-size: 30px;
     line-height: 55px;
+    /* Sound matnlari uchun word-wrap */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
 }
+
 #sound #sound_on{
 	color:#fff;
 }
+
 #sound #sound_off{
 	color:#595959;
 }
+
 #sound[sound=off] #sound_icon{
 	background-position: -40px 0;
 }
+
 #sound[sound=on] #sound_on, #sound[sound=off] #sound_off{
 	display: block;
 }
+
 #sound[sound=off] #sound_on, #sound[sound=on] #sound_off{
 	display: none;
 }
@@ -117,20 +140,17 @@ s{
 	height:40px;
 	top:10px;
 	right:13px;
+	/* Sharing uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 .sharing img{
 	width: 40px;
 	height: 40px;
-}
-#sound_on, #sound_off {
-    word-wrap: break-word;
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-#sharing {
-    word-wrap: break-word;
-    max-width: 100%;
+	max-width: 100%;
+	height: auto;
 }
 
 /*************************/
@@ -143,41 +163,65 @@ s{
 	margin:auto;
 	top:0; left:0; right:0; bottom:0;
 }
-#slideshow{
 
-	/*border: 1px solid rgba(0,0,0,0.2);*/
+#slideshow{
 	width:960px;
 	height:540px;
-
-	/* Center this thing */
 	position: absolute;
 	left:-480px;
 	top:-270px;
-
+	/* Slideshow uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 .object{
 	position: absolute;
 	transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
+	/* Barcha objektlar uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 .fader{
 	transition: opacity 0.5s ease-in-out !important;
 }
 
 /******** Text Box ********/
 
-.textbox{}
+.textbox{
+	/* Textbox uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
 .textbox > div{
 	position: absolute;
+	/* Textbox ichidagi divlar uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+	max-width: 100%;
+	overflow: hidden;
 }
+
 /* fake bold */
 .textbox b{
 	font-weight: normal;
 	text-shadow:1px 0 0 currentColor;
 }
 
-
 .label{
 	position: absolute;
+	/* Label uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+	max-width: 100%;
 }
 
 /********* Button ********/
@@ -189,18 +233,22 @@ s{
 	user-select: none;
 	cursor: default;
 }
+
 .button{
 	z-index: 0;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-
 	transform-origin: 97.5px 27.5px;
 	transition: transform 0.1s ease-out;
-
 	text-align: center;
+	/* Button uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 .button #background{
 	position: absolute;
 	background: url(../assets/ui/button.png);
@@ -210,82 +258,92 @@ s{
 	pointer-events:none;
 	cursor: default;
 }
-.button #text{
 
+.button #text{
 	font-family: 'FuturaHandwritten';
 	color: #000;
 	font-size: 24px;
-
 	width: 180px;
 	height: 30px;
 	text-align: center;
-
 	position: absolute;
 	top:14px; left:5px;
-
 	cursor: default;
-
+	/* Button text uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 1.2;
 }
+
 .button #hitbox{
 	position: absolute;
 	width:195px; height:55px;
 	cursor: pointer;
 }
+
 .button[hover=yes]{
 	z-index: 100;
 	transform: scale(1.02, 1.02);
 }
+
 .button[hover=yes] #background{
 	background-position: 0px -125px !important;
 }
+
 .button[deactivated=yes] #background{
 	background-position: 0px -250px !important;
 }
+
 .button[deactivated=yes] #text{
 	color: #CCCCCC;
 }
+
 .button[deactivated=yes] #hitbox{
 	display: none;
 }
+
 .button[size=short]{
 	transform-origin: 57.5px 27.5px;
 }
+
 .button[size=short] #background{
 	background: url(../assets/ui/button_short.png);
 	background-size: 100%;
 	width:150px; left:-20px;
 }
+
 .button[size=short] #text{
 	width:105px;
-	/*font-size: 18px;
-    top: 18px;*/
 }
+
 .button[size=short] #hitbox{
 	width:115px;
 }
+
 .button[size=long]{
 	transform-origin: 172.5px 27.5px;
 }
+
 .button[size=long] #background{
 	background: url(../assets/ui/button_long.png);
 	background-size: 100%;
 	width:400px;
 }
+
 .button[size=long] #text{
 	width:330px;
 	top: 11px;
 }
+
 .button[size=long] #hitbox{
 	width:345px;
 }
+
 .button:active{
     transform: scale(0.95, 0.95);
-}
-.button, .text-box, .slide {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    max-width: 100%;
-    box-sizing: border-box;
 }
 
 /*************************/
@@ -298,34 +356,52 @@ s{
 	background: url(../assets/ui/sandbox_tabs.png);
 	width:500px; height:470px;
 	background-size: auto 100%;
-
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-	-moz-user-select: none;     /* Firefox all */
-	-ms-user-select: none;      /* IE 10+ */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	cursor: default;
+	/* Sandbox uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 #sandbox_tabs > div{
 	position: absolute;
+	/* Sandbox ichidagi divlar uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 #sandbox_tabs .hitbox{
 	cursor: pointer;
 	font-size: 25px;
 	top: 22px;
 }
+
 #sandbox_tabs .sandbox_page{
 	width: 433px;
 	height: 385px;
 	left: 33px;
 	top: 80px;
+	/* Sandbox page uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+	overflow: auto;
 }
+
 .incdec{
 	width: 0; height: 0;
 	position: absolute;
 }
+
 .incdec > div{
 	position: absolute;
 }
+
 .incdec > .incdec_num{
 	width:50px; height:50px;
 	font-size: 25px;
@@ -333,7 +409,13 @@ s{
     top: -16px;
     left: -25px;
     cursor: default;
+    /* Incdec num uchun word-wrap */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    overflow: hidden;
 }
+
 .incdec > .incdec_control{
 	left:-10px;
 	width:20px; height:20px;
@@ -341,6 +423,7 @@ s{
 	background-size: auto 100%;
 	cursor: pointer;
 }
+
 .incdec > .incdec_control[arrow=up]{ top:-35px; background-position:0px 0px; }
 .incdec > .incdec_control[arrow=up]:hover{ background-position:-20px 0px; }
 .incdec > .incdec_control[arrow=down]{ bottom:-35px; background-position:-40px 0px; }
@@ -350,15 +433,18 @@ s{
 	position: absolute;
 	height: 40px;
 }
+
 .slider > div{
 	position: absolute;
 }
+
 .slider > .slider_bg{
 	top:0;
 	width:100%; height:30px;
 	background: url(../assets/ui/slider_bg.png);
 	background-size: auto 100%;
 }
+
 .slider > .slider_knob{
 	top:0;
 	width:30px; height:30px;
@@ -368,6 +454,7 @@ s{
 	cursor: -moz-grab;
 	cursor: grab;
 }
+
 .slider > .slider_knob:active{
 	cursor: -webkit-grabbing;
 	cursor: -moz-grabbing;
@@ -376,21 +463,33 @@ s{
 
 .sandbox_pop{
 	position: absolute;
+	/* Sandbox pop uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 .sandbox_pop>div{
 	position: absolute;
 }
+
 .sandbox_pop_icon{
 	width: 40px;
 	height: 40px;
 	background: url(../assets/ui/sandbox_hats.png);
 	background-size: auto 100%;
 }
+
 .sandbox_pop_label{
 	font-size: 18px;
     width: 150px;
     top: 8px;
     left: 50px;
+    /* Sandbox pop label uchun word-wrap */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /*************************/
@@ -404,7 +503,6 @@ s{
 	background: url(../assets/ui/scratch.png);
 	background-size: 200% 2000%;
 	display: none;
-
 	z-index: 200;
 }
 
@@ -418,17 +516,25 @@ s{
 	background: url(../assets/iterated/iterated_scoreboard.png);
 	background-size: 100% 100%;
 }
+
 #scoreboard > div{
 	position: absolute;
 	width: 60px; height: 60px;
 	text-align: center;
 	font-size: 50px;
 	color: #666666;
+	/* Scoreboard uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+	overflow: hidden;
 }
+
 #scoreboard > div:nth-child(1){
 	left: 20px;
     top: 21px;
 }
+
 #scoreboard > div:nth-child(2){
 	right: 15px;
     top: 21px;
@@ -441,7 +547,12 @@ s{
 .character{
 	position: absolute;
 	height: 114px;
+	/* Character uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 .character #peep{
 	background: url(../assets/tournament/peep_characters.png);
 	background-size: auto 100%;
@@ -450,13 +561,20 @@ s{
 	top: -5px;
     left: -10px;
 }
+
 .character #desc{
 	width: calc(100% - 100px);
 	font-size: 18px;
 	height: 114px;
 	right: 0;
 	line-height: 1.2em;
+	/* Character description uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+	overflow: hidden;
 }
+
 .character #peep[char=tft]{    background-position: 0 0; }
 .character #peep[char=all_d]{  background-position: -105px 0; }
 .character #peep[char=all_c]{  background-position: -210px 0; }
@@ -483,12 +601,17 @@ s{
 	position: relative;
     top: 1px;
 }
+
 .icon_label{
 	display: inline-block;
 	font-size: 20px;
 	position: relative;
     top: -3px;
+    /* Icon label uchun word-wrap */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
 .tft .icon{ 		background-position: 0 0; }
 .all_d .icon{ 	background-position: -25px 0; }
 .all_c .icon{ 	background-position: -50px 0; }
@@ -508,6 +631,7 @@ s{
 	background-size: auto 100%;
 	display: inline-block;
 }
+
 .score_small[payoff=R]{ background-position: 0 0; }
 .score_small[payoff=T]{ background-position: -40px 0; }
 .score_small[payoff=S]{ background-position: -80px 0; }
@@ -522,6 +646,7 @@ s{
 	text-align: center;
     padding-top: 15px;
 }
+
 #select .dot{
 	width: 30px;
 	height: 30px;
@@ -531,6 +656,7 @@ s{
 	margin: 0 5px;
 	cursor: pointer;
 }
+
 #select .dot[selected]{
 	background: #fff;
 }
@@ -541,19 +667,47 @@ s{
 
 .credits{
 	color: #888;
+	/* Credits uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
+
 .credits .big{
 	font-size:40px;
 	line-height: 42px;
 	color:#fff;
+	/* Credits big uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
+
 .credits .divider{
 	display: block;
 	height: 40px;
 }
+
 .credits a{
 	color:#dd4040;
+	/* Credits linklari uchun word-wrap */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
+
 .credits a:hover{
 	color:#ee5151;
+}
+
+/* Umumiy matn elementlari uchun global qoidalar */
+p, div, span, h1, h2, h3, h4, h5, h6, 
+text, tspan, textPath, title, desc {
+	word-wrap: break-word !important;
+	overflow-wrap: break-word !important;
+	box-sizing: border-box !important;
+}
+
+/* Uzun so'zlar uchun maxsus qoida */
+.force-break {
+	word-break: break-all !important;
+	overflow-wrap: break-word !important;
 }
