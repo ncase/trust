@@ -16,7 +16,6 @@ body{
 	font-family: 'FuturaHandwritten';
 	color: #333;
 	font-size: 20px;
-	/* Asosiy matn uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
@@ -32,6 +31,7 @@ body{
     height: 50px;
     font-size: 30px;
     text-align: center;
+    z-index: 10000;
 }
 
 #main{
@@ -39,11 +39,12 @@ body{
 	height: calc(100% - 60px);
 	position: relative;
 	overflow: hidden;
+	z-index: 1;
 }
 
 #footer{
 	position: absolute;
-	z-index: 1000;
+	z-index: 10000;
 	width: 100%;
 	height: 60px;
 	background: #222;
@@ -61,7 +62,6 @@ s{
     text-align: center;
     width: 960px;
     letter-spacing: -0.5px;
-    /* Tarjimalar uchun word-wrap */
     word-wrap: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box;
@@ -77,6 +77,26 @@ s{
 }
 
 /*************************/
+/******* CANVAS ELEMENTS *******/
+/*************************/
+
+/* Canvas elementlarini eng orqaga surish */
+canvas {
+    z-index: -100 !important;
+    position: absolute !important;
+    pointer-events: none !important;
+}
+
+/* PIXI va boshqa 3D kutubxonalar uchun */
+.pixi-container, 
+.canvas-container,
+.webgl-container {
+    z-index: -100 !important;
+    position: absolute !important;
+    pointer-events: none !important;
+}
+
+/*************************/
 /******* SOUND *******/
 /*************************/
 #sound{
@@ -86,6 +106,7 @@ s{
 	width: 100px;
 	height: 50px;
 	cursor: pointer;
+	z-index: 10001;
 }
 
 #sound > div{
@@ -105,7 +126,6 @@ s{
 	left: 52px;
     font-size: 30px;
     line-height: 55px;
-    /* Sound matnlari uchun word-wrap */
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 100px;
@@ -140,10 +160,10 @@ s{
 	height:40px;
 	top:10px;
 	right:13px;
-	/* Sharing uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	z-index: 10001;
 }
 
 .sharing img{
@@ -162,6 +182,7 @@ s{
 	position:absolute;
 	margin:auto;
 	top:0; left:0; right:0; bottom:0;
+	z-index: 100;
 }
 
 #slideshow{
@@ -170,19 +191,19 @@ s{
 	position: absolute;
 	left:-480px;
 	top:-270px;
-	/* Slideshow uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	z-index: 100;
 }
 
 .object{
 	position: absolute;
 	transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
-	/* Barcha objektlar uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	z-index: inherit;
 }
 
 .fader{
@@ -192,21 +213,22 @@ s{
 /******** Text Box ********/
 
 .textbox{
-	/* Textbox uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
 	max-width: 100%;
+	z-index: 1000;
+	position: relative;
 }
 
 .textbox > div{
 	position: absolute;
-	/* Textbox ichidagi divlar uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
 	max-width: 100%;
 	overflow: hidden;
+	z-index: inherit;
 }
 
 /* fake bold */
@@ -217,11 +239,11 @@ s{
 
 .label{
 	position: absolute;
-	/* Label uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
 	max-width: 100%;
+	z-index: 1000;
 }
 
 /********* Button ********/
@@ -235,7 +257,7 @@ s{
 }
 
 .button{
-	z-index: 0;
+	z-index: 2000 !important;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -243,10 +265,10 @@ s{
 	transform-origin: 97.5px 27.5px;
 	transition: transform 0.1s ease-out;
 	text-align: center;
-	/* Button uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	position: relative !important;
 }
 
 .button #background{
@@ -257,6 +279,7 @@ s{
 	top:-35px; left:-30px;
 	pointer-events:none;
 	cursor: default;
+	z-index: inherit;
 }
 
 .button #text{
@@ -269,23 +292,24 @@ s{
 	position: absolute;
 	top:14px; left:5px;
 	cursor: default;
-	/* Button text uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	line-height: 1.2;
+	z-index: inherit;
 }
 
 .button #hitbox{
 	position: absolute;
 	width:195px; height:55px;
 	cursor: pointer;
+	z-index: inherit;
 }
 
 .button[hover=yes]{
-	z-index: 100;
+	z-index: 2001 !important;
 	transform: scale(1.02, 1.02);
 }
 
@@ -361,24 +385,25 @@ s{
 	-ms-user-select: none;
 	user-select: none;
 	cursor: default;
-	/* Sandbox uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	z-index: 1500;
 }
 
 #sandbox_tabs > div{
 	position: absolute;
-	/* Sandbox ichidagi divlar uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	z-index: inherit;
 }
 
 #sandbox_tabs .hitbox{
 	cursor: pointer;
 	font-size: 25px;
 	top: 22px;
+	z-index: inherit;
 }
 
 #sandbox_tabs .sandbox_page{
@@ -386,20 +411,22 @@ s{
 	height: 385px;
 	left: 33px;
 	top: 80px;
-	/* Sandbox page uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
 	overflow: auto;
+	z-index: inherit;
 }
 
 .incdec{
 	width: 0; height: 0;
 	position: absolute;
+	z-index: 1600;
 }
 
 .incdec > div{
 	position: absolute;
+	z-index: inherit;
 }
 
 .incdec > .incdec_num{
@@ -409,11 +436,11 @@ s{
     top: -16px;
     left: -25px;
     cursor: default;
-    /* Incdec num uchun word-wrap */
     word-wrap: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box;
     overflow: hidden;
+    z-index: inherit;
 }
 
 .incdec > .incdec_control{
@@ -422,6 +449,7 @@ s{
 	background: url(../assets/ui/sandbox_incdec.png);
 	background-size: auto 100%;
 	cursor: pointer;
+	z-index: inherit;
 }
 
 .incdec > .incdec_control[arrow=up]{ top:-35px; background-position:0px 0px; }
@@ -432,10 +460,12 @@ s{
 .slider{
 	position: absolute;
 	height: 40px;
+	z-index: 1600;
 }
 
 .slider > div{
 	position: absolute;
+	z-index: inherit;
 }
 
 .slider > .slider_bg{
@@ -463,14 +493,15 @@ s{
 
 .sandbox_pop{
 	position: absolute;
-	/* Sandbox pop uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	z-index: 1700;
 }
 
 .sandbox_pop>div{
 	position: absolute;
+	z-index: inherit;
 }
 
 .sandbox_pop_icon{
@@ -485,7 +516,6 @@ s{
     width: 150px;
     top: 8px;
     left: 50px;
-    /* Sandbox pop label uchun word-wrap */
     word-wrap: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box;
@@ -503,7 +533,7 @@ s{
 	background: url(../assets/ui/scratch.png);
 	background-size: 200% 2000%;
 	display: none;
-	z-index: 200;
+	z-index: 5000;
 }
 
 /*************************/
@@ -515,6 +545,7 @@ s{
 	width:200px; height:100px;
 	background: url(../assets/iterated/iterated_scoreboard.png);
 	background-size: 100% 100%;
+	z-index: 1200;
 }
 
 #scoreboard > div{
@@ -523,11 +554,11 @@ s{
 	text-align: center;
 	font-size: 50px;
 	color: #666666;
-	/* Scoreboard uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
 	overflow: hidden;
+	z-index: inherit;
 }
 
 #scoreboard > div:nth-child(1){
@@ -547,10 +578,10 @@ s{
 .character{
 	position: absolute;
 	height: 114px;
-	/* Character uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	z-index: 1300;
 }
 
 .character #peep{
@@ -568,11 +599,11 @@ s{
 	height: 114px;
 	right: 0;
 	line-height: 1.2em;
-	/* Character description uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
 	overflow: hidden;
+	z-index: inherit;
 }
 
 .character #peep[char=tft]{    background-position: 0 0; }
@@ -607,7 +638,6 @@ s{
 	font-size: 20px;
 	position: relative;
     top: -3px;
-    /* Icon label uchun word-wrap */
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -630,6 +660,7 @@ s{
 	background: url(../assets/tournament/score_small.png);
 	background-size: auto 100%;
 	display: inline-block;
+	z-index: 1100;
 }
 
 .score_small[payoff=R]{ background-position: 0 0; }
@@ -645,6 +676,7 @@ s{
 	width:100%;
 	text-align: center;
     padding-top: 15px;
+    z-index: 10001;
 }
 
 #select .dot{
@@ -655,6 +687,7 @@ s{
 	display: inline-block;
 	margin: 0 5px;
 	cursor: pointer;
+	z-index: inherit;
 }
 
 #select .dot[selected]{
@@ -667,17 +700,16 @@ s{
 
 .credits{
 	color: #888;
-	/* Credits uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	box-sizing: border-box;
+	z-index: 1000;
 }
 
 .credits .big{
 	font-size:40px;
 	line-height: 42px;
 	color:#fff;
-	/* Credits big uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
@@ -689,7 +721,6 @@ s{
 
 .credits a{
 	color:#dd4040;
-	/* Credits linklari uchun word-wrap */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
@@ -698,12 +729,18 @@ s{
 	color:#ee5151;
 }
 
+/*************************/
+/***** GLOBAL TEXT PROTECTION ******/
+/*************************/
+
 /* Umumiy matn elementlari uchun global qoidalar */
 p, div, span, h1, h2, h3, h4, h5, h6, 
 text, tspan, textPath, title, desc {
 	word-wrap: break-word !important;
 	overflow-wrap: break-word !important;
 	box-sizing: border-box !important;
+	z-index: 1000 !important;
+	position: relative !important;
 }
 
 /* Uzun so'zlar uchun maxsus qoida */
@@ -711,3 +748,43 @@ text, tspan, textPath, title, desc {
 	word-break: break-all !important;
 	overflow-wrap: break-word !important;
 }
+
+/* SVG matnlari uchun maxsus qoidalar */
+svg text,
+svg tspan {
+	z-index: 1000 !important;
+	pointer-events: auto !important;
+}
+
+/* Canvas orqasida qolgan matnlarni oldinga chiqarish */
+.text-overlay,
+.ui-text,
+.game-text {
+	z-index: 3000 !important;
+	position: relative !important;
+	background: rgba(255, 255, 255, 0.9) !important;
+	padding: 2px 4px !important;
+	border-radius: 3px !important;
+}
+
+/* Interactive elementlar uchun maxsus himoya */
+input, select, textarea {
+	z-index: 2500 !important;
+	position: relative !important;
+}
+
+/* Tooltip va modal oynalar uchun */
+.tooltip, .modal, .popup {
+	z-index: 9999 !important;
+}
+
+/* Canvas va WebGL elementlarini qat'iy ravishda orqaga surish */
+canvas,
+.pixi-canvas,
+.webgl-canvas,
+[class*="canvas"],
+[id*="canvas"] {
+	z-index: -100 !important;
+	position: absolute !important;
+	pointer-events: none !important;
+	}
