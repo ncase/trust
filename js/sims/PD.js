@@ -6,7 +6,11 @@ var PEEP_METADATA = {
 	prober: {frame:4, color:"#f6b24c"},
 	  tf2t: {frame:5, color:"#88A8CE"},
 	pavlov: {frame:6, color:"#86C448"},
-	random: {frame:7, color:"#FF5E5E"}
+	random: {frame:7, color:"#FF5E5E"},
+	  joss: {frame:0, color:"#F9D836"},
+	tester: {frame:4, color:"#7F2E2E"},
+alternator: {frame:7, color:"#FF99CC"},
+  majority: {frame:0, color:"#8D9E26"}
 };
 
 var PD = {};
@@ -136,6 +140,70 @@ function Logic_tft(){
 	};
 }
 
+// TESTER: Defect first. If opponent retaliates, play TFT.
+// If opponent cooperates, assume they are exploitable and keep defecting.
+function Logic_tester(){
+	var self = this;
+	var otherMove = PD.COOPERATE;
+	var isFirstTurn = true;
+	var everRetaliated = false;
+
+	self.play = function(){
+		if(isFirstTurn){
+			return PD.CHEAT;
+		}
+		if(everRetaliated){
+			return otherMove; // TFT logic
+		}else{
+			return PD.CHEAT; // Keep cheating
+		}
+	};
+	self.remember = function(own, other){
+		if(isFirstTurn){
+			isFirstTurn = false;
+			// If I cheated (I did) and they cheated back, they retaliated.
+			// Wait, the logic says "If opponent ever defects".
+			// Since I cheated first, if they cheat, it's retaliation.
+			if(other==PD.CHEAT) everRetaliated = true;
+		} else {
+			if(other==PD.CHEAT) everRetaliated = true;
+		}
+		otherMove = other;
+	};
+}
+
+// ALTERNATOR: Cooperate, Cheat, Cooperate, Cheat...
+function Logic_alternator(){
+	var self = this;
+	var myLastMove = PD.CHEAT; // So first move is Cooperate (flip)
+	self.play = function(){
+		return (myLastMove==PD.COOPERATE ? PD.CHEAT : PD.COOPERATE);
+	};
+	self.remember = function(own, other){
+		myLastMove = own;
+	};
+}
+
+// MAJORITY: Cooperate if opponent has cooperated >= 50% of time.
+function Logic_majority(){
+	var self = this;
+	var coopCount = 0;
+	var totalCount = 0;
+
+	self.play = function(){
+		if(totalCount==0) return PD.COOPERATE; // Start Nice
+		if(coopCount >= totalCount/2){
+			return PD.COOPERATE;
+		}else{
+			return PD.CHEAT;
+		}
+	};
+	self.remember = function(own, other){
+		totalCount++;
+		if(other==PD.COOPERATE) coopCount++;
+	};
+}
+
 function Logic_tf2t(){
 	var self = this;
 	var howManyTimesCheated = 0;
@@ -242,4 +310,19 @@ function Logic_prober(){
 		otherMove = other; // for TFT
 	};
 
+}
+
+// JOSS: Like TFT, but 10% chance to Cheat when it should Cooperate.
+// Always Cheats if opponent Cheated.
+function Logic_joss(){
+	var self = this;
+	var otherMove = PD.COOPERATE;
+	self.play = function(){
+		if(otherMove==PD.CHEAT) return PD.CHEAT;
+		// If opponent cooperated, usually cooperate, but 10% cheat
+		return (Math.random()<0.10 ? PD.CHEAT : PD.COOPERATE);
+	};
+	self.remember = function(own, other){
+		otherMove = other;
+	};
 }
