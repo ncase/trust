@@ -6,7 +6,8 @@ var PEEP_METADATA = {
 	prober: {frame:4, color:"#f6b24c"},
 	  tf2t: {frame:5, color:"#88A8CE"},
 	pavlov: {frame:6, color:"#86C448"},
-	random: {frame:7, color:"#FF5E5E"}
+	random: {frame:7, color:"#FF5E5E"},
+	  joss: {frame:0, color:"#F9D836"}
 };
 
 var PD = {};
@@ -242,4 +243,19 @@ function Logic_prober(){
 		otherMove = other; // for TFT
 	};
 
+}
+
+// JOSS: Like TFT, but 10% chance to Cheat when it should Cooperate.
+// Always Cheats if opponent Cheated.
+function Logic_joss(){
+	var self = this;
+	var otherMove = PD.COOPERATE;
+	self.play = function(){
+		if(otherMove==PD.CHEAT) return PD.CHEAT;
+		// If opponent cooperated, usually cooperate, but 10% cheat
+		return (Math.random()<0.10 ? PD.CHEAT : PD.COOPERATE);
+	};
+	self.remember = function(own, other){
+		otherMove = other;
+	};
 }
