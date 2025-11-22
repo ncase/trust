@@ -32,6 +32,7 @@ Many thanks again!
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="icon" type="image/png" href="favicon.png">
 
 	<!-- TO TRANSLATE: "name", "description" -->
@@ -160,3 +161,38 @@ Many thanks again!
 
 <!-- Main Code -->
 <script src="js/main.js?v11"></script>
+
+<!-- Mobile Resizing -->
+<script>
+(function(){
+	var container = document.getElementById("slideshow_container");
+	var slideshow = document.getElementById("slideshow");
+
+	function resize(){
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+		var targetWidth = 960;
+		var targetHeight = 540;
+
+		var scale = Math.min(width/targetWidth, height/targetHeight);
+
+		// If on mobile, maybe we want to use more width?
+		// But keeping aspect ratio is important for the game logic/visuals.
+
+		container.style.transform = "scale("+scale+")";
+		container.style.transformOrigin = "center center";
+
+		// Center it
+		// The container is absolute centered in css, but scale might mess it up if not careful.
+		// CSS: #slideshow_container { width:0; height:0; ... top:0; left:0; right:0; bottom:0; margin:auto; }
+		// Since width/height are 0, scaling it should just scale the contents from the center.
+		// Let's double check logic.
+		// The slideshow inside is: width:960px; height:540px; position: absolute; left:-480px; top:-270px;
+		// So the center of #slideshow is at (0,0) of #slideshow_container.
+		// Scaling #slideshow_container should work perfectly.
+	}
+
+	window.addEventListener("resize", resize);
+	resize();
+})();
+</script>
