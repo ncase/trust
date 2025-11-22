@@ -451,6 +451,9 @@ s{
 .character #peep[char=pavlov]{ background-position: -630px 0; }
 .character #peep[char=random]{ background-position: -735px 0; }
 .character #peep[char=joss]{   background-position: 0 0; } /* Uses same sprite as TFT */
+.character #peep[char=tester]{ background-position: -420px 0; } /* Uses same sprite as Prober */
+.character #peep[char=alternator]{ background-position: -735px 0; } /* Uses same sprite as Random */
+.character #peep[char=majority]{ background-position: 0 0; } /* Uses same sprite as TFT */
 
 .tft{ color:#4089DD; }
 .all_d{ color:#52537F; }
@@ -461,6 +464,9 @@ s{
 .pavlov{ color:#86C448; }
 .random{ color:#FF5E5E; }
 .joss{ color:#F9D836; }
+.tester{ color:#7F2E2E; }
+.alternator{ color:#FF99CC; }
+.majority{ color:#8D9E26; }
 
 .icon{
 	width:25px; height:25px;
@@ -485,6 +491,9 @@ s{
 .pavlov .icon{ 	background-position: -150px 0; }
 .random .icon{ 	background-position: -175px 0; }
 .joss .icon{ 	background-position: 0 0; } /* Uses same icon as TFT */
+.tester .icon{ 	background-position: -100px 0; } /* Uses same icon as Prober */
+.alternator .icon{ 	background-position: -175px 0; } /* Uses same icon as Random */
+.majority .icon{ 	background-position: 0 0; } /* Uses same icon as TFT */
 
 /*************************/
 /******* MISC STUFF *******/
