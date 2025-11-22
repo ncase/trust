@@ -16,7 +16,7 @@ body{
 
 	background: #fff;
 
-	font-family: 'FuturaHandwritten';
+	font-family: 'FuturaHandwritten', "Microsoft YaHei", "PingFang SC", "Heiti SC", sans-serif;
 	color: #333;
 	font-size: 20px;
 
@@ -202,7 +202,7 @@ s{
 }
 .button #text{
 
-	font-family: 'FuturaHandwritten';
+	font-family: 'FuturaHandwritten', "Microsoft YaHei", "PingFang SC", "Heiti SC", sans-serif;
 	color: #000;
 	font-size: 24px;
 
