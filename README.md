@@ -1,103 +1,91 @@
-!["The Evolution of Trust"](https://i.imgur.com/kde760y.png)
+# Ishonchning evolyutsiyasi (O‘zbek tilida)
 
-#	PLAY IT HERE: [http://ncase.me/trust/](http://ncase.me/trust/)
+!["Ishonchning evolyutsiyasi"](https://i.imgur.com/kde760y.png)
 
-*The Evolution of Trust* is dedicated to the public domain, and is made thanks to the many Creative Commons & open source resources out there! Here is a full list of music, sounds, and code used:
+## O‘YINNI BU YERDA O‘YNANG: [https://farrux05-ai.github.io/O-yin-nazariyasi/](https://farrux05-ai.github.io/O-yin-nazariyasi/)
 
-**Music:** "Bleu" by Komiku (CC Zero). [Download their full album on Free Music Archive](http://freemusicarchive.org/music/Komiku/Its_time_for_adventure_/)
+*Ishonchning evolyutsiyasi* – bu Nicky Case tomonidan yaratilgan interaktiv o‘yin bo‘lib, odamlar nima uchun va qanday qilib bir-biriga ishonishi haqidagi o‘yin nazariyasini tushuntiradi. Ushbu o‘yin jamoat mulki sifatida taqdim etilgan va ko‘plab Creative Commons va ochiq manba resurslari yordamida yaratilgan. Bu repositoriy o‘yinning o‘zbek tiliga tarjima qilingan versiyasini o‘z ichiga oladi.
 
-**Sound Effects:**
+---
 
-* [Coin insert](https://freesound.org/people/bassmosphere/sounds/384700/) by bassmosphere (CC Zero)
-* [Coin get!](https://freesound.org/people/plasterbrain/sounds/242857/) by plasterbrain (CC Zero)
-* [Evil Laugh](https://freesound.org/people/JohnsonBrandEditing/sounds/173933/) by JohnsonBrandEditing (CC Zero)
-* [Slot machine](https://freesound.org/people/lukaso/sounds/69689/) by lukaso (CC Sampling+)
-* [Drumroll](https://freesound.org/people/adriann/sounds/191718/) by adriann (CC Zero)
-* [click plink pop boop bonk](https://freesound.org/people/Owdeo/sounds/116653/) by Owdeo (CC BY-NC)
-* [Swoosh](https://freesound.org/people/aglinder/sounds/264468/) by aglinder (CC Zero)
-* [Squeaky Toy](https://freesound.org/people/survivalzombie/sounds/240015/) by survivalzombie (CC Zero)
-* [Thump](https://freesound.org/people/Brokenphono/sounds/344149/) by Brokenphono (CC Zero)
-* [Fart](https://freesound.org/people/DSISStudios/sounds/241000/) by DSISStudios (CC Zero)
+## Loyiha haqida
 
-**Open Source Libraries:**
+Ushbu loyiha Nicky Case’ning asl “The Evolution of Trust” o‘yinining ([http://ncase.me/trust/](http://ncase.me/trust/)) o‘zbek tiliga tarjimasidir. O‘yin odamlar o‘rtasidagi ishonch dinamikasini o‘yin nazariyasi orqali tushuntiradi va interaktiv shaklda taqdim etadi. O‘zbek tilidagi versiya o‘zbek foydalanuvchilari uchun o‘yinni yanada qulay va tushunarli qilish maqsadida yaratildi.
 
-* [PIXI.js](http://www.pixijs.com/) for rendering graphics
-* [Howler.js](https://howlerjs.com/) for the audio
-* [Tween.js](http://www.createjs.com/tweenjs) for tweening animation
-* [Balloon.css](https://kazzkiq.github.io/balloon.css/) for pop-up tooltips
-* [Q](https://github.com/kriskowal/q/) for promises
-* [MinPubSub](https://github.com/daniellmb/MinPubSub) for publish/subscribe
-* [Pegasus](https://github.com/typicode/pegasus) for me being too lazy to write my own XHR
+### Tarjima qilingan fayllar:
+- `index.html`: Sarlavha, ijtimoiy tarmoqlarda ulashish matni va meta teglar.
+- `words.html`: O‘yin uchun asosiy matnlar (~3,300 so‘z).
+- `notes/index.html`: Izohlar (~1,100 so‘z, ixtiyoriy).
+- `peeps/index.html`: Kreditlar va homiylar ro‘yxati (bir necha so‘z, ixtiyoriy).
 
-**Font:** [Futura Handwritten](http://www.dafont.com/futurahandwritten.font) by Bill Snyder
+Tarjimachi: Farruxbek Valijonov.  
+Tarjima Nicky Case’ning ko‘rsatmalariga ([https://github.com/ncase/trust#how-to-translate-this-thang](https://github.com/ncase/trust#how-to-translate-this-thang)) asosan amalga oshirildi.
 
-#	How-To: Translate this thang!
+---
 
-**[IMPORTANT:
-BEFORE YOU DECIDE TO MAKE A TRANSLATION, CHECK THE "ISSUES" TAB ABOVE,
-TO SEE IF SOMEONE ELSE IS ALREADY WORKING ON IT.
-If so, maybe you can collaborate!
-And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
-so that others know you're working on it!]**
+## Qanday sinab ko‘rish mumkin?
 
-Translations done so far:
-[Japanese](https://htlife.github.io/trust_jp/),
-[Chinese (Simplified)](https://sekai.co/trust/),
-[Chinese (Taiwan)](https://audreyt.github.io/trust-zh-TW/),
-[Brazilian Portuguese](https://brunolemos.github.io/trust/),
-[French](https://ayowel.github.io/trust/),
-[Spain Spanish](https://ccamara.github.io/trust/),
-[Latin American Spanish](https://maeriens.github.io/trust/),
-[Russian](https://notdotteam.github.io/trust/),
-[German](https://jkoelling.github.io/trust/),
-[Italian](https://lvdt.github.io/trust/),
-[Turkish](https://osaatcioglu.github.io/trust),
-[Polish](https://sin.github.io/trust/),
-[Vietnamese](https://nghiatt90.github.io/trust-vn/),
-[Greek](https://lightspot21.github.io/trust/),
-[Persian/Farsi](https://hamed.github.io/trust/),
-[Hungarian](http://ncase.me/trust-hu/),
-[Catalan](https://fbricart.github.io/trust/),
-[Arabic](https://mudaraljundi.github.io/trust/),
-[Bulgarian](http://ncase.me/trust-bg/),
-[Korean](https://osori.github.io/trust-ko/),
-[Romanian](https://enfactorial.github.io/trust/),
-[Ukrainian](https://yaroslav-f.github.io/trust/),
-[Croatian](http://www.varljiv.org/evolucija-povjerenja/index.html),
-[Swedish](http://trust.alicedarner.se/),
-[Estonian](http://ncase.me/trust-et/),
-[Czech](https://nextghost.github.io/trust/),
-[Latvian](https://reversedfate.github.io/trust/),
-[Dutch](https://rayraz.github.io/trust/),
-[Finnish](https://1luap.github.io/trust/),
-[Danish](https://mok0.github.io/trust/),
-[Bahasa Indonesia](https://chairulakmal.github.io/trust/)
-[Albanian](https://kreshnik.github.io/trust/),
-[Macedonian](https://stosto2.github.io/trust/),
-[Slovenian](https://matejko124.github.io/trust/),
-[Armenian](https://kamee.gitlab.io/trust/),
-[Filipino (Tagalog)](https://tiwalaph.github.io/TiwalaPH/),
-[Esperanto](https://januscahill.github.io/trust/),
-[Thai](http://myhtmlcopy.epizy.com/trust/)
+1. O‘zbek tilidagi versiyani [https://farrux05-ai.github.io/O-yin-nazariyasi/](https://farrux05-ai.github.io/O-yin-nazariyasi/) manzilida o‘ynang.
+2. Mahalliy sinov uchun:
+   - Repositoriyni klonlang yoki yuklab oling: `git clone https://github.com/farrux05-ai/O-yin-nazariyasi.git`
+   - [http-server](https://www.npmjs.com/package/http-server) yoki [MAMP](https://www.mamp.info/en/) yordamida mahalliy server o‘rnating.
+   - Brauzerda `index.html` faylini oching va tarjimalarni tekshiring.
 
-**Step 1)** Fork or download this repo    
-(if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
+---
 
-**Step 2)** Translate the following files:
+## Resurslar va kreditlar
 
-`index.html` -- The title & social sharing text (a few words)    
-`words.html` -- All the words for the interactive itself (~3,300 words)    
-(optional) `notes/index.html` -- The footnotes (~1,100 words)    
-(optional) `peeps/index.html` -- The full credits (a few words)
+O‘yin quyidagi Creative Commons va ochiq manba resurslari yordamida yaratilgan:
 
-**Step 3)** Remember to test your translation! You can test things locally using [http-server](https://www.npmjs.com/package/http-server) or [MAMP](https://www.mamp.info/en/).
+### Musiqa:
+- **"Bleu"** by Komiku (CC Zero). [To‘liq albomni Free Music Archive’dan yuklab oling](http://freemusicarchive.org/music/Komiku/Its_time_for_adventure_/)
 
-**Step 4)** Email me with a link to your forked repo / the translated files, at `N {{at}} NCASE {{dot}} ME` There may be a few things here and there we need to fix! (also, if you run into any issues, please email me as well! I may take a while to respond since I'm away the next couple weeks)
+### Ovoz effektlari:
+- [Coin insert](https://freesound.org/people/bassmosphere/sounds/384700/) by bassmosphere (CC Zero)
+- [Coin get!](https://freesound.org/people/plasterbrain/sounds/242857/) by plasterbrain (CC Zero)
+- [Evil Laugh](https://freesound.org/people/JohnsonBrandEditing/sounds/173933/) by JohnsonBrandEditing (CC Zero)
+- [Slot machine](https://freesound.org/people/lukaso/sounds/69689/) by lukaso (CC Sampling+)
+- [Drumroll](https://freesound.org/people/adriann/sounds/191718/) by adriann (CC Zero)
+- [click plink pop boop bonk](https://freesound.org/people/Owdeo/sounds/116653/) by Owdeo (CC BY-NC)
+- [Swoosh](https://freesound.org/people/aglinder/sounds/264468/) by aglinder (CC Zero)
+- [Squeaky Toy](https://freesound.org/people/survivalzombie/sounds/240015/) by survivalzombie (CC Zero)
+- [Thump](https://freesound.org/people/Brokenphono/sounds/344149/) by Brokenphono (CC Zero)
+- [Fart](https://freesound.org/people/DSISStudios/sounds/241000/) by DSISStudios (CC Zero)
 
-**Step 5)** Wait for me to stop being busy and/or lazy and actually link your translated version from the main English version
+### Ochiq manba kutubxonalari:
+- [PIXI.js](http://www.pixijs.com/) – grafiklarni render qilish uchun
+- [Howler.js](https://howlerjs.com/) – audio uchun
+- [Tween.js](http://www.createjs.com/tweenjs) – animatsiya uchun
+- [Balloon.css](https://kazzkiq.github.io/balloon.css/) – pop-up tooltiplar uchun
+- [Q](https://github.com/kriskowal/q/) – promise’lar uchun
+- [MinPubSub](https://github.com/daniellmb/MinPubSub) – publish/subscribe uchun
+- [Pegasus](https://github.com/typicode/pegasus) – XHR yozishdan qochish uchun
 
-**Step 6)** Party! 🎉
+### Shrift:
+- [Futura Handwritten](http://www.dafont.com/futurahandwritten.font) by Bill Snyder
 
-#	"LICENSE"
+---
 
-[Creative Commons Zero](https://github.com/ncase/trust/blob/gh-pages/LICENSE): it's a public domain dedication, so basically, do whatever you want! Attribution is super appreciated, but I'm not gonna send legal goons after you or anything.
+## Tarjima jarayoni
+
+O‘zbek tiliga tarjima Nicky Case’ning ko‘rsatmalariga asosan quyidagi bosqichlarda amalga oshirildi:
+1. Asl repositoriy ([https://github.com/ncase/trust](https://github.com/ncase/trust)) fork qilindi va `gh-pages` shoxasida ish olib borildi.
+2. Quyidagi fayllar tarjima qilindi: `index.html`, `words.html`, `notes/index.html`, `peeps/index.html`.
+3. Tarjima GitHub Pages’da sinab ko‘rildi: [https://farrux05-ai.github.io/O-yin-nazariyasi/](https://farrux05-ai.github.io/O-yin-nazariyasi/).
+4. Pull Request asl repositoriyga yuborildi va Nicky Case’ga (`n@ncase.me`) xabar berildi.
+
+Agar siz ham tarjima qilishni xohlasangiz, iltimos, asl repositoriyning “Issues” bo‘limini tekshiring va yangi tarjima boshlashdan oldin Nicky bilan aloqaga chiqing.
+
+---
+
+## Litsenziya
+
+[Creative Commons Zero](https://github.com/ncase/trust/blob/gh-pages/LICENSE): Bu jamoat mulki sifatida taqdim etilgan, shuning uchun xohlagan narsangizni qilishingiz mumkin! Mualliflikni ko‘rsatish juda qadrlanadi, lekin hech qanday yuridik choralar ko‘rilmaydi.
+
+---
+
+## Aloqa
+
+Tarjima bo‘yicha savollar yoki takliflar bo‘lsa, https://github.com/farrux05-ai, yoki telegramda @farruxbekvalijonov bilan bog‘laning. Asl loyiha muallifi Nicky Case bilan aloqa uchun: `n@ncase.me`.
+
+O‘zbek tilidagi “Ishonchning evolyutsiyasi” loyihasiga xush kelibsiz! 🎉

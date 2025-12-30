@@ -1,22 +1,23 @@
 <!--
 
-TRANSLATION GUIDE:
+TARJIMA BO‘YICHA YO‘RIQNOMA:
 https://github.com/ncase/trust#how-to-translate-this-thang
 
-Hello fan-translaters!
-First off, thank you so much for taking the time to help out,
-I super appreciate it. :3 Anyway, to make translation a bit easier
-(or at least less painful) I've scattered comments about on
-what things you should translate, plus any additional info
+Salom tarjimonlar!
+Avvalo, yordam berganingiz uchun katta rahmat,
+bu mening uchun juda qadrli. :3 Tarjimani soddalashtirish
+(yoki hech bo‘lmaganda kamroq qiynalish) uchun
+nimalarni tarjima qilish kerakligi va qo‘shimcha maʼlumotlar
+haqida izohlar qoldirdim.
 
-Translate the following files:
+Quyidagi fayllarni tarjima qiling:
 
-    index.html - The title & social sharing text (a few words)
-    words.html - All the words for the interactive itself (~3,300 words)
-    (optional) notes/index.html - The footnotes (~1,100 words)
-    (optional) peeps/index.html - The full credits (a few words)
+    index.html - Sarlavha va ijtimoiy tarmoqlarda ulashish matni (bir necha soʻz)
+    words.html - Interaktiv uchun barcha soʻzlar (~3,300 soʻz)
+    (ixtiyoriy) notes/index.html - Izohlar (~1,100 soʻz)
+    (ixtiyoriy) peeps/index.html - Toʻliq kreditlar (bir necha soʻz)
 
-Many thanks again!
+Yana bir bor katta rahmat!
 
 <3,
 ~ Nicky Case
@@ -26,41 +27,41 @@ Many thanks again!
 <html>
 <head>
 
-	<!-- TO TRANSLATE: "title", "description" -->
-	<title>The Evolution of Trust</title>
-	<meta name="description" content="an interactive guide to the game theory of why &amp; how we trust each other"/>
+	<!-- TARJIMA QILISH: "title", "description" -->
+	<title>Ishonchning Evolyutsiyasi</title>
+	<meta name="description" content="nimaga va qanday qilib bir-birimizga ishonamiz: o‘yin nazariyasiga interaktiv qo‘llanma"/>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
 	<link rel="icon" type="image/png" href="favicon.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
-	<meta itemprop="name" content="The Evolution of Trust">
-	<meta itemprop="description" content="an interactive guide to the game theory of why &amp; how we trust each other">
+	<!-- TARJIMA QILISH: "name", "description" -->
+	<meta itemprop="name" content="Ishonchning Evolyutsiyasi">
+	<meta itemprop="description" content="nimaga va qanday qilib bir-birimizga ishonamiz: o‘yin nazariyasiga interaktiv qo‘llanma">
 	<meta itemprop="image" content="http://ncase.me/trust/social/thumbnail.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
+	<!-- TARJIMA QILISH: "name", "description" -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@ncasenmare">
-	<meta name="twitter:title" content="The Evolution of Trust">
-	<meta name="twitter:description" content="an interactive guide to the game theory of why &amp; how we trust each other">
+	<meta name="twitter:title" content="Ishonchning Evolyutsiyasi">
+	<meta name="twitter:description" content="nimaga va qanday qilib bir-birimizga ishonamiz: o‘yin nazariyasiga interaktiv qo‘llanma">
 	<meta name="twitter:creator" content="@ncasenmare">
 	<meta name="twitter:image" content="http://ncase.me/trust/social/thumbnail.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
-	<meta property="og:title" content="The Evolution of Trust">
+	<!-- TARJIMA QILISH: "name", "description" -->
+	<meta property="og:title" content="Ishonchning Evolyutsiyasi">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="http://ncase.me/trust/">
 	<meta property="og:image" content="http://ncase.me/trust/social/thumbnail.png">
-	<meta property="og:description" content="an interactive guide to the game theory of why &amp; how we trust each other">
+	<meta property="og:description" content="nimaga va qanday qilib bir-birimizga ishonamiz: o‘yin nazariyasiga interaktiv qo‘llanma">
 
-	<!-- Styles -->
+	<!-- Uslublar -->
 	<link rel="stylesheet" href="css/slides.css?v11">
 	<link rel="stylesheet" href="css/balloon.css?v11">
 
 </head>
 <body>
-	<div id="preloader">loading...</div> <!-- TRANSLATE THIS -->
+	<div id="preloader">yuklanmoqda...</div> <!-- TARJIMA QILING -->
 	<div style="display:none" id="main">
 		<div id="slideshow_container">
 			<div id="slideshow"></div>
@@ -70,21 +71,21 @@ Many thanks again!
 	<div style="display:none" id="footer">
 		<div id="sound" sound="on" class="no-select">
 			<div id="sound_icon"></div>
-			<div id="sound_on">ON</div> <!-- TRANSLATE THIS -->
-			<div id="sound_off">OFF</div> <!-- TRANSLATE THIS -->
+			<div id="sound_on">YOQILGAN</div> <!-- TARJIMA QILING -->
+			<div id="sound_off">O‘CHIRILGAN</div> <!-- TARJIMA QILING -->
 		</div>
 		<div id="select"></div>
 
-		<!-- TRANSLATE "title" & "text". Make sure it's less than 112 characters, for Twitter's sake -->
-		<!-- Also, change "link" to whatever the link for the translated version will be! -->
-		<sharing title="The Evolution of Trust"
-				 text="People no longer trust each other. Why? And how can we fix it? An interactive guide to the game theory of trust:"
+		<!-- "title" va "text" ni tarjima qiling. Twitter uchun 112 belgidan oshmasin -->
+		<!-- Shuningdek, "link" ni tarjima qilingan versiya havolasiga o‘zgartiring! -->
+		<sharing title="Ishonchning Evolyutsiyasi"
+				 text="Odamlar endi bir-biriga ishonmayapti. Nima uchun? Buni qanday tuzatamiz? Ishonch haqidagi o‘yin nazariyasiga interaktiv qo‘llanma:"
 				 link="http://ncase.me/trust/"></sharing>
 
-		<!-- List of translations thus far! -->
+		<!-- Hozirgacha mavjud tarjimalar ro‘yxati! -->
 		<div id="translations">
-			fan-translations:
-			<a href="https://github.com/ncase/trust#how-to-translate-this-thang" target="_blank">(add one!)</a>&nbsp;
+			muxlis-tarjimalar:
+			<a href="https://github.com/ncase/trust#how-to-translate-this-thang" target="_blank">(qo‘shing!)</a>&nbsp;
 			<a href="https://ccamara.github.io/trust/">Español de España</a>&nbsp;
 			<a href="https://maeriens.github.io/trust/">Español Latino</a>&nbsp;
 			<a href="https://ayowel.github.io/trust/">Français</a>&nbsp;
@@ -129,7 +130,7 @@ Many thanks again!
 </body>
 </html>
 
-<!-- Libraries -->
+<!-- Kutubxonalar -->
 <script src="js/lib/helpers.js?v11"></script>
 <script src="js/lib/pegasus.js?v11"></script>
 <script>var c_ = {};</script>
@@ -142,7 +143,7 @@ Many thanks again!
 <script>Ticker.framerate=60; Ticker.paused=true;</script>
 <script src="js/lib/sharing.js?v11"></script>
 
-<!-- Core Engine -->
+<!-- Asosiy Dastur -->
 <script src="js/core/Loader.js?v11"></script>
 <script src="js/core/Slideshow.js?v11"></script>
 <script src="js/core/SlideSelect.js?v11"></script>
@@ -156,14 +157,14 @@ Many thanks again!
 <script src="js/core/ImageBox.js?v11"></script>
 <script src="js/core/PayoffsUI.js?v11"></script>
 
-<!-- Simulations -->
+<!-- Simulyatsiyalar -->
 <script src="js/sims/Splash.js?v11"></script>
 <script src="js/sims/PD.js?v11"></script>
 <script src="js/sims/Iterated.js?v11"></script>
 <script src="js/sims/Tournament.js?v11"></script>
 <script src="js/sims/SandboxUI.js?v11"></script>
 
-<!-- Slides -->
+<!-- Slaydlar -->
 <script src="js/slides/0_Slides_Intro.js?v11"></script>
 <script src="js/slides/1_Slides_OneOff.js?v11"></script>
 <script src="js/slides/2_Slides_Iterated.js?v11"></script>
@@ -175,5 +176,5 @@ Many thanks again!
 <script src="js/slides/8_Slides_Conclusion.js?v11"></script>
 <script src="js/slides/9_Slides_Credits.js?v11"></script>
 
-<!-- Main Code -->
+<!-- Asosiy Kod -->
 <script src="js/main.js?v11"></script>
