@@ -78,7 +78,8 @@ Translations done so far:
 [Armenian](https://kamee.gitlab.io/trust/),
 [Filipino (Tagalog)](https://tiwalaph.github.io/TiwalaPH/),
 [Esperanto](https://januscahill.github.io/trust/),
-[Thai](http://myhtmlcopy.epizy.com/trust/)
+[Thai](http://myhtmlcopy.epizy.com/trust/),
+[Bangla](https://yeasin50.github.io/trust)
 
 **Step 1)** Fork or download this repo    
 (if you're forking it, be sure to make sure *your* repo is on a branch called `gh-pages`, so that GitHub can automatically generate a webpage for it!)
